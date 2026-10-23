@@ -1,0 +1,26 @@
+[
+ {
+  "label": "DiPel DF (Bt)",
+  "text": "DiPel DF Biological Insecticide for Organic Row Crops. Fast-acting mode of action to stop feeding within hours of application. DiPel DF's mode of action is based on a balanced blend of Cry-proteins that effectively stop caterpillars from feeding. DiPel DF contains a unique blend of proteins, spores, and other synergists. Bacillus thuringiensis subsp. kurstaki. Effective control of caterpillar pests. OMRI and NOP certified for use in organic production systems.",
+  "id": 0,
+  "class": "bt"
+ },
+ {
+  "label": "Trianum-P (Trichoderma)",
+  "text": "Trianum-P. Trichoderma harzianum T-22. Beneficial fungi. Prevents and controls soil borne diseases. Promotes plant growth and uniformity. Granules can be easily dispersed in water and applied via drench, drip-irrigation or spraying. Preparation: Add 1 volume of Trianum-P to 5 volumes of water in a bucket. Mix thoroughly. Add the suspension to the required amount of water to obtain the final spray, drip or drench solution. Protects against soil-borne diseases such as Pythium spp., Rhizoctonia spp., Fusarium spp.",
+  "id": 1,
+  "class": "trichoderma"
+ },
+ {
+  "label": "BlightBan A506 (Pseudomonas)",
+  "text": "BlightBan uses the beneficial bacterium, Pseudomonas fluorescens A506, for the suppression or control of fire blight on pome fruits and the suppression of frost damage on cherry, apple, pear, almond, peach, tomato, potato and strawberry. A506 also competes with fire blight bacterium for nutrients in apple and pear tree blossoms. This competition keeps the number of harmful bacteria low enough to avoid severe fire blight infection.",
+  "id": 2,
+  "class": "pseudomonas"
+ },
+ {
+  "label": "BotaniGard ES (Beauveria)",
+  "text": "BotaniGard ES contains live spores of the entomopathogenic fungus, Beauveria bassiana strain GHA. Spores are alive and subject to harm by storage at high temperatures or contact with water for more than 24 hours. For control of whiteflies, aphids, thrips, psyllids, mealybugs, leafhoppers, weevils, plant bugs, borers and leaffeeding insects. Acts by contact: fungal spores attach to the pest, germinate, and penetrate through the cuticle. This product contains emulsifiers and mixes readily in water. Apply at 5- to 10-day intervals for low to normal pest pressure. Shake well before using. Fill spray tank with half the desired amount of water and start agitation. Do not mix more product than needed for that day. Do not mix product the day before application.",
+  "id": 3,
+  "class": "beauveria"
+ }
+]

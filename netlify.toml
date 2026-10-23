@@ -1,0 +1,15 @@
+[build]
+  publish = "frontend"
+
+# Static mode gets the same security headers the backend sends (GitHub Pages
+# cannot set custom headers; see docs/deployment.md). The CSP must stay in sync
+# with backend/app/security.py.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://cdn.jsdelivr.net https://tessdata.projectnaptha.com https://api.open-meteo.com; worker-src 'self' blob: https://cdn.jsdelivr.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "camera=(self), geolocation=(self), microphone=()"
+    Cross-Origin-Resource-Policy = "same-origin"

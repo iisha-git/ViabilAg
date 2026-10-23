@@ -1,0 +1,7 @@
+.venv
+__pycache__
+.git
+data/raw
+ml/train.py
+docs
+*.md

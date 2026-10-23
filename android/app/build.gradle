@@ -1,0 +1,28 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.viabilag.biooasis'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.viabilag.biooasis"
+        minSdk 26
+        targetSdk 34
+        versionCode 7
+        versionName "0.6.7"
+    }
+}
+
+// Bundle the web app (frontend/) into the APK. The app's classifier, evidence
+// and mix check run fully offline on the device; only weather and first-time
+// OCR model download need internet.
+tasks.register('copyWebAssets', Copy) {
+    from '../../frontend'
+    into 'src/main/assets/www'
+    exclude '**/.DS_Store'
+}
+preBuild.dependsOn copyWebAssets
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.8.0'
+}

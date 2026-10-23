@@ -1,0 +1,7163 @@
+UNITED STATES ENVIRONMENTAL PROTECTION AGENCY
+WASHINGTON, D.C. 20460
+
+OFFICE OF CHEMICAL SAFETY
+AND POLLUTION PREVENTION
+
+February 24, 2022
+Catherine Holmes
+Product Registration Manager
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Dr.
+Research Triangle Park, NC 27709
+Subject:
+
+PRIA (Pesticide Registration Improvement Act) Labeling and Formulation
+Amendment – Remove Alternate CSFs 2, 3 and 4, Update Basic CSF and Alternate
+CSF #1; Add Aerial Application Use, Revise Crop Table, Remove Pollinator
+Restriction Language; and Add Seed Treatment, Postharvest, and Aerial Application
+Methods.to Label.
+Product Name: Howler
+EPA Registration Number: 91197-3
+EPA Receipt Date: 04/30/2021
+Action Case Number: 00299762
+
+Dear Ms. Holmes:
+The amended labeling and Confidential Statements of Formula (CSFs) referred to above, submitted in
+connection with registration under the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA), as
+amended, are acceptable.
+You must submit and/or cite all data required for registration or registration review of your product
+when the U.S. Environmental Protection Agency (EPA) requires all registrants of similar products to
+submit such data.
+Please note that the record for this product currently contains the following acceptable CSFs:
+•
+•
+
+Basic CSF dated 12/20/2021
+Alternate CSF #1 dated 01/31/2022
+
+Any CSFs other than those listed above are superseded/no longer valid.
+
+Page 2 of 2
+EPA Reg. No. 91197-3
+Action Case No. 00299762
+A stamped copy of your labeling is enclosed for your records. This labeling supersedes all previously
+accepted labeling.
+Should you wish to add/retain a reference to your company’s website on your label, then please be
+aware that the website becomes labeling under FIFRA and is subject to review by the EPA. If the
+website is false or misleading, the product will be considered to be misbranded and sale or distribution
+of the product is unlawful under FIFRA section 12(a)(1)(E). 40 CFR § 156.10(a)(5) lists examples of
+statements the EPA may consider false or misleading. In addition, regardless of whether a website is
+referenced on your product’s label, claims made on the website may not substantially differ from those
+claims approved through the registration process. Therefore, should the EPA find or if it is brought to
+our attention that a website contains statements or claims substantially differing from statements or
+claims made in connection with obtaining a FIFRA section 3 registration, the website will be referred to
+the EPA’s Office of Enforcement and Compliance Assurance.
+Your release for shipment of this product constitutes acceptance of these terms. If these terms are not
+complied with, this registration will be subject to cancellation in accordance with FIFRA section 6.
+If you have any questions, please contact Jennifer Odom via email at odom.jennifer@epa.gov.
+Sincerely,
+signed by
+Susanne Digitally
+Susanne Cerrelli
+2022.02.24
+Cerrelli Date:
+11:34:48 -05'00'
+
+Susanne Cerrelli, Risk Manger
+Microbial Pesticides Branch
+Biopesticides and Pollution
+Prevention Division (7511P)
+Office of Pesticide Programs
+
+Enclosure (3): 1. EPA Stamped Label
+2. EPA Science Reviews (2) (Dated November 16, 2021, and January 31, 2022)
+
+MASTER LABEL
+
+Sublabel A: Agricultural Crop Use
+Sublabel B: Turf & Ornamental Use
+Sublabel C: Home & Garden Use
+Optional Label Claims
+EPA Registration No. 91197-3
+Note: Curly brackets indicate optional text.
+
+Feb 24, 2022
+
+91197-3
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 1 of 92
+
+Sublabel A: Agricultural Crop Use
+
+{dry flowable} {fungicide}
+{For Organic Production} {For Use in Organic Production} {Can Be Used in Organic Production}
+
+{
+
+}
+
+Active Ingredient: Pseudomonas chlororaphis strain AFS009†
+Other Ingredients:
+Total:
+†
+Contains not less than 1 X 106 CFU/g of product.
+
+50.0%
+50.0%
+100.0%
+
+KEEP OUT OF REACH OF CHILDREN
+
+CAUTION
+SEE INSIDE FOR ADDITIONAL PRECAUTIONARY STATEMENTS.
+FIRST AID
+
+●
+●
+●
+●
+
+Move person to fresh air.
+If person is not breathing, call 911 or an ambulance, then give artificial respiration,
+preferably mouth-to-mouth if possible.
+Call a poison control center or doctor for treatment advice.
+Hold eye open and rinse slowly and gently with water for 15-20 minutes.
+Remove contact lenses, if present, after the first 5 minutes, then continue rinsing eye.
+Call a poison control center or doctor for treatment advice.
+
+IF ON SKIN OR
+CLOTHING
+
+●
+●
+●
+
+Take off contaminated clothing.
+Rinse skin immediately with plenty of water for 15-20 minutes.
+Call a poison control center or doctor for treatment advice.
+
+IF SWALLOWED:
+
+●
+●
+●
+●
+
+Call a poison control center or doctor immediately for treatment advice.
+Have person sip a glass of water if able to swallow.
+Do not induce vomiting unless told by a poison control center or doctor.
+Do not give anything by mouth to an unconscious person.
+
+IF INHALED
+
+IF IN EYES
+
+●
+●
+
+HOTLINE NUMBER
+Have the product container or label with you when calling a poison control center or doctor.
+You may also contact 1-800-262-8200 for emergency medical treatment information.
+EPA Reg. No.: 91197-3
+
+EPA Est. No.: XXXXX-XX-XXX
+
+Net Weight: XX
+({Batch}/{Lot}) No: XXXX
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 2 of 92
+
+PRECAUTIONARY STATEMENTS
+Hazards to Humans and Domestic Animals
+CAUTION
+Harmful if inhaled, absorbed through the skin, or swallowed. Causes moderate eye irritation. Avoid breathing
+dust or spray mist. Avoid contact with skin, eyes, or clothing. Wash thoroughly with soap and water after
+handling and before eating, drinking, chewing gum, using tobacco, or using the toilet. Remove and wash
+contaminated clothing before reuse.
+
+PERSONAL PROTECTIVE EQUIPMENT (PPE)
+The PPE requirements below pertain to both Worker Protection Standard (WPS uses (in general, agricultural plant
+uses are covered by the Worker Protection Standard (40 CFR Part 170)) and Non-WPS uses.
+Applicators and other handlers must wear:
+● Long pants and long-sleeved shirt
+● Protective eyewear
+● Waterproof gloves
+● Shoes plus socks
+Wear a minimum of a NIOSH-approved particulate filtering facepiece respirator with any R, or P filter; OR a
+NIOSH approved elastomeric particulate respirator with any R, or P filter; OR a NIOSH-approved powered airpurifying respirator with an HE filter. (Repeated exposures to high concentrations of microbial proteins can cause
+allergic sensitization.)
+Follow the manufacturer’s instructions for cleaning/maintaining PPE. If no such instructions for washables are
+available, use detergent and hot water. Keep and wash PPE separately from other laundry.
+
+ENGINEERING CONTROLS
+When handlers use closed systems, or enclosed cabs, or aircraft in a manner that meets the requirements listed in
+the Worker Protection Standard (WPS) for agricultural pesticides [40CFR 170.607(d) and (e)], the handler PPE
+requirements may be reduced or modified as specified in the WPS.
+IMPORTANT: When reduced PPE is worn because a closed system is being used, handlers must be provided all
+PPE specified above for “applicators and other handlers” and have such PPE immediately available for use in an
+emergency, such as a spill or equipment break-down.
+
+USER SAFETY RECOMMENDATIONS
+●
+●
+
+Users should remove clothing/PPE immediately if pesticide is gets inside. The user should wash
+thoroughly and put on clean clothing.
+Users should remove PPE immediately after handling this product. Wash the outside of gloves before
+removing. As soon as possible, wash thoroughly and change into clean clothing.
+
+ENVIRONMENTAL HAZARDS
+For terrestrial uses: Do not apply directly to water, or to areas where surface water is present or to intertidal areas
+below the mean hight water mark. Do not contaminate water when disposing of equipment washwater or rinsate.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 3 of 92
+
+DIRECTIONS FOR USE
+It is a violation of Federal law to use this product in a manner inconsistent with its labeling.
+Do not apply this product in a way that will contact workers or other persons, either directly or through drift. Only
+protected handlers may be in the area during application. For any requirements specific to your State or Tribe,
+consult the State or Tribal agency responsible for pesticide regulation.
+
+AGRICULTURAL USE REQUIREMENTS
+Use this product only in accordance with its labeling and with the Worker Protection Standard, 40 CFR Part 170.
+This Standard contains requirements for the protection of agricultural workers on farms, forests, nurseries and
+greenhouses and handlers of agricultural pesticides. It contains requirements for training, decontamination,
+notification, and emergency assistance. It also contains specific instructions and exceptions pertaining to the
+statements on this label about personal protective equipment (PPE), and restricted-entry interval. The requirements in
+this box only apply to uses of this product that are covered by the Worker Protection Standard.
+Do not enter or allow worker entry into treated areas during the restricted-entry interval (REI) of 4 hours.
+Exception: If the product is soil injected or soil incorporated, the Worker Protection Standard under certain
+circumstances allows workers to enter the treated area if there will be no contact with anything that has been treated.
+PPE required for early entry to treated areas (that is permitted under the Worker Protection Standard and that
+involves contact with anything that has been treated such as plants, soil or water) includes:
+● Coveralls
+● Waterproof gloves
+● Shoes plus socks
+● Protective eyewear
+
+NON-AGRICULTURAL USE REQUIREMENTS
+The requirements in this box apply to uses of this product that are not within the scope of the Worker Protection
+Standard for agricultural pesticides (40 CFR Part 170). The WPS applies when this product is used to produce
+agricultural plants on farms, forests, nurseries, or greenhouses.
+Keep unprotected persons out of treated areas until sprays have dried.
+
+Product Information: Howler® is a biological fungicide containing the active ingredient Pseudomonas
+chlororaphis strain AFS009 for use on growing plants and crops to control or suppress a wide range of foliar, soil
+borne, and post-harvest diseases. Howler may be mixed with water and applied in field, greenhouse, or nursery use
+sites as a foliar spray, soil drench, in furrow spray, transplant spray or dip, cuttings or bare root dip, or hydroponic
+or chemigation application. It may be mixed with potting mix or applied dry in furrow. Howler may be used as a
+seed treatment or a seed piece treatment and may be applied post-harvest. Product can only be applied to whole
+fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 4 of 92
+
+PREVENTATIVE APPLICATIONS FOR PLANT HEALTH AND
+OPTIMUM DISEASE CONTROL
+Howler® provides benefits that can result in healthier plants. Howler colonizes plants preventing the establishment
+of disease-causing fungi and bacteria. Improved plant health may help the treated plant tolerate environmental
+stresses such as drought, heat and cold temperatures and ozone damage. Overall increased plant health may
+improve crop vigor, yield and quality especially under stressful conditions.
+●
+●
+●
+
+●
+●
+
+Apply Howler as a soil application or foliar spray alone, in alternating spray programs or in tank mixes
+with other registered crop protection products.
+Apply Howler with spray equipment commonly used for making ground, aerial and chemigation
+applications.
+Adjust the spray intervals of Howler according to the Crop-Specific Use Directions tables depending upon
+disease pressure and environmental conditions. Heavy rainfall or irrigation shortly after application may
+require retreatment.
+To enhance performance, consider adding a surfactant that is known to be safe to the target crop to the
+spray tank to improve penetration and coverage of above-ground portions of the plant.
+Howler is most effectively used in a preventative disease management program.
+
+FUNGICIDE RESISTANCE MANAGEMENT AND IPM:
+The PPE requirements below pertain to both Worker Protection Standard (WPS uses (in general, agricultural plant
+uses are covered by the Worker Protection Standard (40 CFR Part 170)) and Non-WPS uses.
+Howler is classified as a FRAC group BM02 Fungicide (multiple modes of action and low resistance risk).
+Howler can be used in tank mixes or rotations to reduce the risk of resistance to other fungicides.
+Integrate Howler into an overall disease and pest management strategy. Follow practices known to reduce disease
+development. Consult local agricultural authorities for specific IPM strategies developed for your location and
+crop(s).
+
+USE INSTRUCTIONS:
+Howler® has been evaluated for phytotoxicity on a variety of crops under various normal growing conditions.
+However, testing all crop varieties, in all mixtures and combinations, is not feasible. Prior to treating the entire
+crop, test a small portion of the crop for sensitivity.
+Howler can be applied as a foliar spray, soil drench, soil incorporation, banded spray, broadcast, in-furrow,
+transplant water or tray drench. Howler may be used as a seed treatment or a seed piece treatment and may be
+applied post-harvest only to whole fruits and vegetables. Howler can be applied through various types of
+chemigation application as described in the Chemigation section of this label.
+Mixing Directions:
+Always add a sufficient volume of water to the mix before adding Howler. Constant agitation during mixing and
+application is necessary to maintain uniform suspension.
+For foliar applications, good coverage of the foliage is needed to ensure performance.
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 5 of 92
+
+Refer to the crop specific portions of the label for proper application instructions for each crop/disease combination.
+Under light disease pressure, use lower rates and longer intervals. When conditions are conducive to severe disease
+pressure, use higher rates and shorter intervals. Repeat applications at the intervals specified in the label and use an
+appropriate Integrated Pest Management program.
+Not all tank mixtures with Howler have been tested. Before using any tank mix, test the combination on a small
+portion of the crop to ensure that the tank mixture is not phytotoxic to the crop. It is the responsibility of the user to
+ensure all components of the tank mixture are registered for use on the crop. When applying a tank mixture, the
+user must follow the instructions of the product with the most restrictive label.
+
+FOLIAR APPLICATION DIRECTIONS:
+GROUND:
+This product can be applied by commonly used ground equipment such as hose-end and pressurized sprayers.
+Consult spray nozzle and accessory documentation for specific information on proper equipment calibration.
+Maintain agitation during mixing and application to assure uniform product suspension. Thorough coverage of all
+foliage and/or soil surfaces is essential for effective disease control or suppression. Use the application rate
+indicated for the crop in the Crop-Specific Use Directions tables of this label in sufficient water to achieve thorough
+coverage. Overall, to achieve good coverage, use proper spray pressure, gallonage per acre, nozzles, nozzle spacing
+and ground speed.
+
+AERIAL:
+This product can be applied by aerial application. Refer to the Spray Drift Management section of this label for
+additional directions and precautions. Use the appropriate application rate as indicated for the crop in the
+Crop-Specific Use Directions tables of this label. To ensure thorough coverage use a minimum of 10 GPA. Reduced
+spray volumes used in aerial applications may result in physical incompatibility, reduced disease control or crop
+injury, especially when Howler is tank mixed with other products.
+
+CHEMIGATION:
+This product can be applied through sprinklers including center pivot, lateral move, end tow, side (wheel) roll,
+traveler, solid set, big gun or hand move irrigation systems. Application through drip irrigation systems is
+permitted in specific crops if specified on the Crop-Specific Use Directions tables. Refer to the Chemigation
+Application Directions portion of this label for additional directions and precautions. Maintain agitation during
+mixing and application to ensure uniform product suspension. Use the appropriate application rate as indicated for
+the crop in the Crop-Specific Use Directions tables of this label. Use sufficient water to achieve thorough coverage.
+
+GENERAL FOLIAR APPLICATION USE RESTRICTIONS:
+●
+●
+
+●
+
+●
+
+Do not apply when wind speed favors drift beyond the area intended for treatment.
+Remove scale, pesticide residues and other foreign matter from the chemical supply tank and entire injector
+system. Flush with clean water. Failure to provide a clean tank that is void of scale or residues may cause
+Howler® to lose effectiveness or strength.
+Do not combine Howler with pesticides, surfactants or fertilizers for application through chemigation
+equipment unless prior experience has shown the combination to be physically compatible, effective and
+non-injurious under conditions of use. Howler has not been fully evaluated for compatibility with all
+agricultural products.
+Unless prior experience with a specific product, conduct a spray compatibility test if tank mixing with other
+pesticides, surfactants or fertilizers is planned.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 6 of 92
+
+POST HARVEST APPLICATION DIRECTIONS:
+Howler can be used as a post-harvest dip, drench, fog, or spray application. Product can only be applied to whole
+fruits and vegetables. Mix Howler to a concentration of 5.0-7.5 lbs/100 gallons of water, wax/emulsion, or an
+aqueous dilution of wax/oil emulsion, appropriate for the crop being treated. For processing line spray applications
+apply 0.9 – 1.35 lb per 100,000 lb of fruit in a minimum of 18 gallons of water, wax/emulsion or aqueous dilution
+of wax oil emulsion.
+Maintain agitation after mixing to ensure that Howler remains in suspension. Ensure complete coverage of treated
+fruit. Fruit coatings can be applied separately after fungicide treatment.
+For dip and drench applications, dip fruit into the solution for at least 30 seconds. Allow the fruit to properly drain
+and dry before proceeding with packing.
+
+CHEMIGATION APPLICATION DIRECTIONS:
+TYPES OF IRRIGATION SYSTEMS
+Apply this product only through the following types of equipment:
+● Sprinkler irrigation systems including center pivot, lateral move, end tow, side (wheel) roll, traveler, solid
+set, big gun or hand move. Drip-type and micro-jet irrigation systems also allowed.
+Do not apply this product through any other type of irrigation system.
+Maintain agitation during mixing and application to ensure uniform product suspension. Use the application rate
+indicated in the Crop-Specific Use Directions of this label. Use sufficient water to achieve thorough coverage.
+
+UNIFORM WATER DISTRIBUTION AND SYSTEM CALIBRATION
+The chemigation system must provide uniform distribution of treated water. Crop injury or lack of effectiveness
+can result from non-uniform distribution of treated water. The chemigation system must be calibrated to uniformly
+apply the rates specified in the crop-specific label sections. If you have questions about calibration, you should
+contact local State Extension Service specialists, equipment manufacturers or other experts.
+
+CHEMIGATION MONITORING
+A person knowledgeable of the chemigation system and responsible for its operation or under the supervision of the
+responsible person shall shut the system down and make necessary adjustments should the need arise.
+
+REQUIRED SYSTEM SAFETY DEVICES
+The system must contain a functional check valve, a vacuum relief valve and a low-pressure drain appropriately
+located on the irrigation pipeline to prevent water source contamination from backflow. The pesticide injection
+pipeline must contain a functional automatic quick-closing check valve to prevent the flow of fluid back toward the
+injection pump. The pesticide injection pipeline must also contain a functional, normally closed solenoid-operated
+valve located on the intake side of the injection pump and irrigation system is either automatically or manually shut
+down. The system must contain functional interlocking controls to automatically shut off the pesticide injection
+pump when the water pump motor stops. The irrigation line or water pump must include a functional pressure
+switch which will stop the water pump motor when the water pressure decreases to the point where pesticide
+distribution is adversely affected. Systems must use a metering pump such as a positive displacement injection
+pump (e.g. diaphragm pump) effectively designed and constructed of materials that are compatible with pesticides
+and capable of being fitted with a system interlock.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 7 of 92
+
+USING WATER FROM PUBLIC WATER SYSTEMS
+Do not connect an irrigation system (including greenhouse systems) used for pesticide application to a public water
+system unless the pesticide label-prescribed safety devices for public water systems are in place.
+Public water system means a system for the provision to the public of piped water for human consumption if such
+system has at least 15 service connections or regularly serves an average of at least 25 individuals daily at least 60
+days out of the year. Chemigation systems connected to public water systems must contain a functional
+reduced-pressure zone (RPZ) backflow preventer or the functional equivalent in the water supply line upstream
+from the point of pesticide introduction. As an option to the RPZ, the water from the public waste system should be
+discharged into a reservoir tank prior to pesticide introduction. There shall be a complete physical break (air gap)
+between the outlet end of the fill pipe and the top or overflow rim of the reservoir tank of at least twice the inside
+diameter of the fill pipe. The pesticide injection pipeline must contain a functional automatic quick-closing check
+valve to prevent the flow of fluid back toward the injection pump. The pesticide injection pipeline must contain a
+functional normally closed solenoid-operated valve located on the intake side of the injection pump and connected
+to the system interlock to prevent fluid from being withdrawn from the supply tank when the irrigation system is
+either automatically or manually shut down. The system must contain functional interlocking controls to
+automatically shut off the pesticide injection pump when the water pump motor stops or in cases where there is no
+water pump, when the water pressure decreases to the point where pesticide distribution is adversely affected.
+Systems must use a metering pump such as a positive displacement injection pump (e.g. diaphragm pump)
+effectively designed and constructed of materials that are compatible with pesticides and capable of being fitted
+with a system interlock. Do not apply when wind speed favors drift beyond the area intended for treatment.
+
+INJECTION FOR CHEMIGATION
+Inject the specified dosage of Howler® into the irrigation main water stream: (1) through a constant flow meter
+device; (2) into the center of the main line flow via a pivot tube or equivalent; (3) at a point ahead of at least one
+right-angle turn in the mainstream flow such that thorough mixing with the irrigation water is ensured.
+
+CENTER PIVOT, LATERAL MOVE, END TOW, BIG GUN AND TRAVELER IRRIGATION
+EQUIPMENT (USE ONLY WITH ELECTRIC OR OIL HYDRAULIC DRIVE SYSTEMS THAT
+PROVIDE A UNIFORM WATER DISTRIBUTION)
+●
+●
+
+Determine the size of area to be treated.
+Determine the time required to apply no more than ¼ inch of water (6,750 gallons water per acre) over the
+area to be treated when the system and injection equipment are operated at normal pressures specified by
+the equipment manufacturer. Run system at 80 to 95% of manufacturer’s rated capacity.
+● Using only water, determine the injection pump output when operated at normal line pressure.
+● Determine the amount of Howler required to treat area.
+● Add required amount of Howler and sufficient water to meet the injection time requirements of the solution
+tank.
+● Maintain constant solution tank agitation during the injection period.
+● Stop injection equipment after treatment is completed. Continue to operate the system until Howler
+solution has cleared the sprinkler head.
+
+SOLID SET, SIDE (WHEEL) ROLL AND HAND MOVE IRRIGATION EQUIPMENT
+●
+●
+●
+
+Determined acreage covered by sprinkler
+Fill injector solution tank with water and adjust flow rate to use contents over a 10 to 30 minute interval
+Determine the amount of Howler® required to treat area.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 8 of 92
+
+●
+●
+●
+●
+●
+
+Add the required amount of Howler into the same quantity of water used to calibrate the injection
+equipment.
+Maintain constant solution tank agitation during the injection period.
+Operate system at normal pressures specified by the manufacturer of the injection equipment and used for
+the time interval established during calibration.
+Inject Howler at the end of the irrigation cycle or as a separate application to maximize foliar fungicide
+retention.
+Stop injection equipment after treatment is completed. Continue to operate the system until Howler
+solution has cleared the last sprinkler head.
+
+FLUSHING AND CLEANING THE CHEMICAL INJECTION SYSTEM
+At the end of the application period, allow time for all lines to flush the pesticide through all nozzles or emitters
+before turning off irrigation water. To ensure the lines are flushed and free of pesticides, a dye indicator may be
+injected into the lines to mark the end of the application period.
+In order to apply pesticides accurately, the chemical injection system must be dept clean and free of chemical or
+fertilizer residues and sediments. Refer to your owner’s manual or ask your equipment supplier for the cleaning
+procedure for your injection system.
+
+SPRAY DRIFT MANAGEMENT:
+The interaction of many equipment and weather-related factors determine the potential for spray drift. The
+applicator is responsible for considering all of these factors when making application decisions. Consult the local
+Cooperative Extension for additional information. Avoiding spray drift is the responsibility of the applicator.
+
+DROPLET SIZE
+Use the largest droplet size that provides sufficient control and coverage. Higher flow nozzles and lower pressures
+will product larger droplets and minimize drift. Low drift and air induction nozzles will provide lower drift
+potential. Use larger droplet size when applying in hot, dry conditions (droplet evaporation is higher under these
+conditions thus reducing the effective droplet size and increasing drift potential).
+
+WIND SPEED
+Drift potential increases at wind speeds of less than 3 mph (due to inversion potential) or more than 10 mph.
+Applications during gusty or calm wind conditions should be avoided. However, factors including droplet size,
+canopy and equipment specifications determine drift potential at any given wind speed. For applications made
+in-furrow or below soil-level, wind speed restrictions are not applicable.
+
+TEMPERATURE INVERSIONS
+Drift potential is high during temperature inversions and applications should be avoided under these conditions.
+Temperature inversions are common on nights with limited cloud cover and light to no wind. Temperature
+inversions begin to form as the sun sets and often continue into the morning. Their presence can be indicated by
+ground fog. If fog is not present, inversions can also be identified by the movement of smoke or dust from a ground
+source – smoke or dust that layers and moves laterally in a concentrated cloud (under low wind conditions)
+indicates an inversion.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 9 of 92
+
+SENSITIVE AREAS
+When applying adjacent to residential areas, bodies of water, habitats known to have threatened or endangered
+species or non-target crops, drift can be minimized to these areas by making the application when the wind
+direction is away from these areas.
+Where states or local authorities have more stringent regulations, they should be observed.
+
+AIRBLAST (AIR ASSIST) APPLICATIONS FOR TREE CROPS AND VINEYARDS
+Airblast sprayers carry droplets into the canopy of trees/vines via a radially or laterally directed air stream. Use the
+following specific drift management practices:
+● Adjust deflectors and aiming devices so that spray is only directed into the canopy.
+● Block off upward pointed nozzles when there is no overhanging canopy.
+● Use only enough air volume to penetrate the canopy and provide good coverage.
+● Do not allow the spray to go beyond the edge of the cultivated area (i.e. turn off sprayer when turning at
+end rows).
+● Only spray inward toward the orchard or vineyard for applications to outside rows.
+
+AERIAL APPLICATIONS
+●
+●
+●
+
+Mount the spray boom on the aircraft to minimize drift caused by wing tip vortices.
+The minimum practical boom length should be used and should not exceed 75% of the wingspan or rotor
+diameter.
+Applications should not be made at a height greater than 10 feet above the top of the largest plants unless a
+greater height is required for aircraft safety.
+
+SEED TREATMENT USE:
+Follow the manufacturer’s application instructions for the seed treatment equipment being used.
+PRODUCT INFORMATION
+Howler® is a fungicide seed dressing for protection against listed soil-borne, seed-borne and early season
+post-emergence diseases of listed crop plants.
+APPLICATION INSTRUCTIONS
+● Apply using commercial slurry or mist-type seed treatment equipment.
+● Uniform application on seed is necessary to ensure seed safety and best disease protection.
+● Dilute product with sufficient water to ensure complete seed coverage.
+● Continuous agitation or mixing of the slurry mixture is necessary to prevent settling of the
+solution.
+● Apply to high quality, properly cleaned seed.
+USE RESTRICTIONS
+● This product does not contain dye. All seed treated with this product must be colored with an
+EPA-approved dye or colorant of a suitable color to prevent accidental use as food for humans or
+feed for animals.
+● The Federal Seed Act requires that bags containing seed treated with this product shall be labeled
+with the following information: "This seed has been treated with Pseudomonas chlororaphis strain
+AFS009. Do not use for food, feed or oil purposes.
+● Allow seed to dry before bagging.
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 10 of 92
+
+Compatibility
+It is essential that before using Howler® seed treatment in any tank mixture the compatibility of the
+mixture be established. Add Howler® at the labeled rate to a clean quart jar containing approximately
+one-half the amount of water intended for a final slurry application rate. Next, follow with all other tank
+mix components that will be used in the total slurry application. Add last the remaining balance of water.
+The total amount of volume is determined by the seed size and how much is necessary to ensure complete
+and uniform coverage and distribution on the seed, as well as the type of commercial seed treating
+application equipment that will be used.
+Crop
+
+Rate
+
+Diseases Controlled
+
+Brassica Vegetables
+Bulb Vegetables
+Cereal Grains
+Cotton
+Cucurbit Vegetables
+Fruiting Vegetables
+Herbs and Spices
+Leafy Vegetables
+Legume Vegetables
+Non-Grass Forages
+Oilseeds
+Peanuts
+Root and Tuber Vegetables
+Soybean
+Turf
+Ornamental Plants
+
+0.25-7.5 lbs./100 lbs. of seed
+
+Seed and soil-borne fungal diseases related
+to wilt, root rot, and damping off caused by
+Fusarium spp., Pythium spp., Rhizoctonia
+spp., and Phytophthora spp.
+
+SOIL APPLICATION DIRECTIONS:
+Howler can be applied to soil either alone or mixed with various registered pest control products and fertilizers.
+Prior to making field applications of tank mixtures, determine the physical compatibility by mixing a test quantity
+as described in the Compatibility Testing and Tank Mix Partners section of this label. It is important to maintain
+agitation of the product mix throughout the application process.
+®
+
+SOIL DRENCH APPLICATIONS
+Complete coverage of the root zone and crown are critical for optimum performance. Make a drench application
+with adequate water volume to drench through the root zone. Make the application prior to infection.
+
+SHANKED-IN AND INJECTED APPLICATIONS
+Howler can be applied before planting, at planting or after planting of seed or transplants when using shanked-in
+and injected application equipment.
+
+TRANSPLANT WATER APPLICATIONS
+Howler can be applied at transplanting by drenching the root ball and/or drenching the planting hole with a solution
+containing Howler.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 11 of 92
+
+TRAY DRENCH APPLICATIONS
+Transplants can be tray drenched with a solution containing Howler prior to transplanting in the field. Tray drench
+applications can be made in the greenhouse prior to transplanting to allow root colonization of Howler.
+APPLICATIONS IN HYDROPONIC GROWTH SYSTEMS
+Howler can be applied in hydroponic growth systems. Follow instructions under greenhouse applications.
+
+BANDED APPLICATIONS
+Banded applications can be made after plant emergence. The width of the sprayed band and the width of the
+unsprayed portion of the row must be considered when calculating the appropriate rate Howler® to apply.
+Use the following formula to determine the appropriate rate of Howler to use in a banded application:
+spray band
+width (inches) X standard foliar rate/A = banded rate/A
+total row
+width (inches)
+
+If a 7.5 inch band will be applied to 15 inch rows and the normal foliar application rate is 20 oz/A, use the
+following example calculation:
+7.5 inch band X 20 oz/A standard foliar rate = 10 oz/A applied in the band.
+15 inch row
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 12 of 92
+
+IN-FURROW APPLICATIONS
+Howler can be applied at planting as an in-furrow treatment. Follow the instructions listed in Table 1. In-Furrow
+Soil Application Rates in the Field. Use the appropriate amount of water for the crop.
+
+TABLE 1. IN-FURROW SOIL APPLICATION RATES IN THE FIELD
+
+Product
+Rate/acre
+
+12
+
+Rates for In-Furrow Applications of Howler ® Fungicide
+Row Spacing (inches)
+15
+20
+22
+30
+32
+36
+38
+
+40
+
+72
+
+0.2
+0.4
+0.6
+0.7
+0.9
+1.1
+1.3
+1.5
+1.7
+1.8
+2.0
+2.4
+2.6
+2.8
+3.0
+
+0.2
+0.5
+0.7
+0.9
+1.1
+1.4
+1.6
+1.8
+2.1
+2.3
+2.7
+3.0
+3.2
+3.5
+3.7
+
+Rate per 1000 row feet (oz wt. of product)
+0.3
+0.5
+0.5
+0.6
+0.6
+0.7
+0.9
+1.0
+1.1
+1.2
+1.0
+1.4
+1.5
+1.7
+1.7
+1.3
+1.8
+2.0
+2.2
+2.3
+1.7
+2.3
+2.5
+2.8
+2.9
+2.0
+2.8
+2.9
+3.3
+3.5
+2.4
+3.2
+3.4
+3.9
+4.1
+2.7
+3.7
+3.9
+4.4
+4.7
+3.0
+4.1
+4.4
+5.0
+5.2
+3.4
+4.6
+4.9
+5.5
+5.8
+3.8
+5.0
+5.5
+6.0
+6.4
+4.2
+5.4
+6.0
+6.6
+7.0
+4.5
+5.8
+6.5
+7.1
+7.6
+4.9
+6.3
+7.0
+7.7
+8.1
+5.2
+6.7
+7.5
+8.2
+8.7
+
+0.6
+1.2
+1.8
+2.4
+3.1
+3.7
+4.3
+4.9
+5.5
+6.1
+6.6
+7.2
+7.8
+8.4
+9.0
+
+1.1
+2.2
+3.3
+4.4
+5.5
+6.6
+7.7
+8.8
+9.9
+11.0
+12.1
+13.2
+14.3
+15.3
+16.5
+
+(lbs.)
+
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+5.5
+6.0
+6.5
+7.0
+7.5
+
+0.3
+0.6
+0.9
+1.2
+1.5
+1.8
+2.1
+2.5
+2.8
+3.1
+3.3
+3.6
+4.0
+4.2
+4.5
+
+COMPATIBILITY TESTING AND TANK MIX PARTNERS
+COMPATIBILITY AND ORDER OF MIXING
+Howler® is physically and biologically compatible with many commonly used pesticides, fertilizers, adjuvants and
+surfactants, but has not been fully evaluated with all products. To ensure compatibility of tank-mix combinations
+evaluate them prior to use as follows: Using a suitable container, add proportional amounts of product to water. Add
+wettable powders first, followed by water dispersible granules, then by liquid flowables and lastly, emulsifiable
+concentrates. Mix thoroughly and let stand for at least five minutes. If the combination stays mixed or can be
+remixed, it is physically compatible. Test the combination on a small portion of the crop to be treated to ensure that
+a phytotoxic response does not occur as a result of application.
+Do not combine Howler with pesticides, surfactants or fertilizers where there has been no previous experience or
+use demonstrating they are physically compatible, effective and non-injurious under your specific use conditions.
+Conduct a compatibility test if no prior experience.
+Howler may be tank-mixed with other registered pesticides to enhance plant disease control or suppression. This
+product cannot be mixed with any product with a prohibition against such mixing. When tank-mixing Howler with
+other registered pesticides, always read and follow all use directions, restrictions and precautions of both Howler
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 13 of 92
+
+and the tank-mix partner(s). Use of the resulting tank mix must be in accordance with the more restrictive label
+limitations and precautions. Do not exceed label dosage rates.
+Product Mixing Instructions
+1. Partially fill the spray tank with clean water and begin agitation.
+2. Add the specified amount of Howler.
+3. Add other appropriately labeled agricultural products if tank mixing.
+4. Finish filling the tank to the volume necessary to obtain the proper spray concentration.
+It is critical that the spray solution be agitated during mixing and application to assure a uniform suspension. Avoid
+allowing spray mixture to stand overnight or for prolonged periods of time.
+Maintain a spray solution pH between 4.5 and 10.0.
+
+RESTRICTIONS AND LIMITATIONS
+●
+●
+●
+●
+
+Crop Rotation Restriction – None
+Preharvest Interval (PHI) – 0 Day
+Not registered for use in California on crops marked with an asterisk (*) in Crop-Specific Use
+Directions
+Do not apply to cut fruit or vegetables
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 14 of 92
+
+CROP-SPECIFIC DIRECTIONS
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+APPLICATION
+DIRECTIONS
+
+Berry and small
+fruit group
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria fruit rot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+
+Anthracnose fruit rot{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+
+(for see Grape and
+Strawberry see
+Crop-Specific Use
+Direction Tables)
+Bayberry
+Bearberry
+Bilberry
+Blackberry
+Blueberry, highbush
+Blueberry, lowbush
+Cranberry, lowbush
+Cranberry, highbush
+Currant black
+Currant, red
+Elderberry
+Gooseberry
+Huckleberry
+Lingonberry
+Mulberry
+Native currant
+Raspberry, black and red
+Wild raspberry
+Cultivars, varieties, and/or
+hybrids of these
+
+Bacterial canker{*}
+(Pseudomonas spp.)
+(suppression)
+Botrytis blight{*}
+(Botrytis spp.)
+Charcoal rot{*}
+(Macrophomina spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial canker:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Downy mildew{*}
+(Peronospora spp.)
+Mummy berry{*}
+(Monilinia spp.)
+Neopestilotiopsis{*}
+(Neopestilotiopsis spp.)
+Phomopsis{*}
+(Phomopsis spp.)
+Powdery mildew{*}
+(Sphaerotheca spp.
+Microsphaera spp.
+Podosphaera spp.)
+Rust{*}
+(Pucciniastrum spp.)
+Spur blight{*}
+(Didymella spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 15 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+APPLICATION
+DIRECTIONS
+
+Berries and small
+fruit subgroups
+
+Soil Diseases
+
+Field Applications
+
+Armillaria Root Rot{*}
+(Armillaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lb./A)
+
+Charcoal rot{*}
+(Macrophomina spp.)
+
+Greenhouse Applications
+
+See application instruction for
+in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 16 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Brassica (cole) leafy
+vegetables
+
+Foliar Diseases
+Alternaria leaf spot{*}
+(Alternaria spp.)
+
+Field Applications
+
+Arugula
+Broccoli, Chinese
+Broccoli raab
+Cabbage, Abyssinian
+Cabbage, Chinese,
+Bokchoy
+Cabbage, seakale
+Collards
+Cress, garden
+Cress, upland
+Kale
+Mustard greens
+Radish, leaves
+Rape greens
+Rocket, wild
+Shepherd’s purse
+Turnip greens
+Watercress
+Cultivars, varieties, and
+hybrids of these
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+
+Bacterial leaf spot and
+Bacterial blight{*}
+(suppression)
+(Pseudomonas spp.)
+Black rot{*}
+(Xanthomonas spp.)
+(suppression)
+Cercospora leaf spot{*}
+(Cercospora spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Charcoal rot{*}
+(Macrophomina spp.)
+Downy mildew{*}
+(Peronospora spp.)
+Pin rot{*}
+(Alternaria spp.)
+Powdery mildew{*}
+(Erysiphe spp.)
+Southern blight{*}
+(Sclerotium spp.)
+Xanthomonas leaf spot{*}
+(Xanthomonas spp.)
+(suppression)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 17 of 92
+
+Soil Diseases
+
+Field Applications
+
+Charcoal rot{*}
+(Macrophomina spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Clubroot{*}
+(Plasmodiophora spp.)
+
+Greenhouse Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+White mold{*}
+(Sclerotinia spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 18 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Bulb vegetables
+
+Foliar Diseases
+
+Field Applications
+
+Bacterial leaf streak{*}
+(Pseudomonas spp.)
+(suppression)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Chive, fresh leaves
+Chive, Chinese, fresh
+leaves
+Daylily, bulb
+Elegans hosta
+Garlic, bulb
+Garlic, greatheaded, bulb
+Garlic, serpent, bulb
+Leek
+Leek, wild
+Lily, bulb
+Onion, Beltsville
+bunching
+Onion, bulb
+Onion, Chinese, bulb
+Onion, fresh
+Onion, green
+Onion, macrostem
+Onion, pearl
+Onion, potato bulb
+Onion, tree, tops
+Onion, Welsh, tops
+Shallot, bulb
+Shallot, fresh leaves
+Cultivars, varieties, and/or
+hybrids of these
+
+Botrytis neck rot{*}
+(Botrytis spp.)
+Botrytis leaf blight{*}
+(Botrytis squamosa)
+Downy mildew{*}
+(Peronospora spp.)
+Pin rot{*}
+(Alternaria spp.)
+Powdery mildew{*}
+(Erysiphe spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Purple blotch{*}
+(Alternaria porri)
+Rust{*}
+(Puccinia spp.)
+Stemphyllium blight{*}
+(Stemphyllium spp.)
+White rot{*}
+(Sclerotium spp.)
+Xanthomonas leaf blight{*}
+(Xanthomonas spp.)
+(suppression)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 19 of 92
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pink root{*}
+(Phoma spp.)
+Pythium damping off{*}
+(Pythium spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 20 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Cereal grains
+
+Foliar Diseases
+
+Field Applications
+
+Bacterial blight{*}
+(Xanthomonas spp.)
+(suppression)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Barley
+Buckwheat
+Corn
+Millet, pearl
+Millet, proso
+Oats
+Popcorn
+Rice
+Rye
+Sorghum (milo)
+Teosinte
+Triticale
+Wheat
+Wild rice
+Cultivars, varieties, and/or
+hybrids of these
+
+Net blotch{*}
+(Pyrenophora teres)
+Powdery mildew{*}
+(Blumeria spp.)
+Scald{*}
+(Rhynchosporium spp.)
+Gray leaf spot{*}
+(Cercospora spp.)
+Northern corn leaf blight{*}
+(Exserohilum spp.)
+
+Greenhouse Applications
+80 oz. wt./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin foliar applications prior
+to infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Southern corn leaf blight{*}
+(Bipolaris spp.)
+Rice blast{*}
+(Pyricularia spp.)
+Sheath blight{*}
+(Rhizoctonia spp.)
+Sheath spot{*}
+(Rhizoctonia spp.)
+Smut{*}
+(Tilletia barclayena)
+Stem rot{*}
+(Sclerotium oryzae)
+Stewart’s wilt{*}
+(Pantoea spp.)
+(suppression)
+Powdery mildew{*}
+(Blumeria spp.)
+Rust{*}
+(Puccinia spp.)
+Tan spot{*}
+(Pyrenophora spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 21 of 92
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction for
+in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 22 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Citrus fruit group
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria leaf spot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Alternaria decay{*}
+(Alternaria spp.)
+
+Greenhouse Applications
+
+Citron
+Citrus hybrids
+Grapefruit
+Kumquat
+Lemon
+Lime
+Orange
+Pummelo
+Satsuma mandarin
+Tangelo
+Tangerine (mandarin)
+Cultivars, varieties, and/or
+hybrids of these
+
+Anthracnose{*}
+(Colletotrichum spp.)
+Bacterial blast{*}
+(Pseudomonas spp.)
+Blue and green mold{*}
+(Penicillium spp.)
+Brown rot{*}
+(Phytophthora spp.)
+Citrus canker{*}
+(Xanthomonas spp.)
+Gray mold{*}
+(Botrytis spp.)
+Greasy spot{*}
+(Mycosphaerella spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+Post-Harvest
+Application**:
+(Alternaria decay,
+Anthracnose decay, Blue and
+green molds, Brown rot,
+Gray mold, Stem end rot, and
+Sour rot) See instructions for
+post-harvest applications.
+
+Melanose{*}
+(Diaporthe spp.)
+Post bloom fruit drop{*}
+(Colletotrichum spp.)
+Scab{*}
+(Elsinoe spp.)
+Septoria spot{*}
+(Septoria spp.)
+Stem end rot{*}
+(Lasiodiplodia spp.)
+Sour rot{*}
+(Geotrichum spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 23 of 92
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 24 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Coffee
+
+Foliar Diseases
+
+Field Applications
+
+Bacterial blight{*}
+(Pseudomonas spp.)
+(suppression)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Coffee berry disease{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Rust{*}
+(Hemileia spp.)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+80 oz. wt./A
+(5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 25 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Cotton
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria leaf spot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+Boll rot{*}
+(Colletotrichum spp.,
+Diplodia spp., Physalospora
+spp.)
+
+APPLICATION
+DIRECTIONS
+Begin foliar applications
+prior to infection and
+continue on a 5-14 day
+interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Rust{*}
+(Puccinia spp.)
+Target spot{*}
+(Corynespora spp.)
+
+Soil Diseases
+
+Field Applications
+
+Charcoal rot{*}
+(Macrophomina spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+Greenhouse Applications
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Texas root rot{*}
+(Phymatotrichum spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 26 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Cucurbit vegetables
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria leaf spot, rot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Angular leaf spot{*}
+(Pseudomonas spp.)
+(suppression)
+
+Greenhouse Applications
+
+Chayote (fruit)
+Chinese waxgourd
+Cucumber
+Gherkin
+Gourds
+Momordica spp.(includes
+Balsam apple, Balsam
+pear, Bittermelon,
+Chinese cucumber)
+Muskmelon (includes
+True cantaloupe,
+Cantaloupe, Casaba,
+Crenshaw melon, Golden
+pershaw melon,
+Honeydew melon, Honey
+balls, Mango melon,
+Persian melon, Pineapple
+melon, Santa Claus melon
+and Snake melon)
+Pumpkin
+Squash, summer
+(Straightneck squash,
+Zucchini)
+Squash, winter (includes
+Butternut squash,
+Calabaza, Hubbard
+squash, Acorn squash,
+Spaghetti squash)
+Watermelon
+Cultivars, varieties, and/or
+hybrids of these
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Anthracnose{*}
+(Colletotrichum spp.)
+Bacterial fruit blotch{*}
+(Acidovorax avenae)
+(suppression)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Downy mildew{*}
+(Pseudoperonospora spp.)
+Gray mold{*}
+(Botrytis spp.)
+Gummy stem blight{*}
+(Stagonosporopsis spp.)
+Phomopsis fruit rot{*}
+(Diaporthe spp.)
+Phytophthora blight{*}
+(Phytophthora spp.)
+Powdery mildew{*}
+(Erysiphe spp.
+Sphaerotheca spp.)
+Target Spot{*}
+(Corynespora spp.)
+
+Soil Diseases
+
+Field Applications
+
+Charcoal rot{*}
+(Macrophomina spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+Greenhouse Applications
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 27 of 92
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Southern blight{*}
+(Athelia/Sclerotium spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+Vine decline{*}
+(Monosporascus spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 28 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Fruiting vegetables
+
+Foliar Diseases
+
+Field Applications
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Bacterial canker{*}
+(Clavibacter spp.)
+(suppression)
+
+Greenhouse Applications
+
+Bell pepper
+Cocona
+Eggplant
+Okra
+Pepino
+Non-bell pepper
+Tomatillo
+Tomato
+Cultivars, varieties, and/or
+hybrids of these
+
+2.5-7.5 lbs./100 gallons water
+
+Bacterial speck{*}
+(Pseudomonas spp.)
+(suppression)
+
+APPLICATION
+DIRECTIONS
+Begin foliar applications
+prior to infection and
+continue on a 5-14 day
+interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Bacterial spot{*}
+(Xanthomonas spp.)
+(suppression)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Brown spot and Black pit{*}
+(Alternaria spp.)
+Buckeye rot{*}
+(Phytophthora spp.)
+Early blight{*}
+(Alternaria spp.)
+Gray mold{*}
+(Botrytis spp.)
+Late blight{*}
+(Phytophthora spp.)
+(suppression)
+Powdery mildew{*}
+(Leveillula spp.)
+Southern blight{*}
+(Sclerotium spp.)
+Target spot{*}
+(Corynespora spp.)
+
+Soil Diseases
+
+Field Applications
+
+Charcoal rot{*}
+(Macrophomina spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+Greenhouse Applications
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 29 of 92
+
+Pythium damping off{*}
+(Pythium spp.)
+
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Southern blight{*}
+(Sclerotium spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 30 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Grapes
+
+Foliar Diseases
+Black rot{*}
+(Guignardia spp.)
+
+Field Applications
+
+Downy mildew{*}
+(Plasmopara spp.)
+
+Greenhouse Applications
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+2.5-7.5 lbs./100 gallons water
+
+Eutypa{*}
+(Eutypa spp.)
+Gray mold{*}
+(Botrytis spp.)
+
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Powdery mildew{*}
+(Uncinula spp.)
+Sour rot complex{*}
+(Disease complex)
+(suppression)
+
+Sour rot complex:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Soil Diseases
+
+Field Applications
+
+Armillaria root rot/Oak root
+fungus{*}
+(Armillaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+
+Downy mildew: begin
+applications before
+pre-bloom and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+
+Phomopsis{*}
+(Phomopsis spp.)
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+APPLICATION
+DIRECTIONS
+Black rot: begin applications
+prior to infection and
+continue on a 5-14 day
+interval as needed.
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 31 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Hemp
+
+Foliar Diseases
+
+Field Applications
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Botrytis gray mold{*}
+(Botrytis spp.)
+
+Greenhouse Applications
+
+Cultivars, varieties, and/or
+hybrids of these
+
+2.5-7.5 lbs./100 gallons water
+
+Brown blight{*}
+(Alternaria spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Charcoal rot{*}
+(Macrophomina spp.)
+Downy mildew{*}
+(Pseudoperonospora spp.)
+Hemp canker{*}
+(Sclerotinia spp.)
+Yellow leaf spot{*}
+(Septoria spp.)
+
+Soil Diseases
+
+Field Applications
+
+Charcoal rot{*}
+(Macrophomina spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+Greenhouse Applications
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 32 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Herbs and Spices
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria leaf blight{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lb./A)
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+
+Allspice
+Angelica
+Anise
+Annatto (seed)
+Balm (lemon balm)
+Basil
+Borage
+Burnet
+Chamomile
+Caper buds
+Caraway
+Caraway, black
+Cardamom
+Cassia
+Catnip
+Celery seed
+Chervil (dried)
+Chive
+Chive, Chinese
+Cinnamon
+Clary
+Clove buds
+Coriander leaf (cilantro or
+Chinese parsley)
+Coriander seed (cilantro)
+Culantro
+Cumin
+Curry (leaf)
+Dill
+Fennel (common)
+Fennel, Florence (seed)
+Fenugreek
+Juniper berry
+Lavender
+Lemongrass
+Lovage
+Mace
+Marigold
+Marjoram
+Mustard (seed)
+Nutmeg
+Parsley
+Pepper
+Poppy (seed)
+Rosemary
+Rue
+Saffron
+Sage
+
+2.5-7.5 lbs./100 gallons water
+
+Bacterial blight{*}
+(Pseudomonas spp.)
+(suppression)
+
+Sclerotinia wilt{*}
+(Sclerotinia spp.)
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Gray mold{*}
+(Botrytis spp.)
+
+Pythium damping off{*}
+(Pythium spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+
+2.5-7.5 lbs./100 gallons water
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 33 of 92
+
+Savory, summer and
+winter
+Sweet bay
+Tarragon
+Thyme
+Vanilla
+Wintergreen
+Cultivars, varieties, and/or
+hybrids of these
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 34 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Hops
+
+Foliar Diseases
+
+Field Applications
+
+Downy mildew{*}
+(Peronospora spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Grey mold{*}
+(Botrytis spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+Powdery mildew{*}
+(Sphaerotheca spp.)
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Soil Diseases
+
+Pythium damping off{*}
+(Pythium spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 35 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Leafy vegetables
+(except Brassica)
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria leaf spot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Anthracnose{*}
+(Microdochium spp.)
+
+Greenhouse Applications
+
+Amaranth
+Arugula
+Cardoon
+Celery
+Celery, Chinese
+Celtuce
+Chervil
+Chrysanthemum,
+edible-leaved
+Chrysanthemum, garland
+Corn salad
+cress, garden
+cress, upland
+Dandelion
+Dock (sorrel)
+Endive (escarole)
+Fennel, Florence
+Lettuce, head and leaf
+Orach
+Parsley
+Purslane, garden
+Purslane, winter
+Radicchio (red chicory)
+Rhubarb
+Spinach
+Spinach, New Zealand
+Cultivars, varieties, and/or
+hybrids of these
+
+Bacterial blight/bacterial leaf
+spot{*}
+(Xanthomonas spp.)
+(suppression)
+Botrytis gray mold{*}
+(Botrytis spp.)
+Cercospora leaf spot{*}
+(Cercospora spp.)
+Downy mildew{*}
+(Bremia spp., Peronospora
+spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Early blight{*}
+(Cercospora spp.)
+Late blight{*}
+(Septoria spp.)
+Powdery mildew{*}
+(Erysiphe spp.)
+Sclerotinia head and leaf
+drop/Pink rot{*}
+(Sclerotinia spp.)
+Septoria leaf spot{*}
+(Septoria spp.)
+Spinach bacterial leaf
+spot{*}
+(Pseudomonas spp.)
+White rust{*}
+(Albugo spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 36 of 92
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Sclerotinia wilt{*}
+(Sclerotinia spp.)
+Southern blight{*}
+(Athelia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 37 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Legume vegetables
+(succulent and dried
+beans and peas,
+except soybean)
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria blight{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Angular leaf spot{*}
+(Pseudocercospora spp.)
+
+Greenhouse Applications
+
+Asparagus
+Bean (Lupinus spp.)
+(includes Grain Lupin,
+Sweet lupin, White lupin,
+and White sweet upin)
+Bean (Phaseolus spp.)
+(includes Field bean,
+Kidney bean, Lima bean,
+Navy bean, Pinto bean,
+Runner bean, Snap bean,
+Tepary bean, Wax bean)
+Bean (Vigna spp.)
+(includes Adzuki bean,
+Asparagus bean,
+Blackeyed pea, Catjang,
+Chinese longbean,
+Cowpea, Crowder pea,
+Moth bean, Mung bean,
+Rice bean, Southern pea,
+Urd bean, Yardlong bean)
+Broad bean (fava bean)
+Chickpea (garbanzo bean)
+Lentil
+Pea (Pisum spp.)
+(includes Dwarf pea,
+Edible-pod pea, English
+pea, Field pea, Garden
+pea, Green pea, Snowpea,
+Sugar snap pea)
+Pigeon pea
+All above in both
+succulent and dry form.
+Cultivars, varieties, and/or
+hybrids of these
+
+Anthracnose{*}
+(Colletotrichum spp.)
+Ascochyta blight{*}
+(Ascochyta spp.)
+Asian soybean rust{*}
+(Phakospora spp.)
+Bacterial brown spot/halo
+blight{*}
+(Pseudomonas spp.)
+(suppression)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Bacterial pustule{*}
+(Xanthomonas spp.)
+(suppression)
+Botrytis gray mold{*}
+(Botrytis spp.)
+Cercospora leaf spot{*}
+(Cercospora spp.)
+Downy mildew{*}
+(Peronospora spp.)
+Gray mold{*}
+(Botrytis spp.)
+Powdery mildew{*}
+(Erysiphe spp.)
+Southern blight{*}
+(Athelia spp.)
+Rust{*}
+(Uromyces spp., Puccinia
+spp.)
+Web blight{*}
+(Rhizoctonia spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 38 of 92
+
+White mold/Sclerotinia stem
+rot{*}
+(Sclerotinia spp.)
+
+Soil Diseases
+
+Field Applications
+
+Aphanomyces root rot{*}
+(Aphanomyces spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+Greenhouse Applications
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Southern blight{*}
+(Athelia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+White mold/Sclerotinia stem
+rot{*}
+(Sclerotinia spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 39 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Mint
+
+Foliar Diseases
+
+Field Applications
+
+Downy mildew{*}
+(Peronospora spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Powdery mildew{*}
+(Erysiphe spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+Rust{*}
+(Puccinia spp.)
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Soil Diseases
+
+Pythium damping off{*}
+(Pythium spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 40 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Nongrass Animal
+Feeds for forage,
+fodder, straw and
+hay
+
+Foliar Diseases
+
+Field Applications
+
+Alfalfa
+Bean, velvet
+Clover (Trifolium spp.,
+Melilotus spp.)
+Kudzu
+Lespedeza
+Lupin
+Sainfoin
+Trefoil
+Vetch
+Vetch, crown
+Vetch, milk
+
+Anthracnose{*}
+(Colletotrichum spp.)
+Bacterial wilt{*}
+(Clavibacter spp.)
+(suppression)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+Common leaf spot{*}
+(Leptosphaerulina spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Downy mildew{*}
+(Peronospora spp.)
+Powdery mildew{*}
+(Erysiphe spp.)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Rhizoctonia blight{*}
+(Rhizoctonia spp.)
+Rust{*}
+(Puccinia spp.)
+Spring black stem and Leaf
+spot{*}
+(Phoma spp.)
+White mold/Sclerotinia crown
+and stem rot{*}
+(Sclerotinia spp.)
+
+Soil Diseases
+Aphanomyces root rot{*}
+(Aphanomyces spp.)
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+Field Applications
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 41 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE PER
+APPLICATION
+
+APPLICATION
+DIRECTIONS
+
+Oilseed crops (except
+cotton and peanut)
+
+Foliar Diseases
+
+Field Applications
+
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed
+
+Castor oil plant
+Chinese tallowtree
+Cottonseed
+Crambe
+Cuphea
+Echium
+Euphorbia
+Evening primrose
+Flax seed
+Jojoba
+Milkweed
+Mustard seed
+Poppy seed
+Rapeseed
+Rose hip
+Safflower
+Sesame
+Sunflower
+Sweet rocket
+Tallowwood
+Tea oil plant
+Vernonia
+Cultivars, varieties, and/or
+hybrids of these
+
+Alternaria leaf spot{*}
+(Alternaria spp.)
+Bacterial black rot{*}
+(Xanthomonas spp.)
+(suppression)
+Bacterial leaf spot{*}
+(Pseudomonas spp.)
+(suppression)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Greenhouse
+Applications
+2.5-7.5 lbs./100 gallons
+water
+
+Blackleg{*}
+(Leptosphaeria spp.)
+Blackspot{*}
+(Alternaria spp.)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used
+in tank mixes and/or
+rotations with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a tank
+mix or in rotation with other
+fungicides registered against
+these diseases.
+
+Cercospora leaf spot{*}
+(Cercospora spp.)
+Pasmo{*}
+(Septoria spp.)
+Powdery mildew{*}
+(Erysiphe spp.)
+Rust{*}
+(Puccinia spp.,
+Uromyces spp.)
+Septoria leaf spot{*}
+(Septoria spp.)
+White mold/Sclerotinia crown
+and stem rot{*}
+(Sclerotinia spp.)
+
+Soil Diseases
+Clubroot{*}
+(Plasmodiophora spp.)
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+Field Applications
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Greenhouse
+Applications
+2.5-7.5 lbs./100 gallons
+water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank
+mix or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 42 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Olives
+
+Foliar Diseases
+
+Field Applications
+
+Mycocentrospora{*}
+(Mycocentrospora spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Olive knot{*}
+(Pseudomonas spp.)
+(suppression)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Peacock spot{*}
+(Spilcaea spp.)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 43 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Peanut
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria leaf blight/leaf
+spot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+7-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Aspergillus crown rot{*}
+(Aspergillus spp.)
+Botrytis blight{*}
+(Botrytis spp.)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Cylindrocladium black
+rot/leaf spot{*}
+(Cylindrocladium spp.)
+Early leaf spot{*}
+(Cercospora spp.)
+Late leaf spot{*}
+(Cercosporidium spp.)
+Rust{*}
+(Puccinia spp.)
+Southern blight/stem rot{*}
+(Sclerotium spp.)
+Web blotch{*}
+(Phoma spp.)
+White mold{*}
+(Sclerotium spp.)
+
+Soil Diseases
+
+Field Applications
+
+Aspergillus crown rot{*}
+(Aspergillus spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Cylindrocladium black
+rot{*}
+(Cylindrocladium spp.)
+
+Greenhouse Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 44 of 92
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia limb rot{*}
+(Rhizoctonia spp.)
+Southern blight/stem rot{*}
+(Sclerotium spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+White mold{*}
+(Sclerotium spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 45 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE PER
+APPLICATION
+
+Pome Fruits
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria blotch{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Alternaria decay{*}
+(Alternaria spp.)
+
+Greenhouse Applications
+
+Apple
+Crabapple
+Loquat
+Mayhaw
+Pear
+Pear, oriental
+Quince
+
+Anthracnose{*}
+(Colletotrichum spp.)
+Bitter rot{*}
+(Colletotrichum spp.)
+Bot rot{*}
+(Botryosphaeria spp.)
+Botrytis gray mold{*}
+(Botrytis spp.)
+Brooks spot{*}
+(Mycosphaerella spp.)
+Bull’s eye rot{*}
+(Neofabraea spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5–14 day interval as needed
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used
+in tank mixes and/or
+rotations with other
+effective fungicides.
+Post-Harvest
+Application**:
+(Alternaria decay,
+Anthracnose, Bot rot, Bull’s
+eye rot, Flyspeck, Gray
+mold, Penicillium decay,
+Sooty blotch). See
+instructions for post-harvest
+applications.)
+
+Cedar apple rust{*}
+(Gymnosporangium spp.)
+Fire blight{*}
+(Erwinia spp.)
+Flyspeck{*}
+(Schizothyrium spp.)
+Penicillium decay{*}
+(Penicillium spp.)
+Powdery mildew{*}
+(Podosphaera spp.)
+Scab{*}
+(Venturia spp.)
+Sooty blotch{*}
+(Gloeodes spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 46 of 92
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a
+tank mix or in rotation with
+other fungicides registered
+against these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 47 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE PER
+APPLICATION
+
+Pomegranate
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria fruit rot/Black
+heart{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Aspergillus fruit rot{*}
+(Aspergillus spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Alternaria fruit rot/Black
+heart and Botrytis gray
+mold: begin applications
+prior to infection and
+continue on a 7-10 day
+interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+
+Botrytis gray mold{*}
+(Botrytis spp.)
+
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+Post-Harvest
+Application**:
+(Alternaria rot, Aspergillus
+fruit rot, Gray mold) See
+instructions for post-harvest
+applications.
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+80 oz. wt./A
+(5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 48 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE PER
+APPLICATION
+
+Root and Tuber
+vegetables
+
+Foliar Diseases
+
+Field Applications
+
+Aerial stem rot{*}
+(Erwinia spp.)
+(suppression)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Arrowroot
+Artichoke, Chinese
+Artichoke, Jerusalem
+Beet, garden
+Beet, sugar
+Burdock, edible; Canna,
+edible
+Carrot
+Cassava, bitter and sweet
+Celeriac (celery root)
+Chayote (root)
+Chervil, turnip-rooted
+Chicory
+Chufa
+Dasheen (taro)
+Ginger
+Ginseng
+Horseradish
+Parsley, turnip-rooted
+Parsnip
+Potato
+Radish
+Radish, oriental (daikon)
+Rutabaga
+Salsify
+Sweet potato
+Tanier (cocoyam)
+Turmeric
+Turnip
+Yam
+Cultivars, varieties, and/or
+hybrids of these
+
+Alternaria leaf spot{*}
+(Alternaria spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+
+Bacterial leaf spot/Leaf
+blight{*}
+(Xanthomonas spp.)
+(suppression)
+
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Bacterial soft rot{*}
+(Dickeya spp.)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Black dot{*}
+(Colletotrichum spp.)
+Black rot/Black crown rot{*}
+(Alternaria spp.)
+Gray mold{*}
+(Botrytis spp.)
+Brown spot and black pit{*}
+(Alternaria spp.)
+
+Post-Harvest
+Application**:
+(Bacterial soft rot, Black rot
+Fusarium rot ,Penicillium rot,
+Rhizopus rot) See
+instructions for post-harvest
+applications.
+
+Cercospora leaf spot{*}
+(Cercospora spp.)
+Downy mildew{*}
+(Peronospora spp.)
+Early blight{*}
+(Alternaria spp.)
+Fusarium rot{*}
+(Fusarium spp.)
+Late blight{*}
+(Phytophthora spp.)
+(suppression)
+Penicillium rot{*}
+(Penicillium spp.)
+Powdery Mildew{*}
+(Erysiphe spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 49 of 92
+
+Rhizoctonia stem canker
+crown rot and rot {*}
+(Rhizoctonia spp.)
+White mold{*}
+(Sclerotinia spp.)
+
+Soil Diseases
+Black rot of sweet potato{*}
+(Ceratocystis spp.)
+Black scurf{*}
+(Rhizoctonia spp.)
+Cavity spot{*}
+(Pythium spp.)
+Common scab{*}
+(Streptomyces spp.)
+Cottony soft rot{*}
+(Sclerotinia spp.)
+
+Broadcast, Drip and
+Drench Applications
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Potato seed Piece
+Treatment: Apply 0.25 – 0.5
+lb./CTW of seed pieces
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Powdery scab{*}
+(Spongospora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+Silver scurf{*}
+(Helminthosporium spp.)
+Sclerotium stem rot{*}
+(Sclerotium spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 50 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Soybean
+
+Foliar Diseases
+
+Field Applications
+
+(including
+Edamame)
+
+Alternaria leaf spot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+
+Asian soybean rust{*}
+(Phakospora spp.)
+Bacterial pustule{*}
+(Xanthomonas spp.)
+(suppression)
+Botrytis gray mold{*}
+(Botrytis spp.)
+Brown spot{*}
+(Septoria spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Downy mildew{*}
+(Peronospora spp.)
+Charcoal rot{*}
+(Macrophomina spp.)
+Frogeye leaf spot{*}
+(Cercospora spp.)
+Powdery mildew{*}
+(Erysiphe spp.,
+Microsphaera spp.)
+Rhizoctonia aerial blight and
+web blight{*}
+(Rhizoctonia spp.)
+Rust{*}
+(Uromyces spp.,
+Puccinia spp.)
+Target spot{*}
+(Corynespora spp.)
+White mold{*}
+(Sclerotinia spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 51 of 92
+
+Soil Diseases
+
+Field Applications
+
+Aphanomyces root rot{*}
+(Aphanomyces spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Charcoal rot{*}
+(Macrophomina spp.)
+
+Greenhouse Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+
+2.5-7.5 lbs./100 gallons water
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Sudden death syndrome{*}
+(Fusarium spp.)
+(suppression)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 52 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Stone Fruits
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria spot/Fruit rot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+
+Apricot
+Apricot, Japanese
+Capulin
+Cherry, black
+Cherry, Nanking
+Cherry, sweet
+Cherry, tart
+Jujube, Chinese
+Nectarine
+Peach
+Plum
+Plum,
+Plumcot
+Sloe
+Cultivars, varieties, and/or
+hybrids of these
+
+Bacterial canker{*}
+(Pseudomonas spp.)
+Bacterial leaf spot/bacterial
+spot{*}
+(Xanthomonas spp.)
+(suppression)
+Blossom blight{*}
+(Monilinia spp.)
+Blue mold{*}
+(Penicillium spp.)
+Botrytis gray mold{*}
+(Botrytis spp.)
+Brown rot of fruit{*}
+(Monilinia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+Post-Harvest
+Application**:
+(Blue mold, Botrytis gray
+mold, Brown rot, Gibertella
+rot, Rhizopus rot, Sour rot)
+See instructions for
+post-harvest applications.
+
+Cherry leaf spot{*}
+(Blumeriella spp.)
+Gibertella rot{*}
+(Gibertella spp.)
+Powdery mildew{*}
+(Sphaerotheca spp.,
+Podosphaera spp.)
+Rhizopus rot{*}
+(Rhizopus spp.)
+Rusty spot{*}
+(Podosphaera spp.)
+Scab{*}
+(Cladosporium spp.)
+Shot hole{*}
+(Wilsonomyces spp.)
+Sour rot{*}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 53 of 92
+
+(Geotrichum spp.)
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 54 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Strawberry
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria fruit rot/black leaf
+spot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Angular leaf spot{*}
+(Xanthomonas spp.)
+(suppression)
+Anthracnose{*}
+(Colletotrichum spp.)
+Botrytis gray mold{*}
+(Botrytis spp.)
+Charcoal rot{*}
+(Macrophomina spp.)
+Common leaf spot{*}
+(Mycosphaerella spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Downy mildew{*}
+(Peronospora spp.)
+Leaf scorch{*}
+(Diplocarpon spp.)
+Leather rot{*}
+(Phytophthora spp.)
+Pestalotiopsis leaf spot, root
+and crown rot{*}
+(Neopestalotiopsis spp.)
+Powdery mildew{*}
+(Sphaerotheca spp.,
+Erysiphe spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 55 of 92
+
+Soil Diseases
+
+Field Applications
+
+Black root rot{*}
+(Disease complex)
+
+40-120 oz wt./A
+(2.5-7.5 lbs./A)
+
+Charcoal rot{*}
+(Macrophomina spp.)
+
+Greenhouse Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+*Not registered for use in California
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 56 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Sugarcane
+
+Foliar Diseases
+
+Field Applications
+
+Brown rust{*}
+(Puccinia spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Orange rust{*}
+(Puccinia spp.)
+
+Greenhouse Applications
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+
+2.5-7.5 lbs./100 gallons water
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+
+2.5-7.5 lbs./100 gallons water
+
+Pineapple set rot{*}
+(Ceratocystis spp.)
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 57 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Tobacco
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria leaf spot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Angular leaf spot{*}
+(Pseudomonas spp.)
+(suppression)
+
+Greenhouse Applications
+
+Anthracnose{*}
+(Colletotrichum spp.)
+Barnspot/Frogeye leaf
+spot{*}
+(Cercospora spp.)
+Brown spot{*}
+(Alternaria spp.)
+Blue mold{*}
+(Peronospora spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Botrytis gray mold{*}
+(Botrytis spp.)
+Collar rot{*}
+(Sclerotinia spp.)
+Powdery mildew{*}
+(Erysiphe spp.)
+Target spot{*}
+(Rhizoctonia spp.)
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 58 of 92
+
+Soil Diseases
+
+Field Applications
+
+Black root rot{*}
+(Thielaviopsis spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Black shank{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+
+2.5-7.5 lbs./100 gallons water
+
+Charcoal rot{*}
+(Macrophomina spp.)
+Fusarium wilt{*}
+(Fusarium spp.)
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Southern blight{*}
+(Sclerotium spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 59 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE PER
+APPLICATION
+
+APPLICATION
+DIRECTIONS
+
+Tree Nuts
+
+Foliar Diseases
+
+Field Applications
+
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+
+Almond
+Beechnut
+Brazil nut
+Butternut
+Candlenut
+Cashew
+Chestnut
+Coconut
+Ginkgo
+Hazelnut (filbert)
+Hickory nut
+Japanese horse-Chestnut
+Macadamia nut
+Pecan
+Pine nut
+Pistachio
+Walnut
+Cultivars varieties, and/or
+hybrids of these
+
+Almond scab{*}
+(Cladosporium spp.)
+Alternaria leaf spot{*}
+(Alternaria spp.)
+Anthracnose{*}
+(Colletotrichum spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+Bacterial canker{*}
+(Pseudomonas spp.)
+(suppression)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Bacterial spot{*}
+(Xanthomonas spp.)
+(suppression)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Botryosphaeria blight{*}
+(Botryosphaeria spp.)
+Botrytis gray mold{*}
+(Botrytis spp.)
+Blossom blight/Brown rot{*}
+(Monilinia spp.)
+Hull rot{*}
+(Sclerotinia spp.)
+Pecan scab{*}
+(Cladosporium spp.)
+Shot hole{*}
+(Wilsonomyces spp.)
+Walnut blight{*}
+(Xanthomonas spp.)
+(suppression)
+
+Soil Diseases
+Fusarium wilt{*}
+(Fusarium spp.)
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+Field Applications
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 60 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE PER
+APPLICATION
+
+Watercress
+
+Foliar Diseases
+
+Field Applications
+
+Cercospora leaf spot{*}
+(Cercospora spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used
+in tank mixes and/or
+rotations with other
+effective fungicides.
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a
+tank mix or in rotation with
+other fungicides registered
+against these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 61 of 92
+
+TROPICAL FRUITS
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+Avocado and Mango Foliar Diseases
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Field Applications
+
+Alternaria leaf spot{*}
+(Alternaria spp)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+Branch canker{*}
+(Botryosphaeria spp.)
+
+Fruit rot{*}
+(Botrytis spp.)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Powdery mildew{*}
+(Oidium spp.)
+Rusty spot{*}
+(Colletotrichum spp.)
+Bacterial canker{*}
+(Xanthomonas spp.)
+(suppression)
+
+Post-Harvest
+Applications**:
+(Anthracnose, Stem and end
+rot)
+
+Scab{*}
+(Sphaceloma spp.)
+
+See instructions for
+post-harvest applications
+
+Stem end rot{*}
+(Lasiodiplodia spp.)
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot/crown
+rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Rhizoctonia seed/root rot{*}
+(Rhizoctonia spp.)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Cercospora spot{*}
+(Pseudocercospora spp.)
+
+Pythium damping off/root
+rot{*}
+(Pythium spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5–14 day interval as needed
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 62 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE PER
+APPLICATION
+
+Bananas and
+Plantains
+
+Foliar Diseases
+
+Field Applications
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Black sigatoka{*}
+(Mycosphaerella spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+Blood disease{*}
+(Pseudomonas spp.)
+(suppression)
+
+Bacterial diseases:
+Apply 5.0-7.5 lbs/A. Use the
+lower rate when in a tank
+mix or in rotation with other
+fungicides registered against
+these diseases.
+
+Brown blotch{*}
+(Neopestilotiopsis spp.)
+Yellow Sigatoka{*}
+(Mycosphaerella spp.)
+
+Post-Harvest
+Applications**:
+(Anthracnose and fruit rot)
+See instructions for
+post-harvest applications.
+
+Fruit rot{*}
+(Thelaviopsis spp.)
+
+Soil Diseases
+
+Field Applications
+
+Bacterial wilt{*}
+(Pseudomonas spp.)
+(suppression)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used
+in tank mixes and/or
+rotations with other
+effective fungicides.
+
+Brown blotch{*}
+(Pestalotiopsis spp.)
+
+Fusarium wilt / Panama
+disease{*}
+(Fusarium spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a
+tank mix or in rotation with
+other fungicides registered
+against these diseases.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a
+tank mix or in rotation with
+other fungicides registered
+against these diseases.
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 63 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Kiwifruit
+
+Foliar Diseases
+
+Field Applications
+
+Bacterial blight{*}
+(Pseudomonas spp.)
+(suppression)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Botrytis fruit rot / Gray
+mold{*}
+(Botrytis spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+Post-Harvest
+Applications**: (Botrytis
+Grey mold)
+See instructions for
+post-harvest applications
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 64 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Papaya
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria fruit rot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse
+Applications
+
+Bacterial leaf spot{*}
+(Pseudomonas spp.)
+(suppression)
+
+2.5-7.5 lbs./100 gallons
+water
+
+Botrytis Gray mold{*}
+(Botrytis spp.)
+
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used
+in tank mixes and/or
+rotations with other effective
+fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a tank
+mix or in rotation with other
+fungicides registered against
+these diseases.
+
+Black rot / Bacterial
+canker{*}
+(Erwinia spp.)
+(suppression)
+Chocolate spot{*}
+(Colletotrichum spp.)
+
+Post-Harvest
+Applications**:
+Anthracnose, Botrytis
+Gray mold, and fruit rots
+caused by Ascochyta,
+Aspergillus, Colletotrichum
+Fusarium, Penicillium,
+Rhizopus rots. See
+instructions for postharvest applications.
+
+Powdery mildew{*}
+(Erysiphae, Oidium,
+Sphaerotheca spp.)
+Fruit rots caused by
+Ascochyta, Aspergillus,
+Fusarium, Penicillium,
+and Rhizopus spp.{*}
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse
+Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+
+2.5-7.5 lbs./100 gallons
+water
+
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a tank
+mix or in rotation with other
+fungicides registered against
+these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 65 of 92
+
+CROP-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+Pineapple
+
+Foliar Diseases
+
+Field Applications
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Black rot{*}
+(Ceratocystis spp.)
+
+Greenhouse
+Applications
+
+Bacterial heart rot{*}
+(Erwinia spp.)
+(suppression)
+
+2.5-7.5 lbs./100 gallons
+water
+
+Penicillium rots{*}
+(Penicillium spp.)
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used
+in tank mixes and/or
+rotations with other
+effective fungicides.
+Bacterial diseases:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a
+tank mix or in rotation with
+other fungicides registered
+against these diseases.
+Post-Harvest
+Applications**:
+Black rot, Penicillium rots
+See instructions for postharvest applications.
+
+Soil Diseases
+
+Field Applications
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root and heart
+rot{*}
+(Phytophthora spp.)
+
+Greenhouse
+Applications
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+
+2.5-7.5 lbs./100 gallons
+water
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use
+the lower rate when in a
+tank mix or in rotation with
+other fungicides registered
+against these diseases.
+
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+{*Not registered for use in California}
+**Product can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 66 of 92
+
+TURF AND ORNAMENTALS
+ORNAMENTAL-SPECIFIC DIRECTIONS
+GREENHOUSE, LATHHOUSE, SHADEHOUSE, NURSERY AND FIELD
+CROP
+
+TARGET DISEASES
+
+PRODUCT USE RATE
+PER APPLICATION
+
+All types of
+Ornamental Trees,
+Shrubs, Flowers,
+Bedding Plants and
+other Ornamentals
+
+Foliar Diseases
+
+Field Applications
+
+Alternaria Leaf Spot{*}
+(Alternaria spp.)
+
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Greenhouse Applications
+
+Annuals and Perennials
+Bedding Plants
+Container Grown Plants
+Deciduous Trees and
+Shrubs
+Evergreen Trees and
+Shrubs
+Foliage Plants
+Ground Covers
+Palms
+Potted Flowers
+Tropical Foliage
+Woody Ornamentals
+
+Aerial Shoot Blight{*}
+(Phytophthora spp.)
+
+2.5-7.5 lbs./100 gallons water
+
+APPLICATION
+DIRECTIONS
+Begin applications prior to
+infection and continue on a
+5-14 day interval.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Black Spot of Rose{*}
+(Diplocarpon spp.)
+Downy mildew{*}
+(Peronospora spp.
+Plasmopara spp., Bremiella
+spp., Bremia spp.)
+Grey mold{*}
+(Botrytis spp.)
+Powdery Mildew{*}
+(Erysiphe spp., Microsphaera
+spp., Sphaerotheca spp.,
+Oidium spp., Podosphaera
+spp., Uncinula spp.)
+
+Fusarium wilt{*}
+(Fusarium spp.)
+
+Field Applications
+40-120 oz. wt./A
+(2.5-7.5 lbs./A)
+
+Phytophthora root rot{*}
+(Phytophthora spp.)
+
+Greenhouse Applications
+2.5-7.5 lbs./100 gallons water
+
+Soil Diseases
+
+Pythium damping off{*}
+(Pythium spp.)
+Rhizoctonia root rot{*}
+(Rhizoctonia spp.)
+Verticillium wilt{*}
+(Verticillium spp.)
+(suppression)
+
+See application instruction
+for in-furrow, shanked-in,
+injected, tray drench,
+transplant water or soil
+drench applications.
+Begin applications at planting
+and continue on a 5-14 day
+interval.
+Verticillium wilt:
+Apply 5.0-7.5 lbs./A. Use the
+lower rate when in a tank mix
+or in rotation with other
+fungicides registered against
+these diseases.
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 67 of 92
+
+ORNAMENTAL-SPECIFIC DIRECTIONS (CONTINUED)
+CROP
+
+TARGET DISEASES
+
+Grasses grown for
+seed and sod
+production
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Bluegrass
+Bromegrass
+Fescue
+Orchard grass
+Ryegrass
+Switchgrass
+
+Brown Patch{*}
+(Rhizoctonia spp.)
+Dollar Spot{*}
+(Sclerotinia spp.)
+Ergot{*}
+(Claviceps spp.)
+Powdery mildews{*}
+(Erysiphe spp.)
+
+PRODUCT USE RATE
+PER APPLICATION
+Field Applications
+40-120 oz wt./A
+(2.5-7.5 lbs./A)
+
+APPLICATION
+DIRECTIONS
+Begin foliar applications
+prior to infection and
+continue on a 5–14 day
+interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+Pythium Blight{*}
+(Pythium spp.)
+Pythium Root Rot{*}
+(Pythium spp.)
+Rusts{*}
+(Puccinia spp.)
+Septoria leaf spots{*}
+(Septoria spp.)
+Selenophoma stem
+eyespot{*}
+(Selenophoma spp.)
+
+{*Not registered for use in California}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 68 of 92
+
+TURF-SPECIFIC DIRECTIONS
+TURF AND TURF PRODUCTION APPLICATIONS:
+Apply Howler® on all warm and cool season turfgrass species including Bentgrass, Bermudagrass, Bluegrass,
+Centipedegrass, Fescue, Ryegrass, Saint Augustinegrass, Zoysia grass, Seashore Paspalum and Poa annua.
+Howler® can be applied on greens, tees, fairways and roughs, sports turf, parks cemeteries, commercial turf,
+roadsides, sod farms, seed production grasses and all ornamental grass species.
+CROP
+
+TARGET DISEASES
+
+Turf
+
+Anthracnose{*}
+(Colletotrichum spp.)
+
+Bentgrass
+Bermudagrass
+Bluegrass
+Centipedegrass
+Fescue
+Ryegrass
+St. Augustinegrass
+Zoysiagrass
+
+PRODUCT USE RATE
+PER APPLICATION
+1.8 oz wt./ 1000 sq. ft.
+
+Brown Patch{*}
+(Rhizoctonia spp.)
+Dollar Spot{*}
+(Clariredia spp.)
+Pythium Blight{*}
+(Pythium spp.)
+Pythium Root Rot{*}
+(Pythium spp.)
+
+APPLICATION
+DIRECTIONS
+Begin foliar applications
+prior to infection and
+continue on a 5-14 day
+interval as needed.
+Use higher rate and shorter
+intervals when disease
+pressure is high.
+Use lower rates when used in
+tank mixes and/or rotations
+with other effective
+fungicides.
+
+{*Not registered for use in California}
+
+STORAGE AND DISPOSAL
+DO NOT contaminate water, food or feed by storage or disposal. Open dumping is prohibited.
+Pesticide Storage: Store in original containers only. Store in a cool, dry place and avoid excess heat.
+
+Do not contaminate other pesticides, fertilizers, water, food or feed by storage or disposal.
+Pesticide Disposal: Wastes resulting from the use of this product must be disposed of on site or at an approved
+waste disposal facility.
+
+CONTAINER HANDLING
+For Plastic Drums/Totes: Nonrefillable container. Do not reuse or refill this container. Completely empty
+liner by shaking and tapping sides and bottom to loosen clinging particles. Empty residue into formulation
+equipment. Recycle if facilities for recycling are available, otherwise, dispose of in a sanitary landfill or by
+incineration. If drum/tote is contaminated and cannot be reused, dispose of it in the manner required for its
+liner.
+For Bags/Pouches: Nonrefillable container. Do not reuse or refill this container. Completely empty bag or
+pouch into formulation equipment. Recycle if facilities for recycling are available, otherwise, dispose of in a
+sanitary landfill or by incineration, or if allowed by state and local authorities, by burning. If burned, stay out
+of smoke.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 69 of 92
+
+CONDITIONS OF SALE AND LIMITATION OF WARRANTY AND LIABILITY
+NOTICE: Read the entire Directions for Use and Conditions of Sale and Limitation of Warranty and Liability
+before buying or using this product. If the terms are not acceptable, return the unopened product at once, and the
+purchase price will be refunded.
+The Directions for Use of this product are believed to be adequate and must be followed carefully. It is
+impossible to eliminate all risk inherently associated with the use of this product. Plant injury, ineffectiveness or
+other unintended consequences may result because of such factors as manner of use or application, weather, plant
+conditions, presence of other materials or other unknown factors, all of which are beyond the control of {AFS009
+Plant Protection, Inc.} {AgBiome Innovations, Inc.} or Seller. All such risks shall be assumed by the Buyer or User.
+To the extent consistent with applicable law, Buyer and User agree to hold {AFS009 Plant Protection, Inc.} and
+Seller harmless for any claims relating to such factors.
+{AFS009 Plant Protection, Inc.} warrants that this product conforms to the description on this label and is
+reasonably fit for the purposes stated in the Directions for Use, subject to the inherent risks described above, when
+used in accordance with the Directions for Use under normal use conditions. To the extent consistent with
+applicable law, (1) this warranty does not extend to the use of this product contrary to this label or under conditions
+not reasonably foreseeable to or beyond the control of the {AFS009 Plant Protection, Inc.} {AgBiome Innovations,
+Inc.} or Seller, and (2) Buyer and User assume the risk of any such use. TO THE EXTENT CONSISTENT WITH
+APPLICABLE LAW, {AFS009 PLANT PROTECTION, INC.} MAKES NO WARRANTIES, EXPRESS OR
+IMPLIED, OF MERCHANTABILITY OR OF FITNESS FOR A PARTICULAR PURPOSE OR OTHERWISE
+THAT EXTEND BEYOND THE STATEMENTS MADE ON THIS LABEL.
+TO THE EXTENT CONSISTENT WITH APPLICABLE LAW, THE EXCLUSIVE REMEDY OF THE BUYER
+OR USER AND THE EXCLUSIVE LIABILITY OF {AFS009 PLANT PROTECTION, INC.} {AGBIOME
+INNOVATIONS, INC.} AND SELLER FOR ANY AND ALL CLAIMS, LOSSES, INJURIES OR DAMAGES
+(INCLUDING CLAIMS BASED ON BREACH OF WARRANTY, CONTRACT, NEGLIGENCE, TORT, STRICT
+LIABILITY OR OTHERWISE) RESULTING FROM THE USE OR HANDLING OF THIS PRODUCT SHALL
+BE THE RETURN OF THE PURCHASE PRICE OF THE PRODUCT OR, AT THE ELECTION OF {AFS009
+PLANT PROTECTION, INC.} {AGBIOME INNOVATIONS, INC.} OR SELLER, THE REPLACEMENT OF
+PRODUCT.
+To the extent consistent with applicable law, {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or the
+Seller shall not be liable for consequential, special, or indirect damages resulting from the use, handling,
+application, storage, or disposal of this product or for damages in the nature of penalties, and the Buyer and the
+User waive any right that they may have to such damages.
+To the extent consistent with applicable law, {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or
+Seller must have prompt notice of any claims so that an immediate inspection of Buyer’s or User’s growing crops
+can be made. Buyer and User shall promptly notify {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.}
+or Seller of any claims, whether based on contract, negligence, strict liability, or other tort or otherwise be barred
+from any remedy.
+{AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} and Seller offer this product, and Buyer and User
+accept it, subject to the foregoing Conditions of Sale and Limitation of Warranty and Liability.
+No agent or employee of {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or Seller is authorized to
+make any warranties beyond those contained herein, to modify the warranties contained herein, to amend the terms
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 70 of 92
+
+of this Conditions of Sale and Limitation of Warranty and Liability or the product’s label or to make a presentation
+or recommendation different from or inconsistent with the label of this product.
+{AFS009 Plant Protection, Inc.} 104 T.W. Alexander Drive, Research Triangle Park, NC 27709 manufactures this
+product for AgBiome Innovations, Inc.}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 71 of 92
+
+Sublabel B: Turf & Ornamental Use
+
+{dry flowable fungicide} {fungicide}
+{For Use in Organic Lawn Care} {Can Be Used in Organic Lawn Care}
+
+{
+
+}
+
+Active Ingredient: Pseudomonas chlororaphis strain AFS009†
+Other Ingredients:
+Total:
+†
+Contains not less than 1 X 106 CFU/g of product.
+
+50.0%
+50.0%
+100.0%
+
+KEEP OUT OF REACH OF CHILDREN
+
+CAUTION
+SEE INSIDE FOR ADDITIONAL PRECAUTIONARY STATEMENTS.
+FIRST AID
+
+●
+●
+●
+●
+
+Move person to fresh air.
+If person is not breathing, call 911 or an ambulance, then give artificial respiration,
+preferably mouth-to-mouth if possible.
+Call a poison control center or doctor for treatment advice.
+Hold eye open and rinse slowly and gently with water for 15-20 minutes.
+Remove contact lenses, if present, after the first 5 minutes, then continue rinsing eye.
+Call a poison control center or doctor for treatment advice.
+
+IF ON SKIN OR
+CLOTHING
+
+●
+●
+●
+
+Take off contaminated clothing.
+Rinse skin immediately with plenty of water for 15-20 minutes.
+Call a poison control center or doctor for treatment advice.
+
+IF SWALLOWED:
+
+●
+●
+●
+●
+
+Call a poison control center or doctor immediately for treatment advice.
+Have person sip a glass of water if able to swallow.
+Do not induce vomiting unless told by a poison control center or doctor.
+Do not give anything by mouth to an unconscious person.
+
+IF INHALED
+
+IF IN EYES
+
+●
+●
+
+HOTLINE NUMBER
+Have the product container or label with you when calling a poison control center or doctor.
+You may also contact 1-800-262-8200 for emergency medical treatment information.
+EPA Reg. No.: 91197-3
+
+EPA Est. No.: XXXXX-XX-XXX
+
+Net Weight: XX
+({Batch}/{Lot}) No: XXXX
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 72 of 92
+
+PRECAUTIONARY STATEMENTS
+HAZARDS TO HUMANS AND DOMESTIC ANIMALS
+
+CAUTION
+Harmful if inhaled, absorbed through the skin, or swallowed. Causes moderate eye irritation. Avoid breathing dust
+or spray mist. Avoid contact with skin, eyes, or clothing. Wash thoroughly with soap and water after handling and
+before eating, drinking, chewing gum, using tobacco or using the toilet. Remove and wash contaminated clothing
+before reuse.
+
+PERSONAL PROTECTIVE EQUIPMENT (PPE)
+Applicators and other handlers must wear:
+●
+long-sleeved shirt and long pants
+●
+protective eyewear
+●
+waterproof gloves
+●
+shoes plus socks
+Wear a minimum of a NIOSH-approved particulate filtering facepiece respirator with any R, or P filter; OR a
+NIOSH approved elastomeric particulate respirator with any R, or P filter; OR a NIOSH-approved powered airpurifying respirator with an HE filter. (Repeated exposures to high concentrations of microbial proteins can cause
+allergic sensitization.)
+Follow the manufacturer’s instructions for cleaning/maintaining PPE. If no such instructions for washables are
+available, use detergent and hot water. Keep and wash PPE separately from other laundry.
+
+ENGINEERING CONTROLS
+When handlers use closed systems, or enclosed cabs, or aircraft in a manner that meets the requirements listed in
+the Worker Protection Standard (WPS) for agricultural pesticides [40CFR 170.607(d) and (e)], the handler PPE
+requirements may be reduced or modified as specified in the WPS.
+IMPORTANT: When reduced PPE is worn because a closed system is being used, handlers must be provided all
+PPE specified above for "applicators and other handlers" and have such PPE immediately available for use in an
+emergency, such as a spill or equipment break-down.
+
+USER SAFETY RECOMMENDATIONS
+●
+●
+
+Users should remove clothing/PPE immediately if pesticide is gets inside. The user should wash
+thoroughly and put on clean clothing.
+Users should remove PPE immediately after handling this product. Wash the outside of gloves before
+removing. As soon as possible, wash thoroughly and change into clean clothing.
+
+ENVIRONMENTAL HAZARDS
+For terrestrial uses: Do not apply directly to water, or to areas where surface water is present or to intertidal areas
+below the mean hight water mark. Do not contaminate water when disposing of equipment washwater or rinsate.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 73 of 92
+
+DIRECTIONS FOR USE
+It is a violation of Federal law to use this product in a manner inconsistent with its labeling.
+Do not apply this product in a way that will contact workers or other persons, either directly or through drift. Only
+protected handlers may be in the area during application. For any requirements specific to your State or Tribe,
+consult the State or Tribal agency responsible for pesticide regulation.
+
+AGRICULTURAL USE REQUIREMENTS
+Use this product only in accordance with its labeling and with the Worker Protection Standard, 40 CFR Part 170.
+This Standard contains requirements for the protection of agricultural workers on farms, forests, nurseries, and
+greenhouses, and handlers of agricultural pesticides. It contains requirements for training, decontamination,
+notification, and emergency assistance. It also contains specific instructions and exceptions pertaining to the
+statements on the label about personal protective equipment (PPE), and restricted-entry interval. The requirements
+in this box only apply to uses of this product that are covered by the Worker Protection Standard.
+Do not enter or allow worker entry into treated areas during the restricted-entry interval (REI) of 4 hours.
+Exception: If the product is soil incorporated or soil injected, the Worker Protection Standard, under certain
+circumstances, allows workers to enter the treated area if there will be no contact with anything that has been
+treated.
+PPE required for early entry to treated areas (that is permitted under the Worker Protection Standard and that
+involves contact with anything that has been treated, such as plants, soil or water) is:
+●
+Coveralls
+●
+Waterproof gloves
+●
+Shoes plus socks
+●
+Protective eyewear
+
+NON-AGRICULTURAL USE REQUIREMENTS
+The requirements in this box apply to uses of this product that are not within the scope of the Worker Protection
+Standard for agricultural pesticides (40 CFR Part 170). The WPS applies when this product is used to produce
+agricultural plants on farms, forests, nurseries or greenhouses.
+Keep unprotected persons out of treated areas until sprays have dried.
+Product Information: Howler® is a biological fungicide containing the active ingredient Pseudomonas
+chlororaphis strain AFS009 for use on growing plants and crops to control or suppress plant diseases a wide range
+of foliar, soil borne, and post-harvest diseases. Howler® may be mixed with water and applied in field, greenhouse,
+interiorscape, lathhouse, nursery, or shadehouse use sites as: a foliar spray; soil drench; in furrow spray; transplant
+spray or dip; or chemigation application. It may also be mixed with potting mix or applied dry in furrow. Product
+can only be applied to whole fruits and vegetables.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 74 of 92
+
+PREVENTATIVE APPLICATIONS FOR PLANT HEALTH AND
+OPTIMUM DISEASE CONTROL
+Howler® provides benefits that can result in healthier plants. Howler colonizes plants preventing the establishment
+of disease-causing fungi and bacterial. Improved plant health may help the treated plant tolerate environmental
+stresses such as drought, heat and cold temperatures and ozone damage. Overall increased plant health may
+improve crop vigor, yield and quality especially under stressful conditions.
+●
+●
+●
+
+●
+●
+
+Apply Howler as a soil application or foliar spray alone, in alternating spray programs or in tank mixes
+with other registered crop protection products.
+Apply Howler with spray equipment commonly used for making ground, aerial and chemigation
+applications.
+Adjust the spray intervals of Howler according to the Crop-Specific Use Directions tables depending upon
+disease pressure and environmental conditions favorable for disease development. Heavy rainfall or
+irrigation shortly after application may require retreatment.
+To enhance performance, consider adding a surfactant that is known to be safe to the target crop to the
+spray tank to improve penetration and coverage of above-ground portions of the plant.
+Howler is most effectively used in a preventative disease management program.
+
+FUNGICIDE RESISTANCE MANAGEMENT AND IPM:
+The PPE requirements below pertain to both Worker Protection Standard (WPS uses (in general, agricultural plant
+uses are covered by the Worker Protection Standard (40 CFR Part 170)) and Non-WPS uses.
+Howler is classified as a FRAC group BM02 Fungicide (multiple modes of action and low resistance risk).
+Howler can be used in tank mixes or rotations to reduce the risk of resistance to other fungicides.
+Integrate Howler into an overall disease and pest management strategy. Follow practices known to reduce disease
+development. Consult local agricultural authorities for specific IPM strategies developed for your location and
+crop(s).
+
+USE INSTRUCTIONS:
+Howler® has been evaluated for phytotoxicity on a variety of crops under various normal growing conditions.
+However, testing all crop varieties, in all mixtures and combinations, is not feasible. Prior to treating entire crop,
+test a small portion of the crop for sensitivity.
+Mixing directions:
+Important: Do not add Howler® to the mix tank before introducing the correct amount of water. Add water to the
+mix tank. Start the mechanical or hydraulic agitation to provide moderate circulation before adding Howler®.
+Maintain circulation while loading and spraying. Do not mix more Howler® than can be used in 24 hours.
+Spray volume
+For in furrow spray applications, use at least 5 gallons of total volume per acre in water-based sprays.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 75 of 92
+
+Tank mixing
+Do not combine Howler® in the spray tank with other pesticides, surfactants, adjuvants, or fertilizers if there has
+been no previous experience or use of the combination to show it is physically compatible, effective, and
+non-injurious under your use conditions. Observe the most restrictive of the labeling limitations and precautions of
+all products used in mixtures.
+To ensure compatibility of tank-mix combinations, they must be evaluated prior to use. To determine the physical
+compatibility of this product with other products, use a jar test. Using a quart jar, add the proportionate amounts of
+the products to one quart of water with agitation. Add dry formulations first, then flowables, and then emulsifiable
+concentrates last. After thoroughly mixing, let this mixture stand for 5 minutes. If the combination remains mixed
+or can be readily remixed, it is physically compatible. Once compatibility has been proven, use the same
+procedure for adding required ingredients to the spray tank.
+
+CHEMIGATION APPLICATION DIRECTIONS:
+TYPES OF IRRIGATION SYSTEMS
+Apply this product only through the following types of equipment:
+● Sprinkler irrigation systems including center pivot, lateral move, end tow, side (wheel) roll, traveler, solid
+set, big gun or hand move. Drip-type and micro-jet irrigation systems also allowed.
+Do not apply this product through any other type of irrigation system.
+Maintain agitation during mixing and application to ensure uniform product suspension. Use the application rate
+indicated in the Crop-Specific Use Directions of this label. Use sufficient water to achieve thorough coverage.
+
+UNIFORM WATER DISTRIBUTION AND SYSTEM CALIBRATION
+The chemigation system must provide uniform distribution of treated water. Crop injury or lack of effectiveness
+can result from non-uniform distribution of treated water. The chemigation system must be calibrated to uniformly
+apply the rates specified in the crop-specific label sections. If you have questions about calibration, you should
+contact local State Extension Service specialists, equipment manufacturers or other experts.
+
+CHEMIGATION MONITORING
+A person knowledgeable of the chemigation system and responsible for its operation or under the supervision of the
+responsible person shall shut the system down and make necessary adjustments should the need arise.
+
+REQUIRED SYSTEM SAFETY DEVICES
+The system must contain a functional check valve, a vacuum relief valve and a low-pressure drain appropriately
+located on the irrigation pipeline to prevent water source contamination from backflow. The pesticide injection
+pipeline must contain a functional automatic quick-closing check valve to prevent the flow of fluid back toward the
+injection pump. The pesticide injection pipeline must also contain a functional, normally closed solenoid-operated
+valve located on the intake side of the injection pump and irrigation system is either automatically or manually shut
+down. The system must contain functional interlocking controls to automatically shut off the pesticide injection
+pump when the water pump motor stops. The irrigation line or water pump must include a functional pressure
+switch which will stop the water pump motor when the water pressure decreases to the point where pesticide
+distribution is adversely affected. Systems must use a metering pump such as a positive displacement injection
+pump (e.g. diaphragm pump) effectively designed and constructed of materials that are compatible with pesticides
+and capable of being fitted with a system interlock.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 76 of 92
+
+USING WATER FROM PUBLIC WATER SYSTEMS
+Do not connect an irrigation system (including greenhouse systems) used for pesticide application to a public water
+system unless the pesticide label-prescribed safety devices for public water systems are in place.
+Public water system means a system for the provision to the public of piped water for human consumption if such
+system has at least 15 service connections or regularly serves an average of at least 25 individuals daily at least 60
+days out of the year. Chemigation systems connected to public water systems must contain a functional
+reduced-pressure zone (RPZ) backflow preventer or the functional equivalent in the water supply line upstream
+from the point of pesticide introduction. As an option to the RPZ, the water from the public waste system should be
+discharged into a reservoir tank prior to pesticide introduction. There shall be a complete physical break (air gap)
+between the outlet end of the fill pipe and the top or overflow rim of the reservoir tank of at least twice the inside
+diameter of the fill pipe. The pesticide injection pipeline must contain a functional automatic quick-closing check
+valve to prevent the flow of fluid back toward the injection pump. The pesticide injection pipeline must contain a
+functional normally closed solenoid-operated valve located on the intake side of the injection pump and connected
+to the system interlock to prevent fluid from being withdrawn from the supply tank when the irrigation system is
+either automatically or manually shut down. The system must contain functional interlocking controls to
+automatically shut off the pesticide injection pump when the water pump motor stops or in cases where there is no
+water pump, when the water pressure decreases to the point where pesticide distribution is adversely affected.
+Systems must use a metering pump such as a positive displacement injection pump (e.g. diaphragm pump)
+effectively designed and constructed of materials that are compatible with pesticides and capable of being fitted
+with a system interlock.
+
+INJECTION FOR CHEMIGATION
+Inject the specified dosage of Howler® into the irrigation main water stream: (1) through a constant flow meter
+device; (2) into the center of the main line flow via a pivot tube or equivalent; (3) at a point ahead of at least one
+right-angle turn in the mainstream flow such that thorough mixing with the irrigation water is ensured.
+
+CENTER PIVOT, LATERAL MOVE, END TOW, BIG GUN AND TRAVELER IRRIGATION
+EQUIPMENT (USE ONLY WITH ELECTRIC OR OIL HYDRAULIC DRIVE SYSTEMS THAT
+PROVIDE A UNIFORM WATER DISTRIBUTION)
+●
+●
+
+Determine the size of area to be treated.
+Determine the time required to apply no more than ¼ inch of water (6,750 gallons water per acre) over the
+area to be treated when the system and injection equipment are operated at normal pressures specified by
+the equipment manufacturer. Run system at 80 to 95% of manufacturer’s rated capacity.
+● Using only water, determine the injection pump output when operated at normal line pressure.
+● Determine the amount of Howler required to treat area.
+● Add required amount of Howler and sufficient water to meet the injection time requirements of the solution
+tank.
+● Maintain constant solution tank agitation during the injection period.
+● Stop injection equipment after treatment is completed. Continue to operate the system until Howler
+solution has cleared the sprinkler head.
+
+SOLID SET, SIDE (WHEEL) ROLL AND HAND MOVE IRRIGATION EQUIPMENT
+●
+●
+●
+
+Determined acreage covered by sprinkler
+Fill injector solution tank with water and adjust flow rate to use contents over a 10 to 30 minute interval
+Determine the amount of Howler® required to treat area.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 77 of 92
+
+●
+●
+●
+●
+●
+
+Add the required amount of Howler into the same quantity of water used to calibrate the injection
+equipment.
+Maintain constant solution tank agitation during the injection period.
+Operate system at normal pressures specified by the manufacturer of the injection equipment and used for
+the time interval established during calibration.
+Inject Howler at the end of the irrigation cycle or as a separate application to maximize foliar fungicide
+retention.
+Stop injection equipment after treatment is completed. Continue to operate the system until Howler
+solution has cleared the last sprinkler head.
+
+FLUSHING AND CLEANING THE CHEMICAL INJECTION SYSTEM
+At the end of the application period, allow time for all lines to flush the pesticide through all nozzles or emitters
+before turning off irrigation water. To ensure the lines are flushed and free of pesticides, a dye indicator may be
+injected into the lines to mark the end of the application period.
+In order to apply pesticides accurately, the chemical injection system must be dept clean and free of chemical or
+fertilizer residues and sediments. Refer to your owner’s manual or ask your equipment supplier for the cleaning
+procedure for your injection system.
+
+SPRAY DRIFT MANAGEMENT:
+The interaction of many equipment and weather-related factors determine the potential for spray drift. The
+applicator is responsible for considering all of these factors when making application decisions. Consult the local
+Cooperative Extension for additional information. Avoiding spray drift is the responsibility of the applicator.
+
+DROPLET SIZE
+Use the largest droplet size that provides sufficient control and coverage. Higher flow nozzles and lower pressures
+will product larger droplets and minimize drift. Low drift and air induction nozzles will provide lower drift
+potential. Use larger droplet size when applying in hot, dry conditions (droplet evaporation is higher under these
+conditions thus reducing the effective droplet size and increasing drift potential).
+
+WIND SPEED
+Drift potential increases at wind speeds of less than 3 mph (due to inversion potential) or more than 10 mph.
+Applications during gusty or calm wind conditions should be avoided. However, factors including droplet size,
+canopy and equipment specifications determine drift potential at any given wind speed. For applications made
+in-furrow or below soil-level, wind speed restrictions are not applicable.
+
+TEMPERATURE INVERSIONS
+Drift potential is high during temperature inversions and applications should be avoided under these conditions.
+Temperature inversions are common on nights with limited cloud cover and light to no wind. Temperature
+inversions begin to form as the sun sets and often continue into the morning. Their presence can be indicated by
+ground fog. If fog is not present, inversions can also be identified by the movement of smoke or dust from a ground
+source – smoke or dust that layers and moves laterally in a concentrated cloud (under low wind conditions)
+indicates an inversion.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 78 of 92
+
+SENSITIVE AREAS
+When applying adjacent to residential areas, bodies of water, habitats known to have threatened or endangered
+species or non-target crops, drift can be minimized to these areas by making the application when the wind
+direction is away from these areas.
+Where states or local authorities have more stringent regulations, they should be observed.
+
+AERIAL APPLICATIONS
+●
+●
+●
+
+Mount the spray boom on the aircraft to minimize drift caused by wing tip vortices.
+The minimum practical boom length should be used and should not exceed 75% of the wingspan or rotor
+diameter.
+Applications should not be made at a height greater than 10 feet above the top of the largest plants unless a
+greater height is required for aircraft safety.
+
+TARGET PLANT DISEASES
+Aerial Blight{*} (Rhizoctonia spp., Sclerotinia)
+Anthracnose{*} (Colletotrichum graminicola)
+Botrytis Blight{*}; Gray Mold{*}(Botrytis spp.)
+Brown Patch{*} (Rhizoctonia spp.)
+Damping Off{*} (Fusarium nivale)
+Dollar Spot** {*} (Sclerotinia)
+Fusarium Patch{*} (Fusarium nivale)
+Pythium Blight{*}
+Pythium Root Rot{*}
+Pythium Crown Rot{*} (Pythium spp.)
+Stem and Root Rot{*} (Phytophthora)
+{* Not for use in California.}
+**Suppression of Dollar Spot requires preventative applications and better suppression is noted in moderate to low
+disease pressure.
+Ornamental {Production} {Plants} {Crops} {Greenhouse, Lathhouse, Shadehouse, Nursery, and Field}
+Applications:
+APPLICATION RATES
+Repeat at 7- to 14-day intervals as needed. Thoroughly cover plant foliage until runoff and soil surfaces with spray
+solution. Pre-harvest Interval (PHI) = 0 days.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 79 of 92
+
+ORNAMENTAL
+Flowers, Bedding
+Plants, and
+Ornamentals{*}
+
+APPLICATION METHOD
+Greenhouse Soil Drench
+
+APPLICATION RATE
+67 – 100 oz Howler®/100 gal water
+
+Nursery Soil Drench
+
+67 – 100 oz Howler®/100 gal water
+
+Greenhouse Chemigation
+
+{67 – 100 oz Howler®/100 gal water
+or}
+6.7 – 10 oz Howler®/gal water
+Apply diluted solution at 1000-8000 gal/acre
+{5 – 15 lb Howler®/acre
+or}
+6.7 – 10 oz Howler®/gal water
+Apply diluted solution at 200-400 gal/acre
+{5 – 15 lb Howler®/acre
+or}
+6.7 – 10 oz Howler®/gal water
+Apply diluted solution at 1000-8000 gal/acre
+1.75 – 8.5 lb Howler®/cubic yard soil
+
+Foliar Spray
+
+Field Chemigation or Drench
+
+Greenhouse Soil
+Incorporation
+In Furrow Spray or
+Transplant Starter Solution
+Shadehouse and
+Outdoor Nursery
+Crops{*},
+including
+Deciduous Trees (e.g.,
+Maples and Oaks),
+Ornamentals, and Pine
+
+Greenhouse Soil Drench
+
+5 – 15 lb Howler®/acre
+or
+67 – 100 oz Howler®/100 gal water
+67 – 100 oz Howler®/100 gal water
+
+Nursery Soil Drench
+
+67 – 100 oz Howler®/100 gal water
+
+In Furrow Spray or
+Transplant Starter Solution
+
+5 – 15 lb Howler®/acre
+or
+67 – 100 oz Howler®/100 gal water
+{67 – 100 oz Howler®/100 gal water
+or}
+6.7 – 10 oz Howler®/gal water
+Apply diluted solution at 1000-8000 gal/acre
+5 – 15 lb Howler®/acre
+or
+6.7 – 10 oz Howler®/gal water
+Apply diluted solution at 200-500 gal/acre
+{or 67 – 100 oz Howler®/100 gal water}
+5 – 15 lb Howler®/acre
+or
+6.7 – 10 oz Howler®/gal water
+Apply diluted solution at 1000-8000 gal/acre
+
+Greenhouse Chemigation
+
+Foliar Spray
+
+Field Chemigation or Drench
+
+{* Not for Use in California}
+
+Established Landscape and Interiorscape Applications:
+Use Howler® on all ornamentals (e.g., landscape plants, trees, shrubs, annuals, perennials, ground covers, and
+tropical plants) outdoors and in interiorscapes for control or suppression of a broad spectrum of plant diseases.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 80 of 92
+
+Established Landscape and Interiorscape Application Timing:
+Apply Howler® throughout the growing season on all types of woody ornamentals, trees, shrubs, flowering plants,
+and other landscape and interiorscape plants. Apply when ground temperature has reached 45°F (7°C) or above
+until late fall prior to light frost. Begin applications prior to when environmental conditions are conducive to
+disease development and throughout periods of disease and stress.
+ORNAMENTAL APPLICATIONS
+Target Disease
+Application Rate &
+Directions
+
+Plant
+All Types of Ornamentals,
+Trees, Shrubs, and
+Flowering Plants,
+including Annuals,
+Perennials, Bedding Plants,
+Ground Covers
+Potted Flowers, Foliage
+Plants, Woody Ornamentals,
+Deciduous Trees & Shrubs,
+Evergreen Trees & Shrubs,
+Tropical Foliage, Palms, and
+Container Grown Plants
+{Indoors, Outdoors, Fields,
+and Landscape Areas}
+
+Anthracnose{*}
+(Colletotrichum graminicola)
+Aerial Blight{*}
+(Rhizoctonia spp.)
+(Sclerotinia)
+Damping Off{*}
+(Fusarium spp.)
+Pythium Blight{*}
+Pythium Root Rot{*}
+Pythium Crown Rot{*}
+(Pythium spp.)
+Stem and Root Rot{*}
+(Phytophthora)
+Botrytis Blight{*}
+Grey Mold{*}
+(Botrytis spp.)
+
+Application Interval
+
+Soil Drench:
+67 to 100 oz Howler® per
+100 gallons of water.
+Thoroughly drench soil
+around plug, planting
+hole, tree canopy, root
+ball, or container.
+
+New Plantings and
+Transplants:
+Apply at time of
+planting to prevent
+disease. Reapply every
+7-14 days through
+growing season.
+
+Foliar Spray:
+67 to 100 oz Howler® per
+100 gallons of water {or
+6.7 – 10 oz Howler® per
+gallon of water} {or 5 –
+15 lb Howler® per acre}.
+Thoroughly spray foliage
+until run-off.
+
+Established
+Plantings:
+Apply prior to disease
+pressure and every
+7-14 days while
+disease conditions
+persist.
+
+Transplant Spray or
+Dip:
+6.7 – 10 oz Howler® per
+10 gallons of water {or 67
+– 100 oz Howler® per 100
+gallons of water}.
+
+{* Not for Use in California}
+
+Established Turf and Turf Production Applications:
+Use on all cool and warm season turfgrass varieties including Bentgrass, Bluegrass, Bermudagrass (common and
+hybrid), Fescue, Ryegrass, St. Augustine, Zoysia, Paspalum and Poa Annua. Use in or on greens, tees, fairways
+and roughs, sports turf, parks, cemeteries, commercial turf, roadsides, {residential} lawns, sod farms, seed
+production grasses and all ornamental grass varieties.
+Established Turf and Turf Production Application Timing:
+Apply Howler® throughout the growing season on all types of turfgrass varieties. Apply when ground temperature
+has reached 45°F (7°C) or above until late fall prior to light frost. Begin applications prior to when environmental
+conditions are conducive to disease development and throughout periods of disease and stress.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 81 of 92
+
+Target Disease
+Anthracnose{*}
+(Colletotrichum
+graminicola)
+Brown Patch{*}
+(Rhizoctonia spp.)
+Dollar Spot** {*}
+(Sclerotinia spp.)
+
+TURF APPLICATIONS
+Application
+Application Rate
+Application Volume
+Interval
+®
+1.8 – 6 oz Howler
+7 – 21 days
+Root Diseases:
+per 1000 square
+Spray at a rate of 2 –
+feet
+4 gallons of tank mix
+per 1000 square feet
+of turf (7.5 – 15 liters
+of tank mix per 100
+square meters of turf)
+to ensure soil
+penetration.
+
+Fusarium Patch{*}
+(Fusarium spp.)
+Pythium Blight{*}
+
+Remarks
+Begin applications
+prior to when
+conditions are
+conducive to disease
+development.
+Continue applications
+throughout periods of
+disease and stress.
+
+Foliar Diseases:
+Spray at a rate of 1 –
+6 gallons of tank mix
+per 1000 square feet
+of turf (3.78 – 22.7
+liters of tank mix per
+100 square meters of
+turf) to provide
+thorough coverage.
+
+Pythium Root
+Rot{*}
+Pythium Crown
+Rot{*}
+(Pythium spp.)
+{* Not for Use in California}
+**Suppression of Dollar Spot requires preventative applications and better suppression is noted in moderate to low disease
+pressure.
+TURF ESTABLISHMENT APPLICATIONS FOR PATHOGEN/DISEASE CONTROL OR
+SUPPRESSION
+Application
+Application Rate
+Timing and Frequency
+Apply
+at
+time of seed germination.
+®
+New Seeding, Over Seeding, and 1.8 – 6 oz Howler per 1000
+Repeat every 14 days during grow-in
+square feet
+Hydro Seeding
+period.
+Apply at time of installation and repeat
+1.8 – 6 oz Howler® per 1000
+in 14 – 28 days. Continue during
+Sod Installation
+square feet
+disease and stress period.
+Begin applications at time of seeding,
+1.8 – 6 oz Howler® per 1000
+plugging, or newly cut ribbons.
+Sod Production
+square feet
+Continue monthly during disease and
+stress periods.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 82 of 92
+
+STORAGE AND DISPOSAL
+Do not contaminate water, food or feed by storage or disposal.
+Pesticide Storage: Store in original container in a cool, dry place. Avoid overheating.
+Pesticide Disposal: To avoid wastes, use all material in this container by application according to label directions.
+If wastes cannot be avoided, offer remaining product to a waste disposal facility or pesticide disposal program
+(often such programs are run by state or local governments or by industry).
+Container Handling: Nonrefillable container. Do not reuse or refill this container.
+Completely empty bag into application equipment. Then, offer for recycling if available, or dispose of empty bag in
+a sanitary landfill or by incineration. Do not burn, unless allowed by state and local ordinances. If burned, stay out
+of smoke.
+Uses of Howler® other than those specified on this label are not licensed or otherwise authorized through the
+purchase of this product and the use of this product for other purposes including research and/or experimental uses
+are expressly prohibited without the written consent of AFS009 Plant Protection, Inc.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 83 of 92
+
+CONDITIONS OF SALE AND LIMITATION OF WARRANTY AND LIABILITY
+NOTICE: Read the entire Directions for Use and Conditions of Sale and Limitation of Warranty and Liability
+before buying or using this product. If the terms are not acceptable, return the unopened product at once, and the
+purchase price will be refunded.
+The Directions for Use of this product are believed to be adequate and must be followed carefully. It is
+impossible to eliminate all risk inherently associated with the use of this product. Plant injury, ineffectiveness or
+other unintended consequences may result because of such factors as manner of use or application, weather, plant
+conditions, presence of other materials or other unknown factors, all of which are beyond the control of {AFS009
+Plant Protection, Inc.} {AgBiome Innovations, Inc.} or Seller. All such risks shall be assumed by the Buyer or User.
+To the extent consistent with applicable law, Buyer and User agree to hold {AFS009 Plant Protection, Inc.} and
+Seller harmless for any claims relating to such factors.
+{AFS009 Plant Protection, Inc.} warrants that this product conforms to the description on this label and is
+reasonably fit for the purposes stated in the Directions for Use, subject to the inherent risks described above, when
+used in accordance with the Directions for Use under normal use conditions. To the extent consistent with
+applicable law, (1) this warranty does not extend to the use of this product contrary to this label or under conditions
+not reasonably foreseeable to or beyond the control of the {AFS009 Plant Protection, Inc.} {AgBiome Innovations,
+Inc.} or Seller, and (2) Buyer and User assume the risk of any such use. TO THE EXTENT CONSISTENT WITH
+APPLICABLE LAW, {AFS009 PLANT PROTECTION, INC.} MAKES NO WARRANTIES, EXPRESS OR
+IMPLIED, OF MERCHANTABILITY OR OF FITNESS FOR A PARTICULAR PURPOSE OR OTHERWISE
+THAT EXTEND BEYOND THE STATEMENTS MADE ON THIS LABEL.
+TO THE EXTENT CONSISTENT WITH APPLICABLE LAW, THE EXCLUSIVE REMEDY OF THE BUYER
+OR USER AND THE EXCLUSIVE LIABILITY OF {AFS009 PLANT PROTECTION, INC.} {AGBIOME
+INNOVATIONS, INC.} AND SELLER FOR ANY AND ALL CLAIMS, LOSSES, INJURIES OR DAMAGES
+(INCLUDING CLAIMS BASED ON BREACH OF WARRANTY, CONTRACT, NEGLIGENCE, TORT, STRICT
+LIABILITY OR OTHERWISE) RESULTING FROM THE USE OR HANDLING OF THIS PRODUCT SHALL
+BE THE RETURN OF THE PURCHASE PRICE OF THE PRODUCT OR, AT THE ELECTION OF {AFS009
+PLANT PROTECTION, INC.} {AGBIOME INNOVATIONS, INC.} OR SELLER, THE REPLACEMENT OF
+PRODUCT.
+To the extent consistent with applicable law, {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or the
+Seller shall not be liable for consequential, special, or indirect damages resulting from the use, handling,
+application, storage, or disposal of this product or for damages in the nature of penalties, and the Buyer and the
+User waive any right that they may have to such damages.
+To the extent consistent with applicable law, {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or
+Seller must have prompt notice of any claims so that an immediate inspection of Buyer’s or User’s growing crops
+can be made. Buyer and User shall promptly notify {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.}
+or Seller of any claims, whether based on contract, negligence, strict liability, or other tort or otherwise be barred
+from any remedy.
+{AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} and Seller offer this product, and Buyer and User
+accept it, subject to the foregoing Conditions of Sale and Limitation of Warranty and Liability.
+No agent or employee of {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or Seller is authorized to
+make any warranties beyond those contained herein, to modify the warranties contained herein, to amend the terms
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 84 of 92
+
+of this Conditions of Sale and Limitation of Warranty and Liability or the product’s label or to make a presentation
+or recommendation different from or inconsistent with the label of this product.
+{AFS009 Plant Protection, Inc.} 104 T.W. Alexander Drive, Research Triangle Park, NC 27709 manufactures this
+product for AgBiome Innovations, Inc.}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 85 of 92
+
+Sublabel C: Home & Garden Use
+
+{dry flowable fungicide} {fungicide} [ABN: Howler® Lawn and Garden Fungicide]
+{For Use in Organic Gardening} {Can Be Used in Organic Gardening} {For Use in Organic Lawn
+Care} {Can Be Used in Organic Lawn Care}
+
+{
+
+}
+
+Active Ingredient: Pseudomonas chlororaphis strain AFS009†
+Other Ingredients:
+Total:
+†
+Contains not less than 1 X 106 total CFU/g of product.
+
+50.0%
+50.0%
+100.0%
+
+KEEP OUT OF REACH OF CHILDREN
+
+CAUTION
+SEE INSIDE FOR ADDITIONAL PRECAUTIONARY STATEMENTS.
+FIRST AID
+
+●
+●
+●
+●
+
+Move person to fresh air.
+If person is not breathing, call 911 or an ambulance, then give artificial respiration,
+preferably mouth-to-mouth if possible.
+Call a poison control center or doctor for treatment advice.
+Hold eye open and rinse slowly and gently with water for 15-20 minutes.
+Remove contact lenses, if present, after the first 5 minutes, then continue rinsing eye.
+Call a poison control center or doctor for treatment advice.
+
+IF ON SKIN OR
+CLOTHING
+
+●
+●
+●
+
+Take off contaminated clothing.
+Rinse skin immediately with plenty of water for 15-20 minutes.
+Call a poison control center or doctor for treatment advice.
+
+IF SWALLOWED:
+
+●
+●
+●
+●
+
+Call a poison control center or doctor immediately for treatment advice.
+Have person sip a glass of water if able to swallow.
+Do not induce vomiting unless told by a poison control center or doctor.
+Do not give anything by mouth to an unconscious person.
+
+IF INHALED
+
+IF IN EYES
+
+●
+●
+
+HOTLINE NUMBER
+Have the product container or label with you when calling a poison control center or doctor.
+You may also contact 1-800-262-8200 for emergency medical treatment information.
+EPA Reg. No.: 91197-3
+
+EPA Est. No.: XXXXX-XX-XXX
+
+Net Weight: XX
+({Batch}/{Lot}) No: XXXX
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 86 of 92
+
+PRECAUTIONARY STATEMENTS
+HAZARDS TO HUMANS AND DOMESTIC ANIMALS
+
+CAUTION
+Harmful if inhaled, absorbed through the skin, or swallowed. Causes moderate eye irritation. Avoid breathing dust
+or spray mist. Avoid contact with skin, eyes or clothing. Wash thoroughly with soap and water after handling and
+before eating, drinking, chewing gum, using tobacco or using the toilet. Remove and wash contaminated clothing
+before reuse.
+
+ENVIRONMENTAL HAZARDS
+To protect the environment, do not allow pesticide to enter or run off into storm drains, drainage ditches, gutters or
+surface waters. Applying this product in calm weather when rain is not predicted for the next 24 hours will help to
+ensure that wind or rain does not blow or wash pesticide off the treatment area. Rinsing application equipment over
+the treated area will help avoid run off to water bodies or drainage systems.
+
+DIRECTIONS FOR USE – HOME AND GARDEN AND TURF
+It is a violation of Federal law to apply this product in a manner inconsistent with its labeling.
+
+HOME AND GARDEN USE DIRECTIONS
+Howler® is a biological fungicide for use to control or suppress diseases in bedding plants, annuals and perennials,
+home vegetable gardens, and ornamental trees and shrubs. Diseases controlled or suppressed include: Anthracnose
+(Colletotrichum graminicola), Botrytis (Botrytis spp.), Early Blight (Alternaria solani)*, Gray Mold (Botrytis
+cinerea), Late Blight (Phytophthora infestans), Pythium, Fusarium*, and Rhizoctonia. Howler® must be mixed with
+water and may be applied as a soil drench or foliar spray.
+{*Not for use in California.}
+WHEN TO USE
+For best results, apply Howler® at the time of planting and at the first sign of disease. Repeat applications for plant
+diseases every 7 – 14 days.
+BEFORE YOU USE
+Read and follow these directions when using.
+Do not allow spray to drift from application site.
+Use only with pressurized hand-held sprayers, backpack sprayers, spray trigger bottles, or hose-end sprayers
+HOW TO USE FOR PRESSURIZED HAND-HELD SPRAYERS, BACKPACK SPRAYERS AND SPRAY
+TRIGGER BOTTLES
+Fill sprayer or bottle with appropriate amount of water and Howler®.
+Mix the spray solution thoroughly.
+Keep the spray solution agitated during application.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 219) 04232021
+Page 87 of 93
+
+HOW TO USE FOR HOSE-END SPRAYERS
+Follow hose-end sprayer instructions to determine how to fill, set dial, clean and disconnect from hose. Set dial on
+sprayer to deliver rate as directed below.
+HOW MUCH TO USE FOR ALL APPLICATIONS
+3.5 - 5 tablespoons of Howler® per gallon of water.
+
+TURF USE DIRECTIONS
+Use on all cool and warm season turfgrass varieties including Bentgrass, Bluegrass, Bermudagrass (common and
+hybrid), Fescue, Ryegrass, St. Augustine, Zoysia, Paspalum and Poa Annua. Use in or on residential lawns and all
+ornamental grass varieties.
+For target plant diseases see Turf Application Table.
+WHEN TO USE
+Apply Howler® throughout the growing season on all types of turfgrass varieties. Apply when ground temperature
+has reached 45°F (7°C) or above until late fall prior to light frost. Begin applications prior to when environmental
+conditions are conducive to disease development and throughout periods of disease and stress.
+
+Target Disease
+Anthracnose{*}
+(Colletotrichum
+graminicola)
+Brown Patch{*}
+(Rhizoctonia spp.)
+
+TURF APPLICATIONS
+Application
+Application Rate
+Application Volume
+Interval
+3.5 – 5 tablespoons
+7 – 21 days
+Root Diseases:
+per gallon of water
+Spray at a rate of 2 –
+4 gallons of diluted
+Howler per 1000 sq
+feet of turf to ensure
+soil penetration
+
+Dollar Spot** {*}
+(Sclerotinia spp.)
+Fusarium Patch{*}
+(Fusarium spp.)
+
+Foliar Diseases:
+Spray at a rate of 1 –
+6 gallons of diluted
+Howler per 1000
+square feet of turf. to
+provide thorough
+coverage.
+
+Remarks
+Begin applications in
+the Spring around first
+mowing of grass and
+continue as needed
+through the Autumn
+until grass goes
+dormant.
+Continue applications
+throughout periods of
+disease and stress.
+
+Pythium Blight{*}
+Pythium Root
+Rot{*}
+Pythium Crown
+Rot{*}
+(Pythium spp.)
+{* Not for Use in California}
+**Suppression of Dollar Spot requires preventative applications and better suppression is noted in moderate to low disease
+pressure.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 88 of 92
+
+STORAGE AND DISPOSAL
+Do not contaminate water, food, or feed by storage or disposal.
+● Pesticide Storage: Store in a cool, dry place. Avoid overheating.
+● Pesticide Disposal and Container Handling: Nonrefillable container. Do not reuse or refill this
+container.
+● If empty: Place in trash or offer for recycling, if available.
+● If partially filled: Call your local solid waste agency for disposal instructions. Never place unused
+product down any indoor or outdoor drain.
+
+Uses of Howler® other than those specified on this label are not licensed or otherwise authorized through the
+purchase of this product and the use of this product for other purposes including research and/or experimental uses
+are expressly prohibited without the written consent of AFS009 Plant Protection, Inc.
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 89 of 92
+
+CONDITIONS OF SALE AND LIMITATION OF WARRANTY AND LIABILITY
+NOTICE: Read the entire Directions for Use and Conditions of Sale and Limitation of Warranty and Liability
+before buying or using this product. If the terms are not acceptable, return the unopened product at once, and the
+purchase price will be refunded.
+The Directions for Use of this product are believed to be adequate and must be followed carefully. It is
+impossible to eliminate all risk inherently associated with the use of this product. Plant injury, ineffectiveness or
+other unintended consequences may result because of such factors as manner of use or application, weather, plant
+conditions, presence of other materials or other unknown factors, all of which are beyond the control of {AFS009
+Plant Protection, Inc.} {AgBiome Innovations, Inc.} or Seller. All such risks shall be assumed by the Buyer or User.
+To the extent consistent with applicable law, Buyer and User agree to hold {AFS009 Plant Protection, Inc.} and
+Seller harmless for any claims relating to such factors.
+{AFS009 Plant Protection, Inc.} warrants that this product conforms to the description on this label and is
+reasonably fit for the purposes stated in the Directions for Use, subject to the inherent risks described above, when
+used in accordance with the Directions for Use under normal use conditions. To the extent consistent with
+applicable law, (1) this warranty does not extend to the use of this product contrary to this label or under conditions
+not reasonably foreseeable to or beyond the control of the {AFS009 Plant Protection, Inc.} {AgBiome Innovations,
+Inc.} or Seller, and (2) Buyer and User assume the risk of any such use. TO THE EXTENT CONSISTENT WITH
+APPLICABLE LAW, {AFS009 PLANT PROTECTION, INC.} MAKES NO WARRANTIES, EXPRESS OR
+IMPLIED, OF MERCHANTABILITY OR OF FITNESS FOR A PARTICULAR PURPOSE OR OTHERWISE
+THAT EXTEND BEYOND THE STATEMENTS MADE ON THIS LABEL.
+TO THE EXTENT CONSISTENT WITH APPLICABLE LAW, THE EXCLUSIVE REMEDY OF THE BUYER
+OR USER AND THE EXCLUSIVE LIABILITY OF {AFS009 PLANT PROTECTION, INC.} {AGBIOME
+INNOVATIONS, INC.} AND SELLER FOR ANY AND ALL CLAIMS, LOSSES, INJURIES OR DAMAGES
+(INCLUDING CLAIMS BASED ON BREACH OF WARRANTY, CONTRACT, NEGLIGENCE, TORT, STRICT
+LIABILITY OR OTHERWISE) RESULTING FROM THE USE OR HANDLING OF THIS PRODUCT SHALL
+BE THE RETURN OF THE PURCHASE PRICE OF THE PRODUCT OR, AT THE ELECTION OF {AFS009
+PLANT PROTECTION, INC.} {AGBIOME INNOVATIONS, INC.} OR SELLER, THE REPLACEMENT OF
+PRODUCT.
+To the extent consistent with applicable law, {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or the
+Seller shall not be liable for consequential, special, or indirect damages resulting from the use, handling,
+application, storage, or disposal of this product or for damages in the nature of penalties, and the Buyer and the
+User waive any right that they may have to such damages.
+To the extent consistent with applicable law, {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or
+Seller must have prompt notice of any claims so that an immediate inspection of Buyer’s or User’s growing crops
+can be made. Buyer and User shall promptly notify {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.}
+or Seller of any claims, whether based on contract, negligence, strict liability, or other tort or otherwise be barred
+from any remedy.
+{AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} and Seller offer this product, and Buyer and User
+accept it, subject to the foregoing Conditions of Sale and Limitation of Warranty and Liability.
+No agent or employee of {AFS009 Plant Protection, Inc.} {AgBiome Innovations, Inc.} or Seller is authorized to
+make any warranties beyond those contained herein, to modify the warranties contained herein, to amend the terms
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 90 of 92
+
+of this Conditions of Sale and Limitation of Warranty and Liability or the product’s label or to make a presentation
+or recommendation different from or inconsistent with the label of this product.
+{AFS009 Plant Protection, Inc.} 104 T.W. Alexander Drive, Research Triangle Park, NC 27709 manufactures this
+product for AgBiome Innovations, Inc.}
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 91 of 92
+
+Optional Label Claims
+-
+
+-
+
+Biological fungicide
+Fungicide for disease control on {turfgrass} {and} {or} {landscapes} {landscape and ornamental plants
+grown in greenhouses, nurseries, landscapes, interiorscapes, shadehouses and lathhouses}.
+Any or all listed pests may be represented graphically on Final Printed Labeling.
+Non-misleading icons depicting use sites, pests, or marketing claims may be optionally included.
+This graphic may be used on the label
+
+Manufactured by:
+AFS009 Plant Protection, Inc.
+104 T.W. Alexander Drive
+Research Triangle Park, NC 27709
+
+Howler®; EPA Reg. No. 91197-3 1
+Master Label (v 223) 01212022
+Page 92 of 92
+
+

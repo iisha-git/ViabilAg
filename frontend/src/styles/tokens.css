@@ -1,0 +1,15 @@
+/* Design tokens. Palette: deep forest, warm cream, aqua, with coral and amber as friendly accents. */
+:root{
+  --char:#0d1815; --char-2:#14241f; --char-3:#1c322b;
+  --cream:#f3ecdc; --cream-dim:#c9bfa8; --cream-faint:#8f8777;
+  --navy:#1d3b33; --navy-2:#2a5247;
+  --teal:#3fc3aa; --teal-deep:#2a8d7c; --teal-glow:rgba(63,195,170,.35);
+  --amber:#e6a94a; --amber-soft:rgba(230,169,74,.14);
+  --blush:#f0a595; --coral:#ff8f78;
+  --line:rgba(243,236,220,.12);
+  --radius:22px; --radius-sm:14px;
+  --font-serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --col:680px;
+}

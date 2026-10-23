@@ -1,0 +1,16 @@
+# Render Blueprint: one click deploy of API + website (see docs/deployment.md).
+services:
+  - type: web
+    name: biooasis
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Optional: enables Dew's Gemini answers (POST /api/dew). Without a key the
+      # endpoint stays off and the app uses its built-in guided answers.
+      # Values are set in the Render dashboard, never in this file.
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        sync: false   # optional, defaults to gemini-3.6-flash
