@@ -8,7 +8,7 @@
    - label photos: they are in-memory blob: URLs and never reach the network,
      so they are never seen here either.
    Cached files are public app code; nothing about you is stored. */
-const VERSION = "biooasis-static-v8";
+const VERSION = "biooasis-static-v9";
 const ASSETS = [
   "./",
   "index.html",
@@ -90,6 +90,7 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;          // uploads, analyses, conditions: straight to network
   if (url.origin !== self.location.origin) return;     // OCR CDN, weather API: straight to network
   if (url.pathname.startsWith("/api/")) return;        // answers, uploads, weather: never cached
+  if (url.pathname === "/sw.js" || url.pathname.endsWith("/sw.js")) return;  // update checks must always see the newest worker
 
   if (event.request.mode === "navigate") {
     // App shell: try the network first, fall back to the cached copy offline.
