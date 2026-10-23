@@ -5,6 +5,11 @@
 
 # Changelog
 
+## 0.6.22 - Dew question routing
+- Restrict built-in guide shortcuts to explicit whole requests in English, Hindi and Marathi. Full crop questions now reach AI instead of matching words such as "क्या कर", "help", "पानी" or "लेबल".
+- Preserve guide chips and add routing regression tests based on the phone conversation.
+- No new AI, speech or photo services; no change to agricultural advice or privacy.
+
 ## Unreleased - voice input fixes
 
 - Website: the `Permissions-Policy` header sent `microphone=()`, which blocks the microphone for the whole site, so Dew's mic could never listen. It is now `microphone=(self)` (Vercel, Netlify and the backend). Listening still starts only when the mic button is tapped.

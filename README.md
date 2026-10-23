@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.6.21-8B5CF6?style=for-the-badge" alt="Version 0.6.21"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.6.22-8B5CF6?style=for-the-badge" alt="Version 0.6.22"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-3FC3AA?style=for-the-badge" alt="MIT license"></a>
   <a href="backend/requirements.txt"><img src="https://img.shields.io/badge/python-3.10%2B-3776AB?style=for-the-badge" alt="Python 3.10+"></a>
   <img src="https://img.shields.io/badge/status-early%20prototype-E6A94A?style=for-the-badge" alt="Status: early prototype">
@@ -120,7 +120,7 @@ cd android
 ANDROID_HOME=/path/to/sdk gradle :app:assembleDebug
 ```
 
-Current build: **0.6.21** (native speech in and out, listening fixes). The APK is compiled and signature-checked; it has not yet been tested on a physical phone, so mic pickup and spoken replies may depend on the phone's installed voice data. Install notes and caveats: [android/README.md](android/README.md).
+Current build: **0.6.22** (native speech in and out, listening fixes). The APK is compiled and signature-checked; it has not yet been tested on a physical phone, so mic pickup and spoken replies may depend on the phone's installed voice data. Install notes and caveats: [android/README.md](android/README.md).
 
 ## Look and feel
 

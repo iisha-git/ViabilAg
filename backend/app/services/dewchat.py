@@ -23,7 +23,7 @@ LANG_NAME = {"en": "English", "hi": "Hindi written in Devanagari script",
 # including romanized Hindi/Marathi from an English-mode recognizer - must be
 # answered in THAT language. Mirrors the heuristic in frontend/src/js/dew.js.
 _DEVANAGARI = re.compile(r"[ऀ-ॿ]")
-_MR_DEVANAGARI = re.compile(r"(आहे|आहेत|नाही|मी |तू |तुम्ही|काय|कसं|कसा|मला|तुमच|माझ|होय|पाहिजे|करतो|करायच)")
+_MR_DEVANAGARI = {"आहे", "आहेत", "नाही", "मी", "तू", "तुम्ही", "काय", "कसं", "कसा", "मला", "तुमचा", "तुमची", "तुमचे", "माझा", "माझी", "माझे", "माझ्या", "तुमच्या", "पाणी", "होय", "पाहिजे", "करतो", "करायचं"}
 _ROMAN_HI = {"kya", "kyu", "kyun", "hai", "hain", "nahi", "nahin", "mujhe", "mera", "meri", "mere",
              "kaise", "kaisa", "kitna", "kitni", "paani", "dhup", "dhoop", "accha", "acha", "theek",
              "thik", "batao", "bata", "chahiye", "karna", "karo", "bolo", "suno", "aapka", "aapki",
@@ -41,7 +41,8 @@ def detect_lang(message: str, fallback: str = "en") -> str:
     hint we assume English, and with no letters at all we keep the fallback.
     """
     if _DEVANAGARI.search(message):
-        return "mr" if _MR_DEVANAGARI.search(message) else "hi"
+        words = re.findall(r"[ऀ-ॿ]+", message)
+        return "mr" if any(w in _MR_DEVANAGARI for w in words) else "hi"
     words = re.findall(r"[a-z']+", message.lower())
     if not words:
         return fallback

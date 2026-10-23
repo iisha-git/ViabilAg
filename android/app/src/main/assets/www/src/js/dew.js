@@ -12,6 +12,7 @@ import * as api from "./api.js";
 import * as snd from "./sounds.js";
 import { parseWire, classify } from "./speechwire.js";
 import { readLabel } from "./ocr.js";
+import { guideIntent } from "./dewroute.js";
 
 let ctx = { getContext: () => ({}), openScan: () => {}, openMix: () => {}, openResult: () => {}, showDew: () => {}, exitDew: () => {}, onCorrection: () => {} };
 let lang = localStorage.getItem("biooasis-dew-lang") || "en";
@@ -106,17 +107,6 @@ const L = {
   },
 };
 
-// \b does not work around Devanagari, so these are plain substring matches.
-const INTENTS = [
-  { re: /sun|sunlight|\buv\b|dhup|dhoop|suraj|धूप|सूर्य|सूर्यप्रकाश/i, key: "sun" },
-  { re: /water|\bph\b|paani|pani|पानी|पाणी/i, key: "water" },
-  { re: /mix|tank|together|milana|milao|मिक्स|मिश्रण|मिसळ|एकत्र|टॅंक/i, key: "mix" },
-  { re: /scan|label|photo|लेबल|लेबेल|फोटो|स्कॅन|स्कैन/i, key: "scan" },
-  { re: /what can you|help|मदत|मदद|काय करू|क्या कर/i, key: "what" },
-  { re: /thank|shukriya|dhanyavad|धन्यवाद|शुक्रिया|आभार/i, key: "thanks" },
-  { re: /^(hi|hello|hey|namaste)\b|नमस्ते|नमस्कार|हाय|हॅलो/i, key: "greet" },
-];
-
 const SUN_FACT = {
   bt: { en: "Yes - sunlight kills Bt spores. In one study cited by the US NPIC, less than 9% of Bt spores could still grow after 24 hours on a leaf. Spraying late in the day is kinder to Bt.", hi: "हाँ - धूप Bt स्पोर्स को मार देती है। अमेरिकी NPIC के हवाले से एक अध्ययन में, पत्ती पर 24 घंटे बाद 9% से भी कम Bt स्पोर्स ज़िंदा बचे। शाम को छिड़काव Bt के लिए बेहतर है।", mr: "होय - सूर्यप्रकाश Bt स्पोअर्स निकामी करतो. अमेरिकेच्या NPIC ने उद्धृत केलेल्या एका अभ्यासात, पानावर 24 तासांनी 9% पेक्षा कमी Bt स्पोअर्स जिवंत राहिले. संध्याकाळी फवारणी Bt साठी चांगली." },
   beauveria: { en: "Beauveria spores are fragile in sun and heat - that is why its labels warn about storage in high temperatures.", hi: "बोवेरिया स्पोर्स धूप और गर्मी में नाज़ुक होते हैं - इसीलिए इसके लेबल गर्मी में स्टोरेज की चेतावनी देते हैं।", mr: "बोव्हेरिया स्पोअर्स ऊन आणि उष्णतेत नाजूक असतात - म्हणूनच त्याच्या लेबलवर उष्णतेत साठवणूकीबद्दल इशारा असतो." },
@@ -168,7 +158,9 @@ function setLang(l, auto = false) {
 // switch it back. Unsure stays with the current language.
 function detectLang(t) {
   if (/[ऀ-ॿ]/u.test(t)) {
-    return /(आहे|आहेत|नाही|मी |तू |तुम्ही|काय|कसं|कसा|मला|तुमच|माझ|होय|पाहिजे|करतो|करायच)/u.test(t) ? "mr" : "hi";
+    const words = t.match(/[\p{L}\p{M}]+/gu) || [];
+    const marathi = new Set(["आहे", "आहेत", "नाही", "मी", "तू", "तुम्ही", "काय", "कसं", "कसा", "मला", "तुमचा", "तुमची", "तुमचे", "माझा", "माझी", "माझे", "माझ्या", "तुमच्या", "पाणी", "होय", "पाहिजे", "करतो", "करायचं"]);
+    return words.some(w => marathi.has(w)) ? "mr" : "hi";
   }
   const words = (t.toLowerCase().match(/[a-z']+/g) || []);
   if (!words.length) return lang;
@@ -359,7 +351,7 @@ function reply(text) {
     ctx.onCorrection(name);
     return say(l => L[l].corrected(name));
   }
-  const intent = INTENTS.find(i => i.re.test(t))?.key;
+  const intent = guideIntent(t);
   switch (intent) {
     case "greet": return say(l => L[l].greet, l => L[l].chips);
     case "what": return say(l => L[l].what);
