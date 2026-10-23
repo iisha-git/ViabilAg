@@ -59,6 +59,26 @@ section.pad{padding:64px 0 8px}
 .how-step h3{font-family:var(--font-serif);font-weight:500;font-size:20px;margin-bottom:2px}
 .how-step p{color:var(--cream-dim);font-size:14.5px}
 
+/* a real run: one label travelling through the product, three different artifacts */
+.run-beat{display:flex;flex-direction:column;align-items:stretch;gap:10px;text-align:left}
+button.run-beat{font:inherit;color:inherit;background:none;border:0;padding:14px 0;cursor:pointer;width:100%}
+.run-tag{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.run-product{font-family:var(--font-serif);font-weight:var(--hw,500);font-size:22px;line-height:1.15;color:var(--cream)}
+.run-product i{display:block;font-style:normal;font-family:var(--font-sans);font-size:12.5px;font-weight:600;color:var(--cream-faint);margin-top:3px;letter-spacing:.04em}
+.run-quote{font-family:var(--font-serif);font-size:15.5px;line-height:1.55;color:var(--cream-dim);border-left:3px solid var(--teal);padding-left:12px}
+.run-cta{margin-top:2px;font-size:13.5px;font-weight:700;color:var(--teal);display:flex;align-items:center;gap:8px}
+.run-cta svg{width:16px;height:16px;flex:0 0 16px}
+.run-facts{list-style:none;margin:2px 0 0;padding:0}
+.run-facts li{display:flex;flex-direction:column;gap:1px;padding:8px 0;border-bottom:1.5px dashed var(--line)}
+.run-facts li:last-child{border-bottom:0}
+.run-facts b{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.run-facts span{font-size:14.5px;color:var(--cream)}
+.run-note{font-size:13px;color:var(--cream-faint)}
+.run-ev{font-family:var(--font-serif);font-size:17px;line-height:1.5;color:var(--cream);position:relative;padding-left:34px}
+.run-ev::before{content:"\201C";position:absolute;left:0;top:-8px;font-size:44px;line-height:1;color:var(--teal);opacity:.85}
+.run-ev a{display:inline-block;margin-top:2px;font-family:var(--font-sans);font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.run-abstain{font-size:14px;line-height:1.55;color:var(--cream-dim);border-left:3px solid var(--amber);padding-left:12px;margin-top:2px}
+
 /* ---------- why / farmer ---------- */
 .why{position:relative;margin:56px 0 0;border-radius:28px;overflow:hidden;min-height:320px;display:flex;align-items:flex-end}
 .why img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -379,4 +399,10 @@ details.more div{padding-top:8px}
 }
 @media (min-width:760px){
   .navmenu{display:none!important}
+}
+
+@media (max-width:759px){
+  .run-beat{position:relative;padding-left:44px}
+  .run-beat::before{content:"";position:absolute;left:19px;top:26px;width:14px;height:14px;background:var(--teal);border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+  button.run-beat{padding-left:44px}
 }

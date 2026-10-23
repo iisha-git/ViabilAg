@@ -63,3 +63,9 @@ dialog,.sheet{background:#17103A;border:1px solid rgba(255,255,255,.2)}
 .cloud path:first-child{fill:#4A3A9A}
 .wordmark{color:#fff}
 .btn{text-decoration:none}
+
+/* a real run: neon scan voice */
+.run-tag{color:#C6FF3D;text-shadow:0 0 18px rgba(198,255,61,.5)}
+.run-quote{border-left-color:#C6FF3D}
+.run-ev::before{text-shadow:0 0 22px rgba(198,255,61,.8);opacity:1}
+.run-abstain{border-left-color:#FF5FD2}

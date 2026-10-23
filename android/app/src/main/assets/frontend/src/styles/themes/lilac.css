@@ -1,0 +1,79 @@
+/* THEME B: Lilac Cloud. Soft lavender, peach and mint with big rounded clay-like cards and an editorial serif. */
+:root{
+  --char:#EFE9FF; --char-2:#FFFFFF; --char-3:#F7F3FF;
+  --cream:#2B1B54; --cream-dim:#5B4A8A; --cream-faint:#8C80B3;
+  --teal:#6C4DF6; --teal-glow:rgba(108,77,246,.25); --on-accent:#fff;
+  --amber:#FF9E7A; --amber-soft:#FFE3D6; --coral:#FF7A59; --line:rgba(43,27,84,.10); --navy:#fff;
+  --c1:#FFD1BF; --c2:#BDF2DD; --c3:#CBBFFF; --hl:#FFC7B3; --hl-soft:#F1ECFF;
+  --good:#0E9F78; --warn:#D9461F;
+  --bd:0 solid transparent; --bd-s:0 solid transparent; --bd-c:transparent;
+  --sh:0 18px 40px -16px rgba(80,50,200,.45),0 2px 0 rgba(255,255,255,.9) inset; --sh-hover:0 22px 44px -14px rgba(80,50,200,.55);
+  --sh-soft:0 10px 26px -14px rgba(80,50,200,.35); --sh-tiny:0 6px 14px -8px rgba(80,50,200,.4);
+  --rad:34px; --rad-sm:22px; --radius:34px; --radius-sm:22px; --tilt:0deg;
+  --tag-bg:#FFFFFF; --tag-fg:#6C4DF6; --hero-bg:transparent; --quick-bg:linear-gradient(150deg,#FFFFFF,#F4EEFF); --stop-bg:#FFE3D6;
+  --font-serif:'DM Serif Display',Georgia,serif; --font-sans:'Plus Jakarta Sans',-apple-system,sans-serif; --hw:400;
+  --dew-ink:#2B1B54; --dew-cheek:#FF9E7A; --dew-a:#CBBFFF; --dew-b:#6C4DF6; --dew-stroke:0; --leaf-1:#7DE0C3; --leaf-2:#14B48A; --cloud:#CBBFFF;
+  --sample-kind:#FFC7B3; --h1-ls:-.02em;
+}
+body{background:radial-gradient(60% 40% at 0% 0%,#FFD9C9 0%,transparent 60%),radial-gradient(55% 40% at 100% 18%,#C9F5E6 0%,transparent 60%),radial-gradient(70% 50% at 50% 100%,#D9CFFF 0%,transparent 70%),#EFE9FF;}
+.hero-bg{border-radius:46px 46px 46px 120px;height:230px}
+.hero-body{padding-top:252px}
+.hero h1{font-size:clamp(54px,16vw,88px);font-weight:400}
+.hero h1 em{font-style:italic;transform:none;background:linear-gradient(100deg,#6C4DF6,#FF7A59);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.eyebrow{box-shadow:var(--sh-tiny);text-transform:uppercase}
+.eyebrow[style]{background:#FFE3D6!important;color:#C2410C!important}
+.btn.primary{background:linear-gradient(135deg,#7C5CFF,#5B3DF0);box-shadow:0 14px 28px -10px rgba(91,61,240,.7),0 2px 0 rgba(255,255,255,.35) inset}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 18px 32px -10px rgba(91,61,240,.75)}
+.btn.primary:active{transform:scale(.97)}
+.btn.ghost:hover{transform:translateY(-2px)}
+.block-title{font-size:34px}
+.sample{border-radius:36px}
+.sample::after{background:linear-gradient(180deg,transparent 40%,rgba(43,27,84,.85))}
+.why::after,.banner::after{background:linear-gradient(180deg,transparent 15%,rgba(43,27,84,.88))}
+.banner{border-radius:44px 44px 44px 100px}
+.quick .lbl{color:#C2410C}
+.tabs{background:linear-gradient(#EFE9FF 78%,transparent)}
+.tab{background:#fff}
+.tab[aria-selected="true"]{background:linear-gradient(135deg,#7C5CFF,#5B3DF0);color:#fff}
+.tab[aria-selected="true"] .n{color:#fff}
+.how-ico{border-radius:22px}
+.fact::before{background:linear-gradient(135deg,#7C5CFF,#FF7A59);width:14px;height:14px}
+.ring{box-shadow:var(--sh-soft)}
+.ring .fg{stroke:#FF7A59}
+.stat b{color:#6C4DF6}
+.scanbox,.cond,.tip,.stat{border-radius:var(--rad-sm)}
+.progress-dots i.on{background:linear-gradient(90deg,#7C5CFF,#FF7A59)}
+.banner .in{padding-left:36px}
+
+/* ---- identity pass: flowing field-journal, off the template grid (Lilac) ---- */
+/* Eyebrow tags stop being pills: a small droplet marker + quiet tracked text. */
+.eyebrow{background:none;border:0;box-shadow:none;padding:0;color:var(--teal);letter-spacing:.22em;font-weight:800}
+.eyebrow::before{content:"";display:inline-block;width:9px;height:9px;margin-right:10px;background:var(--teal);border-radius:50% 50% 50% 0;transform:rotate(-45deg);vertical-align:1px}
+.eyebrow[style]{background:none!important;color:var(--coral)!important}
+/* Hero photo grows a leaf/droplet silhouette instead of a rounded rectangle. */
+.hero-bg{border-radius:120px 34px 120px 34px;transform:rotate(-1.5deg)}
+.hero-body{padding-top:246px}
+/* Section headers drift off the same left edge: alternate a gentle indent. */
+#how-it-works .eyebrow,#how-it-works .block-title,#how-it-works .block-sub{margin-left:34px}
+#why-it-matters{border-radius:34px 120px 34px 34px}
+
+/* ---- identity pass 2: take the boxes off the inner flow and Dew (Lilac) ---- */
+/* "Good to know" reads as an editorial pull-out between hairlines, not a filled card. */
+.quick{background:none;border:0;box-shadow:none;border-radius:0;border-block:2px solid var(--line);padding:22px 2px}
+.quick::before{display:none}
+/* field checks: open blocks under a hairline, not white cards */
+.cond{background:none;border:0;box-shadow:none;border-radius:0;border-top:2px solid var(--line);padding:20px 2px 22px}
+/* stop-page tips: hairline rows, not chips */
+.tip{background:none;border:0;box-shadow:none;border-radius:0;border-top:1.5px solid var(--line);padding:14px 2px}
+/* tabs: quiet underlined text, not white pills */
+.tab{background:none;border:0;box-shadow:none;border-radius:0;padding:11px 6px 12px;border-bottom:2.5px solid transparent;color:var(--cream-dim)}
+.tab[aria-selected="true"]{background:none;color:var(--teal);border-bottom-color:var(--teal);transform:none;box-shadow:none}
+.tab .n{background:var(--hl-soft);color:var(--cream-dim)}
+.tab[aria-selected="true"] .n{background:var(--hl-soft);color:var(--teal)}
+/* Dew chat: Dew's side is mascot + open text; no bubble box */
+.msg.dew span:last-child{background:none;border:0;border-radius:0;padding:4px 2px;color:var(--cream)}
+.dew-body{max-width:100%}
+/* step icons become droplet outlines instead of filled chips */
+.how-ico{background:none;border:2px solid var(--teal);box-shadow:none;color:var(--teal);border-radius:50% 50% 50% 0}
+.how-step:nth-child(1) .how-ico,.how-step:nth-child(2) .how-ico,.how-step:nth-child(3) .how-ico{background:none}
+.how::before{border-left-style:solid;border-color:var(--line);opacity:1}

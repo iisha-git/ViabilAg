@@ -132,6 +132,9 @@
 
   /* how it works: three cards, big numerals, a dashed path draws between them */
   .how{flex-direction:row;gap:26px;margin-top:44px;counter-reset:st}
+  .run-label{flex:1.06}.run-scan{flex:.92}.run-says{flex:1.18}
+  .run-ev{font-size:19px}
+  .run-product{font-size:26px}
   .how::before{display:none}
   .how-step{flex:1;flex-direction:column;gap:18px;padding:34px 30px 36px;position:relative;overflow:hidden;counter-increment:st;
     background:var(--d-card);border:var(--d-bd);border-radius:var(--rad,26px);box-shadow:var(--d-sh-soft);transition:transform .45s var(--ease),box-shadow .4s}
