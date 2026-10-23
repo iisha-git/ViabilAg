@@ -41,3 +41,63 @@ def test_dew_gemini_error_becomes_502(monkeypatch):
 def test_dew_validation():
     assert client.post("/api/dew", json={"message": ""}).status_code == 422
     assert client.post("/api/dew", json={"message": "x", "lang": "fr"}).status_code == 422
+
+
+def test_dew_detect_lang():
+    d = dewchat.detect_lang
+    # Devanagari is decisive; Marathi markers separate mr from hi
+    assert d("क्या मैं इसे धूप में रख सकता हूँ?") == "hi"
+    assert d("हे उन्हाळ्यात टिकते का? मला सांगा") == "mr"
+    # Romanized Hindi/Marathi (English-mode speech recognizer output)
+    assert d("kya main ise garam shed me rakh sakta hoon?") == "hi"
+    assert d("mujhe batao yeh dhoop me kharab hota hai kya") == "hi"
+    assert d("mala sanga he unhat tikta ka nako") == "mr"
+    # English, and mostly-English Hinglish below the threshold
+    assert d("Can I store this in the fridge?") == "en"
+    assert d("what is the shelf life of this paani based spray") == "en"
+    # No letters at all keeps the fallback
+    assert d("???", "hi") == "hi"
+    assert d("", "mr") == "mr"
+
+
+def test_dew_reply_instructs_detected_language(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    captured = {}
+
+    class FakeResp:
+        def raise_for_status(self): pass
+        def json(self):
+            return {"candidates": [{"content": {"parts": [{"text": "ठीक है"}]}}]}
+
+    class FakeClient:
+        def __init__(self, **kw): pass
+        async def __aenter__(self): return self
+        async def __aexit__(self, *a): return False
+        async def post(self, url, params=None, json=None):
+            captured["json"] = json
+            return FakeResp()
+
+    monkeypatch.setattr(dewchat.httpx, "AsyncClient", FakeClient)
+    import asyncio
+    # English UI selected, but the question is romanized Hindi: the system
+    # instruction must ask for Hindi, not English.
+    out = asyncio.run(dewchat.reply("kya main ise dhoop me rakh sakta hoon?", "en", [], {}))
+    assert out == "ठीक है"
+    sys_prompt = captured["json"]["system_instruction"]["parts"][0]["text"]
+    assert "Hindi written in Devanagari" in sys_prompt
+    assert "English. If" not in sys_prompt.split("Reply in ")[1][:20]
+
+
+def test_dew_endpoint_returns_effective_lang(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+
+    async def fake_reply(message, lang, history, context):
+        return "ठीक है, शाम को छिड़काव करें।"
+
+    monkeypatch.setattr(dewchat, "reply", fake_reply)
+    r = client.post("/api/dew", json={**BODY, "lang": "en",
+                                      "message": "kya yeh dhoop me kharab hota hai kya"})
+    assert r.status_code == 200
+    assert r.json()["lang"] == "hi"
+    r = client.post("/api/dew", json=BODY)
+    assert r.json()["lang"] == "en"

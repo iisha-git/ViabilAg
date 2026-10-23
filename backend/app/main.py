@@ -84,7 +84,9 @@ async def dew_endpoint(req: DewRequest):
                                    req.context.model_dump())
     except Exception:
         raise HTTPException(502, "Dew AI could not answer right now.")
-    return {"reply": text}
+    # The effective reply language follows the message, not only the selected
+    # UI language, so the app can voice the answer correctly.
+    return {"reply": text, "lang": dewchat.detect_lang(req.message, req.lang)}
 
 
 @app.get("/api/model")
