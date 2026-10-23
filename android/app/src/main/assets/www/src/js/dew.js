@@ -171,7 +171,10 @@ function detectLang(t) {
   }
   const words = (t.toLowerCase().match(/[a-z']+/g) || []);
   if (!words.length) return lang;
-  const hints = new Set(["kya","kyu","kyun","hai","hain","nahi","nahin","mujhe","mera","meri","mere","kaise","kaisa","kitna","kitni","paani","dhup","dhoop","accha","acha","theek","thik","batao","bata","chahiye","karna","karo","bolo","suno","aapka","aapki","tumhara","tumhari","kasa","kashi","kay","zala","nako","sanga","sangitla","majha","majhi"]);
+  const mr = new Set(["nako","kasa","kashi","kay","zala","zali","sanga","sangitla","majha","majhi","aahe","ahe","ahet","pahije","mhanje","tumcha","tumchi","kara","karat","naahi"]);
+  const mrHits = words.filter(w => mr.has(w)).length;
+  if (mrHits >= 1 && mrHits >= words.length * 0.2) return "mr";
+  const hints = new Set(["kya","kyu","kyun","hai","hain","nahi","nahin","mujhe","mera","meri","mere","kaise","kaisa","kitna","kitni","paani","dhup","dhoop","accha","acha","theek","thik","batao","bata","chahiye","karna","karo","bolo","suno","aapka","aapki","tumhara","tumhari","hoon","sakta","sakti","kare","karen","kab","rakhna","rakho","lagana","dalna","bataye","bataiye","garam","thanda","kharab","zyada"]);
   const hits = words.filter(w => hints.has(w)).length;
   return hits >= 1 && hits >= words.length * 0.2 ? "hi" : "en";
 }
@@ -184,7 +187,7 @@ function renderLangs() {
 function speak(text) {
   if (!(snd.isEnabled() || voiceTurn) || !("speechSynthesis" in window)) return;
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[lang];
+  u.lang = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[detectLang(String(text))] || "en-IN";
   u.rate = 1.02; u.pitch = 1.25;
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
@@ -330,6 +333,10 @@ export async function handlePhoto(file) {
 
 function reply(text) {
   const t = text.trim();
+  // Follow the language of this message, typed or spoken: when it is clearly
+  // Hindi/Marathi (script or romanized), switch so the answer, the chips and
+  // the voice all match. Unsure stays with the chosen language.
+  setLang(detectLang(t), true);
   const c = ctx.getContext();
   // follow-up buttons that mirror the chips
   if (t === L[lang].chips[0]) return say(l => L[l].what);
@@ -383,9 +390,10 @@ async function aiReply(text) {
     const c = ctx.getContext();
     const hist = history.filter(h => h.who !== "note").slice(-8)
       .map(h => ({ role: h.who === "user" ? "user" : "model", text: String(txt(h.msg, "en") || "") }));
-    const answer = await api.dewChat({ message: text, lang, history: hist,
+    const res = await api.dewChat({ message: text, lang: detectLang(text), history: hist,
       context: { name: c.name || null, cls: c.cls || null, facts: c.facts || [], mix: c.mix || null } });
     done();
+    const answer = res && res.reply;
     if (answer && answer.trim()) say(answer.trim(), null, "ai");
     else { note(l => L[l].aiDown); say(l => L[l].fallback, l => L[l].chips, "local"); }
   } catch {
