@@ -300,7 +300,7 @@
   html[data-theme="lilac"] .why{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-radius:0;border-left:0;border-right:0}
   /* stats: an editorial rule-of-three line, not three cards */
   html[data-theme="lilac"] .d-stats{display:flex;align-items:flex-end;gap:64px;margin-top:70px;padding:40px 0 34px;border-block:2px solid var(--line)}
-  html[data-theme="lilac"] .d-stat{padding:0;background:none;border:0;box-shadow:none}
+  html[data-theme="lilac"] .d-stat{padding:0;background:none;border:0;box-shadow:none;overflow:visible}
   html[data-theme="lilac"] .d-stat:hover{transform:none}
   html[data-theme="lilac"] .d-stat::after{display:none}
   html[data-theme="lilac"] .d-stat b{font-size:100px;color:var(--cream)}
@@ -343,7 +343,7 @@
   html[data-theme="aurora"] .how-ico{width:56px;height:56px;flex-basis:56px;margin-top:66px;background:rgba(198,255,61,.06)}
   /* stats: an editorial rule-of-three line, not three glass cards */
   html[data-theme="aurora"] .d-stats{display:flex;align-items:flex-end;gap:64px;margin-top:70px;padding:40px 0 34px;border-block:1.5px solid var(--line)}
-  html[data-theme="aurora"] .d-stat{padding:0;background:none;border:0;box-shadow:none;backdrop-filter:none}
+  html[data-theme="aurora"] .d-stat{padding:0;background:none;border:0;box-shadow:none;backdrop-filter:none;overflow:visible}
   html[data-theme="aurora"] .d-stat:hover{transform:none}
   html[data-theme="aurora"] .d-stat::after{display:none}
   html[data-theme="aurora"] .d-stat b{font-size:100px;color:var(--cream);text-shadow:0 0 44px rgba(198,255,61,.22)}
@@ -365,7 +365,7 @@
   html[data-theme="pop"] .how-ico{width:60px;height:60px;flex-basis:60px;margin-top:64px}
   /* stats: big Bagel numerals with hard sticker shadows between chunky rules */
   html[data-theme="pop"] .d-stats{display:flex;align-items:flex-end;gap:64px;margin-top:70px;padding:40px 0 36px;border-block:var(--bd)}
-  html[data-theme="pop"] .d-stat{padding:0;background:none;border:0;box-shadow:none}
+  html[data-theme="pop"] .d-stat{padding:0;background:none;border:0;box-shadow:none;overflow:visible}
   html[data-theme="pop"] .d-stat:hover{transform:none}
   html[data-theme="pop"] .d-stat::after{display:none}
   html[data-theme="pop"] .d-stat b{font-size:96px;color:var(--teal);text-shadow:4px 4px 0 #1E1442}
