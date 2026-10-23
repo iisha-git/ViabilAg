@@ -26,7 +26,7 @@
 
 ---
 
-A **biological spray** is a crop treatment made of living organisms, such as Bt, Trichoderma, Pseudomonas or Beauveria. Those organisms can die in the tank: mixed with the wrong product, in harsh water, or under strong sun. When they die, the farmer pays for a spray that does nothing.
+A **biological spray** is a crop treatment made of living organisms, such as Bt, Trichoderma, Pseudomonas or Beauveria. Those organisms can die in the tank: mixed with the wrong product, in harsh water, or under strong sun. When that happens, the spray can lose the biological effect it was bought for.
 
 bioOasis is a phone check a farmer runs **before** spraying. Every answer cites its source, and when the evidence is missing the app says so instead of guessing.
 
@@ -66,7 +66,7 @@ Open <http://localhost:8000>. The same server runs the website and the API (`/ap
 
 No product photo handy? Tap one of the 4 real label samples on the home screen, or open `http://localhost:8000/#demo-0` (to `#demo-3`).
 
-Internet is needed for two things only: the OCR reader's first download (from a CDN), and the weather lookup.
+Internet is needed for: the OCR reader's first download (from a CDN), the weather lookup, and Dew AI answers (Gemini runs on the server).
 
 Shortcuts: `make setup`, `make dev`, `make test`, `make train` (see `Makefile`).
 
@@ -93,7 +93,7 @@ Open <http://localhost:8080>. This is also how you host it on GitHub Pages (see 
 
 ## Android app
 
-`android/` is a small native WebView wrapper that bundles the whole web app, so label reading, the classifier, evidence pages, the mix check and Dew chat all work **fully offline**. Internet is needed only for the optional weather check, the first OCR model download and Dew AI answers.
+`android/` is a small native WebView wrapper that bundles the whole web app, so label reading, the classifier, evidence pages, the mix check and Dew's built-in guided answers all work **fully offline**. Internet is needed for the first OCR model download, the optional weather check and Dew AI answers (Gemini runs on the server). On many phones the speech recognizer also processes audio over the network, so spoken questions may need a connection too.
 
 ```bash
 cd android
