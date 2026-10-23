@@ -32,7 +32,7 @@ A **biological spray** is a crop treatment made of living organisms, such as Bt,
 ## How it thinks
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Label photo<br/>or pasted text"] --> B["OCR reads the words<br/>(in the browser)"]
     B --> C["Small ML model<br/>guesses the product type"]
     C -->|"not sure"| S(["Stops: ask an agronomist"])
@@ -53,9 +53,9 @@ flowchart LR
 
 ## Three things you can do
 
-| | | |
+| Read one label | Check a mix | Ask Dew |
 |:--|:--|:--|
-| **Read one label**<br><br>Photograph a product label. The app reads the text (OCR), works out the product type, and shows what real labels and published research say about keeping that type alive. | **Check a mix**<br><br>Scan a second label. One honest question: is there real evidence about using these two products together? You get a **documented conflict**, **limited evidence**, or **"we cannot confirm this combination"**. | **Ask Dew**<br><br>The water-drop mascot answers in English, Hindi or Marathi, typed or spoken, and replies in the language you just used. On the Android app, Dew also speaks its answers aloud. |
+| Photograph a product label. The app reads the text (OCR), works out the product type, and shows what real labels and published research say about keeping that type alive. | Scan a second label. One honest question: is there real evidence about using these two products together? You get a **documented conflict**, **limited evidence**, or **"we cannot confirm this combination"**. | The water-drop mascot answers in English, Hindi or Marathi, typed or spoken, and replies in the language you just used. On the Android app, Dew also speaks its answers aloud. |
 
 ## Quick start (about 3 minutes)
 
