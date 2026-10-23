@@ -1,4 +1,10 @@
-/* bioOasis service worker: makes the site installable and quick to open.
+/* bioOasis service worker: makes the site installable, quick to open, and
+   ALWAYS up to date without the user doing anything.
+   Update strategy: network first for every own-file GET. When online you
+   always see the newest deployed version - a plain reload is enough, no
+   hard refresh or cache clearing. The cache is the offline fallback and is
+   refreshed in the background on every successful load, so it converges on
+   its own (no manual version bump needed when assets change).
    What it caches: ONLY this app's own static files (pages, css, js, fonts,
    images, bundled data).
    What it NEVER touches:
@@ -8,7 +14,7 @@
    - label photos: they are in-memory blob: URLs and never reach the network,
      so they are never seen here either.
    Cached files are public app code; nothing about you is stored. */
-const VERSION = "biooasis-static-v13";
+const VERSION = "biooasis-static-v14";
 const ASSETS = [
   "./",
   "index.html",
@@ -92,24 +98,19 @@ self.addEventListener("fetch", (event) => {
   if (url.pathname.startsWith("/api/")) return;        // answers, uploads, weather: never cached
   if (url.pathname === "/sw.js" || url.pathname.endsWith("/sw.js")) return;  // update checks must always see the newest worker
 
-  if (event.request.mode === "navigate") {
-    // App shell: try the network first, fall back to the cached copy offline.
-    event.respondWith(
-      fetch(event.request)
-        .then((res) => {
-          if (res.ok) { const copy = res.clone(); caches.open(VERSION).then((c) => c.put("./", copy)); }
-          return res;
-        })
-        .catch(() => caches.match(event.request, { ignoreSearch: true }).then((r) => r || caches.match("index.html")))
-    );
-    return;
-  }
-
-  // Static asset: cache first, then network (and cache it for next time).
+  // Every own-file GET: network first, cache is the offline fallback.
+  // A plain reload always reaches the newest deploy; successful responses
+  // are written through to the cache so offline keeps working and the
+  // offline copy stays current by itself.
   event.respondWith(
-    caches.match(event.request, { ignoreSearch: true }).then((hit) => hit || fetch(event.request).then((res) => {
-      if (res.ok) { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(event.request, copy)); }
-      return res;
-    }))
+    fetch(event.request)
+      .then((res) => {
+        if (res.ok) { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(event.request, copy)); }
+        return res;
+      })
+      .catch(() =>
+        caches.match(event.request, { ignoreSearch: true })
+          .then((r) => r || (event.request.mode === "navigate" ? caches.match("index.html") : undefined))
+      )
   );
 });
