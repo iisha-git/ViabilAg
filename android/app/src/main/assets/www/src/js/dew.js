@@ -185,9 +185,15 @@ function renderLangs() {
 }
 
 function speak(text) {
-  if (!(snd.isEnabled() || voiceTurn) || !("speechSynthesis" in window)) return;
+  if (!(snd.isEnabled() || voiceTurn)) return;
+  const lg = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[detectLang(String(text))] || "en-IN";
+  // Android app: use the phone's own text-to-speech through the bundled-page bridge.
+  if (window.BioDewSpeech && typeof window.BioDewSpeech.postMessage === "function") {
+    try { window.BioDewSpeech.postMessage("speak\t" + lg + "\t" + String(text).slice(0, 1500)); return; } catch { /* fall through to web voice */ }
+  }
+  if (!("speechSynthesis" in window)) return;
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[detectLang(String(text))] || "en-IN";
+  u.lang = lg;
   u.rate = 1.02; u.pitch = 1.25;
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
@@ -289,6 +295,7 @@ function mic() {
   // recognizer (it may use the provider's network service). In browsers, the
   // Web Speech API. Either way: listening starts only on this tap.
   if (window.BioDewSpeech && typeof window.BioDewSpeech.postMessage === "function") {
+    try { window.BioDewSpeech.postMessage("stopspeak"); } catch { /* ignore */ }
     const done = listeningBubble();
     window.BioDewSpeech.onmessage = ev => {
       const d = String(ev.data), i = d.indexOf("\t");

@@ -12,6 +12,7 @@ import android.speech.RecognitionListener;
 import android.util.Log;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
 import android.webkit.GeolocationPermissions;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -31,6 +32,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 /** bioOasis: the whole web app bundled in a WebView. Label OCR and the
  *  classifier run on the device; photos never leave the phone.
@@ -48,6 +50,9 @@ public class MainActivity extends Activity {
     private String pendingSpeechLang;
     private Uri cameraUri;
     private JavaScriptReplyProxy speechReply;
+    private TextToSpeech tts;
+    private boolean ttsReady = false;
+    private String pendingSpeakLang, pendingSpeakText;
     private ValueCallback<Uri[]> pendingPermCallback;
     private WebChromeClient.FileChooserParams pendingPermParams;
 
@@ -88,6 +93,14 @@ public class MainActivity extends Activity {
                             runOnUiThread(() -> startListening(lang));
                         } else if ("stop".equals(parts[0])) {
                             runOnUiThread(this::stopListening);
+                        } else if ("speak".equals(parts[0]) && parts.length > 1) {
+                            // "speak\t<lang>\t<text>": read a Dew reply aloud with the phone's own TTS
+                            String[] sp = parts[1].split("\t", 2);
+                            if (sp.length == 2 && sp[1].length() <= 1500) {
+                                runOnUiThread(() -> speakNative(sp[0], sp[1]));
+                            }
+                        } else if ("stopspeak".equals(parts[0])) {
+                            runOnUiThread(this::stopSpeaking);
                         }
                     });
         }
@@ -358,6 +371,42 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void speakNative(String lang, String text) {
+        pendingSpeakLang = lang; pendingSpeakText = text;
+        if (tts == null) {
+            tts = new TextToSpeech(getApplicationContext(), status -> {
+                ttsReady = status == TextToSpeech.SUCCESS;
+                if (ttsReady) runOnUiThread(() -> {
+                    if (pendingSpeakText != null) doSpeak(pendingSpeakLang, pendingSpeakText);
+                });
+            });
+            return;
+        }
+        if (ttsReady) doSpeak(lang, text);
+    }
+
+    private void doSpeak(String lang, String text) {
+        try {
+            Locale loc = Locale.forLanguageTag(lang == null || lang.isEmpty() ? "en-IN" : lang);
+            int r = tts.isLanguageAvailable(loc);
+            if (r < TextToSpeech.LANG_AVAILABLE && "mr".equals(loc.getLanguage())) {
+                loc = Locale.forLanguageTag("hi-IN");   // Marathi voice missing: Hindi reads Devanagari
+                r = tts.isLanguageAvailable(loc);
+            }
+            if (r < TextToSpeech.LANG_AVAILABLE) loc = Locale.forLanguageTag("en-IN");
+            tts.setLanguage(loc);
+            tts.setPitch(1.15f);
+            tts.setSpeechRate(1.0f);
+            pendingSpeakText = null;
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "dew");
+        } catch (Exception e) { Log.w("bioOasis", "tts failed", e); }
+    }
+
+    private void stopSpeaking() {
+        pendingSpeakText = null;
+        if (tts != null && ttsReady) { try { tts.stop(); } catch (Exception ignored) {} }
+    }
+
     private void stopListening() {
         if (recognizer != null) {
             try { recognizer.stopListening(); } catch (Exception ignored) {}
@@ -386,6 +435,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         stopListening();
+        if (tts != null) { try { tts.stop(); tts.shutdown(); } catch (Exception ignored) {} tts = null; }
         super.onDestroy();
     }
 
