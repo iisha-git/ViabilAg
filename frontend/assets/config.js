@@ -4,4 +4,4 @@
 window.BIOOASIS_API = "https://viabil-ag.vercel.app";
 
 // App build marker, shown in the footer so support can confirm the version.
-window.BIOOASIS_VERSION = "0.6.20";
+window.BIOOASIS_VERSION = "0.6.21";

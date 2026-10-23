@@ -10,6 +10,7 @@ import { mascot } from "./mascot.js";
 import { ICON } from "./icons.js";
 import * as api from "./api.js";
 import * as snd from "./sounds.js";
+import { parseWire, classify } from "./speechwire.js";
 import { readLabel } from "./ocr.js";
 
 let ctx = { getContext: () => ({}), openScan: () => {}, openMix: () => {}, openResult: () => {}, showDew: () => {}, exitDew: () => {}, onCorrection: () => {} };
@@ -298,12 +299,11 @@ function mic() {
     try { window.BioDewSpeech.postMessage("stopspeak"); } catch { /* ignore */ }
     const done = listeningBubble();
     window.BioDewSpeech.onmessage = ev => {
-      const d = String(ev.data), i = d.indexOf("\t");
-      const kind = i < 0 ? d : d.slice(0, i), val = i < 0 ? "" : d.slice(i + 1);
+      const { kind, val } = parseWire(ev.data), c = classify(kind);
       done();
-      if (kind === "result") { if (val.trim()) heard(val); return; }
-      if (kind === "cancelled") return;
-      if (kind === "unsupported" || kind === "unsupported-locale" || kind === "no-mic-permission") say(l => L[l].noMic);
+      if (c === "result") { if (val.trim()) heard(val); return; }
+      if (c === "cancelled") return;
+      if (c === "noMic") say(l => L[l].noMic);
       else say(l => L[l].noMatch);
     };
     try { window.BioDewSpeech.postMessage("start\t" + langTag); } catch { done(); say(l => L[l].noMic); }
