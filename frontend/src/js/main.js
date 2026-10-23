@@ -34,7 +34,7 @@ for (const [id, k] of [["ico-cam", "camera"], ["ico-cam2", "camera"], ["ico-cam3
 $("how").innerHTML = [
   ["camera", "Snap the label", "Front or back of the bottle or packet. No label at hand? Tap a real sample below."],
   ["text", "Dew reads it", "The text is read right on your device, and you can fix any word it got wrong."],
-  ["leaf", "Evidence, with sources", "What labels and research say about keeping the living organisms alive. Every line links to where it came from."],
+  ["leaf", "Evidence, with sources", "What labels and research say about keeping the living organisms alive. Each of those lines links to where it came from."],
 ].map(([i, t, p]) => `<div class="how-step reveal"><div class="how-ico">${ICON[i]}</div><div><h3>${t}</h3><p>${p}</p></div></div>`).join("");
 
 (async () => {
@@ -88,6 +88,20 @@ function renderCredits() {
      <li>Photos show the kind of organism or crop, not the actual product. They are illustrations, not label evidence.</li>`;
 }
 $("open-credits").onclick = $("open-credits2").onclick = () => $("credits").showModal();
+
+/* ---------- small-screen nav menu ---------- */
+const navMenu = $("navmenu"), navMenuBtn = $("navmenu-btn");
+function setMenu(open) {
+  navMenu.classList.toggle("hidden", !open);
+  navMenuBtn.setAttribute("aria-expanded", String(open));
+  if (open) navMenu.querySelector("a,button")?.focus();
+}
+navMenuBtn.onclick = (e) => { e.stopPropagation(); setMenu(navMenu.classList.contains("hidden")); };
+navMenu.addEventListener("click", (e) => { if (e.target.closest("a,button")) setMenu(false); });
+document.addEventListener("click", (e) => { if (!e.target.closest("#navmenu,#navmenu-btn")) setMenu(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") { setMenu(false); navMenuBtn.blur(); } });
+$("m-credits").onclick = () => $("credits").showModal();
+$("m-settings").onclick = () => openSettings();
 $("close-credits").onclick = () => $("credits").close();
 
 function observeReveal() {
@@ -241,7 +255,7 @@ async function openAbout() {
     <div class="sdew">${mascot("hello")}</div>
     <h3 class="serif">About bioOasis</h3>
     <p>An early prototype from a college AI project (team ViabilAg). It helps check a <b>biological spray</b> (a product made of living organisms) before it goes in the tank.</p>
-    <p>It shows <b>published evidence with its source</b> next to every line. It does not tell anyone what to spray, and it never shows a survival number, because we do not have lab data for that yet.</p>
+    <p>Label and research lines show their <b>published source</b>. Dew's chat answers are AI-generated and are marked as such in the chat. The app does not tell anyone what to spray, and it never shows a survival number, because we do not have lab data for that yet.</p>
     <details class="more"><summary>What is real, what is not</summary><div><p><b>Real:</b> label reading (OCR), a small ML model trained on 26 real public labels, evidence from cited sources, water pH and weather checks.<br><b>Not built:</b> survival prediction, a product database, user accounts.</p></div></details>
     <details class="more"><summary>Where the data comes from</summary><div><p>Real labels from EPA, CDMS and manufacturers (DiPel, XenTari, Javelin, Thuricide, RootShield, Trianum-P, T34, PlantShield, Asperello, Howler, BlightBan A506, Cedomon, BotaniGard, Mycotrol, Naturalis). The full list with links is in <b>data/sources.csv</b> in the project.</p></div></details>
     <button class="btn ghost" style="margin-top:12px;width:100%" data-close>Close</button>`;
