@@ -7,6 +7,7 @@ no key is configured the endpoint reports unavailable and the app keeps
 using its built-in guided answers.
 """
 import os
+import re
 
 import httpx
 
@@ -17,10 +18,45 @@ TIMEOUT_S = float(os.getenv("GEMINI_TIMEOUT_S", "45"))  # observed cold calls on
 LANG_NAME = {"en": "English", "hi": "Hindi written in Devanagari script",
              "mr": "Marathi written in Devanagari script"}
 
+# Per-turn language matching. The app's EN/HI/MR buttons set the default, but a
+# question asked in another of the three languages - typed or speech-recognized,
+# including romanized Hindi/Marathi from an English-mode recognizer - must be
+# answered in THAT language. Mirrors the heuristic in frontend/src/js/dew.js.
+_DEVANAGARI = re.compile(r"[ऀ-ॿ]")
+_MR_DEVANAGARI = re.compile(r"(आहे|आहेत|नाही|मी |तू |तुम्ही|काय|कसं|कसा|मला|तुमच|माझ|होय|पाहिजे|करतो|करायच)")
+_ROMAN_HI = {"kya", "kyu", "kyun", "hai", "hain", "nahi", "nahin", "mujhe", "mera", "meri", "mere",
+             "kaise", "kaisa", "kitna", "kitni", "paani", "dhup", "dhoop", "accha", "acha", "theek",
+             "thik", "batao", "bata", "chahiye", "karna", "karo", "bolo", "suno", "aapka", "aapki",
+             "tumhara", "tumhari", "hoon", "sakta", "sakti", "kare", "karen", "kab", "rakhna",
+             "rakho", "lagana", "dalna", "bataye", "bataiye", "garam", "thanda", "kharab", "zyada"}
+_ROMAN_MR = {"nako", "kasa", "kashi", "kay", "zala", "zali", "sanga", "sangitla", "majha", "majhi",
+             "aahe", "ahe", "ahet", "pahije", "mhanje", "tumcha", "tumchi", "kara", "karat", "naahi"}
+
+
+def detect_lang(message: str, fallback: str = "en") -> str:
+    """Best-effort language of one user message: en, hi, or mr.
+
+    Devanagari is decisive (Marathi marker words separate mr from hi). Roman
+    text is matched against common Hindi/Marathi words; with no recognizable
+    hint we assume English, and with no letters at all we keep the fallback.
+    """
+    if _DEVANAGARI.search(message):
+        return "mr" if _MR_DEVANAGARI.search(message) else "hi"
+    words = re.findall(r"[a-z']+", message.lower())
+    if not words:
+        return fallback
+    mr = sum(1 for w in words if w in _ROMAN_MR)
+    if mr >= 1 and mr >= len(words) * 0.2:
+        return "mr"
+    hi = sum(1 for w in words if w in _ROMAN_HI)
+    if hi >= 1 and hi >= len(words) * 0.2:
+        return "hi"
+    return "en"
+
 SYSTEM = """You are Dew, a small friendly water-drop mascot inside bioOasis, an app that helps farmers check biological (living) crop-treatment products such as Bt, Trichoderma, Pseudomonas and Beauveria.
 
 Rules you must always follow:
-- Reply only in {lang}. Keep it short: 1-4 sentences, warm and simple, no markdown, no bullet lists.
+- Reply in {lang}. If the user's latest message is clearly in a different one of these languages - English, Hindi, or Marathi, including romanized Hindi or Marathi - reply in the message's language instead, matching the user turn by turn. Always write Hindi and Marathi in Devanagari script, even when the user wrote them in roman letters. Keep it short: 1-4 sentences, warm and simple, no markdown, no bullet lists.
 - Product or farming claims must come from the FACTS below or be clearly marked as general caution. Never invent doses, mixing ratios, spray intervals, prices, or survival percentages.
 - If you do not have evidence for something, say you do not know and suggest asking an agronomist. Honest "I don't know" is a feature of this app.
 - Never ask for or repeat personal data, keys, or passwords.
@@ -35,6 +71,7 @@ async def reply(message: str, lang: str, history: list[dict], context: dict) -> 
     key = os.getenv("GEMINI_API_KEY")
     if not key:
         raise RuntimeError("no-key")
+    lang = detect_lang(message, lang)
     parts = [SYSTEM.replace("{lang}", LANG_NAME.get(lang, LANG_NAME["en"]))]
     name = context.get("name")
     if name:
