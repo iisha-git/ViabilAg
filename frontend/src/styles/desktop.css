@@ -264,3 +264,46 @@
 @media (prefers-reduced-motion:reduce){
   .d-blobs i,.d-marquee .track,.dc-pol,.dc-chip,.dc-main img{animation:none!important}
 }
+
+/* ---- identity pass (Lilac, desktop): floating nav, overlapping hero, broken grid ---- */
+@media (min-width:1024px){
+  html[data-theme="lilac"] #v-home .nav{background:transparent;border:0;box-shadow:none;backdrop-filter:none;padding:18px 10px}
+  html[data-theme="lilac"] #v-home .nav .chip-btn{background:transparent;border:0;box-shadow:none;color:var(--cream-dim);font-weight:700;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;transition:color .25s,text-decoration-color .25s}
+  html[data-theme="lilac"] #v-home .nav .chip-btn:hover{color:var(--teal);text-decoration-color:var(--teal);transform:none}
+  html[data-theme="lilac"] #v-home .nav .chip-btn.dewbtn{color:var(--teal)}
+  html[data-theme="lilac"] .navlinks a:hover{background:none;color:var(--teal);text-decoration:underline;text-underline-offset:5px}
+  /* the headline leans over the scrapbook instead of sitting in its own box */
+  html[data-theme="lilac"] .hero-body > *:not(.hero-dew):not(.d-collage){max-width:min(57%,640px)!important}
+  html[data-theme="lilac"] .hero h1{position:relative;z-index:3;margin-right:-150px;text-shadow:0 2px 30px rgba(239,233,255,.9)}
+  html[data-theme="lilac"] .dc-main{border-radius:150px 44px 150px 44px}
+  /* trust facts: one flowing line with droplet markers, no tick badges */
+  html[data-theme="lilac"] .d-trust{flex-direction:row;flex-wrap:wrap;gap:12px 30px;margin-top:46px;max-width:none!important}
+  html[data-theme="lilac"] .d-trust i{flex-basis:13px;width:13px;height:13px;background:transparent;box-shadow:none;border:2.5px solid var(--teal);border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+  html[data-theme="lilac"] .d-trust i::after{display:none}
+  /* sample cards: hand-placed, not grid-locked */
+  html[data-theme="lilac"] .sample:nth-child(1){transform:rotate(-1.6deg)}
+  html[data-theme="lilac"] .sample:nth-child(2){transform:translateY(36px) rotate(1.1deg)}
+  html[data-theme="lilac"] .sample:nth-child(3){transform:translateY(-12px) rotate(-.8deg)}
+  html[data-theme="lilac"] .sample:nth-child(4){transform:translateY(24px) rotate(1.7deg)}
+  html[data-theme="lilac"] .sample:hover{transform:translateY(-10px) rotate(0deg) scale(1.02);z-index:2}
+  /* steps: staggered scrapbook cards instead of an aligned row of boxes */
+  html[data-theme="lilac"] .how{padding-bottom:64px}
+  html[data-theme="lilac"] .how-step:nth-child(1){transform:translateY(-6px) rotate(-.6deg)}
+  html[data-theme="lilac"] .how-step:nth-child(2){transform:translateY(52px) rotate(.5deg)}
+  html[data-theme="lilac"] .how-step:nth-child(3){transform:translateY(14px) rotate(-.4deg)}
+  html[data-theme="lilac"] .how-step:hover{transform:translateY(-6px) rotate(0deg);z-index:2}
+  /* the farmer band breaks out full-bleed */
+  html[data-theme="lilac"] .why{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-radius:0;border-left:0;border-right:0}
+  /* stats: an editorial rule-of-three line, not three cards */
+  html[data-theme="lilac"] .d-stats{display:flex;align-items:flex-end;gap:64px;margin-top:70px;padding:40px 0 34px;border-block:2px solid var(--line)}
+  html[data-theme="lilac"] .d-stat{padding:0;background:none;border:0;box-shadow:none}
+  html[data-theme="lilac"] .d-stat:hover{transform:none}
+  html[data-theme="lilac"] .d-stat::after{display:none}
+  html[data-theme="lilac"] .d-stat b{font-size:100px;color:var(--cream)}
+  html[data-theme="lilac"] .d-stat b.word{background:linear-gradient(100deg,var(--teal),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+  html[data-theme="lilac"] .d-stat span{margin-top:6px;font-size:14px;max-width:21ch}
+  html[data-theme="lilac"] .d-stat:nth-child(2){margin-bottom:26px}
+  html[data-theme="lilac"] .d-stat:nth-child(3){margin-bottom:8px}
+  /* section headers drift: samples flush left, how-it-works indented */
+  html[data-theme="lilac"] #how-it-works .eyebrow,html[data-theme="lilac"] #how-it-works .block-title,html[data-theme="lilac"] #how-it-works .block-sub{margin-left:60px}
+}

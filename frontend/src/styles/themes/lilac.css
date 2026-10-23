@@ -44,3 +44,15 @@ body{background:radial-gradient(60% 40% at 0% 0%,#FFD9C9 0%,transparent 60%),rad
 .scanbox,.cond,.tip,.stat{border-radius:var(--rad-sm)}
 .progress-dots i.on{background:linear-gradient(90deg,#7C5CFF,#FF7A59)}
 .banner .in{padding-left:36px}
+
+/* ---- identity pass: flowing field-journal, off the template grid (Lilac) ---- */
+/* Eyebrow tags stop being pills: a small droplet marker + quiet tracked text. */
+.eyebrow{background:none;border:0;box-shadow:none;padding:0;color:var(--teal);letter-spacing:.22em;font-weight:800}
+.eyebrow::before{content:"";display:inline-block;width:9px;height:9px;margin-right:10px;background:var(--teal);border-radius:50% 50% 50% 0;transform:rotate(-45deg);vertical-align:1px}
+.eyebrow[style]{background:none!important;color:var(--coral)!important}
+/* Hero photo grows a leaf/droplet silhouette instead of a rounded rectangle. */
+.hero-bg{border-radius:120px 34px 120px 34px;transform:rotate(-1.5deg)}
+.hero-body{padding-top:246px}
+/* Section headers drift off the same left edge: alternate a gentle indent. */
+#how-it-works .eyebrow,#how-it-works .block-title,#how-it-works .block-sub{margin-left:34px}
+#why-it-matters{border-radius:34px 120px 34px 34px}

@@ -139,8 +139,15 @@ function emptyRead(msg) {
   $("ocrtext").disabled = false; $("identify").disabled = false;
   $("hint").className = "hint nudge"; $("hint").textContent = msg;
 }
-for (const id of ["go-photo", "go-photo2"]) $(id).onclick = () => { state.fileTarget = "a"; $("file").click(); };
-$("go-photo-b").onclick = () => { state.fileTarget = "b"; $("file").click(); snd.tap(); };
+// The on-screen note marks each stage of a Scan tap, so a dead tap can be
+// placed: this line proves the tap reached our handler; the Android shell
+// shows its own note when the WebView actually asks for the photo picker.
+for (const id of ["go-photo", "go-photo2"]) $(id).onclick = () => {
+  state.fileTarget = "a"; window.bioNativeNote && window.bioNativeNote("Tap received - asking the phone for the picker..."); $("file").click();
+};
+$("go-photo-b").onclick = () => {
+  state.fileTarget = "b"; window.bioNativeNote && window.bioNativeNote("Tap received - asking the phone for the picker..."); $("file").click(); snd.tap();
+};
 $("back-read").onclick = () => show("home");
 $("back-result").onclick = $("again").onclick = () => { $("file").value = ""; snd.tap(); show("home"); };
 $("back-stop").onclick = () => show("read");
@@ -549,7 +556,7 @@ dew.init({
   openResult: () => { if (state.result) show("result"); },
   showDew: () => show("dew"),
   exitDew: () => { snd.tap(); show("home"); },
-  pickLabel: () => { state.fileTarget = "chat"; $("file").click(); },
+  pickLabel: () => { state.fileTarget = "chat"; window.bioNativeNote && window.bioNativeNote("Tap received - asking the phone for the picker..."); $("file").click(); },
   onAnalyzed: (text, res) => { state.mix = null; state.result = res; state.cls = res.prediction.class; $("ocrtext").value = text; renderResult(res, false); },
   onCorrection: (name) => { state.correction = name; if (state.mix?.names) state.mix.names.a = name; },
 });
