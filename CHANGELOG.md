@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.8 - 2026-10-23
+
+- Camera/scan dead-tap rework (Android): the app declares the CAMERA permission but never asked for it at runtime, which blocks the capture intent on devices that enforce declared permissions. The app now asks when you tap Scan, and still opens the gallery picker if you decline. Every picker failure path now logs (logcat tag `bioOasis`), completes the WebView callback so later taps keep working, and shows a small on-screen note (e.g. "Opening camera / gallery...", "Camera unavailable - opening gallery picker") so a silent dead tap is impossible to miss. The file input also renders off-screen instead of `hidden` for picky WebViews.
+- Dew is honest about who answered: Gemini answers carry a "Dew AI" tag, built-in answers carry a "built-in guide" tag, and a one-time note says when Dew AI is not connected or could not be reached (English, Hindi, Marathi). No silent local answer dressed up as an AI answer.
+- The footer shows the app version (from `assets/config.js`), so support can confirm which build is on the phone.
+- The app and APK now point at the live backend `https://viabil-ag.vercel.app` (`assets/config.js`), and the page security policy allows that origin - Dew AI answers work in the app as soon as the server key is set.
 ## [0.6.7] - 2026-10-23
 
 ### Added

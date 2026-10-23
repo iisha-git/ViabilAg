@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.speech.RecognitionListener;
+import android.util.Log;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.webkit.GeolocationPermissions;
@@ -37,6 +38,7 @@ import java.util.Collections;
  *  ES modules, fetch() and geolocation behave exactly as on the website. */
 public class MainActivity extends Activity {
 
+    private static final String TAG = "bioOasis";
     private static final String APP_URL = "https://appassets.androidplatform.net/assets/www/index.html";
     private WebView web;
     private ValueCallback<Uri[]> fileCallback;
@@ -46,6 +48,8 @@ public class MainActivity extends Activity {
     private String pendingSpeechLang;
     private Uri cameraUri;
     private JavaScriptReplyProxy speechReply;
+    private ValueCallback<Uri[]> pendingPermCallback;
+    private WebChromeClient.FileChooserParams pendingPermParams;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -107,61 +111,36 @@ public class MainActivity extends Activity {
             @Override
             public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> callback,
                                              FileChooserParams params) {
+                // A ValueCallback must ALWAYS be completed exactly once, or the
+                // WebView wedges and ignores every later picker. Close any stale
+                // one before taking the new callback.
+                if (fileCallback != null) {
+                    Log.w(TAG, "filechooser: completing stale callback with null");
+                    try { fileCallback.onReceiveValue(null); } catch (Throwable ignored) {}
+                }
                 fileCallback = null;
                 cameraUri = null;
-                // The user always chooses: camera or gallery. Neither opens alone.
-                // Any failure anywhere must degrade to a plainer picker, never a dead tap.
-                Intent contentIntent;
-                try {
-                    contentIntent = params.createIntent();
-                } catch (Exception e) {
-                    contentIntent = galleryIntent();
-                }
-                // Explicit ACTION_CHOOSER (Google sample pattern): gallery as the base
-                // intent, camera offered through EXTRA_INITIAL_INTENTS.
-                Intent chooser = new Intent(Intent.ACTION_CHOOSER)
-                        .putExtra(Intent.EXTRA_INTENT, contentIntent)
-                        .putExtra(Intent.EXTRA_TITLE, "Add a label photo");
-                if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
+                Log.i(TAG, "filechooser: tap received");
+                jsNote("Opening camera / gallery...");
+                // The manifest declares CAMERA, so on devices that enforce it
+                // (declared-but-denied blocks the capture intent), ask first.
+                if (checkSelfPermission(Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    Log.i(TAG, "filechooser: camera permission not granted, asking");
+                    pendingPermCallback = callback;
+                    pendingPermParams = params;
                     try {
-                        File dir = new File(getCacheDir(), "cam");
-                        //noinspection ResultOfMethodCallIgnored
-                        dir.mkdirs();
-                        File photo = File.createTempFile("label", ".jpg", dir);
-                        cameraUri = FileProvider.getUriForFile(
-                                MainActivity.this, getPackageName() + ".fileprovider", photo);
-                        Intent cam = new Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                                .putExtra(MediaStore.EXTRA_OUTPUT, cameraUri)
-                                .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                                        | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{cam});
+                        requestPermissions(new String[]{Manifest.permission.CAMERA}, 4);
                     } catch (Throwable t) {
-                        // Not just IOException: a bad FileProvider paths config throws
-                        // IllegalArgumentException (unchecked), which used to kill the
-                        // whole chooser silently. Camera drops out; gallery stays.
-                        cameraUri = null;
+                        Log.e(TAG, "filechooser: permission request failed", t);
+                        pendingPermCallback = null;
+                        pendingPermParams = null;
+                        launchChooser(callback, params, false);
                     }
+                    return true;
                 }
-                try {
-                    fileCallback = callback;
-                    startActivityForResult(chooser, 1);
-                } catch (Exception e) {
-                    // Last resort: a plain gallery picker, so the tap never does nothing.
-                    try {
-                        startActivityForResult(galleryIntent(), 1);
-                    } catch (Exception e2) {
-                        fileCallback = null;
-                        cameraUri = null;
-                        callback.onReceiveValue(null);
-                        return true;
-                    }
-                }
+                launchChooser(callback, params, true);
                 return true;
-            }
-
-            private Intent galleryIntent() {
-                return new Intent(Intent.ACTION_GET_CONTENT)
-                        .addCategory(Intent.CATEGORY_OPENABLE).setType("image/*");
             }
 
             @Override
@@ -185,10 +164,88 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void launchChooser(ValueCallback<Uri[]> callback,
+                               WebChromeClient.FileChooserParams params,
+                               boolean withCamera) {
+        // The user always chooses: camera or gallery. Neither opens alone.
+        // Any failure anywhere must degrade to a plainer picker, never a dead tap.
+        Intent contentIntent;
+        try {
+            contentIntent = params.createIntent();
+        } catch (Exception e) {
+            Log.e(TAG, "filechooser: createIntent failed, using gallery", e);
+            contentIntent = galleryIntent();
+        }
+        // Explicit ACTION_CHOOSER (Google sample pattern): gallery as the base
+        // intent, camera offered through EXTRA_INITIAL_INTENTS.
+        Intent chooser = new Intent(Intent.ACTION_CHOOSER)
+                .putExtra(Intent.EXTRA_INTENT, contentIntent)
+                .putExtra(Intent.EXTRA_TITLE, "Add a label photo");
+        if (withCamera && getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
+            try {
+                File dir = new File(getCacheDir(), "cam");
+                //noinspection ResultOfMethodCallIgnored
+                dir.mkdirs();
+                File photo = File.createTempFile("label", ".jpg", dir);
+                cameraUri = FileProvider.getUriForFile(
+                        MainActivity.this, getPackageName() + ".fileprovider", photo);
+                Intent cam = new Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                        .putExtra(MediaStore.EXTRA_OUTPUT, cameraUri)
+                        .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                                | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{cam});
+            } catch (Throwable t) {
+                // Not just IOException: a bad FileProvider paths config throws
+                // IllegalArgumentException (unchecked), which used to kill the
+                // whole chooser silently. Camera drops out; gallery stays.
+                Log.e(TAG, "filechooser: camera prep failed, gallery only", t);
+                jsNote("Camera unavailable - opening gallery picker");
+                cameraUri = null;
+            }
+        }
+        try {
+            fileCallback = callback;
+            startActivityForResult(chooser, 1);
+            Log.i(TAG, "filechooser: chooser launched (camera=" + (cameraUri != null) + ")");
+        } catch (Exception e) {
+            Log.e(TAG, "filechooser: chooser launch failed, trying plain gallery", e);
+            // Last resort: a plain gallery picker, so the tap never does nothing.
+            try {
+                startActivityForResult(galleryIntent(), 1);
+                Log.i(TAG, "filechooser: plain gallery launched");
+            } catch (Exception e2) {
+                Log.e(TAG, "filechooser: no app can pick images", e2);
+                jsNote("No gallery or camera app found on this phone");
+                fileCallback = null;
+                cameraUri = null;
+                callback.onReceiveValue(null);
+            }
+        }
+    }
+
+    private Intent galleryIntent() {
+        return new Intent(Intent.ACTION_GET_CONTENT)
+                .addCategory(Intent.CATEGORY_OPENABLE).setType("image/*");
+    }
+
+    private void jsNote(String msg) {
+        if (web == null) return;
+        web.post(() -> web.evaluateJavascript(
+                "window.bioNativeNote && window.bioNativeNote("
+                        + org.json.JSONObject.quote(msg) + ")", null));
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && fileCallback != null) {
+        if (requestCode == 1) {
+            if (fileCallback == null) {
+                // e.g. the activity was recreated while the camera app was open
+                Log.w(TAG, "filechooser: result arrived with no pending callback");
+                jsNote("The picker result was lost - please tap Scan again");
+                cameraUri = null;
+                return;
+            }
             Uri[] result = null;
             if (resultCode == RESULT_OK) {
                 // camera results usually arrive with no data - use the file we made
@@ -198,6 +255,7 @@ public class MainActivity extends Activity {
                     result = new Uri[]{cameraUri};
                 }
             }
+            Log.i(TAG, "filechooser: delivering result, ok=" + (result != null));
             fileCallback.onReceiveValue(result);
             fileCallback = null;
             cameraUri = null;
@@ -212,6 +270,15 @@ public class MainActivity extends Activity {
             geoCallback.invoke(geoOrigin, granted, false);
             geoCallback = null;
             geoOrigin = null;
+        }
+        if (requestCode == 4 && pendingPermCallback != null) {
+            boolean camGranted = grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED;
+            Log.i(TAG, "filechooser: camera permission granted=" + camGranted);
+            if (!camGranted) jsNote("Camera permission is off - gallery only");
+            launchChooser(pendingPermCallback, pendingPermParams, camGranted);
+            pendingPermCallback = null;
+            pendingPermParams = null;
         }
         if (requestCode == 3) {
             boolean granted = grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
