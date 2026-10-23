@@ -441,3 +441,12 @@ html[data-theme="aurora"] .desk-tabs button[aria-selected="true"]{color:#c6ff3d;
 html[data-theme="aurora"] .desk-reminder{border-color:#c6ff3d}
 html[data-theme="aurora"] .desk-action{color:#c6ff3d;border-color:#c6ff3d}
 @media(min-width:1024px){.fielddesk{grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:clamp(40px,6vw,100px);margin-top:72px;padding:48px 0 20px;align-items:start}.desk-intro h2{font-size:clamp(38px,3.4vw,54px)}.desk-doodle{display:block;margin-top:24px}.desk-page{padding:28px 34px}#desk-panel{min-height:270px}.desk-tabs{gap:24px}.desk-tabs button{font-size:14px}}
+
+.class-cases{margin-top:24px;padding:18px 0;border-block:1px solid var(--line)}
+.class-cases summary{cursor:pointer;font-weight:600;font-size:15px;line-height:1.6}
+.class-cases p{font-size:13px;line-height:1.7;color:var(--cream-dim);margin:12px 0}
+.class-case-buttons{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.class-case-buttons button{padding:10px 13px;background:var(--char-2);color:var(--cream);border:1px solid var(--line);border-radius:10px;text-align:left;font-size:13px}
+.class-case-buttons button:hover{border-color:var(--teal)}
+
+.demo-disclosure{border-left:3px solid var(--teal);padding:12px 18px;margin:16px 0 24px;background:var(--char-2);font-size:13px;line-height:1.6}.demo-disclosure p{color:var(--cream-dim);margin:6px 0 0}

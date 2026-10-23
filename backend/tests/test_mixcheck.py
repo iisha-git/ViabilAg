@@ -109,3 +109,32 @@ def test_every_rule_and_product_source_is_real_link():
     for rule in PAIRS["rules"]:
         assert rule["source"]["url"].startswith("http")
         assert rule["verdict"] in ("conflict", "limited")
+
+
+def test_duplicate_recognised_product_is_not_pair_evidence():
+    j = check("DiPel DF biological insecticide for caterpillars.",
+              "DiPel DF biological insecticide, Bacillus thuringiensis.")
+    assert j["status"] == "same_product"
+    assert j["reason"] == "duplicate_product"
+    assert j["findings"] == []
+
+
+def test_identical_unrecognised_labels_are_duplicates():
+    j = check(SOAP, SOAP)
+    assert j["status"] == "same_product"
+
+
+def test_reversing_pair_retains_second_label_prohibition():
+    for a,b in [(T34,TILT), ("BlightBan A506 biological fungicide Pseudomonas fluorescens.",COPPER)]:
+        forward, reverse = check(a,b), check(b,a)
+        assert forward["status"] == reverse["status"] == "conflict"
+        assert {x["rule_id"] for x in forward["findings"]} == {x["rule_id"] for x in reverse["findings"]}
+
+
+def test_rules_on_both_labels_checked_without_duplicates():
+    j = check("T34 Biocontrol biological fungicide Trichoderma asperellum.",
+              "BotaniGard ES biological insecticide Beauveria bassiana.")
+    ids=[f["rule_id"] for f in j["findings"]]
+    assert j["status"] == "conflict"
+    assert "t34_no_tank_mix" in ids and "botanigard_fungicides_limited" in ids
+    assert len(ids)==len(set(ids))

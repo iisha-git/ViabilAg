@@ -151,29 +151,41 @@ def _other_matches(rule_other: dict, b: dict) -> str | None:
 def mix_check(text_a: str, text_b: str) -> dict:
     a, b = describe_product(text_a), describe_product(text_b)
     findings = []
-    if a["product"]:
-        for rule in _pairs()["rules"]:
-            if a["product"]["id"] not in rule["bio"]:
+    normalise = lambda t: re.sub(r"\W+", "", t.casefold())
+    duplicate = (normalise(text_a) == normalise(text_b) or
+                 (a["product"] and b["product"] and a["product"]["id"] == b["product"]["id"]))
+    seen = set()
+    if not duplicate:
+        for primary, other in ((a, b), (b, a)):
+            if not primary["product"]:
                 continue
-            hit = _other_matches(rule["other"], b)
-            if hit:
-                findings.append({"rule_id": rule["id"], "verdict": rule["verdict"],
-                                 "headline": rule["headline"].replace("{ai}", hit),
-                                 "scope": rule["scope"], "what_tested": rule["what_tested"],
-                                 "source": rule["source"]})
-    if any(f["verdict"] == "conflict" for f in findings):
+            for rule in _pairs()["rules"]:
+                if primary["product"]["id"] not in rule["bio"]:
+                    continue
+                hit = _other_matches(rule["other"], other)
+                if hit and rule["id"] not in seen:
+                    seen.add(rule["id"])
+                    findings.append({"rule_id": rule["id"], "verdict": rule["verdict"],
+                                     "headline": rule["headline"].replace("{ai}", hit),
+                                     "scope": rule["scope"], "what_tested": rule["what_tested"],
+                                     "source": rule["source"]})
+    if duplicate:
+        status = "same_product"
+    elif any(f["verdict"] == "conflict" for f in findings):
         status = "conflict"
     elif findings:
         status = "limited"
     else:
         status = "no_evidence"
-    if not a["product"]:
-        reason = "product_a_unknown"
+    if duplicate:
+        reason = "duplicate_product"
     elif status != "no_evidence":
         reason = None
-    elif b["product"]:
+    elif not a["product"] and not b["product"]:
+        reason = "product_a_unknown"
+    elif a["product"] and b["product"]:
         reason = "no_pair_evidence"
-    elif b["actives"] or b["looks_like_pesticide"]:
+    elif (a["actives"] or a["looks_like_pesticide"]) and (b["actives"] or b["looks_like_pesticide"]):
         reason = "no_pair_evidence"
     else:
         reason = "product_b_unknown"

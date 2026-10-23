@@ -29,6 +29,9 @@ const cases = [
    "TILT 25 EC systemic fungicide, propiconazole 25%."],
 ];
 
+cases.push(["DiPel DF biological insecticide for caterpillar pests.", "DiPel DF biological insecticide with Bacillus thuringiensis."]);
+for (const [a,b] of [...cases]) cases.push([b,a]);
+
 let bad = 0;
 for (const [a, b] of cases) {
   const js = mix.mixCheck(a, b);
