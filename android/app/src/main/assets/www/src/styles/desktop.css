@@ -306,4 +306,22 @@
   html[data-theme="lilac"] .d-stat:nth-child(3){margin-bottom:8px}
   /* section headers drift: samples flush left, how-it-works indented */
   html[data-theme="lilac"] #how-it-works .eyebrow,html[data-theme="lilac"] #how-it-works .block-title,html[data-theme="lilac"] #how-it-works .block-sub{margin-left:60px}
+
+  /* ---- identity pass 2 (Lilac, desktop): boxes off the inner flow ---- */
+  /* steps: a ghost serif numeral over a hairline, staggered - no card at all */
+  html[data-theme="lilac"] .how-step{background:none;border:0;border-top:2px solid var(--line);border-radius:0;box-shadow:none;padding:26px 8px 34px;overflow:visible}
+  html[data-theme="lilac"] .how-step::before{left:8px;right:auto;top:40px;font-size:120px;opacity:.13;color:var(--teal);font-weight:400}
+  html[data-theme="lilac"] .how-step::after{display:none}
+  html[data-theme="lilac"] .how-step:hover{transform:translateY(-6px)}
+  html[data-theme="lilac"] .how-ico{width:52px;height:52px;flex-basis:52px;margin-top:66px}
+  /* evidence facts: serif numerals and hairlines in two columns, no white cards */
+  html[data-theme="lilac"] .fact{background:none;border:0;border-top:2px solid var(--line);border-radius:0;box-shadow:none;padding:20px 8px 26px 64px;overflow:visible}
+  html[data-theme="lilac"] .fact::before{left:6px;top:22px;background:none;border:0;border-radius:0;box-shadow:none;padding:0;font-family:var(--font-serif);font-size:34px;font-weight:400;letter-spacing:0;color:var(--teal);line-height:1}
+  html[data-theme="lilac"] .fact::after{display:none}
+  html[data-theme="lilac"] .fact:hover{transform:none}
+  /* result tabs: an underlined editorial row on a soft blur, not a segmented pill */
+  html[data-theme="lilac"] #v-result .tabs{background:color-mix(in srgb,#EFE9FF 84%,transparent);backdrop-filter:blur(12px);border:0;box-shadow:none;border-radius:0;border-bottom:2px solid var(--line);padding:7px 4px 0}
+  html[data-theme="lilac"] #p-field .cond{padding:22px 8px}
+  /* the quick take pull-out needs no hover lift once the box is gone */
+  html[data-theme="lilac"] #v-result .quick:hover{transform:none}
 }
