@@ -35,7 +35,7 @@ HEADERS = {
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY",
     "Referrer-Policy": "no-referrer",
-    "Permissions-Policy": "camera=(self), geolocation=(self), microphone=()",
+    "Permissions-Policy": "camera=(self), geolocation=(self), microphone=(self)",
     "Cross-Origin-Resource-Policy": "same-origin",
 }
 

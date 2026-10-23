@@ -5,6 +5,12 @@
 
 # Changelog
 
+## Unreleased - voice input fixes
+
+- Website: the `Permissions-Policy` header sent `microphone=()`, which blocks the microphone for the whole site, so Dew's mic could never listen. It is now `microphone=(self)` (Vercel, Netlify and the backend). Listening still starts only when the mic button is tapped.
+- Android app: the native bridge sent `onResult` / `onError` while the page listened for `result` and bare error codes, so every spoken result was dropped. The wire format now matches the page.
+- Android app: added the Android 11+ package-visibility query for speech recognition services, without which the phone reported no recognizer available.
+
 ## 0.6.8 - 2026-10-23
 
 - Camera/scan dead-tap rework (Android): the app declares the CAMERA permission but never asked for it at runtime, which blocks the capture intent on devices that enforce declared permissions. The app now asks when you tap Scan, and still opens the gallery picker if you decline. Every picker failure path now logs (logcat tag `bioOasis`), completes the WebView callback so later taps keep working, and shows a small on-screen note (e.g. "Opening camera / gallery...", "Camera unavailable - opening gallery picker") so a silent dead tap is impossible to miss. The file input also renders off-screen instead of `hidden` for picky WebViews.

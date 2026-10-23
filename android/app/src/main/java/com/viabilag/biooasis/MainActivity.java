@@ -419,7 +419,13 @@ public class MainActivity extends Activity {
         if (web == null) return;
         web.post(() -> {
             if (speechReply != null) {
-                try { speechReply.postMessage(kind + "\t" + value); } catch (Exception ignored) {}
+                // Wire format the page (dew.js) expects: "result\t<text>", "cancelled",
+                // or the bare error code ("unsupported", "no-mic-permission", "no-match", ...).
+                String wire;
+                if ("onResult".equals(kind)) wire = "result\t" + value;
+                else if ("onError".equals(kind)) wire = value;
+                else wire = kind;
+                try { speechReply.postMessage(wire); } catch (Exception ignored) {}
             }
         });
     }
