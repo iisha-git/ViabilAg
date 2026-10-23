@@ -8,8 +8,8 @@ android {
         applicationId "com.viabilag.biooasis"
         minSdk 26
         targetSdk 34
-        versionCode 10
-        versionName "0.6.10"
+        versionCode 19
+        versionName "0.6.19"
     }
 }
 

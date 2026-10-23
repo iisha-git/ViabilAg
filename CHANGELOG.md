@@ -1,3 +1,8 @@
+## Android packaging: 0.6.19 (2026-10-23)
+- Rebuilt the APK with website 0.6.19 classroom cases and both-label mix checks.
+- Corrected Android package version metadata to versionCode 19 / versionName 0.6.19.
+- Documented changed-debug-key reinstall and local-data preservation caveats.
+
 # Changelog
 
 ## 0.6.8 - 2026-10-23

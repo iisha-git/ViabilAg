@@ -100,21 +100,29 @@ function otherMatches(ruleOther, b) {
 
 export function mixCheck(textA, textB) {
   const a = describeProduct(textA), b = describeProduct(textB);
-  const findings = [];
-  if (a.product) {
+  const findings = [], seen = new Set();
+  const norm = t => t.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+  const duplicate = norm(textA) === norm(textB) || (a.product && b.product && a.product.id === b.product.id);
+  if (!duplicate) for (const [primary, other] of [[a,b],[b,a]]) {
+    if (!primary.product) continue;
     for (const rule of P.rules) {
-      if (!rule.bio.includes(a.product.id)) continue;
-      const hit = otherMatches(rule.other, b);
-      if (hit) findings.push({ rule_id: rule.id, verdict: rule.verdict,
-        headline: rule.headline.replace("{ai}", hit), scope: rule.scope,
-        what_tested: rule.what_tested, source: rule.source });
+      if (!rule.bio.includes(primary.product.id)) continue;
+      const hit = otherMatches(rule.other, other);
+      if (hit && !seen.has(rule.id)) {
+        seen.add(rule.id);
+        findings.push({ rule_id: rule.id, verdict: rule.verdict,
+          headline: rule.headline.replace("{ai}", hit), scope: rule.scope,
+          what_tested: rule.what_tested, source: rule.source });
+      }
     }
   }
-  const status = findings.some(f => f.verdict === "conflict") ? "conflict" : findings.length ? "limited" : "no_evidence";
+  const status = duplicate ? "same_product" : findings.some(f => f.verdict === "conflict") ? "conflict" : findings.length ? "limited" : "no_evidence";
   let reason = null;
-  if (!a.product) reason = "product_a_unknown";
+  if (duplicate) reason = "duplicate_product";
   else if (status !== "no_evidence") reason = null;
-  else if (b.product || b.actives.length || b.looks_like_pesticide) reason = "no_pair_evidence";
+  else if (!a.product && !b.product) reason = "product_a_unknown";
+  else if (a.product && b.product) reason = "no_pair_evidence";
+  else if ((a.actives.length || a.looks_like_pesticide) && (b.actives.length || b.looks_like_pesticide)) reason = "no_pair_evidence";
   else reason = "product_b_unknown";
   return { status, reason, product_a: a, product_b: b, findings,
     disclaimer: "Product matches come from the words on the scanned labels, not from a product database or a lab test. Compatibility findings are product-specific. bioOasis never recommends doses, mixing recipes or spray timings." };

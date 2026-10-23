@@ -19,6 +19,22 @@ your phone, allow "install from this source" when Android asks, and open
 bioOasis. The debug APK is signed with the standard debug key - fine for your
 own phone and demos, not for publishing.
 
+## Current classroom demo build: 0.6.19
+
+This build bundles the same frontend as website v0.6.19, including duplicate
+product protection, checks in both label directions, ES-only BotaniGard evidence,
+and the three disclosed classroom evidence cases. The cases work without the
+backend using the bundled public-label excerpts. They are software examples,
+not physical mixing experiments or certificates of safety.
+
+This rebuild uses a new debug signing key because the earlier temporary build
+key was not preserved. Android cannot install it over the old debug-signed app.
+Before uninstalling the old app, copy or screenshot anything you need: current
+label text, results or Dew conversation. Uninstalling clears app settings,
+internal camera-cache photos and downloaded caches. There is no full-state
+export. Gallery originals stored outside the app are not intentionally deleted.
+A successful build and local frontend checks are not physical-device testing.
+
 ## How it works
 
 - `app/build.gradle` copies `../frontend` into the APK's assets on every build,

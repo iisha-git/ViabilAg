@@ -7,230 +7,428 @@
       "class": "bt",
       "kind": "Biological insecticide (Bt)",
       "organism": "Bacillus thuringiensis subsp. kurstaki",
-      "fingerprints": ["dipel"]
+      "fingerprints": [
+        "dipel"
+      ]
     },
     "javelin_wg": {
       "name": "Javelin WG",
       "class": "bt",
       "kind": "Biological insecticide (Bt)",
       "organism": "Bacillus thuringiensis subsp. kurstaki",
-      "fingerprints": ["javelin", "javenlin"]
+      "fingerprints": [
+        "javelin",
+        "javenlin"
+      ]
     },
     "xentari": {
       "name": "XenTari WG",
       "class": "bt",
       "kind": "Biological insecticide (Bt)",
       "organism": "Bacillus thuringiensis subsp. aizawai",
-      "fingerprints": ["xentari"]
+      "fingerprints": [
+        "xentari"
+      ]
     },
     "thuricide": {
       "name": "Thuricide",
       "class": "bt",
       "kind": "Biological insecticide (Bt)",
       "organism": "Bacillus thuringiensis subsp. kurstaki",
-      "fingerprints": ["thuricide"]
+      "fingerprints": [
+        "thuricide"
+      ]
     },
     "rootshield_wp": {
       "name": "RootShield WP",
       "class": "trichoderma",
       "kind": "Biological fungicide",
       "organism": "Trichoderma harzianum Rifai strain KRL-AG2 (T-22)",
-      "fingerprints": ["rootshield"]
+      "fingerprints": [
+        "rootshield"
+      ]
     },
     "plantshield": {
       "name": "PlantShield HC",
       "class": "trichoderma",
       "kind": "Biological fungicide",
       "organism": "Trichoderma harzianum Rifai strain KRL-AG2 (T-22)",
-      "fingerprints": ["plantshield"]
+      "fingerprints": [
+        "plantshield"
+      ]
     },
     "t34_biocontrol": {
       "name": "T34 Biocontrol",
       "class": "trichoderma",
       "kind": "Biological fungicide",
       "organism": "Trichoderma asperellum strain T34",
-      "fingerprints": ["t34 biocontrol", "asperello", "t34"]
+      "fingerprints": [
+        "t34 biocontrol",
+        "asperello",
+        "t34"
+      ]
     },
     "trianum_p": {
       "name": "Trianum-P",
       "class": "trichoderma",
       "kind": "Biological fungicide",
       "organism": "Trichoderma harzianum T-22",
-      "fingerprints": ["trianum"]
+      "fingerprints": [
+        "trianum"
+      ]
     },
     "howler": {
       "name": "Howler / Howler EVO",
       "class": "pseudomonas",
       "kind": "Biological fungicide",
       "organism": "Pseudomonas chlororaphis strain AFS009",
-      "fingerprints": ["howler"]
+      "fingerprints": [
+        "howler"
+      ]
     },
     "blightban": {
       "name": "BlightBan A506",
       "class": "pseudomonas",
       "kind": "Biological fungicide",
       "organism": "Pseudomonas fluorescens strain A506",
-      "fingerprints": ["blightban"]
+      "fingerprints": [
+        "blightban"
+      ]
     },
     "cedomon": {
       "name": "Cedomon",
       "class": "pseudomonas",
       "kind": "Biological seed treatment",
       "organism": "Pseudomonas chlororaphis MA 342",
-      "fingerprints": ["cedomon"]
+      "fingerprints": [
+        "cedomon"
+      ]
     },
     "botanigard": {
-      "name": "BotaniGard (ES or 22WP)",
+      "name": "BotaniGard ES",
       "class": "beauveria",
       "kind": "Biological insecticide",
       "organism": "Beauveria bassiana strain GHA",
-      "fingerprints": ["botanigard"]
+      "fingerprints": [
+        "botanigard es"
+      ]
     },
     "mycotrol_eso": {
       "name": "Mycotrol ESO",
       "class": "beauveria",
       "kind": "Biological insecticide",
       "organism": "Beauveria bassiana strain GHA",
-      "fingerprints": ["mycotrol"]
+      "fingerprints": [
+        "mycotrol"
+      ]
     },
     "naturalis_l": {
       "name": "Naturalis L",
       "class": "beauveria",
       "kind": "Biological insecticide",
       "organism": "Beauveria bassiana strain ATCC 74040",
-      "fingerprints": ["naturalis"]
+      "fingerprints": [
+        "naturalis"
+      ]
     }
   },
   "active_ingredients": {
-    "propiconazole": { "display": "propiconazole", "type": "fungicide", "names": ["propiconazole"] },
-    "tebuconazole": { "display": "tebuconazole", "type": "fungicide", "names": ["tebuconazole"] },
-    "benomyl": { "display": "benomyl", "type": "fungicide", "names": ["benomyl"] },
-    "imazalil": { "display": "imazalil", "type": "fungicide", "names": ["imazalil", "imazilil"] },
-    "triflumizole": { "display": "triflumizole", "type": "fungicide", "names": ["triflumizole"] },
-    "copper": { "display": "a copper-based compound", "type": "fungicide", "names": ["copper hydroxide", "copper oxychloride", "copper sulfate", "copper sulphate", "cuprous oxide", "copper-based", "copper spray", "copper dust", "bordeaux"] },
-    "oxydemeton_methyl": { "display": "oxydemeton-methyl (Metasystox)", "type": "insecticide", "names": ["oxydemeton-methyl", "metasystox"] },
-    "endosulfan": { "display": "endosulfan (Thiodan)", "type": "insecticide", "names": ["endosulfan", "thiodan"] }
+    "propiconazole": {
+      "display": "propiconazole",
+      "type": "fungicide",
+      "names": [
+        "propiconazole"
+      ]
+    },
+    "tebuconazole": {
+      "display": "tebuconazole",
+      "type": "fungicide",
+      "names": [
+        "tebuconazole"
+      ]
+    },
+    "benomyl": {
+      "display": "benomyl",
+      "type": "fungicide",
+      "names": [
+        "benomyl"
+      ]
+    },
+    "imazalil": {
+      "display": "imazalil",
+      "type": "fungicide",
+      "names": [
+        "imazalil",
+        "imazilil"
+      ]
+    },
+    "triflumizole": {
+      "display": "triflumizole",
+      "type": "fungicide",
+      "names": [
+        "triflumizole"
+      ]
+    },
+    "copper": {
+      "display": "a copper-based compound",
+      "type": "fungicide",
+      "names": [
+        "copper hydroxide",
+        "copper oxychloride",
+        "copper sulfate",
+        "copper sulphate",
+        "cuprous oxide",
+        "copper-based",
+        "copper spray",
+        "copper dust",
+        "bordeaux"
+      ]
+    },
+    "oxydemeton_methyl": {
+      "display": "oxydemeton-methyl (Metasystox)",
+      "type": "insecticide",
+      "names": [
+        "oxydemeton-methyl",
+        "metasystox"
+      ]
+    },
+    "endosulfan": {
+      "display": "endosulfan (Thiodan)",
+      "type": "insecticide",
+      "names": [
+        "endosulfan",
+        "thiodan"
+      ]
+    }
   },
   "rules": [
     {
       "id": "t34_no_tank_mix",
-      "bio": ["t34_biocontrol"],
-      "other": { "kind": "any_pesticide" },
+      "bio": [
+        "t34_biocontrol"
+      ],
+      "other": {
+        "kind": "any_pesticide"
+      },
       "verdict": "conflict",
       "headline": "The T34 Biocontrol label says: do not tank mix it with other pesticides",
       "scope": "The label says \"DO NOT TANK MIX T34 BIOCONTROL with other pesticides. Some pesticides, particularly fungicides, may reduce effectiveness of T34 BIOCONTROL.\" It also says not to apply chemical fungicides 3 days before or after applying T34. This instruction is for T34 Biocontrol specifically; it does not tell you anything about other Trichoderma products.",
       "what_tested": "A label instruction (US EPA master label), not a lab test of your exact two products.",
-      "source": { "name": "T34 Biocontrol EPA label (087301-00001)", "url": "https://www3.epa.gov/pesticides/chem_search/ppls/087301-00001-20250501.pdf" }
+      "source": {
+        "name": "T34 Biocontrol EPA label (087301-00001)",
+        "url": "https://www3.epa.gov/pesticides/chem_search/ppls/087301-00001-20250501.pdf"
+      }
     },
     {
       "id": "rootshield_wp_listed_ais",
-      "bio": ["rootshield_wp"],
-      "other": { "kind": "active_ingredient", "any_of": ["benomyl", "imazalil", "propiconazole", "tebuconazole", "triflumizole"] },
+      "bio": [
+        "rootshield_wp"
+      ],
+      "other": {
+        "kind": "active_ingredient",
+        "any_of": [
+          "benomyl",
+          "imazalil",
+          "propiconazole",
+          "tebuconazole",
+          "triflumizole"
+        ]
+      },
       "verdict": "conflict",
       "headline": "The RootShield WP label says it must not be tank mixed with {ai}",
       "scope": "The EPA master label says RootShield WP \"must not be tank mixed with chemicals that contain the following active ingredients: benomyl, imazalil, propiconazole, tebuconazole, and triflumizole\", and it should not be applied immediately before these pesticides are used. This applies to RootShield WP specifically.",
       "what_tested": "A label instruction (US EPA master label, version 9, 2018), not a lab test of your exact two products.",
-      "source": { "name": "RootShield WP EPA master label (068539-00007)", "url": "https://www3.epa.gov/pesticides/chem_search/ppls/068539-00007-20190430.pdf" }
+      "source": {
+        "name": "RootShield WP EPA master label (068539-00007)",
+        "url": "https://www3.epa.gov/pesticides/chem_search/ppls/068539-00007-20190430.pdf"
+      }
     },
     {
       "id": "plantshield_listed_ais",
-      "bio": ["plantshield"],
-      "other": { "kind": "active_ingredient", "any_of": ["imazalil", "propiconazole", "tebuconazole", "triflumizole"] },
+      "bio": [
+        "plantshield"
+      ],
+      "other": {
+        "kind": "active_ingredient",
+        "any_of": [
+          "imazalil",
+          "propiconazole",
+          "tebuconazole",
+          "triflumizole"
+        ]
+      },
       "verdict": "conflict",
       "headline": "The PlantShield HC label says it must not be tank mixed with {ai}",
       "scope": "The label says PlantShield HC \"must not be tank mixed with chemicals that contain the following active ingredients: imazalil, propiconazole, tebuconazole, and triflumizole\", and it should not be applied immediately before these pesticides are used. This applies to PlantShield HC specifically.",
       "what_tested": "A label instruction (CDMS label), not a lab test of your exact two products.",
-      "source": { "name": "PlantShield HC Biological Fungicide label (CDMS)", "url": "https://www.cdms.net/ldat/ld6T2000.pdf" }
+      "source": {
+        "name": "PlantShield HC Biological Fungicide label (CDMS)",
+        "url": "https://www.cdms.net/ldat/ld6T2000.pdf"
+      }
     },
     {
       "id": "naturalis_no_fungicides",
-      "bio": ["naturalis_l"],
-      "other": { "kind": "category", "category": "fungicide" },
+      "bio": [
+        "naturalis_l"
+      ],
+      "other": {
+        "kind": "category",
+        "category": "fungicide"
+      },
       "verdict": "conflict",
       "headline": "The Naturalis L label says: do not tank mix it with fungicides",
       "scope": "The label says \"Do not tank mix with fungicides.\" It also says the product is compatible with a wide range of pesticides and lists products it can be mixed with (for example Agree, XenTari and Confirm). This applies to Naturalis L specifically.",
       "what_tested": "A label instruction (US EPA master label, 2020), not a lab test of your exact two products.",
-      "source": { "name": "Naturalis L EPA master label (064137-00016)", "url": "https://www3.epa.gov/pesticides/chem_search/ppls/064137-00016-20200428.pdf" }
+      "source": {
+        "name": "Naturalis L EPA master label (064137-00016)",
+        "url": "https://www3.epa.gov/pesticides/chem_search/ppls/064137-00016-20200428.pdf"
+      }
     },
     {
       "id": "naturalis_no_metasystox_thiodan",
-      "bio": ["naturalis_l"],
-      "other": { "kind": "active_ingredient", "any_of": ["oxydemeton_methyl", "endosulfan"] },
+      "bio": [
+        "naturalis_l"
+      ],
+      "other": {
+        "kind": "active_ingredient",
+        "any_of": [
+          "oxydemeton_methyl",
+          "endosulfan"
+        ]
+      },
       "verdict": "conflict",
       "headline": "The Naturalis L label says not to tank mix it with {ai}",
       "scope": "The label says \"Do not tank mix with insecticides such as Metasystox R or Thiodan EC.\" This applies to Naturalis L specifically.",
       "what_tested": "A label instruction (US EPA master label, 2020), not a lab test of your exact two products.",
-      "source": { "name": "Naturalis L EPA master label (064137-00016)", "url": "https://www3.epa.gov/pesticides/chem_search/ppls/064137-00016-20200428.pdf" }
+      "source": {
+        "name": "Naturalis L EPA master label (064137-00016)",
+        "url": "https://www3.epa.gov/pesticides/chem_search/ppls/064137-00016-20200428.pdf"
+      }
     },
     {
       "id": "blightban_no_copper",
-      "bio": ["blightban"],
-      "other": { "kind": "active_ingredient", "any_of": ["copper"] },
+      "bio": [
+        "blightban"
+      ],
+      "other": {
+        "kind": "active_ingredient",
+        "any_of": [
+          "copper"
+        ]
+      },
       "verdict": "conflict",
       "headline": "The BlightBan A506 label says: do not tank mix it with copper-based compounds",
       "scope": "The label says \"Do not tank mix with copper-based compounds\" and \"Copper sprays or copper dust applications are incompatible with the performance of this product.\" This applies to BlightBan A506 specifically.",
       "what_tested": "A label instruction (Greenbook label copy), not a lab test of your exact two products.",
-      "source": { "name": "BlightBan A506 label (Greenbook)", "url": "https://www.greenbook.net/api/products/61611/documents/6182/download" }
+      "source": {
+        "name": "BlightBan A506 label (Greenbook)",
+        "url": "https://www.greenbook.net/api/products/61611/documents/6182/download"
+      }
     },
     {
       "id": "botanigard_fungicides_limited",
-      "bio": ["botanigard"],
-      "other": { "kind": "category", "category": "fungicide" },
+      "bio": [
+        "botanigard"
+      ],
+      "other": {
+        "kind": "category",
+        "category": "fungicide"
+      },
       "verdict": "limited",
-      "headline": "The BotaniGard labels say: compatible with some fungicides, but fungicides may kill the spores",
-      "scope": "The BotaniGard ES and 22WP labels say the product \"is physically and biologically compatible with a wide range of insecticides and spray adjuvants. It is compatible with some fungicides in tank mixtures. Fungicides may kill the spores.\" The labels do not name which fungicides, and say to contact the dealer for specific compatible products.",
+      "headline": "The BotaniGard ES label says: compatible with some fungicides, but fungicides may kill the spores",
+      "scope": "The BotaniGard ES specimen label says the product \"is physically and biologically compatible with a wide range of insecticides and spray adjuvants. It is compatible with some fungicides in tank mixtures. Fungicides may kill the spores.\" This is general guidance for BotaniGard ES only, not a statement about BotaniGard 22WP or other formulations. It does not name which fungicides, and says to contact the dealer for specific compatible products.",
       "what_tested": "A general label statement. It is not a test of your exact two products together, and it does not say the fungus survives your mix.",
-      "source": { "name": "BotaniGard ES specimen label (Certis)", "url": "https://www.certisbio.com/hubfs/Botanigard_ES_SpLbl_20240409_82074-1_per_20240403_ESL.pdf" }
+      "source": {
+        "name": "BotaniGard ES specimen label (Certis)",
+        "url": "https://www.certisbio.com/hubfs/Botanigard_ES_SpLbl_20240409_82074-1_per_20240403_ESL.pdf"
+      }
     },
     {
       "id": "mycotrol_fungicides_limited",
-      "bio": ["mycotrol_eso"],
-      "other": { "kind": "category", "category": "fungicide" },
+      "bio": [
+        "mycotrol_eso"
+      ],
+      "other": {
+        "kind": "category",
+        "category": "fungicide"
+      },
       "verdict": "limited",
       "headline": "The Mycotrol ESO label says: compatible with some fungicides, but fungicides may kill the spores",
       "scope": "The label says the product \"is physically and biologically compatible with a wide range of insecticides and spray adjuvants. It is compatible with some fungicides in tank mixtures. Fungicides may kill the spores.\" It does not name which fungicides.",
       "what_tested": "A general label statement. It is not a test of your exact two products together, and it does not say the fungus survives your mix.",
-      "source": { "name": "Mycotrol ESO label (OHP)", "url": "https://www.ohp.com/Labels_MSDS/PDF/mycotrol_eso_label.pdf" }
+      "source": {
+        "name": "Mycotrol ESO label (OHP)",
+        "url": "https://www.ohp.com/Labels_MSDS/PDF/mycotrol_eso_label.pdf"
+      }
     },
     {
       "id": "howler_not_all_tested",
-      "bio": ["howler"],
-      "other": { "kind": "any_pesticide" },
+      "bio": [
+        "howler"
+      ],
+      "other": {
+        "kind": "any_pesticide"
+      },
       "verdict": "limited",
       "headline": "The Howler EVO label allows tank mixes, but says not all mixtures have been tested",
       "scope": "The label says Howler EVO can be used in tank mixes, that \"not all tank mixtures with Howler EVO fungicide have been tested\", and to test the combination on a small portion of the crop first. It is the user's responsibility to make sure every component is registered for the crop, and the most restrictive label wins.",
       "what_tested": "A label statement. Your exact pair has not necessarily been tested, and a small crop test checks the crop, not microbe survival.",
-      "source": { "name": "Howler EVO Fungicide label (Certis)", "url": "https://www.certisbio.com/hubfs/Labels/pdf-labels/Howler%20EVO/Howler_EVO_Label_050924_AB.pdf" }
+      "source": {
+        "name": "Howler EVO Fungicide label (Certis)",
+        "url": "https://www.certisbio.com/hubfs/Labels/pdf-labels/Howler%20EVO/Howler_EVO_Label_050924_AB.pdf"
+      }
     },
     {
       "id": "xentari_contact_maker",
-      "bio": ["xentari"],
-      "other": { "kind": "any_pesticide" },
+      "bio": [
+        "xentari"
+      ],
+      "other": {
+        "kind": "any_pesticide"
+      },
       "verdict": "limited",
       "headline": "The XenTari label says to contact the manufacturer before any tank mix it does not specifically recommend",
       "scope": "The label says tank mixing pest control products can reduce efficacy or injure the crop, and the user should contact Valent BioSciences before applying any tank mix that is not specifically recommended on the label.",
       "what_tested": "A label statement. It is not a test of your exact two products together.",
-      "source": { "name": "XenTari WG Biological Insecticide label", "url": "https://www.bartlett.ca/Bartlett/nmb/MSDSLabel.nsf/33679510e3c80d96852574a20055f364/984da49d7a12e715852583c20071296f/$FILE/Xentari%20Label%20English.pdf" }
+      "source": {
+        "name": "XenTari WG Biological Insecticide label",
+        "url": "https://www.bartlett.ca/Bartlett/nmb/MSDSLabel.nsf/33679510e3c80d96852574a20055f364/984da49d7a12e715852583c20071296f/$FILE/Xentari%20Label%20English.pdf"
+      }
     },
     {
       "id": "javelin_jar_check",
-      "bio": ["javelin_wg"],
-      "other": { "kind": "any_pesticide" },
+      "bio": [
+        "javelin_wg"
+      ],
+      "other": {
+        "kind": "any_pesticide"
+      },
       "verdict": "limited",
       "headline": "The Javelin WG label advises a small-container compatibility test before tank mixing",
       "scope": "The label says that before mixing in the spray tank it is advisable to test physical compatibility by mixing all the components in a small container in proportionate quantities, and to use the mix promptly.",
       "what_tested": "A label statement. A jar test only shows the liquids physically mix; it does not show the Bt spores survive.",
-      "source": { "name": "Javelin WG label, Certis Biologicals", "url": "https://www.certisbio.com/hubfs/Label%20SDS/pdf-labels/Javelin_WG_label.pdf" }
+      "source": {
+        "name": "Javelin WG label, Certis Biologicals",
+        "url": "https://www.certisbio.com/hubfs/Label%20SDS/pdf-labels/Javelin_WG_label.pdf"
+      }
     },
     {
       "id": "dipel_labeled_insecticides",
-      "bio": ["dipel_df"],
-      "other": { "kind": "category", "category": "insecticide" },
+      "bio": [
+        "dipel_df"
+      ],
+      "other": {
+        "kind": "category",
+        "category": "insecticide"
+      },
       "verdict": "limited",
       "headline": "The DiPel DF label says it may be tank mixed with other labeled insecticides, after checking compatibility",
       "scope": "The label says DiPel DF \"may be tank mixed with other labeled insecticides to enhance control\", following the more restrictive label, and to \"check for tank mix compatibility\" before mixing. It cannot be mixed with any product whose label prohibits such mixing.",
       "what_tested": "A label statement. Physical compatibility does not prove the Bt spores survive the mix.",
-      "source": { "name": "DiPel DF label, Valent BioSciences", "url": "https://picol.cahnrs.wsu.edu/DownloadLabel/37049/OR/OR_2026_73049-39_Dipel%20DF%20Biological%20Insecticide%20Dry%20Flowable.pdf" }
+      "source": {
+        "name": "DiPel DF label, Valent BioSciences",
+        "url": "https://picol.cahnrs.wsu.edu/DownloadLabel/37049/OR/OR_2026_73049-39_Dipel%20DF%20Biological%20Insecticide%20Dry%20Flowable.pdf"
+      }
     }
   ]
 }

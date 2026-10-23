@@ -358,6 +358,21 @@ $("wxbtn").onclick = () => {
 };
 
 /* ================= mix check ================= */
+const classCases = {
+ conflict: { a:2, b:"Classroom ingredient example, not a complete product label: copper hydroxide. Fungicide and bactericide.", note:"BlightBan A506 + copper hydroxide ingredient example. Expected: the cited BlightBan label prohibits copper tank mixes." },
+ limited: { a:3, b:"Classroom category example, not a complete product label: a fungicide. Exact product and formulation are unspecified.", note:"BotaniGard ES + an unspecified fungicide example. Expected: general guidance, not proof that this exact pair is compatible." },
+ unknown: { a:1, bSample:0, note:"Trianum-P + DiPel DF public-label excerpts. Expected: no matching pair evidence in this prototype's rule set, not a safe verdict." }
+};
+function loadClassCase(key) {
+ const c=classCases[key], a=state.samples.find(x=>x.id===c.a), b=state.samples.find(x=>x.id===c.bSample);
+ if(!a)return;
+ state.mix.textA=a.text; state.mix.classCase=c.note;
+ $("mixtext").value=b?.text||c.b;
+ $("mix-a-reminder").textContent="CLASSROOM CASE: first label loaded as "+a.label+". This replaces the first product for this check.";
+ $("hint-b").className="hint";$("hint-b").textContent=c.note+" No physical mixing is needed for this software demonstration.";
+ $("mixtext").focus();
+}
+document.querySelectorAll("[data-class-case]").forEach(b=>b.onclick=()=>loadClassCase(b.dataset.classCase));
 function openMixScan() {
   const a = state.result?.evidence;
   state.mix = { textA: $("ocrtext").value.trim(), textB: "", res: null, names: null };
@@ -367,7 +382,7 @@ function openMixScan() {
   $("mixtext").value = ""; $("hint-b").textContent = ""; $("hint-b").className = "hint";
   $("scanbox-b").classList.add("hidden"); $("reading-b").classList.add("hidden");
   $("reading-dew-b").innerHTML = mascot("think");
-  $("mix-samples").innerHTML = state.samples.map(sm =>
+  $("mix-samples").innerHTML = state.samples.filter(sm => sm.text.trim() !== state.mix.textA.trim()).map(sm =>
     `<button class="chip-btn" data-sid="${sm.id}">${esc(sm.label.replace(/\s*\(.*\)/, ""))}</button>`).join("");
   $("mix-samples").onclick = e => {
     const b = e.target.closest("[data-sid]"); if (!b) return;
@@ -420,10 +435,15 @@ $("mix-read").onclick = async () => {
   $("mix-read").disabled = true; $("mix-read").textContent = "Thinking...";
   try {
     const res = await api.mixcheck({ textA: state.mix.textA, textB });
+    if (res.status === "same_product") {
+      $("hint-b").className="hint nudge";
+      $("hint-b").textContent="These labels match the same recognised product (or repeat the same text). Choose a different second product. Editing only the display name will not change the match.";
+      $("mixtext").focus(); return;
+    }
     state.mix.textB = textB; state.mix.res = res;
     state.mix.names = {
-      a: res.product_a.product?.name || $("r-name").textContent || "Product 1",
-      b: res.product_b.product?.name || "",
+      a: res.product_a.product?.name || res.product_a.actives.map(a=>a.name).join(", ") || "Product 1",
+      b: res.product_b.product?.name || res.product_b.actives.map(a=>a.name).join(", ") || (res.product_b.categories.length ? "Unspecified "+res.product_b.categories.join(" / ") : ""),
     };
     renderConfirm(res);
     snd.step();
@@ -477,7 +497,7 @@ $("mix-check-now").onclick = () => {
 const VERDICT = {
   conflict: { mood: "unsure", cls: "conflict", icon: "stop", title: "Hold on. A label warns against this mix.",
     cta: "Review both labels or ask an agronomist before you mix.", sound: () => snd.caution() },
-  limited: { mood: "think", cls: "limited", icon: "warn", title: "There is some evidence, but not a clear answer.",
+  limited: { mood: "think", cls: "limited", icon: "warn", title: "Only general label guidance was found.",
     cta: "Check with an agronomist or dealer before you mix.", sound: () => snd.hmm() },
   no_evidence: { mood: "unsure", cls: "unknown", icon: "warn", title: "Dew can't confirm this combination.",
     cta: "Take the question below to an agronomist or dealer.", sound: () => snd.hmm() },
@@ -492,7 +512,7 @@ function dealerCard(res, names) {
     ? "bioOasis found this on a cited label: " + res.findings[0].headline + " Source: " + res.findings[0].source.url
     : "bioOasis found no product-specific compatibility evidence for this pair.";
   return `Mix question from bioOasis (college prototype)
-
+${state.mix.classCase ? "CLASSROOM EXAMPLE: not real user product labels or a physical mixing test.\n" : ""}
 Product 1: ${descA}
 Product 2: ${descB}
 
@@ -506,17 +526,18 @@ bioOasis is a prototype and may have misread a label. Please verify before use.`
 function renderMixResult(res, names) {
   const v = VERDICT[res.status];
   const reasonText = {
-    product_a_unknown: "Dew could not recognise the first product, and compatibility findings are always product-specific, so there is nothing honest to match against.",
+    product_a_unknown: "Neither label matched a recognised product in the curated rule set. No product-specific evidence could be matched.",
     product_b_unknown: "The second label did not name a product or ingredient Dew knows, so no evidence could be matched.",
     no_pair_evidence: "Dew read both products, but none of the cited labels or sources it holds cover this exact pair.",
   }[res.reason];
   const findings = [...res.findings].sort((x, y) => (x.verdict === "conflict" ? -1 : 0) - (y.verdict === "conflict" ? -1 : 0));
   const card = dealerCard(res, names);
   $("mix-action").innerHTML = `
+    ${state.mix.classCase ? `<aside class="demo-disclosure"><b>Classroom software example</b><p>${esc(state.mix.classCase)}</p><p>Inputs include public-label excerpts or explicitly marked ingredient/category text. This is not an actual tank test or spray recommendation.</p></aside>` : ""}
     <div class="verdict ${v.cls}">
       <div class="verdict-dew">${mascot(v.mood)}</div>
       <div class="verdict-badge">${ICON[v.icon]}</div>
-      <div class="eyebrow">${{ conflict: "A real warning", limited: "Thin evidence", no_evidence: "Not enough evidence" }[res.status]}</div>
+      <div class="eyebrow">${{ conflict: "A real warning", limited: "General guidance only", no_evidence: "No pair evidence" }[res.status]}</div>
       <h2 class="block-title">${v.title}</h2>
       <div class="pairline"><span>${esc(names.a || "Product 1")}</span><span class="plus">+</span><span>${esc(names.b || "Product 2")}</span></div>
       <div class="verdict-cta">${ICON.person}<b>${v.cta}</b></div>
@@ -593,3 +614,23 @@ dew.init({
 });
 $("dew-hero").innerHTML = mascot("hello", "big");
 for (const [id, k] of [["dew-attach", "camera"], ["dew-mic", "mic"], ["dew-send", "arrow"]]) $(id).innerHTML = ICON[k];
+
+/* Home field desk: real routes, no simulated agronomy or automatic AI send. */
+const deskNotes = {
+ label: {label:"Start with what's printed", title:"The small print is the useful part.", text:"Keep the product name, active ingredient and instructions in the photo. You can also paste the label text if the photo is hard to read.", reminder:"A clear label helps Dew recognise a product type. It does not prove the product is genuine or safe to use.", action:"Read a label"},
+ water: {label:"Bring a measurement, not a guess", title:"Your water has a part in the story.", text:"Have a pH reading from a strip or meter? After reading a label, open Your field and enter it. Dew will show the relevant guidance with its source.", reminder:"No reading yet? Leave it blank. The check is optional, and it is not a recipe for treating your water.", action:"Read a label first"},
+ pair: {label:"Keep both labels close", title:"Two bottles need two sets of evidence.", text:"Read the first label, then choose Check the mix to add the second. Keep each product name and formulation available for the question you take to an agronomist.", reminder:"A missing warning is not proof of compatibility. Dew says when its sources do not cover the combination.", action:"Start with the first label"}
+};
+let deskChoice = "label";
+function chooseDesk(key) {
+ deskChoice = key; const n = deskNotes[key];
+ document.querySelectorAll("[data-desk]").forEach(b => { const on=b.dataset.desk===key; b.setAttribute("aria-selected",String(on)); b.tabIndex=on?0:-1; });
+ $("desk-panel").setAttribute("aria-labelledby","desk-tab-"+key);
+ for(const [id,val] of [["desk-note-label",n.label],["desk-note-title",n.title],["desk-note-text",n.text],["desk-reminder",n.reminder]]) $(id).textContent=val;
+ $("desk-action").innerHTML=esc(n.action)+' <span aria-hidden="true">↗</span>';
+}
+document.querySelectorAll("[data-desk]").forEach(b => {
+ b.onclick=()=>chooseDesk(b.dataset.desk);
+ b.onkeydown=e=>{const keys=Object.keys(deskNotes),i=keys.indexOf(b.dataset.desk);let n;if(e.key==="ArrowRight")n=(i+1)%3;else if(e.key==="ArrowLeft")n=(i+2)%3;else if(e.key==="Home")n=0;else if(e.key==="End")n=2;else return;e.preventDefault();chooseDesk(keys[n]);$("desk-tab-"+keys[n]).focus();};
+});
+$("desk-action").onclick=()=>{state.fileTarget="a";show("read");$("ocrtext").focus();};

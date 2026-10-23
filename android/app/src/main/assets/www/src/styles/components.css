@@ -407,3 +407,46 @@ details.more div{padding-top:8px}
   .run-beat::before{content:"";position:absolute;left:19px;top:26px;width:14px;height:14px;background:var(--teal);border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
   button.run-beat{padding-left:44px}
 }
+
+/* An interactive preparation desk instead of a counter strip. */
+.fielddesk{display:grid;gap:28px;margin-top:64px;padding:36px 0 10px;border-top:1px solid var(--line)}
+.desk-intro h2{font-family:var(--font-serif);font-weight:500;font-size:36px;line-height:1.12;letter-spacing:-.025em;margin:12px 0 18px}
+.desk-intro>p{color:var(--cream-dim);font-size:15px;max-width:34ch;line-height:1.7}
+.desk-doodle{display:none;color:var(--teal)}
+.desk-doodle svg{width:220px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transform:rotate(-4deg)}
+.desk-doodle span{display:block;font-family:var(--font-serif);font-size:18px;margin-left:32px;transform:rotate(-4deg)}
+.desk-page{min-width:0;background:#f3ecdc;color:#21312b;padding:22px 20px;position:relative;box-shadow:7px 9px 0 color-mix(in srgb,var(--teal) 22%,transparent)}
+.desk-page-top,.desk-page-bottom{font-family:var(--font-sans);font-size:10px;letter-spacing:.1em;font-weight:600}
+.desk-page-top{display:flex;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid #21312b40}
+.desk-tabs{display:flex;flex-wrap:wrap;gap:6px 16px;margin:20px 0 26px}
+.desk-tabs button{padding:7px 0;border-bottom:2px solid transparent;font-size:13px;font-weight:600;color:#51635a;background:none;border-radius:0}
+.desk-tabs button[aria-selected="true"]{color:#21312b;border-color:#25836e}
+.desk-tabs button:focus-visible,.desk-action:focus-visible{outline:2px solid #25836e;outline-offset:4px}
+#desk-panel{min-height:270px}
+.desk-note-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#54655a}
+#desk-note-title{font-family:var(--font-serif);font-size:27px;font-weight:500;line-height:1.2;margin:12px 0}
+#desk-note-text{font-size:15px;line-height:1.75;max-width:53ch}
+.desk-reminder{margin-top:18px;padding-left:14px;border-left:2px solid #25836e;font-size:12px;line-height:1.7;color:#526056;max-width:62ch}
+.desk-action{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:600;color:#21312b;background:none;border:0;border-bottom:1px solid #21312b;padding:14px 0 8px;margin-top:12px;border-radius:0}
+.desk-action span{font-size:22px}
+.desk-page-bottom{border-top:1px solid #21312b40;padding-top:16px;margin-top:26px;line-height:1.7;font-size:9px;letter-spacing:.07em}
+html[data-theme="pop"] .fielddesk{border-top:3px solid var(--line)}
+html[data-theme="pop"] .desk-intro h2{color:var(--teal)}
+html[data-theme="pop"] .desk-page{border:2px solid #21312b;box-shadow:7px 8px 0 var(--teal);transform:rotate(.6deg)}
+html[data-theme="pop"] .desk-page-top{font-weight:800}
+html[data-theme="aurora"] .desk-page{background:#161b32;color:#e8f0ec;box-shadow:none;border-block:1px solid #c6ff3d66}
+html[data-theme="aurora"] .desk-page-top,html[data-theme="aurora"] .desk-page-bottom{border-color:#e8f0ec33;color:#9cafa9}
+html[data-theme="aurora"] .desk-tabs button,html[data-theme="aurora"] .desk-note-label,html[data-theme="aurora"] .desk-reminder{color:#a6bbb0}
+html[data-theme="aurora"] .desk-tabs button[aria-selected="true"]{color:#c6ff3d;border-color:#c6ff3d}
+html[data-theme="aurora"] .desk-reminder{border-color:#c6ff3d}
+html[data-theme="aurora"] .desk-action{color:#c6ff3d;border-color:#c6ff3d}
+@media(min-width:1024px){.fielddesk{grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:clamp(40px,6vw,100px);margin-top:72px;padding:48px 0 20px;align-items:start}.desk-intro h2{font-size:clamp(38px,3.4vw,54px)}.desk-doodle{display:block;margin-top:24px}.desk-page{padding:28px 34px}#desk-panel{min-height:270px}.desk-tabs{gap:24px}.desk-tabs button{font-size:14px}}
+
+.class-cases{margin-top:24px;padding:18px 0;border-block:1px solid var(--line)}
+.class-cases summary{cursor:pointer;font-weight:600;font-size:15px;line-height:1.6}
+.class-cases p{font-size:13px;line-height:1.7;color:var(--cream-dim);margin:12px 0}
+.class-case-buttons{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.class-case-buttons button{padding:10px 13px;background:var(--char-2);color:var(--cream);border:1px solid var(--line);border-radius:10px;text-align:left;font-size:13px}
+.class-case-buttons button:hover{border-color:var(--teal)}
+
+.demo-disclosure{border-left:3px solid var(--teal);padding:12px 18px;margin:16px 0 24px;background:var(--char-2);font-size:13px;line-height:1.6}.demo-disclosure p{color:var(--cream-dim);margin:6px 0 0}

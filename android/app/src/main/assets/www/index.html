@@ -91,11 +91,15 @@
         </div>
       </section>
 
-      <div class="d-only d-stats">
-        <div class="d-stat reveal"><b data-count="26">26</b><span>real public product labels the model trained on</span></div>
-        <div class="d-stat reveal"><b data-count="4">4</b><span>spray families: Bt, Trichoderma, Pseudomonas, Beauveria</span></div>
-        <div class="d-stat reveal"><b class="word">Zero</b><span>survival numbers. Only cited evidence, or "ask an agronomist".</span></div>
-      </div>
+      <section class="fielddesk" aria-labelledby="desk-title">
+        <div class="desk-intro"><div class="eyebrow">Before anything goes in the tank</div><h2 id="desk-title">Bring the label.<br>Leave the guesswork.</h2><p>A little preparation makes a better question. What do you have with you?</p><div class="desk-doodle" aria-hidden="true"><svg viewBox="0 0 260 150"><path d="M45 33 Q42 24 54 24 H132 Q144 24 143 36 L153 123 Q153 132 140 132 H46 Q33 132 35 119 Z M61 24 V13 H116 V24 M147 45 Q195 22 206 47 L214 78 M203 77 L227 77 M71 52 H117 M70 63 H106 M69 91 H125 M69 102 H113"/><path class="desk-water" d="M38 111 Q63 102 91 111 T149 111"/><circle cx="216" cy="98" r="3"/><circle cx="216" cy="115" r="2"/></svg><span>Read first. Mix later.</span></div></div>
+        <div class="desk-page">
+          <div class="desk-page-top"><span>FIELD NOTES</span><span>01 / PREPARE</span></div>
+          <div class="desk-tabs" role="tablist" aria-label="What you have ready"><button role="tab" id="desk-tab-label" aria-selected="true" aria-controls="desk-panel" data-desk="label">One label</button><button role="tab" id="desk-tab-water" aria-selected="false" aria-controls="desk-panel" data-desk="water" tabindex="-1">A water reading</button><button role="tab" id="desk-tab-pair" aria-selected="false" aria-controls="desk-panel" data-desk="pair" tabindex="-1">Two products</button></div>
+          <div id="desk-panel" role="tabpanel" aria-labelledby="desk-tab-label" tabindex="0"><span class="desk-note-label" id="desk-note-label">Start with what's printed</span><h3 id="desk-note-title">The small print is the useful part.</h3><p id="desk-note-text">Keep the product name, active ingredient and instructions in the photo. You can also paste the label text if the photo is hard to read.</p><div class="desk-reminder" id="desk-reminder">A clear label helps Dew recognise a product type. It does not prove the product is genuine or safe to use.</div><button class="desk-action" id="desk-action">Read a label <span aria-hidden="true">↗</span></button></div>
+          <div class="desk-page-bottom">A question to check, not permission to spray.</div>
+        </div>
+      </section>
 
       <footer class="site">
         An early prototype from a college AI project (team ViabilAg). Evidence with sources, never spray orders.
@@ -211,6 +215,7 @@
       <div class="hint" id="hint-b"></div>
       <p class="credit-note" style="margin-top:10px">Or practise with a real label:</p>
       <div class="chips-row" id="mix-samples"></div>
+      <details class="class-cases"><summary>Presenting in class? Compare three evidence cases</summary><p>These load public label excerpts and clearly marked ingredient/category examples, replacing both inputs for this check. They demonstrate the software, not a physical mixing experiment.</p><div class="class-case-buttons"><button type="button" data-class-case="conflict">1. A label prohibition</button><button type="button" data-class-case="limited">2. General guidance only</button><button type="button" data-class-case="unknown">3. No pair evidence</button></div><p>Read the inputs, choose Read this product, confirm, then Check this mix. A warning or abstention is a meaningful result; this prototype does not issue a "safe to mix" certificate.</p></details>
       <div class="cta-row" style="margin-top:14px">
         <button class="btn primary" id="mix-read">Read this product</button>
         <button class="btn ghost" id="go-photo-b"><span id="ico-cam3" style="width:18px"></span> Use a photo</button>
