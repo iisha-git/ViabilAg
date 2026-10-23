@@ -58,8 +58,8 @@ export async function serverOcr(file) {
 
 export async function dewChat(payload) {
   if (mode !== "api") throw new Error("no backend");
-  return (await json("/api/dew", { method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload) })).reply;
+  return json("/api/dew", { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload) });
 }
 
 export async function mixcheck({ textA, textB }) {
