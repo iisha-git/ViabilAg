@@ -11,3 +11,9 @@ android/app/build/
 
 # CI/Pages workflows kept out of the public repo until separately enabled
 .github/
+
+# Local-only files, not published
+SECURITY.md
+AGENTS.md
+GEMINI.md
+.agents/

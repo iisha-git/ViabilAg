@@ -26,4 +26,4 @@ Follow "Quick start" in `README.md`, then `pip install -r backend/requirements-d
 - Photos need a license that allows reuse; add them to `frontend/assets/images/credits.json`.
 
 ## Reporting problems
-Open an issue with: what you did, what you expected, what happened, browser/OS. For security problems see `SECURITY.md`.
+Open an issue with: what you did, what you expected, what happened, browser/OS. For security problems, please report them privately to the repository owner instead of opening a public issue.

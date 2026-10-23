@@ -24,7 +24,7 @@ parameter could silently repoint the frontend at any server.
 - The `?api=` query override is removed; the backend address is set only in
   `frontend/assets/config.js`.
 - The Docker image runs as a non-root user.
-- `SECURITY.md` documents the data flows honestly, including what third
+- The README and `docs/deployment.md` describe the data flows honestly, including what third
   parties (Open-Meteo, CDNs, the host) receive.
 
 ## Consequences

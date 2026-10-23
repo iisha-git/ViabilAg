@@ -106,7 +106,7 @@ Current build: **0.6.20** (native speech in and out). The APK is compiled and si
 
 - Three themes - **Lilac Cloud** (default), **Sticker Pop**, **Aurora Night** - saved on the device only.
 - A real desktop layout on wide screens; mobile-first below that.
-- An installable app (PWA): "Add to Home Screen" on a served HTTPS site. The service worker caches only public app files, never photos, answers or location (see `SECURITY.md`).
+- An installable app (PWA): "Add to Home Screen" on a served HTTPS site. The service worker caches only public app files, never photos, answers or location.
 - Soft generated sounds with an on/off toggle, and full `prefers-reduced-motion` support.
 
 ## Tech stack (exact)
@@ -149,8 +149,7 @@ Full explanation with the data flow: [`ARCHITECTURE.md`](ARCHITECTURE.md).
 - [`docs/design-system.md`](docs/design-system.md) - colours, type, Dew the mascot
 - [`docs/deployment.md`](docs/deployment.md) - put it online (HTTPS, so location and photo reading work on phones)
 - [`docs/roadmap.md`](docs/roadmap.md) - what is next
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) &middot; [`CHANGELOG.md`](CHANGELOG.md) &middot; [`SECURITY.md`](SECURITY.md)
-- [`AGENTS.md`](AGENTS.md) - context for AI coding agents (Antigravity)
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) &middot; [`CHANGELOG.md`](CHANGELOG.md)
 
 ## Add your own product labels
 
