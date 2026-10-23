@@ -42,6 +42,10 @@ const L = {
     langNote: "Language changed - our chat and everything you showed me carries on.",
     autoNote: "That sounded like English - I'll answer in English.",
     placeholder: "Type to Dew...",
+    tagAi: "Dew AI",
+    tagLocal: "built-in guide",
+    aiOff: "Dew AI is not connected yet, so open questions are answered from my built-in guide for now.",
+    aiDown: "Dew AI could not be reached, so I answered from my built-in guide.",
   },
   hi: {
     aiNotice: "एक छोटी सूचना: खुले सवालों के जवाब Gemini देता है। सिर्फ आपके सवाल, हाल की चैट और स्कैन किए गए लेबल का टेक्स्ट ही भेजा जाता है - फोटो कभी नहीं।",
@@ -66,6 +70,10 @@ const L = {
     langNote: "भाषा बदल गई - हमारी बातचीत और आपने जो दिखाया, सब जारी रहता है।",
     autoNote: "आपकी बात हिंदी लगी - मैं हिंदी में जवाब दूँगा।",
     placeholder: "ड्यू को लिखें...",
+    tagAi: "ड्यू AI",
+    tagLocal: "बिल्ट-इन गाइड",
+    aiOff: "ड्यू AI अभी जुड़ा नहीं है, इसलिए खुले सवालों के जवाब अभी मेरी बिल्ट-इन गाइड से दिए जाते हैं।",
+    aiDown: "ड्यू AI तक पहुँच नहीं पाई, इसलिए मैंने अपनी बिल्ट-इन गाइड से जवाब दिया।",
   },
   mr: {
     aiNotice: "एक छोटीशी सूचना: खुल्या प्रश्नांची उत्तरे Gemini देते. फक्त तुमचे प्रश्न, अलीकडची चॅट आणि स्कॅन केलेल्या लेबलचा मजकूरच पाठवला जातो - फोटो कधीही नाही.",
@@ -90,6 +98,10 @@ const L = {
     langNote: "भाषा बदलली - आपली गप्पा आणि तुम्ही दाखवलेले सर्व काही चालू राहते.",
     autoNote: "तुमची बोली मराठी वाटली - मी मराठीत उत्तर देतो.",
     placeholder: "ड्यूला लिहा...",
+    tagAi: "ड्यू AI",
+    tagLocal: "अंगभूत मार्गदर्शक",
+    aiOff: "ड्यू AI अजून जोडलेले नाही, त्यामुळे खुल्या प्रश्नांची उत्तरे सध्या माझ्या अंगभूत मार्गदर्शकातून दिली जातात.",
+    aiDown: "ड्यू AI शी संपर्क झाला नाही, त्यामुळे मी माझ्या अंगभूत मार्गदर्शकातून उत्तर दिले.",
   },
 };
 
@@ -189,7 +201,8 @@ function entryEl(entry) {
     const chips = chipList(entry.chips);
     const chipHtml = chips ? `<span class="dew-chips">${chips.map(c => `<button class="chip-btn">${c}</button>`).join("")}</span>` : "";
     el.className = "msg dew";
-    el.innerHTML = `<span class="mdew">${mascot("hello", "mini")}</span><span class="dew-body"><span>${txt(entry.msg)}</span>${chipHtml}</span>`;
+    const tagHtml = entry.tag ? `<span class="dew-tag dew-tag-${entry.tag}">${entry.tag === "ai" ? L[lang].tagAi : L[lang].tagLocal}</span>` : "";
+    el.innerHTML = `<span class="mdew">${mascot("hello", "mini")}</span><span class="dew-body"><span>${txt(entry.msg)}</span>${tagHtml}${chipHtml}</span>`;
   }
   return el;
 }
@@ -207,8 +220,8 @@ function renderLog() {
   log.scrollTop = log.scrollHeight;
 }
 
-function say(msg, chips = null) {
-  const entry = { who: "dew", msg, chips };
+function say(msg, chips = null, tag = null) {
+  const entry = { who: "dew", msg, chips, tag };
   history.push(entry);
   append(entry);
   speak(txt(msg));
@@ -352,12 +365,17 @@ function reply(text) {
 function handle(text) { voiceTurn = false; userSay(text); reply(text); }
 
 let aiNoticeShown = false;
+let aiOffNoted = false;
 
 // Free-form questions go to Gemini through the bioOasis backend (the key never
 // touches the app). Anything else - no backend, no key, any error - falls back
-// to the built-in guided answers.
+// to the built-in guided answers, and the fallback says so out loud: Gemini
+// answers carry a "Dew AI" tag, guide answers carry a "built-in guide" tag.
 async function aiReply(text) {
-  if (api.getMode() !== "api") return say(l => L[l].fallback, l => L[l].chips);
+  if (api.getMode() !== "api") {
+    if (!aiOffNoted) { aiOffNoted = true; note(l => L[l].aiOff); }
+    return say(l => L[l].fallback, l => L[l].chips, "local");
+  }
   if (!aiNoticeShown) { aiNoticeShown = true; note(l => L[l].aiNotice); }
   busy = true;
   const done = thinkingBubble();
@@ -368,11 +386,12 @@ async function aiReply(text) {
     const answer = await api.dewChat({ message: text, lang, history: hist,
       context: { name: c.name || null, cls: c.cls || null, facts: c.facts || [], mix: c.mix || null } });
     done();
-    if (answer && answer.trim()) say(answer.trim());
-    else say(l => L[l].fallback, l => L[l].chips);
+    if (answer && answer.trim()) say(answer.trim(), null, "ai");
+    else { note(l => L[l].aiDown); say(l => L[l].fallback, l => L[l].chips, "local"); }
   } catch {
     done();
-    say(l => L[l].fallback, l => L[l].chips);
+    note(l => L[l].aiDown);
+    say(l => L[l].fallback, l => L[l].chips, "local");
   }
   busy = false;
 }

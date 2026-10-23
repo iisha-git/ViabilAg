@@ -6,6 +6,22 @@ import * as snd from "./sounds.js";
 import * as dew from "./dew.js";
 
 const $ = (id) => document.getElementById(id);
+
+// Short on-screen note for diagnostics sent by the Android shell (e.g. what the
+// scan tap triggered). Harmless on the website: nothing ever calls it there.
+window.bioNativeNote = msg => {
+  let t = document.getElementById("native-toast");
+  if (!t) {
+    t = document.createElement("div");
+    t.id = "native-toast";
+    t.style.cssText = "position:fixed;left:50%;bottom:88px;transform:translateX(-50%);background:#21312b;color:#f3ecdc;padding:8px 16px;border-radius:999px;font-size:13px;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:opacity .3s";
+    document.body.appendChild(t);
+  }
+  t.textContent = String(msg);
+  t.style.opacity = "1";
+  clearTimeout(t._h);
+  t._h = setTimeout(() => { t.style.opacity = "0"; }, 2600);
+};
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const IMG = "assets/images/";
 const CLASS_IMG = { bt: "bt.jpg", trichoderma: "trichoderma.jpg", pseudomonas: "pseudomonas.jpg", beauveria: "beauveria.jpg" };
@@ -24,7 +40,7 @@ $("how").innerHTML = [
 (async () => {
   const mode = await api.init();
   $("mode").className = "mode " + (mode === "api" ? "on" : "");
-  $("mode").innerHTML = `<i></i>${mode === "api" ? "Connected to the bioOasis backend" : "Static mode: running fully in your browser (no backend found)"}`;
+  $("mode").innerHTML = `<i></i>${mode === "api" ? "Connected to the bioOasis backend" : "Static mode: running fully in your browser (no backend found)"}${window.BIOOASIS_VERSION ? " · v" + window.BIOOASIS_VERSION : ""}`;
   state.credits = await fetch(IMG + "credits.json").then(r => r.json()).catch(() => ({}));
   state.samples = await api.samples();
   renderSamples(); renderWhy(); renderCredits(); observeReveal();
