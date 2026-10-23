@@ -32,18 +32,26 @@
   <div id="v-home" class="view">
     <header class="hero">
       <div class="hero-bg"><img src="assets/images/hero.jpg" alt="Water drops resting on a dark green leaf"></div>
-      <nav class="nav"><div class="wordmark">bio<em>Oasis</em></div><div class="navlinks d-only"><a href="#samples">Try a label</a><a href="#how-it-works">How it works</a><a href="#why-it-matters">Why</a></div><div class="navbtns"><button class="chip-btn dewbtn" id="open-dew">Dew</button><button class="chip-btn" id="open-settings">Settings</button><button class="chip-btn" id="open-credits">Photo credits</button></div></nav>
+      <nav class="nav"><div class="wordmark">bio<em>Oasis</em></div><div class="navlinks d-only"><a href="#samples">Try a label</a><a href="#how-it-works">How it works</a><a href="#why-it-matters">Why</a></div><div class="navbtns"><button class="chip-btn dewbtn" id="open-dew">Dew</button><button class="chip-btn navwide" id="open-settings">Settings</button><button class="chip-btn navwide" id="open-credits">Photo credits</button><button class="chip-btn navmenu-btn" id="navmenu-btn" aria-expanded="false" aria-haspopup="true" aria-controls="navmenu">Menu</button></div>
+      <div class="navmenu hidden" id="navmenu" role="menu" aria-label="Site menu">
+        <a href="#samples" role="menuitem">Try a label</a>
+        <a href="#how-it-works" role="menuitem">How it works</a>
+        <a href="#why-it-matters" role="menuitem">Why it matters</a>
+        <button role="menuitem" id="m-settings">Settings</button>
+        <button role="menuitem" id="m-credits">Photo credits</button>
+      </div></nav>
       <div class="col hero-body">
         <div id="hero-dew" class="hero-dew"></div>
         <div class="eyebrow">Team ViabilAg</div>
         <h1>Will it <em>survive?</em></h1>
         <p class="lead">Check a biological spray before it goes in the tank, not after it fails.</p>
+        <p class="lead-sub">What you get is label-based evidence: what the label claims and what published research found. It is not a viability test of the bottle in your hand.</p>
         <div class="cta-row">
           <button class="btn primary" id="go-photo"><span id="ico-cam"></span> Scan a label</button>
           <a class="btn ghost" href="#samples">Try a real label</a>
         </div>
         <ul class="d-only d-trust">
-          <li><i></i>A source on every line</li>
+          <li><i></i>Label and research lines quote their source</li>
           <li><i></i>Says "not sure" when it is not</li>
           <li><i></i>Label text is read on your device</li>
         </ul>
@@ -52,12 +60,12 @@
         <figure class="dc-main"><img src="assets/images/hero.jpg" alt=""></figure>
         <figure class="dc-pol dc-p1"><span class="tape"></span><img src="assets/images/bt.jpg" alt=""><figcaption>Bt goes after caterpillars</figcaption></figure>
         <figure class="dc-pol dc-p2"><span class="tape"></span><img src="assets/images/trichoderma.jpg" alt=""><figcaption>Trichoderma, a root fungus</figcaption></figure>
-        <div class="dc-chip dc-c1"><b>26</b> real labels read</div>
+        <div class="dc-chip dc-c1"><b>26</b> real labels studied</div>
         <div class="dc-chip dc-c2"><b>4</b> spray families</div>
         <svg class="dc-doodle" viewBox="0 0 120 60" fill="none"><path d="M6 8c26 2 52 14 62 38m0 0l-4-17m4 17l-17-6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
     </header>
-    <div class="d-only d-marquee" aria-hidden="true"><div class="track"><span>Bt</span><span>Trichoderma</span><span>Pseudomonas</span><span>Beauveria</span><span>26 real public labels</span><span>every line has a source</span><span>never a survival number</span><span>Bt</span><span>Trichoderma</span><span>Pseudomonas</span><span>Beauveria</span><span>26 real public labels</span><span>every line has a source</span><span>never a survival number</span></div></div>
+    <div class="d-only d-marquee" aria-hidden="true"><div class="track"><span>Bt</span><span>Trichoderma</span><span>Pseudomonas</span><span>Beauveria</span><span>26 real public labels</span><span>evidence with its source</span><span>never a survival number</span><span>Bt</span><span>Trichoderma</span><span>Pseudomonas</span><span>Beauveria</span><span>26 real public labels</span><span>evidence with its source</span><span>never a survival number</span></div></div>
 
     <div class="col">
       <section class="pad" id="samples">
@@ -77,14 +85,14 @@
       <section class="why reveal" id="why-it-matters">
         <img id="why-img" alt="A farmer sowing seed on a ploughed field in Maharashtra" loading="lazy">
         <div class="t">
-          <div class="big">Pests take <em>15 to 25%</em> of India's crops every year.</div>
-          <a class="src-pill" href="https://www.ceew.in/publications/sustainable-agriculture-india/integrated-pest-management" target="_blank" rel="noopener">CEEW, Sustainable Agriculture in India (2021)</a>
+          <div class="big">Pests, diseases and weeds take <em>15 to 25%</em> of India's crop yield every year.</div>
+          <a class="src-pill" href="https://www.ceew.in/publications/sustainable-agriculture-india/integrated-pest-management" target="_blank" rel="noopener">CEEW - Integrated Pest Management in India</a>
           <div class="pcred" id="why-cred"></div>
         </div>
       </section>
 
       <div class="d-only d-stats">
-        <div class="d-stat reveal"><b data-count="26">26</b><span>real public product labels behind the model</span></div>
+        <div class="d-stat reveal"><b data-count="26">26</b><span>real public product labels the model trained on</span></div>
         <div class="d-stat reveal"><b data-count="4">4</b><span>spray families: Bt, Trichoderma, Pseudomonas, Beauveria</span></div>
         <div class="d-stat reveal"><b class="word">Zero</b><span>survival numbers. Only cited evidence, or "ask an agronomist".</span></div>
       </div>

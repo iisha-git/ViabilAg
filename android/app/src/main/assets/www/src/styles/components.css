@@ -366,3 +366,17 @@ details.more div{padding-top:8px}
 .dewcol.chatting .dew-hero{display:none}
 .dewcol.chatting .dew-head{padding:0 0 2px}
 .dewcol.chatting .dew-langs{margin-top:2px}
+
+/* ---------- small-screen nav menu + hero sub-note ---------- */
+.hero p.lead-sub{max-width:44ch;color:var(--cream-dim);font-size:14px;margin:-14px 0 26px;line-height:1.6}
+.navmenu-btn{display:none}
+.navmenu{position:absolute;top:calc(100% + 8px);right:0;min-width:200px;display:flex;flex-direction:column;gap:2px;padding:8px;background:var(--char-2);border:1.5px solid var(--line);border-radius:var(--radius-sm);box-shadow:0 18px 40px -18px rgba(0,0,0,.35);z-index:60;text-align:left;backdrop-filter:blur(14px)}
+.navmenu a,.navmenu button{display:block;width:100%;text-align:left;padding:11px 14px;border-radius:10px;font-size:14.5px;font-weight:600;color:var(--cream);text-decoration:none;background:none;border:0;cursor:pointer;font-family:inherit}
+.navmenu a:hover,.navmenu button:hover{background:var(--char-3);color:var(--teal)}
+@media (max-width:759px){
+  .navmenu-btn{display:inline-block}
+  .nav .navbtns .navwide{display:none}
+}
+@media (min-width:760px){
+  .navmenu{display:none!important}
+}
