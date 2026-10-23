@@ -8,7 +8,7 @@
    - label photos: they are in-memory blob: URLs and never reach the network,
      so they are never seen here either.
    Cached files are public app code; nothing about you is stored. */
-const VERSION = "biooasis-static-v12";
+const VERSION = "biooasis-static-v13";
 const ASSETS = [
   "./",
   "index.html",

@@ -89,7 +89,7 @@
   html[data-theme="aurora"] .dc-chip b{color:#C6FF3D}
   html[data-theme="pop"] .dc-chip{border:var(--bd-s)}
   .dc-chip b{font-family:var(--font-serif);font-size:26px;font-weight:var(--hw,500);line-height:1}
-  .dc-c1{left:-4%;top:58%;animation:bob 5s ease-in-out infinite}
+  .dc-c1{left:-4%;top:44%;animation:bob 5s ease-in-out infinite}
   .dc-c2{right:-2%;top:56%;animation:bob 6s ease-in-out -2s infinite;background:var(--c2,#3de8ff)}
   html[data-theme="aurora"] .dc-c2{background:rgba(20,10,58,.7)}
   .dc-doodle{position:absolute;left:-14%;top:36%;width:90px;color:var(--coral);transform:rotate(14deg);opacity:.9}
