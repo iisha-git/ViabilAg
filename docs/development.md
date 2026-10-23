@@ -13,6 +13,7 @@ Photo upload (the file picker / camera) works over plain HTTP; only location nee
 - `backend/tests/test_api.py` - endpoints, abstain, pH bands, OCR (skipped if tesseract is missing)
 - `backend/tests/test_parity.py` - Python scorer equals scikit-learn (skipped if scikit-learn is missing)
 - `scripts/check_parity.mjs` - browser scorer equals backend
+- `scripts/check_speech_wire.mjs` - the Android speech bridge and Dew agree on the message format
 
 ## Adding things
 - **Endpoint:** route in `main.py`, logic in `services/`, schema in `schemas.py`, test, `docs/api.md`.

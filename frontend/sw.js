@@ -14,7 +14,7 @@
    - label photos: they are in-memory blob: URLs and never reach the network,
      so they are never seen here either.
    Cached files are public app code; nothing about you is stored. */
-const VERSION = "biooasis-static-v19";
+const VERSION = "biooasis-static-v20";
 const ASSETS = [
   "./",
   "index.html",
@@ -67,6 +67,7 @@ const ASSETS = [
   "src/js/theme.js",
   "src/js/main.js",
   "src/js/dew.js",
+  "src/js/speechwire.js",
   "src/js/mixcheck.js",
   "src/js/sounds.js",
   "src/js/api.js",

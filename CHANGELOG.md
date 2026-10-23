@@ -9,6 +9,8 @@
 
 - Website: the `Permissions-Policy` header sent `microphone=()`, which blocks the microphone for the whole site, so Dew's mic could never listen. It is now `microphone=(self)` (Vercel, Netlify and the backend). Listening still starts only when the mic button is tapped.
 - Android app: the native bridge sent `onResult` / `onError` while the page listened for `result` and bare error codes, so every spoken result was dropped. The wire format now matches the page.
+- Added `scripts/check_speech_wire.mjs`, a contract check that fails if the Android bridge and Dew disagree on the message format, or if the site blocks its own microphone again.
+- Service worker cache bumped to v20 so open copies of the site refresh and pick up the new header.
 - Android app: added the Android 11+ package-visibility query for speech recognition services, without which the phone reported no recognizer available.
 
 ## 0.6.8 - 2026-10-23
