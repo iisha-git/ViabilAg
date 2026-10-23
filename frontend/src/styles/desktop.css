@@ -52,7 +52,7 @@
   .hero-body > *:not(.hero-dew):not(.d-collage){max-width:min(52%,600px)!important}
   .hero-body .cta-row{max-width:none!important}
   .hero .hero-body > p.lead:not(.zz):not(.zy){max-width:440px!important}
-  .hero .hero-body > p.lead-sub{max-width:440px!important}
+  html[data-theme] .hero .hero-body > p.lead-sub{max-width:440px!important}
   .hero h1{font-size:clamp(76px,8vw,128px);line-height:.94;margin:22px 0 22px}
   .hero p.lead{font-size:21px;max-width:30ch;margin-bottom:34px;opacity:1;color:var(--cream-dim)}
   .hero-body > .eyebrow,.hero h1,.hero p.lead,.hero .cta-row,.d-trust{animation:rise .9s var(--ease) both}
@@ -278,7 +278,7 @@
   html[data-theme="lilac"] .hero h1{position:relative;z-index:3;margin-right:-150px;text-shadow:0 2px 30px rgba(239,233,255,.9)}
   html[data-theme="lilac"] .dc-main{border-radius:150px 44px 150px 44px}
   /* trust facts: one flowing line with droplet markers, no tick badges */
-  html[data-theme="lilac"] .d-trust{flex-direction:row;flex-wrap:wrap;gap:12px 30px;margin-top:46px;max-width:min(52%,560px)!important}
+  html[data-theme="lilac"] .hero .hero-body > .d-trust{flex-direction:row;flex-wrap:wrap;gap:12px 30px;margin-top:46px;max-width:min(52%,560px)!important}
   html[data-theme="lilac"] .d-trust i{flex-basis:13px;width:13px;height:13px;background:transparent;box-shadow:none;border:2.5px solid var(--teal);border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
   html[data-theme="lilac"] .d-trust i::after{display:none}
   /* sample cards: hand-placed, not grid-locked */
@@ -325,4 +325,6 @@
   html[data-theme="lilac"] #p-field .cond{padding:22px 8px}
   /* the quick take pull-out needs no hover lift once the box is gone */
   html[data-theme="lilac"] #v-result .quick:hover{transform:none}
+  /* hero sub-note and trust row stay in the left column, clear of the scrapbook */
+  html[data-theme="lilac"] .hero .hero-body > p.lead-sub{max-width:440px!important}
 }
