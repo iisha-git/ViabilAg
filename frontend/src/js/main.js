@@ -593,3 +593,23 @@ dew.init({
 });
 $("dew-hero").innerHTML = mascot("hello", "big");
 for (const [id, k] of [["dew-attach", "camera"], ["dew-mic", "mic"], ["dew-send", "arrow"]]) $(id).innerHTML = ICON[k];
+
+/* Home field desk: real routes, no simulated agronomy or automatic AI send. */
+const deskNotes = {
+ label: {label:"Start with what's printed", title:"The small print is the useful part.", text:"Keep the product name, active ingredient and instructions in the photo. You can also paste the label text if the photo is hard to read.", reminder:"A clear label helps Dew recognise a product type. It does not prove the product is genuine or safe to use.", action:"Read a label"},
+ water: {label:"Bring a measurement, not a guess", title:"Your water has a part in the story.", text:"Have a pH reading from a strip or meter? After reading a label, open Your field and enter it. Dew will show the relevant guidance with its source.", reminder:"No reading yet? Leave it blank. The check is optional, and it is not a recipe for treating your water.", action:"Read a label first"},
+ pair: {label:"Keep both labels close", title:"Two bottles need two sets of evidence.", text:"Read the first label, then choose Check the mix to add the second. Keep each product name and formulation available for the question you take to an agronomist.", reminder:"A missing warning is not proof of compatibility. Dew says when its sources do not cover the combination.", action:"Start with the first label"}
+};
+let deskChoice = "label";
+function chooseDesk(key) {
+ deskChoice = key; const n = deskNotes[key];
+ document.querySelectorAll("[data-desk]").forEach(b => { const on=b.dataset.desk===key; b.setAttribute("aria-selected",String(on)); b.tabIndex=on?0:-1; });
+ $("desk-panel").setAttribute("aria-labelledby","desk-tab-"+key);
+ for(const [id,val] of [["desk-note-label",n.label],["desk-note-title",n.title],["desk-note-text",n.text],["desk-reminder",n.reminder]]) $(id).textContent=val;
+ $("desk-action").innerHTML=esc(n.action)+' <span aria-hidden="true">↗</span>';
+}
+document.querySelectorAll("[data-desk]").forEach(b => {
+ b.onclick=()=>chooseDesk(b.dataset.desk);
+ b.onkeydown=e=>{const keys=Object.keys(deskNotes),i=keys.indexOf(b.dataset.desk);let n;if(e.key==="ArrowRight")n=(i+1)%3;else if(e.key==="ArrowLeft")n=(i+2)%3;else if(e.key==="Home")n=0;else if(e.key==="End")n=2;else return;e.preventDefault();chooseDesk(keys[n]);$("desk-tab-"+keys[n]).focus();};
+});
+$("desk-action").onclick=()=>{state.fileTarget="a";show("read");$("ocrtext").focus();};
