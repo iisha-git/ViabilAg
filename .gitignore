@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+node_modules/
+.DS_Store
+*.log
+android/.gradle/
+android/app/build/
+
+# CI/Pages workflows kept out of the public repo until separately enabled
+.github/

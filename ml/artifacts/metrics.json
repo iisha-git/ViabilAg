@@ -1,0 +1,213 @@
+{
+  "holdout_accuracy": 0.7142857142857143,
+  "loo_accuracy": 0.8846153846153846,
+  "n_documents": 26,
+  "class_counts": {
+    "beauveria": 5,
+    "bt": 7,
+    "pseudomonas": 7,
+    "trichoderma": 7
+  },
+  "holdout": [
+    {
+      "doc": "blightban_label",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.466
+    },
+    {
+      "doc": "thuricide",
+      "true": "bt",
+      "pred": "bt",
+      "maxprob": 0.535
+    },
+    {
+      "doc": "rootshield_epa",
+      "true": "trichoderma",
+      "pred": "trichoderma",
+      "maxprob": 0.473
+    },
+    {
+      "doc": "plantshield",
+      "true": "trichoderma",
+      "pred": "trichoderma",
+      "maxprob": 0.368
+    },
+    {
+      "doc": "koppert_cedomon",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.489
+    },
+    {
+      "doc": "bonide_thuricide_page",
+      "true": "bt",
+      "pred": "trichoderma",
+      "maxprob": 0.338
+    },
+    {
+      "doc": "naturalis_l",
+      "true": "beauveria",
+      "pred": "trichoderma",
+      "maxprob": 0.32
+    }
+  ],
+  "loo": [
+    {
+      "doc": "dipel_df",
+      "true": "bt",
+      "pred": "bt",
+      "maxprob": 0.35
+    },
+    {
+      "doc": "dipel_quicksheet",
+      "true": "bt",
+      "pred": "bt",
+      "maxprob": 0.499
+    },
+    {
+      "doc": "xentari",
+      "true": "bt",
+      "pred": "bt",
+      "maxprob": 0.49
+    },
+    {
+      "doc": "javelin_wg",
+      "true": "bt",
+      "pred": "bt",
+      "maxprob": 0.53
+    },
+    {
+      "doc": "thuricide",
+      "true": "bt",
+      "pred": "bt",
+      "maxprob": 0.665
+    },
+    {
+      "doc": "certis_javelin_page",
+      "true": "bt",
+      "pred": "bt",
+      "maxprob": 0.46
+    },
+    {
+      "doc": "bonide_thuricide_page",
+      "true": "bt",
+      "pred": "bt",
+      "maxprob": 0.459
+    },
+    {
+      "doc": "rootshield_wp",
+      "true": "trichoderma",
+      "pred": "trichoderma",
+      "maxprob": 0.732
+    },
+    {
+      "doc": "rootshield_epa",
+      "true": "trichoderma",
+      "pred": "trichoderma",
+      "maxprob": 0.495
+    },
+    {
+      "doc": "koppert_trianum",
+      "true": "trichoderma",
+      "pred": "pseudomonas",
+      "maxprob": 0.553
+    },
+    {
+      "doc": "t34_biocontrol",
+      "true": "trichoderma",
+      "pred": "trichoderma",
+      "maxprob": 0.378
+    },
+    {
+      "doc": "plantshield",
+      "true": "trichoderma",
+      "pred": "trichoderma",
+      "maxprob": 0.41
+    },
+    {
+      "doc": "biobest_asperello",
+      "true": "trichoderma",
+      "pred": "trichoderma",
+      "maxprob": 0.465
+    },
+    {
+      "doc": "bioworks_rootshield_page",
+      "true": "trichoderma",
+      "pred": "trichoderma",
+      "maxprob": 0.648
+    },
+    {
+      "doc": "howler",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.411
+    },
+    {
+      "doc": "howler_evo",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.499
+    },
+    {
+      "doc": "blightban_label",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.399
+    },
+    {
+      "doc": "nufarm_blightban",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.595
+    },
+    {
+      "doc": "koppert_cedomon",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.472
+    },
+    {
+      "doc": "botanigard_es",
+      "true": "beauveria",
+      "pred": "beauveria",
+      "maxprob": 0.857
+    },
+    {
+      "doc": "botanigard_22wp",
+      "true": "beauveria",
+      "pred": "beauveria",
+      "maxprob": 0.631
+    },
+    {
+      "doc": "mycotrol_eso",
+      "true": "beauveria",
+      "pred": "beauveria",
+      "maxprob": 0.864
+    },
+    {
+      "doc": "naturalis_l",
+      "true": "beauveria",
+      "pred": "trichoderma",
+      "maxprob": 0.436
+    },
+    {
+      "doc": "ohp_mycotrol_page",
+      "true": "beauveria",
+      "pred": "bt",
+      "maxprob": 0.302
+    },
+    {
+      "doc": "greenbook_blightban",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.477
+    },
+    {
+      "doc": "koppert_pseudomonas_page",
+      "true": "pseudomonas",
+      "pred": "pseudomonas",
+      "maxprob": 0.587
+    }
+  ]
+}

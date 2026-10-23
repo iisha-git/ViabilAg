@@ -1,0 +1,9 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+httpx>=0.27
+python-multipart>=0.0.9
+# optional, for server-side OCR (also needs the tesseract program installed):
+# pytesseract>=0.3.10
+# Pillow>=10
+# dev / tests:
+# pytest>=8

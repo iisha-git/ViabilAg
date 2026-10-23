@@ -1,0 +1,4 @@
+-r requirements.txt
+# server-side OCR (also needs the `tesseract` program: apt install tesseract-ocr / brew install tesseract)
+pytesseract>=0.3.10
+Pillow>=10

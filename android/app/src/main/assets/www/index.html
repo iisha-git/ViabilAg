@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://cdn.jsdelivr.net; worker-src 'self' https://cdn.jsdelivr.net blob:; connect-src 'self' https://cdn.jsdelivr.net https://tessdata.projectnaptha.com https://api.open-meteo.com https://biooasis.onrender.com; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src 'none'; child-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EFE9FF">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="bioOasis">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<meta name="description" content="bioOasis: check a biological spray label and see what the evidence says about keeping its living organisms alive.">
+<title>bioOasis - will it survive?</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C16 3 6 14 6 21a10 10 0 0 0 20 0C26 14 16 3 16 3z' fill='%233fc3aa'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="src/styles/tokens.css">
+<link rel="stylesheet" href="src/styles/base.css">
+<link rel="stylesheet" href="src/styles/animations.css">
+<link rel="stylesheet" href="src/styles/components.css">
+<script src="src/js/theme.js"></script>
+<script src="src/js/pwa.js"></script>
+</head>
+<body>
+<input type="file" id="file" accept="image/*" hidden>
+<div class="d-only d-blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="d-only d-progress" aria-hidden="true"><i></i></div>
+<main id="app">
+
+  <!-- HOME -->
+  <div id="v-home" class="view">
+    <header class="hero">
+      <div class="hero-bg"><img src="assets/images/hero.jpg" alt="Water drops resting on a dark green leaf"></div>
+      <nav class="nav"><div class="wordmark">bio<em>Oasis</em></div><div class="navlinks d-only"><a href="#samples">Try a label</a><a href="#how-it-works">How it works</a><a href="#why-it-matters">Why</a></div><div class="navbtns"><button class="chip-btn dewbtn" id="open-dew">Dew</button><button class="chip-btn" id="open-settings">Settings</button><button class="chip-btn" id="open-credits">Photo credits</button></div></nav>
+      <div class="col hero-body">
+        <div id="hero-dew" class="hero-dew"></div>
+        <div class="eyebrow">Team ViabilAg</div>
+        <h1>Will it <em>survive?</em></h1>
+        <p class="lead">Check a biological spray before it goes in the tank, not after it fails.</p>
+        <div class="cta-row">
+          <button class="btn primary" id="go-photo"><span id="ico-cam"></span> Scan a label</button>
+          <a class="btn ghost" href="#samples">Try a real label</a>
+        </div>
+        <ul class="d-only d-trust">
+          <li><i></i>A source on every line</li>
+          <li><i></i>Says "not sure" when it is not</li>
+          <li><i></i>Label text is read on your device</li>
+        </ul>
+      </div>
+      <div class="d-only d-collage" aria-hidden="true">
+        <figure class="dc-main"><img src="assets/images/hero.jpg" alt=""></figure>
+        <figure class="dc-pol dc-p1"><span class="tape"></span><img src="assets/images/bt.jpg" alt=""><figcaption>Bt goes after caterpillars</figcaption></figure>
+        <figure class="dc-pol dc-p2"><span class="tape"></span><img src="assets/images/trichoderma.jpg" alt=""><figcaption>Trichoderma, a root fungus</figcaption></figure>
+        <div class="dc-chip dc-c1"><b>26</b> real labels read</div>
+        <div class="dc-chip dc-c2"><b>4</b> spray families</div>
+        <svg class="dc-doodle" viewBox="0 0 120 60" fill="none"><path d="M6 8c26 2 52 14 62 38m0 0l-4-17m4 17l-17-6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </header>
+    <div class="d-only d-marquee" aria-hidden="true"><div class="track"><span>Bt</span><span>Trichoderma</span><span>Pseudomonas</span><span>Beauveria</span><span>26 real public labels</span><span>every line has a source</span><span>never a survival number</span><span>Bt</span><span>Trichoderma</span><span>Pseudomonas</span><span>Beauveria</span><span>26 real public labels</span><span>every line has a source</span><span>never a survival number</span></div></div>
+
+    <div class="col">
+      <section class="pad" id="samples">
+        <div class="eyebrow">No product at hand?</div>
+        <h2 class="block-title">Pick a real label</h2>
+        <p class="block-sub">Each one is an excerpt from a real public product label. Tap to see what Dew finds.</p>
+        <div class="carousel" id="carousel"></div>
+        <p class="credit-note">Photos illustrate the organism type, not the product. <button id="open-credits2">Photo credits</button></p>
+      </section>
+
+      <section class="pad" id="how-it-works">
+        <div class="eyebrow">How it works</div>
+        <h2 class="block-title">Three small steps</h2>
+        <div class="how" id="how"></div>
+      </section>
+
+      <section class="why reveal" id="why-it-matters">
+        <img id="why-img" alt="A farmer sowing seed on a ploughed field in Maharashtra" loading="lazy">
+        <div class="t">
+          <div class="big">Pests take <em>15 to 25%</em> of India's crops every year.</div>
+          <a class="src-pill" href="https://www.ceew.in/publications/sustainable-agriculture-india/integrated-pest-management" target="_blank" rel="noopener">CEEW, Sustainable Agriculture in India (2021)</a>
+          <div class="pcred" id="why-cred"></div>
+        </div>
+      </section>
+
+      <div class="d-only d-stats">
+        <div class="d-stat reveal"><b data-count="26">26</b><span>real public product labels behind the model</span></div>
+        <div class="d-stat reveal"><b data-count="4">4</b><span>spray families: Bt, Trichoderma, Pseudomonas, Beauveria</span></div>
+        <div class="d-stat reveal"><b class="word">Zero</b><span>survival numbers. Only cited evidence, or "ask an agronomist".</span></div>
+      </div>
+
+      <footer class="site">
+        An early prototype from a college AI project (team ViabilAg). Evidence with sources, never spray orders.
+        <button class="linkbtn" id="open-about" style="display:block">About this prototype and its limits</button>
+        <div class="mode" id="mode"><i></i>Checking connection...</div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- READ -->
+  <div id="v-read" class="view hidden"><div class="col">
+    <div class="topbar"><button class="back" id="back-read"><span id="ico-back1" style="width:18px"></span> Back</button>
+      <div class="progress-dots"><i></i><i></i><i></i></div></div>
+    <section style="margin-top:14px">
+      <div class="eyebrow">Step 2</div>
+      <h2 class="block-title">What the label says</h2>
+      <p class="block-sub">Fix anything that was misread, then let Dew identify the product.</p>
+      <div class="scanbox hidden" id="scanbox"><img id="preview" alt="Your label photo"><div class="scanline hidden" id="scanline"></div></div>
+      <div class="reading-note hidden" id="reading"><div id="reading-dew"></div><div><div id="ocrnote">Dew is reading the label...</div><div class="bar"><i id="ocrbar"></i></div></div></div>
+      <aside class="d-only d-readside"><div class="rd-dew" id="rd-dew"></div><h4>Getting a good read</h4><ol><li>Fix any word that looks wrong. Dew can misread small print.</li><li>The more of the label you include, the better Dew can tell the product type.</li><li>Not sure it is right? Dew will say so instead of guessing.</li></ol></aside>
+      <textarea id="ocrtext" spellcheck="false" placeholder="The label text shows up here. You can also type or paste it."></textarea>
+      <div class="hint" id="hint"></div>
+      <div class="cta-row" style="margin-top:18px">
+        <button class="btn primary" id="identify">Identify this product</button>
+        <button class="btn ghost" id="go-photo2"><span id="ico-cam2"></span> Use a photo</button>
+      </div>
+    </section>
+  </div></div>
+
+  <!-- RESULT -->
+  <div id="v-result" class="view hidden"><div class="col">
+    <div class="topbar"><button class="back" id="back-result"><span id="ico-back2" style="width:18px"></span> Home</button>
+      <div class="progress-dots"><i></i><i></i><i></i></div></div>
+    <div class="rsum">
+    <div class="banner">
+      <img id="r-img" alt="">
+      <div class="in">
+        <div><div class="kind" id="r-kind"></div><h2 id="r-name"></h2><div class="org" id="r-org"></div></div>
+        <div class="ring"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="42"/><circle class="fg" id="r-ring" cx="50" cy="50" r="42"/></svg><b id="r-pct"></b><small>Dew's guess</small></div>
+      </div>
+    </div>
+    <div class="pcred" style="position:static;text-align:left;max-width:none;margin-top:8px;font-size:11px;color:var(--cream-faint)" id="r-pcred"></div>
+    <div class="quick reveal">
+      <div class="lbl"><span id="ic0" style="display:contents"></span>Good to know</div>
+      <p id="q-text"></p><div id="q-src"></div>
+      <div class="chips" id="q-chips"></div>
+      <button class="linkbtn" id="open-guess">How sure is Dew? <span id="ic6" style="display:contents"></span></button>
+    </div>
+
+    </div>
+    <div class="rdetail">
+    <div class="tabs" role="tablist" aria-label="More about this product" id="tabs">
+      <button class="tab" role="tab" aria-selected="true" data-tab="labels"><span data-ic="book"></span>On the label <span class="n" id="n-labels"></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="research"><span data-ic="flask"></span>Research <span class="n" id="n-research"></span></button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="field"><span data-ic="drop"></span>Your field</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="why"><span data-ic="leaf"></span>Why it matters</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-labels"><p class="intro">What real labels of this kind tell you.</p><div class="flow" id="r-labels"></div></div>
+    <div class="panel hidden" role="tabpanel" id="p-research"><p class="intro">What published research says about keeping these living organisms alive.</p><div class="flow" id="r-research"></div></div>
+    <div class="panel hidden" role="tabpanel" id="p-field">
+      <p class="intro">Two quick checks for your own tank. Both are optional.</p>
+      <div class="cond"><h4>Spray water pH</h4>
+        <div class="phrow"><input type="number" id="ph" min="0" max="14" step="0.1" placeholder="7.8" inputmode="decimal" aria-label="Spray water pH"><span>from a pH strip or meter</span></div>
+        <div class="msg" id="phmsg"></div></div>
+      <div class="cond"><h4>Weather where you spray</h4>
+        <button class="btn ghost" id="wxbtn" style="padding:11px 20px"><span id="ic4" style="display:contents"></span> Use my location</button>
+        <div class="msg" id="wxmsg"></div></div>
+    </div>
+    <div class="panel hidden" role="tabpanel" id="p-why"><p class="intro">The bigger picture behind the check.</p><div class="flow" id="r-common"></div></div>
+
+    <p class="conf-note" id="r-disclaimer" style="margin-top:34px"></p>
+    <div class="mix-cta reveal">
+      <div id="r-dew" class="mix-dew"></div>
+      <div class="mix-cta-t">
+        <b>Planning to use it with another product?</b>
+        <span>Scan both labels. Dew checks whether any real evidence warns about the mix - or says when it does not know.</span>
+      </div>
+      <button class="btn primary" id="mix-go"><span id="ico-swap" style="width:18px"></span> Check the mix</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin-top:20px"><button class="btn ghost" id="again">Check another label</button></div>
+    </div>
+  </div></div>
+
+  <!-- STOP -->
+  <div id="v-stop" class="view hidden"><div class="col">
+    <div class="topbar"><button class="back" id="back-stop"><span id="ico-back3" style="width:18px"></span> Back</button>
+      <div class="progress-dots"><i></i><i></i><i></i></div></div>
+    <div class="stop">
+      <div class="stop-art" id="stop-dew"></div>
+      <div class="eyebrow" style="color:var(--amber)">Not enough evidence</div>
+      <h2>Hmm. Dew can't vouch for this one.</h2>
+      <p class="lead">Either the photo missed some key words, or this product is outside what our sources cover today. Dew would rather say so than guess.</p>
+      <div class="stop-card"><b>The safe next step:</b> check with an agronomist before you mix or spray.</div>
+      <div class="tips" id="stop-tips"></div>
+      <div class="cta-row"><button class="btn primary" id="stop-edit">Edit the text</button><button class="btn ghost" id="stop-new">Try another label</button></div>
+    </div>
+  </div></div>
+
+
+  <!-- MIX: step 1, add product B -->
+  <div id="v-mixscan" class="view hidden"><div class="col">
+    <div class="topbar"><button class="back" id="back-mixscan"><span id="ico-back4" style="width:18px"></span> Back</button>
+      <div class="mix-steps" aria-label="Mix check progress"><i class="on now"></i><i></i><i></i></div></div>
+    <section style="margin-top:14px">
+      <div class="eyebrow">Mix check - step 1 of 3</div>
+      <h2 class="block-title">Add the second product</h2>
+      <p class="block-sub" id="mix-a-reminder"></p>
+      <div class="mixbubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="scanbox hidden" id="scanbox-b"><img id="preview-b" alt="Your second label photo"><div class="scanline hidden" id="scanline-b"></div></div>
+      <div class="reading-note hidden" id="reading-b"><div id="reading-dew-b"></div><div><div id="ocrnote-b">Dew is reading the label...</div><div class="bar"><i id="ocrbar-b"></i></div></div></div>
+      <textarea id="mixtext" spellcheck="false" placeholder="Second label text shows up here. You can also type or paste it."></textarea>
+      <div class="hint" id="hint-b"></div>
+      <p class="credit-note" style="margin-top:10px">Or practise with a real label:</p>
+      <div class="chips-row" id="mix-samples"></div>
+      <div class="cta-row" style="margin-top:14px">
+        <button class="btn primary" id="mix-read">Read this product</button>
+        <button class="btn ghost" id="go-photo-b"><span id="ico-cam3" style="width:18px"></span> Use a photo</button>
+      </div>
+    </section>
+  </div></div>
+
+  <!-- MIX: step 2, confirm what Dew saw -->
+  <div id="v-mixconfirm" class="view hidden"><div class="col">
+    <div class="topbar"><button class="back" id="back-mixconfirm"><span id="ico-back5" style="width:18px"></span> Back</button>
+      <div class="mix-steps" aria-label="Mix check progress"><i class="on"></i><i class="on now"></i><i></i></div></div>
+    <section style="margin-top:14px">
+      <div class="eyebrow">Mix check - step 2 of 3</div>
+      <h2 class="block-title">Did Dew read them right?</h2>
+      <p class="block-sub">Fix a name if it looks wrong. Anything Dew could not find stays "not on the label" - never guessed.</p>
+      <div id="confirm-cards"></div>
+      <div class="cta-row" style="margin-top:18px">
+        <button class="btn primary" id="mix-check-now">Check this mix</button>
+      </div>
+    </section>
+  </div></div>
+
+  <!-- MIX: step 3, the action page -->
+  <div id="v-mixresult" class="view hidden"><div class="col">
+    <div class="topbar"><button class="back" id="back-mixresult"><span id="ico-back6" style="width:18px"></span> Edit products</button>
+      <div class="mix-steps" aria-label="Mix check progress"><i class="on"></i><i class="on"></i><i class="on now"></i></div></div>
+    <section style="margin-top:14px" id="mix-action"></section>
+  </div></div>
+
+</main>
+
+<dialog id="credits">
+  <h3>Credits</h3>
+  <ul id="credits-list"></ul>
+  <button class="btn ghost" id="close-credits" style="margin-top:8px">Close</button>
+</dialog>
+
+<dialog class="sheet" id="sheet-guess"><div class="grab"></div><div class="body" id="guess-body"></div></dialog>
+<dialog class="sheet" id="sheet-settings"><div class="grab"></div><div class="body" id="settings-body"></div></dialog>
+<dialog class="sheet" id="sheet-about"><div class="grab"></div><div class="body" id="about-body"></div></dialog>
+
+<div id="v-dew" class="view hidden"><div class="col dewcol">
+    <div class="topbar"><button class="back" id="dew-close"><span id="ico-back-dew" style="width:18px"></span> Home</button></div>
+    <div class="dew-head">
+      <div class="dew-hero" id="dew-hero"></div>
+      <div class="dew-langs" id="dew-langs" role="group" aria-label="Language"></div>
+    </div>
+    <div class="dew-log" id="dew-log" aria-live="polite"></div>
+    <div class="dew-inputrow">
+      <button class="icobtn" id="dew-attach" aria-label="Add a label photo"></button>
+      <button class="icobtn" id="dew-mic" aria-label="Speak to Dew"></button>
+      <input id="dew-input" type="text" autocomplete="off" placeholder="Type to Dew...">
+      <button class="icobtn send" id="dew-send" aria-label="Send"></button>
+    </div>
+</div></div>
+
+<script type="module" src="src/js/boot-icons.js"></script>
+<script src="assets/config.js"></script>
+<script type="module" src="src/js/main.js"></script>
+<script type="module" src="src/js/desktop-fx.js"></script>
+</body>
+</html>

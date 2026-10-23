@@ -1,0 +1,7 @@
+# Vercel Python runtime installs from this root file (backend/requirements.txt
+# documents the same pins for other hosts). Server OCR extras are excluded -
+# no tesseract binary on Vercel; the app uses in-browser OCR there.
+fastapi>=0.110
+uvicorn[standard]>=0.29
+httpx>=0.27
+python-multipart>=0.0.9

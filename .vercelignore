@@ -1,0 +1,13 @@
+.git
+.venv
+venv
+__pycache__
+*.pyc
+node_modules
+android
+data/raw
+docs
+ml/train.py
+scripts
+*.log
+.DS_Store

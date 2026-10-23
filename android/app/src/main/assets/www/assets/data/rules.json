@@ -1,0 +1,23 @@
+{
+  "_note": "Conditions rules. Thresholds marked app_threshold are our own cut-offs for when to show a flag, not numbers from the cited source. Edit here; backend and frontend fallback both read this file.",
+  "ph": {
+    "source": {"name": "UF/IFAS Extension, Water pH and the Effectiveness of Pesticides (PI193)", "url": "https://ask.ifas.ufl.edu/publication/PI193"},
+    "bands": [
+      {"max_exclusive": 4, "level": "warn", "text": "Below the usual 4 to 7 mixing band. Check the product label before mixing."},
+      {"max_inclusive": 7, "level": "good", "text": "Inside the 4 to 7 band UF/IFAS recommends for mixing most pesticides (5.5 to 6.5 is ideal)."},
+      {"max_inclusive": 14, "level": "warn", "text": "Alkaline water. UF/IFAS recommends mixing most pesticides at pH 4 to 7; alkaline water above pH 7 can break down sensitive products in the tank. Consider treating the water and check the label."}
+    ]
+  },
+  "weather": {
+    "api": {"name": "Open-Meteo forecast API (no key)", "url": "https://open-meteo.com/en/docs"},
+    "flags": [
+      {"class": "bt", "metric": "uv_index", "op": ">=", "app_threshold": 6,
+       "text": "High UV right now - sunlight inactivates Bt spores, so late-evening spraying protects them.",
+       "source": {"name": "Griego & Spence 1978, Applied and Environmental Microbiology 35(5)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC242951/"}},
+      {"class": "beauveria", "metric": "temperature_c", "op": ">=", "app_threshold": 35,
+       "text": "Very hot - the BotaniGard label warns live spores are harmed by high temperatures. Keep the product cool until the tank.",
+       "source": {"name": "BotaniGard ES label, Certis Biologicals", "url": "https://www.certisbio.com/hubfs/Botanigard_ES_SpLbl_20240409_82074-1_per_20240403_ESL.pdf"}}
+    ],
+    "no_flag_text": "No weather flag for this product type right now."
+  }
+}
