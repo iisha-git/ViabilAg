@@ -1,54 +1,61 @@
 <p align="center">
-  <img src="frontend/assets/icons/icon-512.png" width="120" alt="Dew, the bioOasis mascot">
-</p>
-
-<h1 align="center">bioOasis</h1>
-
-<p align="center">
-  <strong>Will it survive the tank?</strong><br>
-  Check a biological spray <em>before</em> it goes in, not after it fails.
+  <img src="docs/images/banner.png" alt="bioOasis: will it survive the tank? Dew, the water-drop mascot" width="100%">
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.6.20-8B5CF6" alt="Version 0.6.20"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-3FC3AA" alt="MIT license"></a>
-  <a href="backend/requirements.txt"><img src="https://img.shields.io/badge/python-3.10%2B-3776AB" alt="Python 3.10+"></a>
-  <img src="https://img.shields.io/badge/status-early%20prototype-E6A94A" alt="Status: early prototype">
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.6.20-8B5CF6?style=for-the-badge" alt="Version 0.6.20"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-3FC3AA?style=for-the-badge" alt="MIT license"></a>
+  <a href="backend/requirements.txt"><img src="https://img.shields.io/badge/python-3.10%2B-3776AB?style=for-the-badge" alt="Python 3.10+"></a>
+  <img src="https://img.shields.io/badge/status-early%20prototype-E6A94A?style=for-the-badge" alt="Status: early prototype">
 </p>
 
 <p align="center">
-  <a href="https://viabil-ag.vercel.app"><strong>Live website</strong></a> &middot;
-  <a href="https://drive.google.com/file/d/1p9S7WU6k6mRM0zmPPBNIuocwJDb5wJwh/view">Android app (APK)</a> &middot;
-  <a href="ARCHITECTURE.md">Architecture</a> &middot;
-  <a href="docs/development.md">Develop</a> &middot;
+  <a href="https://viabil-ag.vercel.app"><strong>Open the live site</strong></a> &nbsp;|&nbsp;
+  <a href="https://drive.google.com/file/d/1p9S7WU6k6mRM0zmPPBNIuocwJDb5wJwh/view"><strong>Android APK</strong></a> &nbsp;|&nbsp;
+  <a href="#quick-start-about-3-minutes"><strong>Run it locally</strong></a> &nbsp;|&nbsp;
+  <a href="ARCHITECTURE.md">Architecture</a> &nbsp;|&nbsp;
   <a href="docs/deployment.md">Deploy</a>
 </p>
 
 ---
 
+## The problem, in one breath
+
 A **biological spray** is a crop treatment made of living organisms, such as Bt, Trichoderma, Pseudomonas or Beauveria. Those organisms can die in the tank: mixed with the wrong product, in harsh water, or under strong sun. When that happens, the spray can lose the biological effect it was bought for.
 
-bioOasis is a phone check a farmer runs **before** spraying. Every answer cites its source, and when the evidence is missing the app says so instead of guessing.
+**bioOasis is a phone check a farmer runs *before* spraying.** Every answer cites its source. When the evidence is missing, the app says so instead of guessing.
 
-## What it does
+![bioOasis app tour: start, read a label, add a second product, honest verdict, ask Dew](docs/images/app-tour.png)
 
-**1. Read one label.** Photograph a product label. The app reads the text (OCR), works out what type of product it is, and shows what real labels and published research say about keeping that type alive. Every line carries its source.
+<sub>Real screenshots of the current web app, taken from the code in this repository.</sub>
 
-**2. Check a mix.** Scan a second label. bioOasis answers one question - is there real evidence about using these two products together? - with one of three honest outcomes: a **documented conflict**, **limited evidence**, or **"we cannot confirm this combination"**. You get a takeaway slip to show your dealer or agronomist.
+## How it thinks
 
-**3. Ask Dew.** Dew, the water-drop mascot, answers questions in English, Hindi or Marathi, typed or spoken, and replies in the language you just used. On the Android app, Dew also speaks its answers aloud.
+```mermaid
+flowchart LR
+    A["Label photo<br/>or pasted text"] --> B["OCR reads the words<br/>(in the browser)"]
+    B --> C["Small ML model<br/>guesses the product type"]
+    C -->|"not sure"| S(["Stops: ask an agronomist"])
+    C -->|"sure enough"| D["Cited evidence cards<br/>from real labels and research"]
+    D --> E["Add a second label"]
+    E --> F{"Cited evidence<br/>for this exact pair?"}
+    F -->|"a documented warning"| G["Documented conflict"]
+    F -->|"findings, but no conflict"| H["Limited evidence"]
+    F -->|"nothing cited"| I["Cannot confirm<br/>(never a guess)"]
 
-## What is real and what is not (read this first)
+    classDef step fill:#EEE9FF,stroke:#7B5CF5,color:#22174F;
+    classDef stop fill:#FFE3D6,stroke:#F0705A,color:#22174F;
+    classDef good fill:#D2F3E8,stroke:#3FC3AA,color:#22174F;
+    class A,B,C,D,E step;
+    class S,G,I stop;
+    class H good;
+```
 
-| Part | Status |
-|---|---|
-| Label reading (OCR) | Real. Runs in the browser (tesseract.js). Optional server OCR in the backend. |
-| Product-type model | Real but small: TF-IDF + logistic regression, trained on **26 real public label/product texts** (4 classes). Leave-one-out accuracy **88.5%**, one hold-out split **71.4%**. This says "learns the 4 types from label text", **not** "recognizes every product in a shop". |
-| Evidence cards | Real. Every claim is a statement from a cited source (EPA/CDMS labels, manufacturer pages, NPIC, UF/IFAS, peer-reviewed papers). Nothing is generated. |
-| Mix check | Real. Pair rules come from real cited labels. Each rule names the exact product, the exact warning and its source; no rule transfers between brands, strains or formulations. Unknown pairs get "cannot confirm", never a guess. |
-| Dew chat | Real. Open questions go to Google Gemini through the server (the key never leaves the server; photos are never sent). Offline or without a key, Dew uses built-in guided answers and says so. Configured model default: `gemini-3.6-flash` (overridable with `GEMINI_MODEL`). |
-| Survival prediction | **Does not exist.** bioOasis never outputs a survival number. That would need lab data we do not have. See `docs/roadmap.md`. |
-| Photos | Real photos from Wikimedia Commons with licenses, credited in the app and in `docs/credits.md`. They illustrate the organism type, not the product. |
+## Three things you can do
+
+| | | |
+|:--|:--|:--|
+| **Read one label**<br><br>Photograph a product label. The app reads the text (OCR), works out the product type, and shows what real labels and published research say about keeping that type alive. | **Check a mix**<br><br>Scan a second label. One honest question: is there real evidence about using these two products together? You get a **documented conflict**, **limited evidence**, or **"we cannot confirm this combination"**. | **Ask Dew**<br><br>The water-drop mascot answers in English, Hindi or Marathi, typed or spoken, and replies in the language you just used. On the Android app, Dew also speaks its answers aloud. |
 
 ## Quick start (about 3 minutes)
 
@@ -83,6 +90,19 @@ Open <http://localhost:8080>. This is also how you host it on GitHub Pages (see 
 
 </details>
 
+
+## What is real and what is not (read this first)
+
+| Part | Status |
+|---|---|
+| Label reading (OCR) | Real. Runs in the browser (tesseract.js). Optional server OCR in the backend. |
+| Product-type model | Real but small: TF-IDF + logistic regression, trained on **26 real public label/product texts** (4 classes). Leave-one-out accuracy **88.5%**, one hold-out split **71.4%**. This says "learns the 4 types from label text", **not** "recognizes every product in a shop". |
+| Evidence cards | Real. Every claim is a statement from a cited source (EPA/CDMS labels, manufacturer pages, NPIC, UF/IFAS, peer-reviewed papers). Nothing is generated. |
+| Mix check | Real. Pair rules come from real cited labels. Each rule names the exact product, the exact warning and its source; no rule transfers between brands, strains or formulations. Unknown pairs get "cannot confirm", never a guess. |
+| Dew chat | Real. Open questions go to Google Gemini through the server (the key never leaves the server; photos are never sent). Offline or without a key, Dew uses built-in guided answers and says so. Configured model default: `gemini-3.6-flash` (overridable with `GEMINI_MODEL`). |
+| Survival prediction | **Does not exist.** bioOasis never outputs a survival number. That would need lab data we do not have. See `docs/roadmap.md`. |
+| Photos | Real photos from Wikimedia Commons with licenses, credited in the app and in `docs/credits.md`. They illustrate the organism type, not the product. |
+
 ## Dew, in three languages, with a voice
 
 - Type or talk. In the Android app Dew hears you through the phone's own speech recognizer and answers aloud with the phone's text-to-speech; in the browser it uses the browser's speech features.
@@ -104,10 +124,9 @@ Current build: **0.6.20** (native speech in and out). The APK is compiled and si
 
 ## Look and feel
 
-- Three themes - **Lilac Cloud** (default), **Sticker Pop**, **Aurora Night** - saved on the device only.
-- A real desktop layout on wide screens; mobile-first below that.
-- An installable app (PWA): "Add to Home Screen" on a served HTTPS site. The service worker caches only public app files, never photos, answers or location.
-- Soft generated sounds with an on/off toggle, and full `prefers-reduced-motion` support.
+![Lilac Cloud, Sticker Pop and Aurora Night themes](docs/images/themes.png)
+
+Themes are saved on the device only. Wide screens get a real desktop layout, and the app can be installed as a PWA ("Add to Home Screen" on a served HTTPS site). The service worker caches only public app files, never photos, answers or location. Sounds are soft, can be switched off, and `prefers-reduced-motion` is respected.
 
 ## Tech stack (exact)
 
