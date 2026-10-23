@@ -138,3 +138,12 @@ def test_rules_on_both_labels_checked_without_duplicates():
     assert j["status"] == "conflict"
     assert "t34_no_tank_mix" in ids and "botanigard_fungicides_limited" in ids
     assert len(ids)==len(set(ids))
+
+
+def test_botanigard_rule_is_es_only_not_22wp():
+    es=check(BOTANIGARD, MANCOZEB)
+    wp=check("BotaniGard 22WP biological insecticide Beauveria bassiana GHA.", MANCOZEB)
+    assert es["product_a"]["product"]["name"] == "BotaniGard ES"
+    assert "botanigard_fungicides_limited" in [f["rule_id"] for f in es["findings"]]
+    assert wp["product_a"]["product"] is None
+    assert not wp["findings"]
