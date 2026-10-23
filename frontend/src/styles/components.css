@@ -149,7 +149,8 @@ textarea:focus{outline:none;border-color:var(--teal)}
 .msg{margin-top:12px;font-size:14.5px;line-height:1.55}
 .msg .lv{display:inline-block;font-weight:600;margin-right:6px}
 .msg .lv.good{color:var(--teal)}.msg .lv.warn{color:var(--amber)}
-.msg .src-pill{margin-top:8px}
+.msg .src-pill{margin-top:8px;max-width:100%;overflow-wrap:break-word}
+#phmsg .lv,#wxmsg .lv{margin-right:6px}
 
 .disclaimer{margin-top:44px;padding:18px 20px;border-radius:var(--radius-sm);background:var(--navy);color:var(--cream);font-size:13.5px;line-height:1.55}
 
@@ -303,6 +304,7 @@ details.more div{padding-top:8px}
 .verdict.limited .verdict-badge{background:var(--amber);color:#3a270a;box-shadow:0 0 0 10px var(--amber-soft)}
 .verdict.unknown .verdict-badge{background:transparent;border:2px dashed var(--cream-faint);color:var(--cream-dim)}
 .pairline{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;font-family:var(--font-serif);font-size:17px;color:var(--cream);margin:6px 0 14px}
+.pairline>span{min-width:0;max-width:100%;overflow-wrap:break-word}
 .pairline .plus{width:28px;height:28px;border-radius:50%;background:var(--char-2);border:1.5px solid var(--teal);color:var(--teal);display:grid;place-items:center;font-family:var(--font-sans);font-weight:600}
 .verdict-cta{display:inline-flex;align-items:center;gap:10px;background:var(--char-2);border:1.5px solid var(--line);border-radius:999px;padding:12px 20px;font-size:14.5px;text-align:left}
 .verdict-cta svg{width:20px;height:20px;color:var(--teal);flex:none}
@@ -352,7 +354,7 @@ details.more div{padding-top:8px}
 .dew-langs{display:flex;gap:6px;margin-top:10px}
 .dew-langs .chip-btn.on{background:var(--teal);color:#0d1f1b;border-color:var(--teal)}
 .dew-log{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0;overflow-y:auto;padding:6px 2px 14px}
-.msg{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;line-height:1.5;animation:rise .35s var(--ease) both}
+.dew-log .msg{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;line-height:1.5;animation:rise .35s var(--ease) both}
 .msg.dew span:last-child{background:var(--char-2);border:1px solid var(--line);border-radius:4px 16px 16px 16px;padding:10px 13px;color:var(--cream)}
 .msg.user{align-self:flex-end;background:var(--teal-deep);color:#f6fbf9;border-radius:16px 4px 16px 16px;padding:10px 13px;max-width:80%}
 .msg .mdew{width:30px;flex:none}
@@ -367,7 +369,7 @@ details.more div{padding-top:8px}
 .icobtn.send svg{transform:rotate(-90deg)}
 
 /* dew chips inside the bubble */
-.dew-body{display:flex;flex-direction:column;gap:8px;max-width:85%}
+.dew-body{display:flex;flex-direction:column;gap:8px;max-width:85%;min-width:0}
 .dew-chips{display:flex;gap:6px;flex-wrap:wrap}
 .dew-chips .chip-btn{font-size:12px}
 
