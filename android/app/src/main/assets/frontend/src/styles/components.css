@@ -74,8 +74,7 @@ button.run-beat{font:inherit;color:inherit;background:none;border:0;padding:14px
 .run-facts b{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
 .run-facts span{font-size:14.5px;color:var(--cream)}
 .run-note{font-size:13px;color:var(--cream-faint)}
-.run-ev{font-family:var(--font-serif);font-size:17px;line-height:1.5;color:var(--cream);position:relative;padding-left:34px}
-.run-ev::before{content:"\201C";position:absolute;left:0;top:-8px;font-size:44px;line-height:1;color:var(--teal);opacity:.85}
+.run-ev{font-family:var(--font-serif);font-size:17px;line-height:1.5;color:var(--cream);position:relative}
 .run-ev a{display:inline-block;margin-top:2px;font-family:var(--font-sans);font-size:12.5px;font-weight:700;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
 .run-abstain{font-size:14px;line-height:1.55;color:var(--cream-dim);border-left:3px solid var(--amber);padding-left:12px;margin-top:2px}
 

@@ -35,7 +35,7 @@ $("how").innerHTML = `
   <button type="button" class="how-step run-beat run-label reveal" id="run-demo" aria-label="Run the DiPel DF sample label through bioOasis">
     <span class="run-tag">The label in hand</span>
     <span class="run-product">DiPel DF <i>biological insecticide</i></span>
-    <span class="run-quote">"Bacillus thuringiensis subsp. kurstaki. Effective control of caterpillar pests. OMRI and NOP certified for use in organic production systems."</span>
+    <span class="run-quote">Bacillus thuringiensis subsp. kurstaki. Effective control of caterpillar pests. OMRI and NOP certified for use in organic production systems.</span>
     <span class="run-cta">One of the 26 real public labels it studied. Tap to run it ${ICON.arrow}</span>
   </button>
   <div class="how-step run-beat run-scan reveal">
@@ -49,7 +49,7 @@ $("how").innerHTML = `
   </div>
   <div class="how-step run-beat run-says reveal">
     <span class="run-tag">What Dew says back</span>
-    <p class="run-ev">"The caterpillar has to eat treated leaves for it to work." <a href="https://picol.cahnrs.wsu.edu/DownloadLabel/37049/OR/OR_2026_73049-39_Dipel%20DF%20Biological%20Insecticide%20Dry%20Flowable.pdf" target="_blank" rel="noopener">DiPel DF label, Valent BioSciences</a></p>
+    <p class="run-ev">The caterpillar has to eat treated leaves for it to work. <a href="https://picol.cahnrs.wsu.edu/DownloadLabel/37049/OR/OR_2026_73049-39_Dipel%20DF%20Biological%20Insecticide%20Dry%20Flowable.pdf" target="_blank" rel="noopener">DiPel DF label, Valent BioSciences</a></p>
     <p class="run-abstain">How long the organisms stay alive in your tank is not in its evidence - so it says so, and points you to an agronomist.</p>
   </div>`;
 $("run-demo").addEventListener("click", () => { const s0 = state.samples.find(x => x.id === 0); if (s0) pickSample(s0); });

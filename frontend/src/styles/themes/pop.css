@@ -34,5 +34,4 @@ body{background:var(--char);background-image:radial-gradient(rgba(30,20,66,.09) 
 .run-tag{display:inline-block;width:max-content;background:var(--amber-soft);border:var(--bd-s);box-shadow:var(--sh-tiny);border-radius:999px;padding:5px 12px;color:#1E1442;transform:rotate(-1deg)}
 .run-quote{border-left:0;padding:12px 14px;background:#fff;border:var(--bd-s);box-shadow:var(--sh-tiny);border-radius:14px;color:#4B3E78}
 .run-facts li{border-bottom:2px dashed rgba(30,20,66,.3)}
-.run-ev::before{text-shadow:2px 2px 0 #1E1442;opacity:1}
 .run-abstain{border-left-color:var(--teal)}
