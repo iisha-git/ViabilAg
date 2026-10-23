@@ -31,11 +31,28 @@ const state = { samples: [], credits: {}, current: null, cls: null, loc: null, m
 document.body.insertAdjacentHTML("afterbegin", DEFS);
 $("hero-dew").innerHTML = mascot("hello");
 for (const [id, k] of [["ico-cam", "camera"], ["ico-cam2", "camera"], ["ico-cam3", "camera"], ["ico-back1", "back"], ["ico-back2", "back"], ["ico-back3", "back"], ["ico-back4", "back"], ["ico-back5", "back"], ["ico-back6", "back"], ["ico-back-dew", "back"], ["ico-swap", "swap"]]) $(id).innerHTML = ICON[k];
-$("how").innerHTML = [
-  ["camera", "Snap the label", "Front or back of the bottle or packet. No label at hand? Tap a real sample below."],
-  ["text", "Dew reads it", "The text is read right on your device, and you can fix any word it got wrong."],
-  ["leaf", "Evidence, with sources", "What labels and research say about keeping the living organisms alive. Each of those lines links to where it came from."],
-].map(([i, t, p]) => `<div class="how-step reveal"><div class="how-ico">${ICON[i]}</div><div><h3>${t}</h3><p>${p}</p></div></div>`).join("");
+$("how").innerHTML = `
+  <button type="button" class="how-step run-beat run-label reveal" id="run-demo" aria-label="Run the DiPel DF sample label through bioOasis">
+    <span class="run-tag">The label in hand</span>
+    <span class="run-product">DiPel DF <i>biological insecticide</i></span>
+    <span class="run-quote">Bacillus thuringiensis subsp. kurstaki. Effective control of caterpillar pests. OMRI and NOP certified for use in organic production systems.</span>
+    <span class="run-cta">One of the 26 real public labels it studied. Tap to run it ${ICON.arrow}</span>
+  </button>
+  <div class="how-step run-beat run-scan reveal">
+    <span class="run-tag">What Dew reads</span>
+    <ul class="run-facts">
+      <li><b>Organism</b><span>Bacillus thuringiensis subsp. kurstaki</span></li>
+      <li><b>Family</b><span>Bt spray - a living bacterial insecticide</span></li>
+      <li><b>Targets</b><span>Caterpillars (moth and butterfly larvae)</span></li>
+    </ul>
+    <span class="run-note">Read on your device. You can fix any word it got wrong before asking.</span>
+  </div>
+  <div class="how-step run-beat run-says reveal">
+    <span class="run-tag">What Dew says back</span>
+    <p class="run-ev">The caterpillar has to eat treated leaves for it to work. <a href="https://picol.cahnrs.wsu.edu/DownloadLabel/37049/OR/OR_2026_73049-39_Dipel%20DF%20Biological%20Insecticide%20Dry%20Flowable.pdf" target="_blank" rel="noopener">DiPel DF label, Valent BioSciences</a></p>
+    <p class="run-abstain">How long the organisms stay alive in your tank is not in its evidence - so it says so, and points you to an agronomist.</p>
+  </div>`;
+$("run-demo").addEventListener("click", () => { const s0 = state.samples.find(x => x.id === 0); if (s0) pickSample(s0); });
 
 (async () => {
   const mode = await api.init();

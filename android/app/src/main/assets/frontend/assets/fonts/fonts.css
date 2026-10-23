@@ -1,8 +1,0 @@
-/* Latin subset, self-hosted. Fraunces and Inter: SIL Open Font License 1.1 (see docs/credits.md). */
-@font-face{font-family:'Fraunces';src:url('./fraunces-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:'Fraunces';src:url('./fraunces-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Fraunces';src:url('./fraunces-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'Fraunces';src:url('./fraunces-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('./inter-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('./inter-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('./inter-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
