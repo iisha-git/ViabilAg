@@ -5,10 +5,12 @@
 /* ---------- tablet (760-1023px): a little wider, same stacked layout ---------- */
 @media (min-width:760px) and (max-width:1023px){
   :root{--col:740px}
+  .dewcol{max-width:740px}
 }
 
 /* ---------- desktop (1024px and up) ---------- */
 @media (min-width:1024px){
+  .dewcol{max-width:920px}
   :root{
     --col:1180px;
     --d-bd:var(--bd,1px solid rgba(255,255,255,.2));

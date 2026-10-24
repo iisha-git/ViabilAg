@@ -20,7 +20,11 @@ let busy = false;
 let lastQuestion = null; // last open question sent to Dew AI, for the Retry chip
 let lastTopic = null; // grounded topic of the conversation (e.g. "bt") for follow-ups
 let voiceTurn = false; // voice in -> voice out, even if sound effects are off
-const history = []; // { who: "dew"|"user"|"note", msg, chips }
+const history = []; // { who: "dew"|"user"|"note", msg, chips, img }
+// Blob URLs of photos the user added to this chat. They never leave the
+// device (OCR runs locally) and are revoked when the page goes away.
+const chatPhotoUrls = new Set();
+globalThis.addEventListener?.("pagehide", () => { chatPhotoUrls.forEach(u => URL.revokeObjectURL(u)); chatPhotoUrls.clear(); });
 
 const L = {
   en: {
@@ -34,6 +38,7 @@ const L = {
     noMic: "This browser can't hear you. Typing works everywhere.",
     listening: "Listening...",
     labelBtn: "Add a label",
+    photoSent: "Label photo",
     needScan: "Scan a label first, then I can tell you more about it.",
     mixLead: "Let's check both labels together.",
     afterResult: n => `That looks like ${n}. Want the details, or check it with another product?`,
@@ -65,6 +70,7 @@ const L = {
     noMic: "यह ब्राउज़र आपकी आवाज़ नहीं सुन सकता। टाइप करना हर जगह चलता है।",
     listening: "सुन रहा हूँ...",
     labelBtn: "लेबल जोड़ें",
+    photoSent: "लेबल फोटो",
     needScan: "पहले एक लेबल स्कैन करें, फिर मैं उसके बारे में बता सकता हूँ।",
     mixLead: "चलिए दोनों लेबल साथ में जाँचते हैं।",
     afterResult: n => `यह ${n} जैसा लगता है। पूरी जानकारी चाहिए, या दूसरे प्रोडक्ट के साथ जाँचें?`,
@@ -96,6 +102,7 @@ const L = {
     noMic: "हा ब्राउझर तुमचा आवाज ऐकू शकत नाही. टाइप करणे सर्वत्र चालते.",
     listening: "ऐकतोय...",
     labelBtn: "लेबल जोडा",
+    photoSent: "लेबल फोटो",
     needScan: "आधी एक लेबल स्कॅन करा, मग मी त्याबद्दल सांगू शकतो.",
     mixLead: "चला दोन्ही लेबल एकत्र तपासूया.",
     afterResult: n => `हे ${n} सारखे दिसते. सविस्तर माहिती हवी, की दुसऱ्या प्रोडक्टसोबत तपासायचे?`,
@@ -233,7 +240,14 @@ function entryEl(entry) {
     el.innerHTML = `<span class="dew-note">${txt(entry.msg)}</span>`;
   } else if (entry.who === "user") {
     el.className = "msg user";
-    el.innerHTML = `<span>${String(entry.msg).replace(/[<>&"]/g, "")}</span>`;
+    if (entry.img) {
+      const im = document.createElement("img");
+      im.className = "dew-photo"; im.src = entry.img; im.alt = String(entry.msg || "");
+      el.appendChild(im);
+    }
+    const cap = document.createElement("span");
+    cap.textContent = String(entry.msg).replace(/[<>&"]/g, "");
+    el.appendChild(cap);
   } else {
     const chips = chipList(entry.chips);
     const chipHtml = chips ? `<span class="dew-chips">${chips.map(c => `<button class="chip-btn">${c}</button>`).join("")}</span>` : "";
@@ -270,8 +284,8 @@ function note(msg) {
   append(entry);
 }
 
-function userSay(text) {
-  const entry = { who: "user", msg: text };
+function userSay(text, img) {
+  const entry = { who: "user", msg: text, img: img || null };
   history.push(entry);
   append(entry);
 }
@@ -353,7 +367,9 @@ function mic() {
 
 export async function handlePhoto(file) {
   open();
-  userSay(`[${L[lang].labelBtn}]`);
+  const url = URL.createObjectURL(file);
+  chatPhotoUrls.add(url);
+  userSay(L[lang].photoSent, url);
   say(l => L[l].scanning);
   try {
     const text = await readLabel(file, () => {}, () => {});
