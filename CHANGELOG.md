@@ -5,6 +5,12 @@
 
 # Changelog
 
+## 0.6.28 - Full Hindi and Marathi localization
+- Whole platform in English, Hindi and Marathi: every menu, button, flow and settings screen, plus all evidence explanations (class facts, label points, research notes, weather and pH guidance, mix-check findings and disclaimers).
+- Translated explanations are marked and keep the original one tap away: each translated line carries a "मूल EN / मूळ EN" chip that swaps to the verbatim English source and back. Verbatim label quotes, product names, study citations and Latin organism names stay unchanged.
+- Settings note updated; theme names stay proper nouns while theme descriptions translate. Language choice persists across launches and applies on startup.
+- No new AI, speech or photo services; no change to agricultural advice, evidence data files or privacy.
+
 ## 0.6.27 - Mix button tap fix
 - Fixed an invisible layer swallowing taps: the scan-note toast faded visually but stayed on screen with pointer events enabled, blocking buttons (including "Check the mix") that scrolled under it. The toast no longer intercepts touches and is removed after fading.
 - Reproduced at the reported phone geometry before the fix (tap hit the hidden toast); verified the tap opens the mix check after the fix. Full scan -> result -> mix check -> compatibility flow retested on all four product classes; 82 backend tests pass.

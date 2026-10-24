@@ -774,6 +774,7 @@
     listeners.forEach(f => { try { f(l); } catch (_) {} });
   }
   function apply(root) {
+    if (document.documentElement) document.documentElement.lang = lang;
     (root || document).querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
     (root || document).querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
     (root || document).querySelectorAll("[data-i18n-alt]").forEach(el => { el.alt = t(el.dataset.i18nAlt); });
