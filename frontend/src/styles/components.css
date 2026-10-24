@@ -477,5 +477,5 @@ html[data-theme="aurora"] .desk-action{color:#c6ff3d;border-color:#c6ff3d}
 .dv-mic svg{width:32px;height:32px}
 .dv-mic:active{transform:scale(.94)}
 
-.tr-toggle{font:600 10px/1 inherit;padding:3px 8px;margin-left:6px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(243,236,220,.65);cursor:pointer;vertical-align:2px}
+.tr-toggle{font:600 10px/1 inherit;padding:3px 8px;margin-left:6px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--cream-dim);cursor:pointer;vertical-align:2px}
 .tr-toggle:hover{border-color:var(--teal);color:var(--teal)}
