@@ -74,7 +74,12 @@ window.bioEvidenceI18n = {
   "A label statement. A jar test only shows the liquids physically mix; it does not show the Bt spores survive.": "यह लेबल का कथन है। जार-जाँच सिर्फ दिखाती है कि तरल भौतिक रूप से मिलते हैं; यह नहीं दिखाती कि Bt स्पोर्स बचे रहते हैं।",
   "The DiPel DF label says it may be tank mixed with other labeled insecticides, after checking compatibility": "DiPel DF का लेबल कहता है कि अनुकूलता जाँचने के बाद इसे अन्य लेबल-युक्त कीटनाशकों के साथ टंकी में मिलाया जा सकता है",
   "The label says DiPel DF \"may be tank mixed with other labeled insecticides to enhance control\", following the more restrictive label, and to \"check for tank mix compatibility\" before mixing. It cannot be mixed with any product whose label prohibits such mixing.": "लेबल कहता है कि DiPel DF \"may be tank mixed with other labeled insecticides to enhance control\", सबसे सख्त लेबल का पालन करते हुए, और मिलाने से पहले \"check for tank mix compatibility\"। जिस प्रोडक्ट का लेबल ऐसा मिश्रण मना करता है उसके साथ इसे नहीं मिलाया जा सकता।",
-  "A label statement. Physical compatibility does not prove the Bt spores survive the mix.": "यह लेबल का कथन है। भौतिक अनुकूलता यह साबित नहीं करती कि मिश्रण में Bt स्पोर्स बचे रहते हैं।"
+  "A label statement. Physical compatibility does not prove the Bt spores survive the mix.": "यह लेबल का कथन है। भौतिक अनुकूलता यह साबित नहीं करती कि मिश्रण में Bt स्पोर्स बचे रहते हैं।",
+  "Biological fungicide": "जैविक फफूंदनाशी",
+  "Biological insecticide": "जैविक कीटनाशक",
+  "Biological insecticide (Bt)": "जैविक कीटनाशक (Bt)",
+  "Biological seed treatment": "जैविक बीज-उपचार",
+  "Product matches come from the words on the scanned labels, not from a product database or a lab test. Compatibility findings are product-specific. bioOasis never recommends doses, mixing recipes or spray timings.": "प्रोडक्ट-मिलान स्कैन किए लेबल के शब्दों से आते हैं, किसी प्रोडक्ट डेटाबेस या लैब-जाँच से नहीं। अनुकूलता निष्कर्ष प्रोडक्ट-विशिष्ट हैं। bioOasis कभी खुराक, मिश्रण-विधि या छिड़काव-समय की सलाह नहीं देता।"
  },
  mr: {
   "A living bacterial insecticide": "एक जिवंत जीवाणू कीटकनाशक",
@@ -146,6 +151,11 @@ window.bioEvidenceI18n = {
   "A label statement. A jar test only shows the liquids physically mix; it does not show the Bt spores survive.": "हे लेबलचे विधान आहे. जार-चाचणी फक्त द्रव भौतिकदृष्ट्या मिसळतात हे दाखवते; Bt स्पोर्स वाचतात हे दाखवत नाही.",
   "The DiPel DF label says it may be tank mixed with other labeled insecticides, after checking compatibility": "DiPel DF चे लेबल सांगते की सुसंगतता तपासल्यानंतर ते इतर लेबल असलेल्या कीटकनाशकांसोबत टाकीत मिसळता येते",
   "The label says DiPel DF \"may be tank mixed with other labeled insecticides to enhance control\", following the more restrictive label, and to \"check for tank mix compatibility\" before mixing. It cannot be mixed with any product whose label prohibits such mixing.": "लेबल सांगते की DiPel DF \"may be tank mixed with other labeled insecticides to enhance control\", सर्वात कडक लेबल पाळून, आणि मिसळण्यापूर्वी \"check for tank mix compatibility\". ज्या प्रोडक्टचे लेबल असे मिश्रण मनाई करते त्याच्यासोबत ते मिसळता येत नाही.",
-  "A label statement. Physical compatibility does not prove the Bt spores survive the mix.": "हे लेबलचे विधान आहे. भौतिक सुसंगतता हे सिद्ध करत नाही की मिश्रणात Bt स्पोर्स वाचतात."
+  "A label statement. Physical compatibility does not prove the Bt spores survive the mix.": "हे लेबलचे विधान आहे. भौतिक सुसंगतता हे सिद्ध करत नाही की मिश्रणात Bt स्पोर्स वाचतात.",
+  "Biological fungicide": "जैविक बुरशीनाशक",
+  "Biological insecticide": "जैविक कीटकनाशक",
+  "Biological insecticide (Bt)": "जैविक कीटकनाशक (Bt)",
+  "Biological seed treatment": "जैविक बियाणे-उपचार",
+  "Product matches come from the words on the scanned labels, not from a product database or a lab test. Compatibility findings are product-specific. bioOasis never recommends doses, mixing recipes or spray timings.": "प्रोडक्ट-जुळणी स्कॅन केलेल्या लेबलांवरील शब्दांतून येते, प्रोडक्ट डेटाबेस किंवा लॅब-चाचणीतून नाही. सुसंगतता-निष्कर्ष प्रोडक्ट-विशिष्ट आहेत. bioOasis कधीही डोस, मिश्रण-पद्धत किंवा फवारणी-वेळ शिफारस करत नाही."
  }
 };

@@ -55,6 +55,7 @@ const state = { samples: [], credits: {}, current: null, cls: null, loc: null, m
 document.body.insertAdjacentHTML("afterbegin", DEFS);
 $("hero-dew").innerHTML = mascot("hello");
 for (const [id, k] of [["ico-cam", "camera"], ["ico-cam2", "camera"], ["ico-cam3", "camera"], ["ico-back1", "back"], ["ico-back2", "back"], ["ico-back3", "back"], ["ico-back4", "back"], ["ico-back5", "back"], ["ico-back6", "back"], ["ico-back-dew", "back"], ["ico-swap", "swap"]]) $(id).innerHTML = ICON[k];
+const renderHow = () => {
 $("how").innerHTML = `
   <button type="button" class="how-step run-beat run-label reveal" id="run-demo" aria-label="${T("rundemo.aria")}">
     <span class="run-tag">${T("how.runTag1")}</span>
@@ -77,6 +78,8 @@ $("how").innerHTML = `
     <p class="run-abstain">${T("how.abstain")}</p>
   </div>`;
 $("run-demo").addEventListener("click", () => { const s0 = state.samples.find(x => x.id === 0); if (s0) pickSample(s0); });
+};
+renderHow();
 
 (async () => {
   const mode = await api.init();
@@ -492,7 +495,7 @@ function fieldLine(label, value, extra = "") {
 
 function productTag(tag, side, data, name) {
   const p = data.product;
-  const kind = p ? `${esc(p.kind)} · ${esc(p.organism)}`
+  const kind = p ? `${trHtml(p.kind)} · ${esc(p.organism)}`
     : data.actives.length ? T("tag.mentions").replace("{x}", data.actives.map(a => esc(a.name)).join(", "))
     : data.categories.length ? T("tag.looks").replace("{x}", data.categories.map(esc).join("/"))
     : T("tag.unknown");
@@ -595,7 +598,7 @@ function renderMixResult(res, names) {
       <p class="fine">${T("slip.fine")}</p>
     </div>
 
-    <p class="conf-note">${esc(res.disclaimer)}</p>
+    <p class="conf-note">${trHtml(res.disclaimer)}</p>
     <div class="cta-row" style="margin-top:16px">
       <button class="btn ghost" id="mix-again">${T("mix.startover")}</button>
     </div>`;
@@ -660,6 +663,7 @@ document.addEventListener("click", (ev) => {
 });
 window.bioI18n.onChange(() => {
   try {
+    renderHow();
     renderSamples(); renderWhy(); renderCredits();
     chooseDesk(deskChoice);
     if (state.result) renderResult(state.result, false);
