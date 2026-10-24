@@ -259,7 +259,7 @@ async function openGuess() {
   $("guess-body").innerHTML = `
     <div class="sdew">${mascot("think")}</div>
     <h3 class="serif">How sure is Dew?</h3>
-    <p>Dew compared your label text with what it learned from <b>${m ? m.n_documents : 26} real public product labels</b>, and its best guess is <b>${esc(r.evidence.name)}</b> at <b>${Math.round(r.prediction.probability * 100)}%</b>. Below <b>${Math.round(r.prediction.threshold * 100)}%</b> Dew stops and tells you instead of guessing.</p>
+    <p>Dew compared your label text with what it learned from <b>${m ? m.n_documents : 47} real public product labels</b>, and its best guess is <b>${esc(r.evidence.name)}</b> at <b>${Math.round(r.prediction.probability * 100)}%</b>. Below <b>${Math.round(r.prediction.threshold * 100)}%</b> Dew stops and tells you instead of guessing.</p>
     ${m ? `<div class="stats"><div class="stat"><b>${(m.loo_accuracy * 100).toFixed(1)}%</b><span>right when each label is hidden once (leave-one-out)</span></div><div class="stat"><b>${(m.holdout_accuracy * 100).toFixed(1)}%</b><span>right on one unseen hold-out set of 7</span></div></div>` : ""}
     <p><b>Please read this as "early prototype", not "accurate".</b> It is a small model that learned four product types. It does not predict whether a spray survives, and it has not seen every brand in a shop. The sources on the result page carry the weight, not this number.</p>
     <details class="more"><summary>All four guesses, side by side</summary><div><ul style="margin-left:18px;color:var(--cream-dim);font-size:14.5px">${rank}</ul></div></details>
@@ -273,7 +273,7 @@ async function openAbout() {
     <h3 class="serif">About bioOasis</h3>
     <p>An early prototype from a college AI project (team ViabilAg). It helps check a <b>biological spray</b> (a product made of living organisms) before it goes in the tank.</p>
     <p>Label and research lines show their <b>published source</b>. Dew's chat answers are AI-generated and are marked as such in the chat. The app does not tell anyone what to spray, and it never shows a survival number, because we do not have lab data for that yet.</p>
-    <details class="more"><summary>What is real, what is not</summary><div><p><b>Real:</b> label reading (OCR), a small ML model trained on 26 real public labels, evidence from cited sources, water pH and weather checks.<br><b>Not built:</b> survival prediction, a product database, user accounts.</p></div></details>
+    <details class="more"><summary>What is real, what is not</summary><div><p><b>Real:</b> label reading (OCR), a small ML model trained on 47 real public labels, evidence from cited sources, water pH and weather checks.<br><b>Not built:</b> survival prediction, a product database, user accounts.</p></div></details>
     <details class="more"><summary>Where the data comes from</summary><div><p>Real labels from EPA, CDMS and manufacturers (DiPel, XenTari, Javelin, Thuricide, RootShield, Trianum-P, T34, PlantShield, Asperello, Howler, BlightBan A506, Cedomon, BotaniGard, Mycotrol, Naturalis). The full list with links is in <b>data/sources.csv</b> in the project.</p></div></details>
     <button class="btn ghost" style="margin-top:12px;width:100%" data-close>Close</button>`;
   $("sheet-about").showModal();

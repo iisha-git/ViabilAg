@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.6.22-8B5CF6?style=for-the-badge" alt="Version 0.6.22"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.7.0-8B5CF6?style=for-the-badge" alt="Version 0.7.0"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-3FC3AA?style=for-the-badge" alt="MIT license"></a>
   <a href="backend/requirements.txt"><img src="https://img.shields.io/badge/python-3.10%2B-3776AB?style=for-the-badge" alt="Python 3.10+"></a>
   <img src="https://img.shields.io/badge/status-early%20prototype-E6A94A?style=for-the-badge" alt="Status: early prototype">
@@ -21,7 +21,7 @@
 
 ## The problem, in one breath
 
-A **biological spray** is a crop treatment made of living organisms, such as Bt, Trichoderma, Pseudomonas or Beauveria. Those organisms can die in the tank: mixed with the wrong product, in harsh water, or under strong sun. When that happens, the spray can lose the biological effect it was bought for.
+A **biological spray** is a crop treatment made of living organisms, such as Bt, Trichoderma, Pseudomonas, Beauveria, Bacillus subtilis or NPV. Those organisms can die in the tank: mixed with the wrong product, in harsh water, or under strong sun. When that happens, the spray can lose the biological effect it was bought for.
 
 **bioOasis is a phone check a farmer runs *before* spraying.** Every answer cites its source. When the evidence is missing, the app says so instead of guessing.
 
@@ -96,7 +96,7 @@ Open <http://localhost:8080>. This is also how you host it on GitHub Pages (see 
 | Part | Status |
 |---|---|
 | Label reading (OCR) | Real. Runs in the browser (tesseract.js). Optional server OCR in the backend. |
-| Product-type model | Real but small: TF-IDF + logistic regression, trained on **26 real public label/product texts** (4 classes). Leave-one-out accuracy **88.5%**, one hold-out split **71.4%**. This says "learns the 4 types from label text", **not** "recognizes every product in a shop". |
+| Product-type model | Real but small: TF-IDF + logistic regression, trained on **47 real public label/product texts** (6 classes: Bt, Trichoderma, Pseudomonas, Beauveria, Bacillus subtilis, NPV). Leave-one-out **70.2%** overall, one hold-out split **66.7%** - per-class scores in [ml/REPORT.md](ml/REPORT.md). This says "learns the 6 types from label text", **not** "recognizes every product in a shop". |
 | Evidence cards | Real. Every claim is a statement from a cited source (EPA/CDMS labels, manufacturer pages, NPIC, UF/IFAS, peer-reviewed papers). Nothing is generated. |
 | Mix check | Real. Pair rules come from real cited labels. Each rule names the exact product, the exact warning and its source; no rule transfers between brands, strains or formulations. Unknown pairs get "cannot confirm", never a guess. |
 | Dew chat | Real. Open questions go to Google Gemini through the server (the key never leaves the server; photos are never sent). Offline or without a key, Dew uses built-in guided answers and says so. Configured model default: `gemini-3.6-flash` (overridable with `GEMINI_MODEL`). |
@@ -120,7 +120,7 @@ cd android
 ANDROID_HOME=/path/to/sdk gradle :app:assembleDebug
 ```
 
-Current build: **0.6.22** (native speech in and out, listening fixes). The APK is compiled and signature-checked; it has not yet been tested on a physical phone, so mic pickup and spoken replies may depend on the phone's installed voice data. Install notes and caveats: [android/README.md](android/README.md).
+Current build: **0.7.0** (native speech in and out, listening fixes). The APK is compiled and signature-checked; it has not yet been tested on a physical phone, so mic pickup and spoken replies may depend on the phone's installed voice data. Install notes and caveats: [android/README.md](android/README.md).
 
 ## Look and feel
 

@@ -1,193 +1,276 @@
 {
-  "classes": {
-    "bt": {
-      "name": "Bt spray",
-      "organism": "Bacillus thuringiensis",
-      "kind": "A living bacterial insecticide",
-      "targets": "Caterpillars (moth and butterfly larvae)",
-      "labelPoints": [
-        {
-          "text": "The active part is Bacillus thuringiensis spores and their protein toxins. The caterpillar has to eat treated leaves for it to work.",
-          "source": {
-            "name": "DiPel DF label, Valent BioSciences",
-            "url": "https://picol.cahnrs.wsu.edu/DownloadLabel/37049/OR/OR_2026_73049-39_Dipel%20DF%20Biological%20Insecticide%20Dry%20Flowable.pdf"
-          }
-        },
-        {
-          "text": "Labels say to treat when larvae are small and newly hatched, and to get good leaf coverage.",
-          "source": {
-            "name": "Javelin WG label, Certis Biologicals",
-            "url": "https://www.certisbio.com/hubfs/Label%20SDS/pdf-labels/Javelin_WG_label.pdf"
-          }
-        },
-        {
-          "text": "Bt strains differ by target: kurstaki products go after caterpillars, aizawai products (like XenTari) cover tougher caterpillar species.",
-          "source": {
-            "name": "XenTari WG label",
-            "url": "https://www.bartlett.ca/Bartlett/nmb/MSDSLabel.nsf/33679510e3c80d96852574a20055f364/984da49d7a12e715852583c20071296f/$FILE/Xentari%20Label%20English.pdf"
-          }
-        }
-      ],
-      "research": [
-        {
-          "text": "Bt is alive and it dies. In one soybean leaf study cited by the US National Pesticide Information Center, less than 9% of Bt spores could still grow after 24 hours on the leaf.",
-          "source": {
-            "name": "NPIC, Bacillus thuringiensis (Bt) General Fact Sheet",
-            "url": "https://npic.orst.edu/factsheets/btgen.html"
-          }
-        },
-        {
-          "text": "Sunlight itself kills Bt spores: Griego & Spence (1978) measured inactivation of Bt spores by ultraviolet and visible light.",
-          "source": {
-            "name": "Griego & Spence 1978, Applied and Environmental Microbiology 35(5)",
-            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC242951/"
-          }
-        },
-        {
-          "text": "Water quality matters for Bt: a 1980 study in the Journal of Economic Entomology looked at how pH affects Bt preparations.",
-          "source": {
-            "name": "Journal of Economic Entomology 73(2):186 (1980)",
-            "url": "https://doi.org/10.1093/jee/73.2.186"
-          }
-        }
-      ]
+ "classes": {
+  "bt": {
+   "name": "Bt spray",
+   "organism": "Bacillus thuringiensis",
+   "kind": "A living bacterial insecticide",
+   "targets": "Caterpillars (moth and butterfly larvae)",
+   "labelPoints": [
+    {
+     "text": "The active part is Bacillus thuringiensis spores and their protein toxins. The caterpillar has to eat treated leaves for it to work.",
+     "source": {
+      "name": "DiPel DF label, Valent BioSciences",
+      "url": "https://picol.cahnrs.wsu.edu/DownloadLabel/37049/OR/OR_2026_73049-39_Dipel%20DF%20Biological%20Insecticide%20Dry%20Flowable.pdf"
+     }
     },
-    "trichoderma": {
-      "name": "Trichoderma bio-fungicide",
-      "organism": "Trichoderma harzianum / asperellum",
-      "kind": "A living fungus that protects roots",
-      "targets": "Soil-borne root diseases (Pythium, Rhizoctonia, Fusarium, Sclerotinia)",
-      "labelPoints": [
-        {
-          "text": "Trianum-P is mixed with water and applied as a drench, through drip irrigation, or by spraying, so the fungus can colonize the roots.",
-          "source": {
-            "name": "Trianum-P product page, Koppert",
-            "url": "https://www.koppert.com/trianum-p/"
-          }
-        },
-        {
-          "text": "RootShield grows in soils and on roots, shielding them from root-damaging fungi. It is a preventive, not a rescue treatment.",
-          "source": {
-            "name": "RootShield WP product sheet, BioWorks",
-            "url": "https://bioworksinc.com/wp-content/uploads/products/rootshield-wp/rootshield-wp.pdf"
-          }
-        },
-        {
-          "text": "PlantShield HC's label lists Trichoderma harzianum strain T-22 as the active ingredient, the same strain family across several brands.",
-          "source": {
-            "name": "PlantShield HC label (CDMS)",
-            "url": "https://www.cdms.net/ldat/ld6T2000.pdf"
-          }
-        }
-      ],
-      "research": [
-        {
-          "text": "Because the product is a living fungus, what it meets in the tank matters: harsh water or incompatible partners can kill it before it reaches the soil. Labels carry storage and compatibility instructions for exactly this reason.",
-          "source": {
-            "name": "T34 Biocontrol label (EPA PPLS)",
-            "url": "https://www3.epa.gov/pesticides/chem_search/ppls/087301-00001-20250501.pdf"
-          }
-        }
-      ]
+    {
+     "text": "Labels say to treat when larvae are small and newly hatched, and to get good leaf coverage.",
+     "source": {
+      "name": "Javelin WG label, Certis Biologicals",
+      "url": "https://www.certisbio.com/hubfs/Label%20SDS/pdf-labels/Javelin_WG_label.pdf"
+     }
     },
-    "pseudomonas": {
-      "name": "Pseudomonas bio-product",
-      "organism": "Pseudomonas fluorescens / chlororaphis",
-      "kind": "A living bacterium",
-      "targets": "Fire blight on fruit trees; fungal diseases on leaves, roots and seed",
-      "labelPoints": [
-        {
-          "text": "BlightBan A506 uses the beneficial bacterium Pseudomonas fluorescens A506 to suppress fire blight on pome fruit and frost damage on several crops.",
-          "source": {
-            "name": "BlightBan A506, Nufarm",
-            "url": "https://nufarm.com/uscrop/product/blightbana506/"
-          }
-        },
-        {
-          "text": "Howler fungicide's active ingredient is Pseudomonas chlororaphis strain AFS009, used against a wide range of fungal diseases.",
-          "source": {
-            "name": "Howler label (EPA PPLS)",
-            "url": "https://www3.epa.gov/pesticides/chem_search/ppls/091197-00003-20220224.pdf"
-          }
-        },
-        {
-          "text": "Cedomon is a Pseudomonas chlororaphis seed treatment for cereals: the bacteria live on the seed and protect the young plant.",
-          "source": {
-            "name": "Cedomon product page, Koppert",
-            "url": "https://www.koppert.com/cedomon/"
-          }
-        }
-      ],
-      "research": [
-        {
-          "text": "Like every living spray, these bacteria have to stay alive to work. Storage, water quality and tank partners decide how many are left when the spray lands.",
-          "source": {
-            "name": "Howler EVO Fungicide label, Certis Biologicals",
-            "url": "https://www.certisbio.com/hubfs/Labels/pdf-labels/Howler%20EVO/Howler_EVO_Label_050924_AB.pdf"
-          }
-        }
-      ]
-    },
-    "beauveria": {
-      "name": "Beauveria bio-insecticide",
-      "organism": "Beauveria bassiana",
-      "kind": "A living insect-killing fungus",
-      "targets": "Whiteflies, aphids, thrips, mealybugs, borers and other soft-bodied pests",
-      "labelPoints": [
-        {
-          "text": "The BotaniGard ES label says it plainly: 'Spores are alive and subject to harm by storage at high temperatures or contact with water for more than 24 hours.'",
-          "source": {
-            "name": "BotaniGard ES label, Certis Biologicals",
-            "url": "https://www.certisbio.com/hubfs/Botanigard_ES_SpLbl_20240409_82074-1_per_20240403_ESL.pdf"
-          }
-        },
-        {
-          "text": "Same label: 'Do not mix more product than needed for that day. Do not mix product the day before application.' The clock starts when the spores hit water.",
-          "source": {
-            "name": "BotaniGard ES label, Certis Biologicals",
-            "url": "https://www.certisbio.com/hubfs/Botanigard_ES_SpLbl_20240409_82074-1_per_20240403_ESL.pdf"
-          }
-        },
-        {
-          "text": "Beauveria works by contact: spores attach to the pest, germinate and grow through its shell. The label says control typically takes 7-10 days, so early application matters.",
-          "source": {
-            "name": "Mycotrol ESO label, OHP",
-            "url": "https://www.ohp.com/Labels_MSDS/PDF/mycotrol_eso_label.pdf"
-          }
-        }
-      ],
-      "research": [
-        {
-          "text": "The same living-spore logic applies to every Beauveria brand on the shelf, whatever the formulation.",
-          "source": {
-            "name": "Naturalis L label (EPA PPLS)",
-            "url": "https://www3.epa.gov/pesticides/chem_search/ppls/064137-00016-20200428.pdf"
-          }
-        }
-      ]
+    {
+     "text": "Bt strains differ by target: kurstaki products go after caterpillars, aizawai products (like XenTari) cover tougher caterpillar species.",
+     "source": {
+      "name": "XenTari WG label",
+      "url": "https://www.bartlett.ca/Bartlett/nmb/MSDSLabel.nsf/33679510e3c80d96852574a20055f364/984da49d7a12e715852583c20071296f/$FILE/Xentari%20Label%20English.pdf"
+     }
     }
+   ],
+   "research": [
+    {
+     "text": "Bt is alive and it dies. In one soybean leaf study cited by the US National Pesticide Information Center, less than 9% of Bt spores could still grow after 24 hours on the leaf.",
+     "source": {
+      "name": "NPIC, Bacillus thuringiensis (Bt) General Fact Sheet",
+      "url": "https://npic.orst.edu/factsheets/btgen.html"
+     }
+    },
+    {
+     "text": "Sunlight itself kills Bt spores: Griego & Spence (1978) measured inactivation of Bt spores by ultraviolet and visible light.",
+     "source": {
+      "name": "Griego & Spence 1978, Applied and Environmental Microbiology 35(5)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC242951/"
+     }
+    },
+    {
+     "text": "Water quality matters for Bt: a 1980 study in the Journal of Economic Entomology looked at how pH affects Bt preparations.",
+     "source": {
+      "name": "Journal of Economic Entomology 73(2):186 (1980)",
+      "url": "https://doi.org/10.1093/jee/73.2.186"
+     }
+    }
+   ]
   },
-  "common": {
-    "context": {
-      "text": "Pests destroy 15-25% of India's crops every year, around Rs 1.4 lakh crore, which is why farmers spray at all.",
-      "source": {
-        "name": "CEEW, Sustainable Agriculture in India (2021)",
-        "url": "https://www.ceew.in/publications/sustainable-agriculture-india/integrated-pest-management"
-      }
+  "trichoderma": {
+   "name": "Trichoderma bio-fungicide",
+   "organism": "Trichoderma harzianum / asperellum",
+   "kind": "A living fungus that protects roots",
+   "targets": "Soil-borne root diseases (Pythium, Rhizoctonia, Fusarium, Sclerotinia)",
+   "labelPoints": [
+    {
+     "text": "Trianum-P is mixed with water and applied as a drench, through drip irrigation, or by spraying, so the fungus can colonize the roots.",
+     "source": {
+      "name": "Trianum-P product page, Koppert",
+      "url": "https://www.koppert.com/trianum-p/"
+     }
     },
-    "water": {
-      "text": "Water pH changes how sprays perform. UF/IFAS recommends mixing most pesticides at pH 4 to 7 (5.5 to 6.5 is ideal); alkaline water above pH 7 can break down sensitive products in the tank.",
-      "source": {
-        "name": "UF/IFAS Extension, Water pH and the Effectiveness of Pesticides (PI193)",
-        "url": "https://ask.ifas.ufl.edu/publication/PI193"
-      }
+    {
+     "text": "RootShield grows in soils and on roots, shielding them from root-damaging fungi. It is a preventive, not a rescue treatment.",
+     "source": {
+      "name": "RootShield WP product sheet, BioWorks",
+      "url": "https://bioworksinc.com/wp-content/uploads/products/rootshield-wp/rootshield-wp.pdf"
+     }
     },
-    "jarTest": {
-      "text": "Yara's TankmixIT checks whether products blend physically in a tank - its own terms say the information 'refers only to PHYSICAL TANK MIXABILITY and does not represent a guarantee of chemical and/or biological compatibility.' Whether the living organisms in a biological spray are still alive after mixing is the question bioOasis focuses on.",
-      "source": {
-        "name": "Yara TankmixIT, Terms of Use and Disclaimer",
-        "url": "https://tankmix.yv-yara.com/en/"
-      }
+    {
+     "text": "PlantShield HC's label lists Trichoderma harzianum strain T-22 as the active ingredient, the same strain family across several brands.",
+     "source": {
+      "name": "PlantShield HC label (CDMS)",
+      "url": "https://www.cdms.net/ldat/ld6T2000.pdf"
+     }
     }
+   ],
+   "research": [
+    {
+     "text": "Because the product is a living fungus, what it meets in the tank matters: harsh water or incompatible partners can kill it before it reaches the soil. Labels carry storage and compatibility instructions for exactly this reason.",
+     "source": {
+      "name": "T34 Biocontrol label (EPA PPLS)",
+      "url": "https://www3.epa.gov/pesticides/chem_search/ppls/087301-00001-20250501.pdf"
+     }
+    }
+   ]
+  },
+  "pseudomonas": {
+   "name": "Pseudomonas bio-product",
+   "organism": "Pseudomonas fluorescens / chlororaphis",
+   "kind": "A living bacterium",
+   "targets": "Fire blight on fruit trees; fungal diseases on leaves, roots and seed",
+   "labelPoints": [
+    {
+     "text": "BlightBan A506 uses the beneficial bacterium Pseudomonas fluorescens A506 to suppress fire blight on pome fruit and frost damage on several crops.",
+     "source": {
+      "name": "BlightBan A506, Nufarm",
+      "url": "https://nufarm.com/uscrop/product/blightbana506/"
+     }
+    },
+    {
+     "text": "Howler fungicide's active ingredient is Pseudomonas chlororaphis strain AFS009, used against a wide range of fungal diseases.",
+     "source": {
+      "name": "Howler label (EPA PPLS)",
+      "url": "https://www3.epa.gov/pesticides/chem_search/ppls/091197-00003-20220224.pdf"
+     }
+    },
+    {
+     "text": "Cedomon is a Pseudomonas chlororaphis seed treatment for cereals: the bacteria live on the seed and protect the young plant.",
+     "source": {
+      "name": "Cedomon product page, Koppert",
+      "url": "https://www.koppert.com/cedomon/"
+     }
+    }
+   ],
+   "research": [
+    {
+     "text": "Like every living spray, these bacteria have to stay alive to work. Storage, water quality and tank partners decide how many are left when the spray lands.",
+     "source": {
+      "name": "Howler EVO Fungicide label, Certis Biologicals",
+      "url": "https://www.certisbio.com/hubfs/Labels/pdf-labels/Howler%20EVO/Howler_EVO_Label_050924_AB.pdf"
+     }
+    }
+   ]
+  },
+  "beauveria": {
+   "name": "Beauveria bio-insecticide",
+   "organism": "Beauveria bassiana",
+   "kind": "A living insect-killing fungus",
+   "targets": "Whiteflies, aphids, thrips, mealybugs, borers and other soft-bodied pests",
+   "labelPoints": [
+    {
+     "text": "The BotaniGard ES label says it plainly: 'Spores are alive and subject to harm by storage at high temperatures or contact with water for more than 24 hours.'",
+     "source": {
+      "name": "BotaniGard ES label, Certis Biologicals",
+      "url": "https://www.certisbio.com/hubfs/Botanigard_ES_SpLbl_20240409_82074-1_per_20240403_ESL.pdf"
+     }
+    },
+    {
+     "text": "Same label: 'Do not mix more product than needed for that day. Do not mix product the day before application.' The clock starts when the spores hit water.",
+     "source": {
+      "name": "BotaniGard ES label, Certis Biologicals",
+      "url": "https://www.certisbio.com/hubfs/Botanigard_ES_SpLbl_20240409_82074-1_per_20240403_ESL.pdf"
+     }
+    },
+    {
+     "text": "Beauveria works by contact: spores attach to the pest, germinate and grow through its shell. The label says control typically takes 7-10 days, so early application matters.",
+     "source": {
+      "name": "Mycotrol ESO label, OHP",
+      "url": "https://www.ohp.com/Labels_MSDS/PDF/mycotrol_eso_label.pdf"
+     }
+    }
+   ],
+   "research": [
+    {
+     "text": "The same living-spore logic applies to every Beauveria brand on the shelf, whatever the formulation.",
+     "source": {
+      "name": "Naturalis L label (EPA PPLS)",
+      "url": "https://www3.epa.gov/pesticides/chem_search/ppls/064137-00016-20200428.pdf"
+     }
+    }
+   ]
+  },
+  "npv": {
+   "name": "NPV virus spray",
+   "organism": "Nucleopolyhedrosis virus (NPV)",
+   "kind": "A living insect virus",
+   "targets": "Specific caterpillar species (Helicoverpa, Spodoptera, armyworms)",
+   "labelPoints": [
+    {
+     "text": "The virus only works when a caterpillar eats it, so the label demands thorough spray coverage, and several days may pass between spraying and visible control.",
+     "source": {
+      "name": "Gemstar LC label, Certis (EPA Reg. 70051-45)",
+      "url": "https://www3.epa.gov/pesticides/chem_search/ppls/070051-00045-20240111.pdf"
+     }
+    },
+    {
+     "text": "Each NPV product matches specific caterpillars: Gemstar LC covers Helicoverpa armigera and tobacco budworm; Spod-X covers beet armyworm.",
+     "source": {
+      "name": "Spod-X LC label, Certis",
+      "url": "https://cdn2.hubspot.net/hubfs/4809084/Label%20SDS/Spod-X-label.pdf"
+     }
+    },
+    {
+     "text": "Labels stress treating young larvae: Spod-X directs use at first and second instar, because larvae must ingest the virus occlusion bodies.",
+     "source": {
+      "name": "Spod-X LC label, Certis",
+      "url": "https://cdn2.hubspot.net/hubfs/4809084/Label%20SDS/Spod-X-label.pdf"
+     }
+    }
+   ],
+   "research": [
+    {
+     "text": "Indian farmers buy NPV from local producers: Biovirus-H (Helicoverpa) and Biovirus-S (Spodoptera) from Biotech International specify a minimum polyhedral inclusion body (PIB) count per ml.",
+     "source": {
+      "name": "Biovirus-H / Biovirus-S product pages, Biotech International",
+      "url": "http://www.biotech-int.com/BIOVIRUSHpopup.html"
+     }
+    },
+    {
+     "text": "More registered Indian NPV products exist, such as Helimar (Multiplex, Helicoverpa NPV) and Somstar HA (Agri Life).",
+     "source": {
+      "name": "Helimar product page, Multiplex Group",
+      "url": "https://www.multiplexgroup.com/bio-products/helimar"
+     }
+    }
+   ]
+  },
+  "bacillus_subtilis": {
+   "name": "Bacillus subtilis spray",
+   "organism": "Bacillus subtilis",
+   "kind": "A living bacterial fungicide",
+   "targets": "Fungal and bacterial plant diseases, on leaves and in soil",
+   "labelPoints": [
+    {
+     "text": "Serenade ASO is built on Bacillus subtilis strain QST 713 and the EPA label covers foliar and soil uses across many crops.",
+     "source": {
+      "name": "Serenade ASO label, Bayer (EPA Reg. 264-1152)",
+      "url": "https://www3.epa.gov/pesticides/chem_search/ppls/000264-01152-20250212.pdf"
+     }
+    },
+    {
+     "text": "Used at planting or through chemigation, the bacteria build a disease-protection zone around the seed or transplant; it is a preventive tool, not a rescue cure.",
+     "source": {
+      "name": "Serenade ASO product page, Bayer CropScience US",
+      "url": "https://www.cropscience.bayer.us/crop-protection/fungicide/serenade-aso-fungicide"
+     }
+    },
+    {
+     "text": "Different strains are different products: QST 713 (Serenade), GB03 (Companion), MBI 600 (Integral). Labels are strain-specific, so evidence for one strain does not automatically cover another.",
+     "source": {
+      "name": "Companion label (EPA Reg. 71065-4) and Integral label (EPA Reg. 71840-5)",
+      "url": "https://www3.epa.gov/pesticides/chem_search/ppls/071840-00005-20181206.pdf"
+     }
+    }
+   ],
+   "research": [
+    {
+     "text": "The same organism is sold in India, for example Katyayani BAXIL (Bacillus subtilis 2% AS) and IPL Mildown (Bacillus subtilis 2% AS).",
+     "source": {
+      "name": "Katyayani BAXIL product page, Katyayani Organics",
+      "url": "https://www.katyayaniorganics.com/product/katyayani-bacillus-subtilis-bio-fungicide"
+     }
+    }
+   ]
   }
+ },
+ "common": {
+  "context": {
+   "text": "Pests destroy 15-25% of India's crops every year, around Rs 1.4 lakh crore, which is why farmers spray at all.",
+   "source": {
+    "name": "CEEW, Sustainable Agriculture in India (2021)",
+    "url": "https://www.ceew.in/publications/sustainable-agriculture-india/integrated-pest-management"
+   }
+  },
+  "water": {
+   "text": "Water pH changes how sprays perform. UF/IFAS recommends mixing most pesticides at pH 4 to 7 (5.5 to 6.5 is ideal); alkaline water above pH 7 can break down sensitive products in the tank.",
+   "source": {
+    "name": "UF/IFAS Extension, Water pH and the Effectiveness of Pesticides (PI193)",
+    "url": "https://ask.ifas.ufl.edu/publication/PI193"
+   }
+  },
+  "jarTest": {
+   "text": "Yara's TankmixIT checks whether products blend physically in a tank - its own terms say the information 'refers only to PHYSICAL TANK MIXABILITY and does not represent a guarantee of chemical and/or biological compatibility.' Whether the living organisms in a biological spray are still alive after mixing is the question bioOasis focuses on.",
+   "source": {
+    "name": "Yara TankmixIT, Terms of Use and Disclaimer",
+    "url": "https://tankmix.yv-yara.com/en/"
+   }
+  }
+ }
 }
