@@ -23,7 +23,7 @@ LANG_NAME = {"en": "English", "hi": "Hindi written in Devanagari script",
 # including romanized Hindi/Marathi from an English-mode recognizer - must be
 # answered in THAT language. Mirrors the heuristic in frontend/src/js/dew.js.
 _DEVANAGARI = re.compile(r"[ऀ-ॿ]")
-_MR_DEVANAGARI = {"आहे", "आहेत", "नाही", "मी", "तू", "तुम्ही", "काय", "कसं", "कसा", "मला", "तुमचा", "तुमची", "तुमचे", "माझा", "माझी", "माझे", "माझ्या", "तुमच्या", "पाणी", "होय", "पाहिजे", "करतो", "करायचं"}
+_MR_DEVANAGARI = {"आहे", "आहेत", "नाही", "मी", "तू", "तुम्ही", "काय", "कसं", "कसा", "मला", "तुमचा", "तुमची", "तुमचे", "माझा", "माझी", "माझे", "माझ्या", "तुमच्या", "पाणी", "होय", "पाहिजे", "करतो", "करायचं", "कसे", "केव्हा", "कशी", "फवारायचे", "आणि", "वेळ"}
 _ROMAN_HI = {"kya", "kyu", "kyun", "hai", "hain", "nahi", "nahin", "mujhe", "mera", "meri", "mere",
              "kaise", "kaisa", "kitna", "kitni", "paani", "dhup", "dhoop", "accha", "acha", "theek",
              "thik", "batao", "bata", "chahiye", "karna", "karo", "bolo", "suno", "aapka", "aapki",

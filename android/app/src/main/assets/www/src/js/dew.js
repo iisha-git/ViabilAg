@@ -12,12 +12,13 @@ import * as api from "./api.js";
 import * as snd from "./sounds.js";
 import { parseWire, classify } from "./speechwire.js";
 import { readLabel } from "./ocr.js";
-import { guideIntent } from "./dewroute.js";
+import { guideIntent, pestIntent, btIntent, sprayHowIntent, nonBtProductIntent } from "./dewroute.js";
 
 let ctx = { getContext: () => ({}), openScan: () => {}, openMix: () => {}, openResult: () => {}, showDew: () => {}, exitDew: () => {}, onCorrection: () => {} };
 let lang = localStorage.getItem("biooasis-dew-lang") || "en";
 let busy = false;
 let lastQuestion = null; // last open question sent to Dew AI, for the Retry chip
+let lastTopic = null; // grounded topic of the conversation (e.g. "bt") for follow-ups
 let voiceTurn = false; // voice in -> voice out, even if sound effects are off
 const history = []; // { who: "dew"|"user"|"note", msg, chips }
 
@@ -49,6 +50,7 @@ const L = {
     tagLocal: "built-in guide",
     aiOff: "Dew AI is not connected yet, so open questions are answered from my built-in guide for now.",
     aiDownMsg: "Dew AI couldn't answer right now. Please try again in a little while.",
+    whichProduct: "Which product are you asking about? Tell me the name on its label, and I will check what the label and research say - I will not guess a procedure for the wrong product.",
     quotaMsg: "Dew AI's free quota is used up for now. Please try again later.",
     retry: "Retry",
   },
@@ -79,6 +81,7 @@ const L = {
     tagLocal: "बिल्ट-इन गाइड",
     aiOff: "ड्यू AI अभी जुड़ा नहीं है, इसलिए खुले सवालों के जवाब अभी मेरी बिल्ट-इन गाइड से दिए जाते हैं।",
     aiDownMsg: "ड्यू AI अभी जवाब नहीं दे पाया। कृपया थोड़ी देर बाद फिर कोशिश करें।",
+    whichProduct: "आप किस प्रोडक्ट के बारे में पूछ रहे हैं? लेबल पर लिखा नाम बताइए, मैं उसका लेबल और रिसर्च जाँच कर बताऊँगा - गलत प्रोडक्ट की विधि अंदाज़े से नहीं बताऊँगा।",
     quotaMsg: "ड्यू AI का फ्री कोटा अभी खत्म हो गया है। कृपया बाद में कोशिश करें।",
     retry: "फिर से कोशिश करें",
   },
@@ -109,6 +112,7 @@ const L = {
     tagLocal: "अंगभूत मार्गदर्शक",
     aiOff: "ड्यू AI अजून जोडलेले नाही, त्यामुळे खुल्या प्रश्नांची उत्तरे सध्या माझ्या अंगभूत मार्गदर्शकातून दिली जातात.",
     aiDownMsg: "ड्यू AI आत्ता उत्तर देऊ शकले नाही. कृपया थोड्या वेळाने पुन्हा प्रयत्न करा.",
+    whichProduct: "तुम्ही कोणत्या प्रोडक्टबद्दल विचारत आहात? लेबलवरील नाव सांगा, मी त्याचे लेबल आणि संशोधन तपासून सांगतो - चुकीच्या प्रोडक्टची पद्धत अंदाजे सांगणार नाही.",
     quotaMsg: "ड्यू AI चे मोफत कोटा आत्ता संपले आहे. कृपया नंतर प्रयत्न करा.",
     retry: "पुन्हा प्रयत्न करा",
   },
@@ -119,6 +123,28 @@ const SUN_FACT = {
   beauveria: { en: "Beauveria spores are fragile in sun and heat - that is why its labels warn about storage in high temperatures.", hi: "बोवेरिया स्पोर्स धूप और गर्मी में नाज़ुक होते हैं - इसीलिए इसके लेबल गर्मी में स्टोरेज की चेतावनी देते हैं।", mr: "बोव्हेरिया स्पोअर्स ऊन आणि उष्णतेत नाजूक असतात - म्हणूनच त्याच्या लेबलवर उष्णतेत साठवणूकीबद्दल इशारा असतो." },
   other: { en: "Sun and UV are hard on most living sprays. Check the research tab on your product's result page for its exact sources.", hi: "धूप और UV ज़्यादातर जीवित स्प्रे के लिए कठिन हैं। अपने प्रोडक्ट के नतीजे वाले पेज पर रिसर्च टैब देखें।", mr: "ऊन आणि UV बहुतेक जिवंत स्प्रेसाठी कठीण असतात. तुमच्या प्रोडक्टच्या निकाल पानावर संशोधन टॅब पाहा." },
 };
+
+// Grounded caterpillar/Bt conversation, every line sourced from the app's own
+// evidence cards: DiPel DF label (spores + protein toxins, caterpillar must eat
+// treated leaves), Javelin WG label (treat small/newly hatched larvae, good
+// coverage), XenTari label (strain differences), NPIC-cited study (<9% spores
+// survive 24h on a leaf), UF/IFAS water pH guidance. Dew never invents a dose.
+const PEST_FACT = {
+  en: "A suitable Bt spray may help with these caterpillars. Bt (Bacillus thuringiensis) products are living sprays, and different Bt strains target different insect groups - per the US NPIC fact sheet, caterpillar products are the ones meant for this pest. The DiPel DF label says the caterpillar must eat treated leaves for it to work. Which crop and which product do you have? Tell me, and I will check what its label and the research say for your case.",
+  hi: "इन कैटरपिलर के लिए उपयुक्त Bt स्प्रे मदद कर सकता है। Bt (Bacillus thuringiensis) प्रोडक्ट जीवित स्प्रे होते हैं, और अलग-अलग Bt स्ट्रेन अलग-अलग कीट समूहों पर काम करते हैं - अमेरिकी NPIC फैक्ट शीट के मुताबिक इस कीट के लिए कैटरपिलर वाले प्रोडक्ट होते हैं। DiPel DF लेबल कहता है कि असर तभी होता है जब कैटरपिलर छिड़काव वाली पत्ती खाए। आपके पास कौन सी फसल और कौन सा प्रोडक्ट है? बताइए, मैं आपके मामले के लिए उसका लेबल और रिसर्च जाँच कर बताता हूँ।",
+  mr: "या अळ्यांसाठी योग्य Bt स्प्रे मदत करू शकतो. Bt (Bacillus thuringiensis) प्रोडक्ट हे जिवंत स्प्रे असतात आणि वेगवेगळे Bt स्ट्रेन वेगवेगळ्या किटक समूहांवर काम करतात - अमेरिकन NPIC फॅक्ट शीटनुसार या किडीसाठी अळ्यांवरील प्रोडक्ट असतात. DiPel DF लेबल सांगते की अळीने फवारलेली पाने खाल्लीच तर परिणाम होतो. तुमच्याकडे कोणते पीक आणि कोणता प्रोडक्ट आहे? सांगा, मी तुमच्या बाबतीसाठी त्याचे लेबल आणि संशोधन तपासून सांगतो.",
+};
+const SPRAY_GUIDE = {
+  en: "These are general points from Bt labels and cited research, not directions for your farm yet: 1) Labels (DiPel DF, Javelin WG): spray while the caterpillars are small and newly hatched, and cover the leaves well - the caterpillar must eat treated leaves. 2) Research cited by the US NPIC found sunlight quickly weakens Bt on leaves, so the right spray time is what your product's label says for your crop and weather - there is no single perfect time. 3) A Journal of Economic Entomology study found water pH changes how well Bt works, so follow your label's water directions. The exact dose is on your product's label; I will not invent one. Tell me your crop and product, and I will check what applies to your case.",
+  hi: "Bt लेबल और उद्धृत रिसर्च के ये सामान्य बिंदु हैं, अभी आपके खेत के निर्देश नहीं: 1) लेबल (DiPel DF, Javelin WG): जब कैटरपिलर छोटे और नए निकले हों तब छिड़कें, और पत्तियों को अच्छी तरह ढकें - कैटरपिलर को छिड़काव वाली पत्ती खानी ही पड़ती है। 2) अमेरिकी NPIC के हवाले वाली रिसर्च में पाया गया कि धूप पत्तियों पर Bt को जल्दी कमज़ोर कर देती है, इसलिए सही छिड़काव समय वही है जो आपके प्रोडक्ट का लेबल आपकी फसल और मौसम के लिए कहे - कोई एक परफेक्ट समय नहीं है। 3) Journal of Economic Entomology के अध्ययन में पाया गया कि पानी का pH, Bt की असरदारता बदल देता है, इसलिए पानी के लिए अपने लेबल के निर्देश मानें। सही मात्रा आपके प्रोडक्ट के लेबल पर है; मैं अपने से नहीं बनाऊँगा। अपनी फसल और प्रोडक्ट बताइए, मैं जाँच कर बताऊँगा कि आपके मामले में क्या लागू होता है।",
+  mr: "Bt लेबल आणि उद्धृत संशोधनातील हे सामान्य मुद्दे आहेत, अजून तुमच्या शेतासाठी सूचना नाहीत: 1) लेबले (DiPel DF, Javelin WG): अळ्या छोट्या आणि नुकत्याच निघालेल्या असताना फवारा आणि पाने व्यवस्थित झाका - अळीने फवारलेली पाने खाणेच गरजेचे. 2) अमेरिकन NPIC ने उद्धृत केलेल्या संशोधनात आढळले की सूर्यप्रकाश पानांवरील Bt लवकर कमकुवत करतो, म्हणून योग्य फवारणी वेळ म्हणजे तुमच्या प्रोडक्टचे लेबल तुमच्या पिकासाठी आणि हवामानासाठी सांगते ती - एकच परफेक्ट वेळ नसते. 3) Journal of Economic Entomology मधील अभ्यासात आढळले की पाण्याचा pH, Bt ची कार्यक्षमता बदलतो, म्हणून पाण्याबाबत तुमच्या लेबलवरील सूचना पाळा. योग्य मात्रा तुमच्या प्रोडक्टच्या लेबलवर आहे; मी स्वतःहून बनवणार नाही. तुमचे पीक आणि प्रोडक्ट सांगा, मी तुमच्या बाबतीत काय लागू होते ते तपासून सांगतो.",
+};
+const BT_FACT = {
+  en: "Bt is Bacillus thuringiensis, a living bacterium. Its products carry spores and insecticidal proteins; when a susceptible caterpillar eats them, the proteins act in its gut, it stops feeding and dies within a few days - per the US NPIC fact sheet. Strains differ by target insect group - kurstaki products such as DiPel target caterpillars, per the DiPel DF label. Sunlight quickly weakens Bt on leaves, which is why spray timing matters.",
+  hi: "Bt यानी Bacillus thuringiensis, एक जीवित बैक्टीरिया। इसके प्रोडक्ट में स्पोर्स और कीटनाशी प्रोटीन होते हैं; जब संवेदनशील कैटरपिलर इन्हें खाता है तो प्रोटीन उसकी आंत में काम करते हैं, वह खाना बंद कर देता है और कुछ दिनों में मर जाता है - अमेरिकी NPIC फैक्ट शीट के मुताबिक। स्ट्रेन के हिसाब से लक्ष्य कीट समूह अलग होता है - DiPel जैसे kurstaki प्रोडक्ट कैटरपिलर पर काम करते हैं, DiPel DF लेबल के मुताबिक। धूप पत्तियों पर Bt को जल्दी कमज़ोर कर देती है, इसीलिए छिड़काव का समय ज़रूरी है।",
+  mr: "Bt म्हणजे Bacillus thuringiensis, एक जिवंत जीवाणू. त्याच्या प्रोडक्टमध्ये स्पोअर्स आणि किटकनाशी प्रोटीन असतात; संवेदनशील अळी ते खाल्ली की प्रोटीन तिच्या पोटात काम करतात, ती खाणे थांबवते आणि काही दिवसांत मरते - अमेरिकन NPIC फॅक्ट शीटनुसार. स्ट्रेननुसार लक्ष्य किटक समूह वेगळा असतो - DiPel सारखे kurstaki प्रोडक्ट अळ्यांवर काम करतात, DiPel DF लेबलनुसार. सूर्यप्रकाश पानांवरील Bt लवकर कमकुवत करतो, म्हणूनच फवारणीची वेळ महत्त्वाची असते.",
+};
+const PEST_CHIP = { en: "How and when to spray", hi: "कैसे और कब छिड़कें", mr: "कसे आणि केव्हा फवारायचे" };
 
 const WATER_FACT = {
   en: "Water between pH 6 and 7 is kindest to most living sprays. Very alkaline water (above 8) is a known problem. A cheap pH strip tells you in a minute.",
@@ -168,7 +194,7 @@ function setLang(l, auto = false) {
 function detectLang(t) {
   if (/[ऀ-ॿ]/u.test(t)) {
     const words = t.match(/[\p{L}\p{M}]+/gu) || [];
-    const marathi = new Set(["आहे", "आहेत", "नाही", "मी", "तू", "तुम्ही", "काय", "कसं", "कसा", "मला", "तुमचा", "तुमची", "तुमचे", "माझा", "माझी", "माझे", "माझ्या", "तुमच्या", "पाणी", "होय", "पाहिजे", "करतो", "करायचं"]);
+    const marathi = new Set(["आहे", "आहेत", "नाही", "मी", "तू", "तुम्ही", "काय", "कसं", "कसा", "मला", "तुमचा", "तुमची", "तुमचे", "माझा", "माझी", "माझे", "माझ्या", "तुमच्या", "पाणी", "होय", "पाहिजे", "करतो", "करायचं", "कसे", "केव्हा", "कशी", "फवारायचे", "आणि", "वेळ"]);
     return words.some(w => marathi.has(w)) ? "mr" : "hi";
   }
   const words = (t.toLowerCase().match(/[a-z']+/g) || []);
@@ -373,6 +399,16 @@ function reply(text) {
     default: {
       // context-aware follow-ups: expiry mention after a mix check
       if (/expir|एक्स्पायरी|एक्सपायरी|मुदत/i.test(t) && c.mixExpiry) return say(l => L[l].expiryOn(c.mixExpiry));
+      // Grounded caterpillar/Bt conversation, answered from the app's own
+      // cited evidence - works even when Dew AI is unreachable.
+      if (pestIntent(t)) { lastTopic = "bt"; return say(l => PEST_FACT[l], l => [PEST_CHIP[l]]); }
+      if (btIntent(t)) { lastTopic = "bt"; return say(l => BT_FACT[l]); }
+      if (sprayHowIntent(t, lastTopic === "bt")) {
+        // A procedure question naming a non-Bt product class (weedicide,
+        // fungicide...) must not get the Bt guide - it is an open question.
+        if (nonBtProductIntent(t)) { lastTopic = null; return aiReply(t); }
+        return lastTopic === "bt" ? say(l => SPRAY_GUIDE[l]) : say(l => L[l].whichProduct);
+      }
       return aiReply(t);
     }
   }

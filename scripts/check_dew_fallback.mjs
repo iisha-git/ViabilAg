@@ -6,7 +6,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
-import { guideIntent } from '../frontend/src/js/dewroute.js';
+import { guideIntent, pestIntent, btIntent, sprayHowIntent, nonBtProductIntent } from '../frontend/src/js/dewroute.js';
 
 let src = readFileSync(new URL('../frontend/src/js/dew.js', import.meta.url), 'utf8')
   .replace(/^import .*;$/mg, '').replace(/^export /mg, '')
@@ -34,7 +34,7 @@ const api = {
   },
 };
 const sandbox = {
-  guideIntent, api, recorded,
+  guideIntent, pestIntent, btIntent, sprayHowIntent, nonBtProductIntent, api, recorded,
   snd: { isEnabled: () => false, tap: () => {}, step: () => {} },
   mascot: () => '', ICON: {}, parseWire: () => ({}), classify: () => '', readLabel: async () => '',
   localStorage: { getItem: () => 'en', setItem: () => {} },

@@ -23,3 +23,55 @@ const GUIDE_REQUESTS = new Map(Object.entries(PHRASES)
 export function guideIntent(text) {
   return GUIDE_REQUESTS.get(normalizeGuideRequest(text)) || null;
 }
+
+// --- Topical triggers for Dew's grounded caterpillar/Bt conversation ---
+// Unlike the generic words that caused the old routing bug, a specific pest
+// or organism word makes the topic unambiguous: any sentence containing it
+// really is about it. Matching is whole-word on the normalized text, so
+// inflections must be listed explicitly.
+
+const _CATERPILLAR = new Set([
+  "caterpillar", "caterpillars", "कैटरपिलर", "कॅटरपिलर",
+  "अळी", "अळ्या", "अळ्यांना", "अळ्यांपासून", "अळ्यांमुळे",
+]);
+
+const _SPRAY_WORDS = new Set(["spray", "spraying", "sprays", "फवारणी", "छिड़काव", "छिड़कें", "फवारा", "फवारायचे", "फवारायचं", "फवारणीची"]);
+const _HOW_WORDS = new Set(["how", "when", "procedure", "timing", "schedule", "dose", "dosage", "time",
+  "कब", "कैसे", "प्रक्रिया", "विधि", "तरीका", "मात्रा", "समय",
+  "केव्हा", "कसं", "कसे", "कशी", "पद्धत", "वेळ"]);
+
+function _tokens(text) {
+  return normalizeGuideRequest(text).split(" ").filter(Boolean);
+}
+
+export function pestIntent(text) {
+  return _tokens(text).some(t => _CATERPILLAR.has(t)) ? "caterpillar" : null;
+}
+
+export function btIntent(text) {
+  const n = normalizeGuideRequest(text);
+  return n.includes("bacillus thuringiensis") || _tokens(text).includes("bt") ? "bt" : null;
+}
+
+// A how/when-to-spray question. Without a spray word it still counts when the
+// conversation is already about Bt ("and the perfect time?"), handled by the
+// caller passing topicIsBt.
+const NON_BT_PRODUCT_WORDS = [
+  "weedicide", "herbicide", "glyphosate", "fungicide",
+  "तणनाशक", "खरपतवार", "बुरशीनाशक", "फफूंदनाशक", "कवकनाशक",
+];
+
+// A procedure/timing question that names a non-Bt product class must not get
+// the Bt spray guide; it is an open question for the AI.
+export function nonBtProductIntent(text) {
+  const t = ` ${String(text || "").toLowerCase()} `;
+  return NON_BT_PRODUCT_WORDS.some((w) => t.includes(` ${w}`) || t.includes(`${w} `) || t.includes(` ${w} `));
+}
+
+export function sprayHowIntent(text, topicIsBt = false) {
+  const toks = _tokens(text);
+  const hasHow = toks.some(t => _HOW_WORDS.has(t));
+  if (!hasHow) return false;
+  if (toks.some(t => _SPRAY_WORDS.has(t))) return true;
+  return topicIsBt;
+}
