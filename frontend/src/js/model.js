@@ -11,6 +11,30 @@ export const samples = () => S;
 export const modelInfo = () => ({ ...M.meta, threshold: M.threshold, classes: M.classes,
   measured: { holdout_accuracy: X.holdout_accuracy, loo_accuracy: X.loo_accuracy, n_documents: X.n_documents, class_counts: X.class_counts } });
 
+// Organism-evidence gate: the scanned text must literally name the predicted
+// group's organism (word-boundary match), otherwise the app abstains. Keep in
+// sync with ml/train.py ORGANISM_TERMS and backend/app/services/classifier.py.
+const FALLBACK_ORGANISM_TERMS = {
+  bt: ["bacillus thuringiensis", "thuringiensis", "kurstaki", "aizawai", "israelensis", "galleriae", "tenebrionis"],
+  trichoderma: ["trichoderma", "harzianum", "viride", "asperellum"],
+  pseudomonas: ["pseudomonas", "fluorescens", "chlororaphis"],
+  beauveria: ["beauveria", "bassiana"],
+};
+function classesNamed(model, text) {
+  const terms = model.organism_terms || FALLBACK_ORGANISM_TERMS;
+  const tl = text.toLowerCase();
+  const esc = t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const named = new Set();
+  for (const [c, ts] of Object.entries(terms))
+    if (ts.some(t => new RegExp("\\b" + esc(t) + "\\b").test(tl))) named.add(c);
+  return named;
+}
+function organismEvidence(model, cls, text) {
+  const named = classesNamed(model, text);
+  if (named.size > 1) return false; // mixed-organism label: abstain instead of picking one
+  return named.has(cls);
+}
+
 export function tokenize(text) {
   const toks = text.toLowerCase().match(/\b\w\w+\b/gu) || [];
   const feats = toks.slice();
@@ -37,8 +61,9 @@ export function predict(text, model = M) {
   const sum = exps.reduce((a, b) => a + b, 0);
   const ranking = model.classes.map((c, i) => ({ class: c, probability: exps[i] / sum })).sort((a, b) => b.probability - a.probability);
   const best = ranking[0];
+  const abstain = best.probability < model.threshold || !organismEvidence(model, best.class, text);
   return { class: best.class, probability: best.probability, threshold: model.threshold,
-    abstain: best.probability < model.threshold, ranking, known_terms: counts.size };
+    abstain, ranking, known_terms: counts.size };
 }
 
 function phAdvice(ph) {

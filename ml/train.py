@@ -17,6 +17,20 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 RAW = os.path.join(ROOT, "data", "raw")
 
+
+# Organism-evidence gate: for a pass, the scanned text must literally name the
+# predicted group's organism (word-boundary match). Unsupported or mismatched
+# products then abstain instead of showing a wrong group. Keep in sync with the
+# gate in backend/app/services/classifier.py and frontend/src/js/model.js.
+ORGANISM_TERMS = {
+    "bt": ["bacillus thuringiensis", "thuringiensis", "kurstaki", "aizawai", "israelensis", "galleriae", "tenebrionis"],
+    "trichoderma": ["trichoderma", "harzianum", "viride", "asperellum"],
+    "pseudomonas": ["pseudomonas", "fluorescens", "chlororaphis"],
+    "beauveria": ["beauveria", "bassiana"],
+    "bacillus_subtilis": ["bacillus subtilis", "subtilis", "qst 713", "gb03", "mbi 600"],
+    "npv": ["nucleopolyhedrovirus", "polyhedrosis", "npv", "polyhedral", "occlusion bodies", "baculovirus", "hanpv", "slnpv"],
+}
+
 def clean(text):
     # strip web_fetch header lines like "[1] Title — domain" and bare URL lines
     lines = [l for l in text.splitlines()
@@ -77,6 +91,7 @@ model = {
     "coef": final.coef_.tolist(),
     "intercept": final.intercept_.tolist(),
     "threshold": 0.45,
+    "organism_terms": ORGANISM_TERMS,
     "meta": {
         "n_documents": len(docs),
         "holdout_accuracy": holdout_acc,

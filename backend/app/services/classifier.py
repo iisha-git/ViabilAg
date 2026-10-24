@@ -28,6 +28,35 @@ def _features(text: str) -> list[str]:
     return toks + [f"{a} {b}" for a, b in zip(toks, toks[1:])]
 
 
+_FALLBACK_ORGANISM_TERMS = {
+    "bt": ["bacillus thuringiensis", "thuringiensis", "kurstaki", "aizawai", "israelensis", "galleriae", "tenebrionis"],
+    "trichoderma": ["trichoderma", "harzianum", "viride", "asperellum"],
+    "pseudomonas": ["pseudomonas", "fluorescens", "chlororaphis"],
+    "beauveria": ["beauveria", "bassiana"],
+}
+
+
+def _classes_named(model: dict, text: str) -> set:
+    terms = model.get("organism_terms") or _FALLBACK_ORGANISM_TERMS
+    tl = text.lower()
+    named = set()
+    for c, ts in terms.items():
+        if any(re.search(r"\b" + re.escape(t) + r"\b", tl) for t in ts):
+            named.add(c)
+    return named
+
+
+def _organism_evidence(model: dict, cls: str, text: str) -> bool:
+    """Organism-evidence gate: the scanned text must literally name the predicted
+    group's organism (word-boundary match), otherwise the app abstains. This stops
+    unsupported or mismatched products from being shown as a known group. Keep in
+    sync with ml/train.py ORGANISM_TERMS and frontend/src/js/model.js."""
+    named = _classes_named(model, text)
+    if len(named) > 1:
+        return False  # mixed-organism label: abstain instead of picking one
+    return cls in named
+
+
 def predict(text: str) -> dict:
     """Return probabilities for every class plus the abstain decision."""
     m = load_model()
@@ -47,11 +76,12 @@ def predict(text: str) -> dict:
     probs = [e / total for e in exps]
     ranked = sorted(zip(m["classes"], probs), key=lambda t: -t[1])
     best_cls, best_p = ranked[0]
+    abstain = best_p < m["threshold"] or not _organism_evidence(m, best_cls, text)
     return {
         "class": best_cls,
         "probability": best_p,
         "threshold": m["threshold"],
-        "abstain": best_p < m["threshold"],
+        "abstain": abstain,
         "ranking": [{"class": c, "probability": p} for c, p in ranked],
         "known_terms": len(counts),
     }
