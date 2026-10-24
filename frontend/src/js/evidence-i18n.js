@@ -79,7 +79,12 @@ window.bioEvidenceI18n = {
   "Biological insecticide": "जैविक कीटनाशक",
   "Biological insecticide (Bt)": "जैविक कीटनाशक (Bt)",
   "Biological seed treatment": "जैविक बीज-उपचार",
-  "Product matches come from the words on the scanned labels, not from a product database or a lab test. Compatibility findings are product-specific. bioOasis never recommends doses, mixing recipes or spray timings.": "प्रोडक्ट-मिलान स्कैन किए लेबल के शब्दों से आते हैं, किसी प्रोडक्ट डेटाबेस या लैब-जाँच से नहीं। अनुकूलता निष्कर्ष प्रोडक्ट-विशिष्ट हैं। bioOasis कभी खुराक, मिश्रण-विधि या छिड़काव-समय की सलाह नहीं देता।"
+  "Product matches come from the words on the scanned labels, not from a product database or a lab test. Compatibility findings are product-specific. bioOasis never recommends doses, mixing recipes or spray timings.": "प्रोडक्ट-मिलान स्कैन किए लेबल के शब्दों से आते हैं, किसी प्रोडक्ट डेटाबेस या लैब-जाँच से नहीं। अनुकूलता निष्कर्ष प्रोडक्ट-विशिष्ट हैं। bioOasis कभी खुराक, मिश्रण-विधि या छिड़काव-समय की सलाह नहीं देता।",
+  "a copper-based compound": "एक कॉपर-आधारित यौगिक",
+  "a pesticide": "एक कीटनाशक",
+  "fungicide": "फफूंदनाशी",
+  "insecticide": "कीटनाशक",
+  "herbicide": "तणनाशक"
  },
  mr: {
   "A living bacterial insecticide": "एक जिवंत जीवाणू कीटकनाशक",
@@ -156,6 +161,11 @@ window.bioEvidenceI18n = {
   "Biological insecticide": "जैविक कीटकनाशक",
   "Biological insecticide (Bt)": "जैविक कीटकनाशक (Bt)",
   "Biological seed treatment": "जैविक बियाणे-उपचार",
-  "Product matches come from the words on the scanned labels, not from a product database or a lab test. Compatibility findings are product-specific. bioOasis never recommends doses, mixing recipes or spray timings.": "प्रोडक्ट-जुळणी स्कॅन केलेल्या लेबलांवरील शब्दांतून येते, प्रोडक्ट डेटाबेस किंवा लॅब-चाचणीतून नाही. सुसंगतता-निष्कर्ष प्रोडक्ट-विशिष्ट आहेत. bioOasis कधीही डोस, मिश्रण-पद्धत किंवा फवारणी-वेळ शिफारस करत नाही."
+  "Product matches come from the words on the scanned labels, not from a product database or a lab test. Compatibility findings are product-specific. bioOasis never recommends doses, mixing recipes or spray timings.": "प्रोडक्ट-जुळणी स्कॅन केलेल्या लेबलांवरील शब्दांतून येते, प्रोडक्ट डेटाबेस किंवा लॅब-चाचणीतून नाही. सुसंगतता-निष्कर्ष प्रोडक्ट-विशिष्ट आहेत. bioOasis कधीही डोस, मिश्रण-पद्धत किंवा फवारणी-वेळ शिफारस करत नाही.",
+  "a copper-based compound": "एक कॉपर-आधारित संयुग",
+  "a pesticide": "एक कीटकनाशक",
+  "fungicide": "बुरशीनाशक",
+  "insecticide": "कीटकनाशक",
+  "herbicide": "तणनाशक"
  }
 };

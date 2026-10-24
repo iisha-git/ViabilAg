@@ -471,7 +471,7 @@ html[data-theme="aurora"] .desk-action{color:#c6ff3d;border-color:#c6ff3d}
 @keyframes dvring{0%{transform:scale(.82);opacity:.9}100%{transform:scale(1.25);opacity:0}}
 @keyframes dvtalk{from{transform:scale(1)}to{transform:scale(1.045)}}
 @keyframes dvthink{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.dv-status{font-size:15px;color:#9fe4d6;font-weight:600;letter-spacing:.02em;min-height:22px;text-align:center}
+.dv-status{font-size:15px;color:#9fe4d6;font-weight:600;letter-spacing:.02em;min-height:22px;text-align:center;margin-top:max(2.6rem,9vw)}
 .dv-caption{max-width:min(88vw,560px);min-height:48px;font-size:16px;line-height:1.5;color:#f3ecdc;text-align:center;opacity:.92}
 .dv-mic{margin-top:4px;width:76px;height:76px;border-radius:50%;border:none;background:#3fc3aa;color:#0d1a20;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(63,195,170,.35);cursor:pointer}
 .dv-mic svg{width:32px;height:32px}

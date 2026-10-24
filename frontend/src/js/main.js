@@ -42,6 +42,7 @@ const TE = (txt) => {
   return null;
 };
 const TRLBL = { hi: ["मूल EN", "अनुवाद"], mr: ["मूळ EN", "अनुवाद"] };
+const TEx = (txt) => TE(txt) || txt;
 const trHtml = (txt) => {
   const tr = TE(txt);
   if (!tr) return esc(txt);
@@ -480,8 +481,8 @@ $("mix-read").onclick = async () => {
     }
     state.mix.textB = textB; state.mix.res = res;
     state.mix.names = {
-      a: res.product_a.product?.name || res.product_a.actives.map(a=>a.name).join(", ") || "Product 1",
-      b: res.product_b.product?.name || res.product_b.actives.map(a=>a.name).join(", ") || (res.product_b.categories.length ? "Unspecified "+res.product_b.categories.join(" / ") : ""),
+      a: res.product_a.product?.name || res.product_a.actives.map(a=>TEx(a.name)).join(", ") || "Product 1",
+      b: res.product_b.product?.name || res.product_b.actives.map(a=>TEx(a.name)).join(", ") || (res.product_b.categories.length ? T("mix.unspecifiedCat").replace("{x}", res.product_b.categories.map(TEx).join(" / ")) : ""),
     };
     renderConfirm(res);
     snd.step();
@@ -499,8 +500,8 @@ function fieldLine(label, value, extra = "") {
 function productTag(tag, side, data, name) {
   const p = data.product;
   const kind = p ? `${trHtml(p.kind)} · ${esc(p.organism)}`
-    : data.actives.length ? T("tag.mentions").replace("{x}", data.actives.map(a => esc(a.name)).join(", "))
-    : data.categories.length ? T("tag.looks").replace("{x}", data.categories.map(esc).join("/"))
+    : data.actives.length ? T("tag.mentions").replace("{x}", data.actives.map(a => esc(TEx(a.name))).join(", "))
+    : data.categories.length ? T("tag.looks").replace("{x}", data.categories.map(c => esc(TEx(c))).join("/"))
     : T("tag.unknown");
   const exp = data.expiry;
   const expExtra = exp?.expired === true ? `<span class="exp-flag">${T("tag.expired")}</span>` : "";
@@ -542,7 +543,7 @@ const verdictText = status => ({ title: T("v." + status + ".title"), cta: T("v."
 function dealerCard(res, names) {
   const a = res.product_a, b = res.product_b;
   const descA = [names.a || T("card.product1default"), a.product?.organism, a.formulation].filter(Boolean).join(" · ");
-  const bBits = [b.product?.organism, b.actives.length ? T("card.mentionsPrefix") + b.actives.map(x => x.name).join(", ") : null, b.formulation].filter(Boolean);
+  const bBits = [b.product?.organism, b.actives.length ? T("card.mentionsPrefix") + b.actives.map(x => TEx(x.name)).join(", ") : null, b.formulation].filter(Boolean);
   const descB = [(names.b || (b.product ? b.product.name : T("card.unknownB"))), ...bBits].filter(Boolean).join(" · ");
   const found = res.findings.length
     ? T("card.found") + (TE(res.findings[0].headline) || res.findings[0].headline) + " Source: " + res.findings[0].source.url
@@ -575,7 +576,7 @@ function renderMixResult(res, names) {
       <div class="verdict-badge">${ICON[v.icon]}</div>
       <div class="eyebrow">${{ conflict: T("v.conflict.eyebrow"), limited: T("v.limited.eyebrow"), no_evidence: T("v.no_evidence.eyebrow") }[res.status]}</div>
       <h2 class="block-title">${vt.title}</h2>
-      <div class="pairline"><span>${esc(names.a || T("card.product1default"))}</span><span class="plus">+</span><span>${esc(names.b || T("card.product2default"))}</span></div>
+      <div class="pairline"><span>${esc(TEx(names.a || T("card.product1default")))}</span><span class="plus">+</span><span>${esc(TEx(names.b || T("card.product2default")))}</span></div>
       <div class="verdict-cta">${ICON.person}<b>${vt.cta}</b></div>
     </div>
 
