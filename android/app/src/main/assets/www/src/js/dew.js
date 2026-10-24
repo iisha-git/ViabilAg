@@ -17,6 +17,7 @@ import { guideIntent } from "./dewroute.js";
 let ctx = { getContext: () => ({}), openScan: () => {}, openMix: () => {}, openResult: () => {}, showDew: () => {}, exitDew: () => {}, onCorrection: () => {} };
 let lang = localStorage.getItem("biooasis-dew-lang") || "en";
 let busy = false;
+let lastQuestion = null; // last open question sent to Dew AI, for the Retry chip
 let voiceTurn = false; // voice in -> voice out, even if sound effects are off
 const history = []; // { who: "dew"|"user"|"note", msg, chips }
 
@@ -47,7 +48,8 @@ const L = {
     tagAi: "Dew AI",
     tagLocal: "built-in guide",
     aiOff: "Dew AI is not connected yet, so open questions are answered from my built-in guide for now.",
-    aiDown: "Dew AI could not be reached, so I answered from my built-in guide.",
+    aiDownMsg: "Dew AI couldn't answer right now. Please try again in a little while.",
+    retry: "Retry",
   },
   hi: {
     aiNotice: "एक छोटी सूचना: खुले सवालों के जवाब Gemini देता है। सिर्फ आपके सवाल, हाल की चैट और स्कैन किए गए लेबल का टेक्स्ट ही भेजा जाता है - फोटो कभी नहीं।",
@@ -75,7 +77,8 @@ const L = {
     tagAi: "ड्यू AI",
     tagLocal: "बिल्ट-इन गाइड",
     aiOff: "ड्यू AI अभी जुड़ा नहीं है, इसलिए खुले सवालों के जवाब अभी मेरी बिल्ट-इन गाइड से दिए जाते हैं।",
-    aiDown: "ड्यू AI तक पहुँच नहीं पाई, इसलिए मैंने अपनी बिल्ट-इन गाइड से जवाब दिया।",
+    aiDownMsg: "ड्यू AI अभी जवाब नहीं दे पाया। कृपया थोड़ी देर बाद फिर कोशिश करें।",
+    retry: "फिर से कोशिश करें",
   },
   mr: {
     aiNotice: "एक छोटीशी सूचना: खुल्या प्रश्नांची उत्तरे Gemini देते. फक्त तुमचे प्रश्न, अलीकडची चॅट आणि स्कॅन केलेल्या लेबलचा मजकूरच पाठवला जातो - फोटो कधीही नाही.",
@@ -103,7 +106,8 @@ const L = {
     tagAi: "ड्यू AI",
     tagLocal: "अंगभूत मार्गदर्शक",
     aiOff: "ड्यू AI अजून जोडलेले नाही, त्यामुळे खुल्या प्रश्नांची उत्तरे सध्या माझ्या अंगभूत मार्गदर्शकातून दिली जातात.",
-    aiDown: "ड्यू AI शी संपर्क झाला नाही, त्यामुळे मी माझ्या अंगभूत मार्गदर्शकातून उत्तर दिले.",
+    aiDownMsg: "ड्यू AI आत्ता उत्तर देऊ शकले नाही. कृपया थोड्या वेळाने पुन्हा प्रयत्न करा.",
+    retry: "पुन्हा प्रयत्न करा",
   },
 };
 
@@ -133,7 +137,9 @@ export function init(hooks) {
   $("dew-attach").onclick = () => ctx.pickLabel();
   $("dew-log").addEventListener("click", e => {
     const b = e.target.closest(".dew-chips button");
-    if (b) handle(b.textContent);
+    if (!b) return;
+    if (b.textContent === L[lang].retry) return retryAi();
+    handle(b.textContent);
   });
   $("dew-langs").onclick = e => {
     const b = e.target.closest("[data-lang]"); if (!b) return;
@@ -187,7 +193,7 @@ function speak(text) {
   if (!("speechSynthesis" in window)) return;
   const u = new SpeechSynthesisUtterance(text);
   u.lang = lg;
-  u.rate = 1.02; u.pitch = 1.25;
+  u.rate = 1.0; u.pitch = 1.0;
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
 
@@ -337,6 +343,7 @@ function reply(text) {
   // the voice all match. Unsure stays with the chosen language.
   setLang(detectLang(t), true);
   const c = ctx.getContext();
+  if (t === L[lang].retry && lastQuestion) return retryAi();
   // follow-up buttons that mirror the chips
   if (t === L[lang].chips[0]) return say(l => L[l].what);
   if (t === L[lang].chips[1]) return say(l => (SUN_FACT[c.cls] || SUN_FACT.other)[l]);
@@ -370,13 +377,23 @@ function reply(text) {
 
 function handle(text) { voiceTurn = false; userSay(text); reply(text); }
 
+// The Retry chip after an AI connection failure: ask the same question again
+// without printing a new user bubble. Genuine "I don't know" answers never
+// get a Retry - only connection failures do.
+function retryAi() {
+  if (busy || !lastQuestion) return;
+  snd.tap();
+  aiReply(lastQuestion);
+}
+
 let aiNoticeShown = false;
 let aiOffNoted = false;
 
 // Free-form questions go to Gemini through the bioOasis backend (the key never
-// touches the app). Anything else - no backend, no key, any error - falls back
-// to the built-in guided answers, and the fallback says so out loud: Gemini
-// answers carry a "Dew AI" tag, guide answers carry a "built-in guide" tag.
+// touches the app). A connection failure is NOT "I don't have evidence": it
+// gets a clear connection message with a Retry chip. The no-evidence line is
+// kept for genuine uncertainty only. Gemini answers carry a "Dew AI" tag,
+// guide answers carry a "built-in guide" tag.
 async function aiReply(text) {
   if (api.getMode() !== "api") {
     if (!aiOffNoted) { aiOffNoted = true; note(l => L[l].aiOff); }
@@ -384,7 +401,9 @@ async function aiReply(text) {
   }
   if (!aiNoticeShown) { aiNoticeShown = true; note(l => L[l].aiNotice); }
   busy = true;
+  lastQuestion = text;
   const done = thinkingBubble();
+  const failed = () => say(l => L[l].aiDownMsg, l => [L[l].retry, ...L[l].chips]);
   try {
     const c = ctx.getContext();
     const hist = history.filter(h => h.who !== "note").slice(-8)
@@ -394,11 +413,10 @@ async function aiReply(text) {
     done();
     const answer = res && res.reply;
     if (answer && answer.trim()) say(answer.trim(), null, "ai");
-    else { note(l => L[l].aiDown); say(l => L[l].fallback, l => L[l].chips, "local"); }
+    else failed();
   } catch {
     done();
-    note(l => L[l].aiDown);
-    say(l => L[l].fallback, l => L[l].chips, "local");
+    failed();
   }
   busy = false;
 }

@@ -395,7 +395,7 @@ public class MainActivity extends Activity {
             }
             if (r < TextToSpeech.LANG_AVAILABLE) loc = Locale.forLanguageTag("en-IN");
             tts.setLanguage(loc);
-            tts.setPitch(1.15f);
+            tts.setPitch(1.0f);
             tts.setSpeechRate(1.0f);
             pendingSpeakText = null;
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "dew");
