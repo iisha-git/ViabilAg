@@ -67,6 +67,7 @@ const ASSETS = [
   "src/js/theme.js",
   "src/js/main.js",
   "src/js/dew.js",
+  "src/js/dewspeech.js",
   "src/js/dewroute.js",
   "src/js/speechwire.js",
   "src/js/mixcheck.js",

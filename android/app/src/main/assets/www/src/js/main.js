@@ -23,6 +23,33 @@ window.bioNativeNote = msg => {
   clearTimeout(t._r);
   t._h = setTimeout(() => { t.style.opacity = "0"; t._r = setTimeout(() => t.remove(), 400); }, 2600);
 };
+const T = (k) => (window.bioI18n ? window.bioI18n.t(k) : k);
+const TE = (txt) => {
+  const L = window.bioI18n ? window.bioI18n.lang : "en";
+  const m = window.bioEvidenceI18n && window.bioEvidenceI18n[L];
+  if (!m) return null;
+  if (Object.prototype.hasOwnProperty.call(m, txt)) return m[txt];
+  if (!m.__tpl) {
+    Object.defineProperty(m, "__tpl", { enumerable: false, value: Object.keys(m).filter(k => k.includes("{ai}")).map(k => {
+      const rx = new RegExp("^" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\\\{ai\\\}/g, "(.+)") + "$");
+      return [rx, m[k]];
+    }) });
+  }
+  for (const [rx, tpl] of m.__tpl) {
+    const mt = txt.match(rx);
+    if (mt) return tpl.replace("{ai}", mt[1]);
+  }
+  return null;
+};
+const TRLBL = { hi: ["मूल EN", "अनुवाद"], mr: ["मूळ EN", "अनुवाद"] };
+const TEx = (txt) => TE(txt) || txt;
+const trHtml = (txt) => {
+  const tr = TE(txt);
+  if (!tr) return esc(txt);
+  const L = window.bioI18n ? window.bioI18n.lang : "en";
+  const lbl = (TRLBL[L] || ["Original EN", "Translation"])[0];
+  return esc(tr) + `<button type="button" class="tr-toggle" data-tr="${esc(tr)}" data-alt="${esc(txt)}" aria-label="Show the original English">${lbl}</button>`;
+};
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const IMG = "assets/images/";
 const CLASS_IMG = { bt: "bt.jpg", trichoderma: "trichoderma.jpg", pseudomonas: "pseudomonas.jpg", beauveria: "beauveria.jpg" };
@@ -32,33 +59,36 @@ const state = { samples: [], credits: {}, current: null, cls: null, loc: null, m
 document.body.insertAdjacentHTML("afterbegin", DEFS);
 $("hero-dew").innerHTML = mascot("hello");
 for (const [id, k] of [["ico-cam", "camera"], ["ico-cam2", "camera"], ["ico-cam3", "camera"], ["ico-back1", "back"], ["ico-back2", "back"], ["ico-back3", "back"], ["ico-back4", "back"], ["ico-back5", "back"], ["ico-back6", "back"], ["ico-back-dew", "back"], ["ico-swap", "swap"]]) $(id).innerHTML = ICON[k];
+const renderHow = () => {
 $("how").innerHTML = `
-  <button type="button" class="how-step run-beat run-label reveal" id="run-demo" aria-label="Run the DiPel DF sample label through bioOasis">
-    <span class="run-tag">The label in hand</span>
-    <span class="run-product">DiPel DF <i>biological insecticide</i></span>
+  <button type="button" class="how-step run-beat run-label reveal" id="run-demo" aria-label="${T("rundemo.aria")}">
+    <span class="run-tag">${T("how.runTag1")}</span>
+    <span class="run-product">DiPel DF <i>${T("how.runKind")}</i></span>
     <span class="run-quote">Bacillus thuringiensis subsp. kurstaki. Effective control of caterpillar pests. OMRI and NOP certified for use in organic production systems.</span>
-    <span class="run-cta">One of the 26 real public labels it studied. Tap to run it ${ICON.arrow}</span>
+    <span class="run-cta">${T("how.runCta")} ${ICON.arrow}</span>
   </button>
   <div class="how-step run-beat run-scan reveal">
-    <span class="run-tag">What Dew reads</span>
+    <span class="run-tag">${T("how.readTag")}</span>
     <ul class="run-facts">
-      <li><b>Organism</b><span>Bacillus thuringiensis subsp. kurstaki</span></li>
-      <li><b>Family</b><span>Bt spray - a living bacterial insecticide</span></li>
-      <li><b>Targets</b><span>Caterpillars (moth and butterfly larvae)</span></li>
+      <li><b>${T("how.fOrganism")}</b><span>Bacillus thuringiensis subsp. kurstaki</span></li>
+      <li><b>${T("how.fFamily")}</b><span>${T("how.familyBt")}</span></li>
+      <li><b>${T("how.fTargets")}</b><span>${T("how.targetsBt")}</span></li>
     </ul>
-    <span class="run-note">Read on your device. You can fix any word it got wrong before asking.</span>
+    <span class="run-note">${T("how.readNote")}</span>
   </div>
   <div class="how-step run-beat run-says reveal">
-    <span class="run-tag">What Dew says back</span>
+    <span class="run-tag">${T("how.saysTag")}</span>
     <p class="run-ev">The caterpillar has to eat treated leaves for it to work. <a href="https://picol.cahnrs.wsu.edu/DownloadLabel/37049/OR/OR_2026_73049-39_Dipel%20DF%20Biological%20Insecticide%20Dry%20Flowable.pdf" target="_blank" rel="noopener">DiPel DF label, Valent BioSciences</a></p>
-    <p class="run-abstain">How long the organisms stay alive in your tank is not in its evidence - so it says so, and points you to an agronomist.</p>
+    <p class="run-abstain">${T("how.abstain")}</p>
   </div>`;
 $("run-demo").addEventListener("click", () => { const s0 = state.samples.find(x => x.id === 0); if (s0) pickSample(s0); });
+};
+renderHow();
 
 (async () => {
   const mode = await api.init();
   $("mode").className = "mode " + (mode === "api" ? "on" : "");
-  $("mode").innerHTML = `<i></i>${mode === "api" ? "Connected to the bioOasis backend" : "Static mode: running fully in your browser (no backend found)"}${window.BIOOASIS_VERSION ? " · v" + window.BIOOASIS_VERSION : ""}`;
+  $("mode").innerHTML = `<i></i>${mode === "api" ? T("mode.api") : T("mode.static")}${window.BIOOASIS_VERSION ? " · v" + window.BIOOASIS_VERSION : ""}`;
   state.credits = await fetch(IMG + "credits.json").then(r => r.json()).catch(() => ({}));
   state.samples = await api.samples();
   renderSamples(); renderWhy(); renderCredits(); observeReveal();
@@ -85,9 +115,9 @@ function credit(key) {
   return c ? `${c.title.replace(/\.jpe?g$/i, "")} / ${c.author} / ${c.license}` : "";
 }
 function renderSamples() {
-  const names = { bt: ["Bacterial insecticide", "Bt spray"], trichoderma: ["Root-protecting fungus", "Trichoderma"], pseudomonas: ["Helpful bacterium", "Pseudomonas"], beauveria: ["Insect-hunting fungus", "Beauveria"] };
+  const names = { bt: [T("cls.bt"), "Bt spray"], trichoderma: [T("cls.trichoderma"), "Trichoderma"], pseudomonas: [T("cls.pseudomonas"), "Pseudomonas"], beauveria: [T("cls.beauveria"), "Beauveria"] };
   $("carousel").innerHTML = state.samples.map(s => `
-    <button class="sample" data-id="${s.id}" aria-label="Try the ${esc(s.label)} label excerpt">
+    <button class="sample" data-id="${s.id}" aria-label="${T("carousel.aria").replace("{label}", esc(s.label))}">
       <img src="${IMG + CLASS_IMG[s.class]}" alt="" loading="lazy">
       <span class="go">${ICON.arrow}</span>
       <span class="meta"><div class="kind">${names[s.class][0]}</div><div class="nm">${esc(s.label.replace(/\s*\(.*\)/, ""))}</div></span>
@@ -96,14 +126,14 @@ function renderSamples() {
 }
 function renderWhy() {
   $("why-img").src = IMG + "farmer.jpg";
-  $("why-cred").textContent = "Photo: " + credit("farmer");
+  $("why-cred").textContent = T("photo.prefix") + credit("farmer");
 }
 function renderCredits() {
-  const rows = Object.values(state.credits).map(c => `<li><b>${esc(c.title.replace(/\.jpe?g$/i, ""))}</b> by ${esc(c.author)}, ${esc(c.license)}. <a href="${esc(c.source_url)}" target="_blank" rel="noopener">Source</a></li>`).join("");
+  const rows = Object.values(state.credits).map(c => `<li><b>${esc(c.title.replace(/\.jpe?g$/i, ""))}</b> ${T("credits.by")} ${esc(c.author)}, ${esc(c.license)}. <a href="${esc(c.source_url)}" target="_blank" rel="noopener">${T("credits.source")}</a></li>`).join("");
   $("credits-list").innerHTML = rows +
-    `<li><b>Dew</b> (the mascot) and all icons: original artwork made for this project.</li>
-     <li><b>Fraunces</b> and <b>Inter</b> fonts: SIL Open Font License 1.1.</li>
-     <li>Photos show the kind of organism or crop, not the actual product. They are illustrations, not label evidence.</li>`;
+    `<li>${T("credits.dew")}</li>
+     <li>${T("credits.fonts")}</li>
+     <li>${T("credits.photos")}</li>`;
 }
 $("open-credits").onclick = $("open-credits2").onclick = () => $("credits").showModal();
 
@@ -156,11 +186,11 @@ $("file").addEventListener("change", async (ev) => {
   toRead({ img: setPreview(f), reading: true });
   try {
     const text = await readLabel(f,
-      p => { $("ocrbar").style.width = Math.round(p * 100) + "%"; $("ocrnote").textContent = `Dew is reading the label... ${Math.round(p * 100)}%`; },
+      p => { $("ocrbar").style.width = Math.round(p * 100) + "%"; $("ocrnote").textContent = `${T("read.ocr")} ${Math.round(p * 100)}%`; },
       msg => { $("ocrnote").textContent = "Dew: " + msg; });
     $("scanline").classList.add("hidden"); $("reading").classList.add("hidden");
     $("ocrtext").disabled = false; $("identify").disabled = false;
-    if (text) { $("ocrtext").value = text.replace(/[ \t]*\n(?!\n)/g, " "); $("hint").textContent = "Check the words below. Fix anything the camera got wrong."; }
+    if (text) { $("ocrtext").value = text.replace(/[ \t]*\n(?!\n)/g, " "); $("hint").textContent = T("hint.check"); }
     else emptyRead("Dew could not find any words in that photo. Try a sharper, closer shot in good light, or type the label text yourself.");
   } catch {
     emptyRead("Dew could not read the photo here (the reader needs an internet connection the first time). You can type or paste the label text instead.");
@@ -190,42 +220,42 @@ $("identify").onclick = async () => {
   const text = $("ocrtext").value.trim();
   if (text.length < 30) {
     $("hint").className = "hint nudge";
-    $("hint").textContent = `Dew needs a little more text to work with (${text.length}/30 characters so far).`;
+    $("hint").textContent = T("hint.short").replace("{n}", text.length);
     $("ocrtext").focus(); return;
   }
-  $("identify").disabled = true; $("identify").textContent = "Thinking...";
+  $("identify").disabled = true; $("identify").textContent = T("hint.thinking");
   try {
     const res = await api.analyze({ text });
     state.cls = res.prediction.class;
     res.status === "found" ? renderResult(res) : renderStop(res);
   } catch (e) {
-    $("hint").className = "hint nudge"; $("hint").textContent = "Something went wrong talking to the app. Try again.";
-  } finally { $("identify").disabled = false; $("identify").textContent = "Identify this product"; }
+    $("hint").className = "hint nudge"; $("hint").textContent = T("hint.err");
+  } finally { $("identify").disabled = false; $("identify").textContent = T("identify"); }
 };
 
 /* ---------- result ---------- */
-const factHtml = f => `<div class="fact reveal"><p>${esc(f.text)}</p><a class="src-pill" href="${esc(f.source.url)}" target="_blank" rel="noopener">${ICON.arrow.replace("<svg", '<svg width="13" height="13"')}${esc(f.source.name)}</a></div>`;
+const factHtml = f => `<div class="fact reveal"><p>${trHtml(f.text)}</p><a class="src-pill" href="${esc(f.source.url)}" target="_blank" rel="noopener">${ICON.arrow.replace("<svg", '<svg width="13" height="13"')}${esc(f.source.name)}</a></div>`;
 
 function renderResult(res, navigate = true) {
   const e = res.evidence, pct = Math.round(res.prediction.probability * 100);
   state.result = res;
   $("r-img").src = IMG + CLASS_IMG[res.prediction.class];
-  $("r-kind").textContent = e.kind; $("r-name").textContent = e.name; $("r-org").textContent = e.organism;
-  $("r-pcred").textContent = "Photo: " + credit(res.prediction.class) + " (illustrates the organism type, not your product)";
+  $("r-kind").innerHTML = trHtml(e.kind); $("r-name").textContent = e.name; $("r-org").textContent = e.organism;
+  $("r-pcred").textContent = T("photo.prefix") + credit(res.prediction.class) + T("result.illus");
   $("r-pct").textContent = pct + "%";
   // short version first: one cited line + two chips; everything else is one tap away in the tabs
   const key = e.research[0];
-  $("q-text").textContent = key.text;
+  $("q-text").innerHTML = trHtml(key.text);
   $("q-src").innerHTML = srcPill(key.source);
   $("q-chips").innerHTML =
-    `<span class="chip">${ICON.leaf}<span><b>Goes after</b> ${esc(e.targets)}</span></span>`;
+    `<span class="chip">${ICON.leaf}<span><b>${T("result.goesAfter")}</b> ${trHtml(e.targets)}</span></span>`;
   $("r-labels").innerHTML = e.labelPoints.map(factHtml).join("");
   $("r-research").innerHTML = e.research.map(factHtml).join("");
   const c = res.common; $("r-common").innerHTML = [c.context, c.water, c.jarTest].map(factHtml).join("");
   $("n-labels").textContent = e.labelPoints.length; $("n-research").textContent = e.research.length;
-  $("r-disclaimer").textContent = res.disclaimer;
+  $("r-disclaimer").innerHTML = trHtml(res.disclaimer);
   $("r-dew").innerHTML = mascot("happy");
-  $("ph").value = ""; $("phmsg").innerHTML = ""; $("wxmsg").innerHTML = ""; $("wxbtn").lastChild.textContent = " Use my location";
+  $("ph").value = ""; $("phmsg").innerHTML = ""; $("wxmsg").innerHTML = ""; $("wxbtn").lastChild.textContent = " " + T("wxbtn");
   selectTab("labels");
   $("mix-go").onclick = openMixScan;
   if (navigate) show("result");
@@ -259,24 +289,24 @@ async function openGuess() {
   const rank = r.prediction.ranking.map(x => `<li><b>${esc(({bt:"Bt",trichoderma:"Trichoderma",pseudomonas:"Pseudomonas",beauveria:"Beauveria"})[x.class] || x.class)}</b> ${Math.round(x.probability * 100)}%</li>`).join("");
   $("guess-body").innerHTML = `
     <div class="sdew">${mascot("think")}</div>
-    <h3 class="serif">How sure is Dew?</h3>
-    <p>Dew compared your label text with what it learned from <b>${m ? m.n_documents : 26} real public product labels</b>, and its best guess is <b>${esc(r.evidence.name)}</b> at <b>${Math.round(r.prediction.probability * 100)}%</b>. Below <b>${Math.round(r.prediction.threshold * 100)}%</b> Dew stops and tells you instead of guessing.</p>
-    ${m ? `<div class="stats"><div class="stat"><b>${(m.loo_accuracy * 100).toFixed(1)}%</b><span>right when each label is hidden once (leave-one-out)</span></div><div class="stat"><b>${(m.holdout_accuracy * 100).toFixed(1)}%</b><span>right on one unseen hold-out set of 7</span></div></div>` : ""}
-    <p><b>Please read this as "early prototype", not "accurate".</b> It is a small model that learned four product types. It does not predict whether a spray survives, and it has not seen every brand in a shop. The sources on the result page carry the weight, not this number.</p>
-    <details class="more"><summary>All four guesses, side by side</summary><div><ul style="margin-left:18px;color:var(--cream-dim);font-size:14.5px">${rank}</ul></div></details>
-    <details class="more"><summary>How the model works</summary><div><p>Words and word pairs from the label are weighted (TF-IDF) and scored by a logistic regression. The same math runs in the backend (Python) and in the browser (JavaScript). The code, the data and the measured results are in the project folder (<b>docs/data-and-ml.md</b>).</p></div></details>
-    <button class="btn ghost" style="margin-top:12px;width:100%" data-close>Got it</button>`;
+    <h3 class="serif">${T("guess.title")}</h3>
+    <p>${T("guess.p1").replace("{n}", m ? m.n_documents : 26).replace("{name}", esc(r.evidence.name)).replace("{pct}", Math.round(r.prediction.probability * 100)).replace("{thr}", Math.round(r.prediction.threshold * 100))}</p>
+    ${m ? `<div class="stats"><div class="stat"><b>${(m.loo_accuracy * 100).toFixed(1)}%</b><span>${T("guess.stat1")}</span></div><div class="stat"><b>${(m.holdout_accuracy * 100).toFixed(1)}%</b><span>${T("guess.stat2")}</span></div></div>` : ""}
+    <p>${T("guess.warn")}</p>
+    <details class="more"><summary>${T("guess.all")}</summary><div><ul style="margin-left:18px;color:var(--cream-dim);font-size:14.5px">${rank}</ul></div></details>
+    <details class="more"><summary>${T("guess.how")}</summary><div><p>${T("guess.howText")}</p></div></details>
+    <button class="btn ghost" style="margin-top:12px;width:100%" data-close>${T("guess.gotit")}</button>`;
   $("sheet-guess").showModal();
 }
 async function openAbout() {
   $("about-body").innerHTML = `
     <div class="sdew">${mascot("hello")}</div>
-    <h3 class="serif">About bioOasis</h3>
-    <p>An early prototype from a college AI project (team ViabilAg). It helps check a <b>biological spray</b> (a product made of living organisms) before it goes in the tank.</p>
-    <p>Label and research lines show their <b>published source</b>. Dew's chat answers are AI-generated and are marked as such in the chat. The app does not tell anyone what to spray, and it never shows a survival number, because we do not have lab data for that yet.</p>
-    <details class="more"><summary>What is real, what is not</summary><div><p><b>Real:</b> label reading (OCR), a small ML model trained on 26 real public labels, evidence from cited sources, water pH and weather checks.<br><b>Not built:</b> survival prediction, a product database, user accounts.</p></div></details>
-    <details class="more"><summary>Where the data comes from</summary><div><p>Real labels from EPA, CDMS and manufacturers (DiPel, XenTari, Javelin, Thuricide, RootShield, Trianum-P, T34, PlantShield, Asperello, Howler, BlightBan A506, Cedomon, BotaniGard, Mycotrol, Naturalis). The full list with links is in <b>data/sources.csv</b> in the project.</p></div></details>
-    <button class="btn ghost" style="margin-top:12px;width:100%" data-close>Close</button>`;
+    <h3 class="serif">${T("about.title")}</h3>
+    <p>${T("about.p1")}</p>
+    <p>${T("about.p2")}</p>
+    <details class="more"><summary>${T("about.real")}</summary><div><p>${T("about.realText")}</p></div></details>
+    <details class="more"><summary>${T("about.sources")}</summary><div><p>${T("about.sourcesText")}</p></div></details>
+    <button class="btn ghost" style="margin-top:12px;width:100%" data-close>${T("close")}</button>`;
   $("sheet-about").showModal();
 }
 $("open-guess").onclick = openGuess;
@@ -286,25 +316,31 @@ $("open-about").onclick = openAbout;
 const SWATCH = { lilac: ["#EFE9FF", "#6C4DF6", "#FF7A59"], pop: ["#FFF1B8", "#FF5A36", "#8C6BFF"], aurora: ["#0C0824", "#C6FF3D", "#FF5FD2"] };
 function openSettings() {
   const cur = window.bioTheme.get();
+  const T = window.bioI18n ? window.bioI18n.t : k => k;
+  const L = window.bioI18n;
   $("settings-body").innerHTML = `
     <div class="sdew">${mascot("happy")}</div>
-    <h3 class="serif">Settings</h3>
-    <p>Pick a look. Same content in all of them.</p>
+    <h3 class="serif">${T("settings.title")}</h3>
+    <p>${T("settings.look")}</p>
+    <div class="sound-row">
+      <span class="tx"><b>${T("settings.language")}</b><small>${T("settings.languageNote")}</small></span>
+      <span class="lang-row">${L ? L.langs.map(l => `<button class="chip-btn" data-lang="${l}" aria-checked="${l === L.lang}">${L.names[l]}</button>`).join(" ") : ""}</span>
+    </div>
     <div class="themes" role="radiogroup" aria-label="Theme">${Object.entries(window.bioTheme.list).map(([id, t]) => `
       <button class="theme-opt" role="radio" aria-checked="${id === cur}" data-theme-id="${id}">
         <span class="sw">${SWATCH[id].map(c => `<i style="background:${c}"></i>`).join("")}</span>
-        <span class="tx"><b>${t.name}</b><small>${t.note}</small></span>
+        <span class="tx"><b>${t.name}</b><small>${T("theme." + id + ".note")}</small></span>
         <span class="tick" aria-hidden="true"></span>
       </button>`).join("")}</div>
     <div class="sound-row">
-      <span class="tx"><b>Sounds</b><small>Soft taps and step chimes. Off means fully silent.</small></span>
-      <button class="chip-btn" id="sound-toggle" role="switch" aria-checked="${snd.isEnabled()}">${snd.isEnabled() ? "On" : "Off"}</button>
+      <span class="tx"><b>${T("settings.sounds")}</b><small>${T("settings.soundsNote")}</small></span>
+      <button class="chip-btn" id="sound-toggle" role="switch" aria-checked="${snd.isEnabled()}">${snd.isEnabled() ? T("on") : T("off")}</button>
     </div>
-    <p class="fine">Your choices are saved on this device only. Nothing is sent anywhere.</p>
-    <button class="btn ghost" style="margin-top:12px;width:100%" data-close>Done</button>`;
+    <p class="fine">${T("settings.privacy")}</p>
+    <button class="btn ghost" style="margin-top:12px;width:100%" data-close>${T("settings.done")}</button>`;
   $("sound-toggle").onclick = () => {
     const on = !snd.isEnabled(); snd.setEnabled(on);
-    $("sound-toggle").textContent = on ? "On" : "Off";
+    $("sound-toggle").textContent = on ? T("on") : T("off");
     $("sound-toggle").setAttribute("aria-checked", String(on));
     if (on) snd.tap();
   };
@@ -312,6 +348,8 @@ function openSettings() {
 }
 $("open-settings").onclick = openSettings;
 $("settings-body").addEventListener("click", e => {
+  const lb = e.target.closest("[data-lang]");
+  if (lb && window.bioI18n) { window.bioI18n.set(lb.dataset.lang); openSettings(); return; }
   const b = e.target.closest("[data-theme-id]"); if (!b) return;
   window.bioTheme.set(b.dataset.themeId);
   $("settings-body").querySelectorAll("[data-theme-id]").forEach(x => x.setAttribute("aria-checked", String(x === b)));
@@ -325,37 +363,37 @@ document.addEventListener("click", ev => {
 function renderStop(res) {
   $("stop-dew").innerHTML = mascot("unsure") + CLOUD;
   $("stop-tips").innerHTML = [
-    ["light", "Retake the photo in good light, close and sharp, so every word is readable."],
-    ["pen", "Fix any words Dew misread. Tap 'Edit the text' to change them."],
-    ["person", "Still not sure? Ask an agronomist before you mix or spray."],
+    ["light", T("stop.tip1")],
+    ["pen", T("stop.tip2")],
+    ["person", T("stop.tip3")],
   ].map(([i, t]) => `<div class="tip">${ICON[i]}<span>${t}</span></div>`).join("");
   show("stop");
 }
 
 /* ---------- conditions ---------- */
-const condHtml = (a) => `<span class="lv ${a.level || ""}">${a.level === "good" ? "Looks fine." : a.level === "warn" ? "Heads up." : ""}</span>${esc(a.text)}<br><a class="src-pill" href="${esc(a.source.url)}" target="_blank" rel="noopener">${esc(a.source.name)}</a>`;
+const condHtml = (a) => `<span class="lv ${a.level || ""}">${a.level === "good" ? T("cond.good") : a.level === "warn" ? T("cond.warn") : ""}</span>${trHtml(a.text)}<br><a class="src-pill" href="${esc(a.source.url)}" target="_blank" rel="noopener">${esc(a.source.name)}</a>`;
 let phTimer;
 $("ph").addEventListener("input", () => {
   clearTimeout(phTimer);
   phTimer = setTimeout(async () => {
     const v = parseFloat($("ph").value);
-    if (isNaN(v) || v < 0 || v > 14) { $("phmsg").innerHTML = isNaN(v) ? "" : '<div class="empty">pH goes from 0 to 14. Check the number on your strip or meter.</div>'; return; }
+    if (isNaN(v) || v < 0 || v > 14) { $("phmsg").innerHTML = isNaN(v) ? "" : `<div class="empty">${T("ph.err")}</div>`; return; }
     const r = await api.conditions(state.cls, { ph: v });
     $("phmsg").innerHTML = r.ph ? condHtml(r.ph) : "";
   }, 250);
 });
 $("wxbtn").onclick = () => {
-  const el = $("wxmsg"); el.innerHTML = "Getting your location...";
-  if (!navigator.geolocation) { el.innerHTML = '<div class="empty">This browser cannot share a location, so no weather check.</div>'; return; }
+  const el = $("wxmsg"); el.innerHTML = T("wx.getting");
+  if (!navigator.geolocation) { el.innerHTML = `<div class="empty">${T("wx.nogeo")}</div>`; return; }
   navigator.geolocation.getCurrentPosition(async pos => {
     const r = await api.conditions(state.cls, { lat: pos.coords.latitude, lon: pos.coords.longitude });
     const w = r.weather;
-    if (!w || w.error) { el.innerHTML = `<div class="empty">${esc(w?.error || "Weather lookup failed.")}</div>`; return; }
-    const uv = w.uv_index != null ? `, UV index ${Number(w.uv_index)}` : "";
-    el.innerHTML = `Right now: ${Number(w.temperature_c)}°C, humidity ${Number(w.humidity_pct)}%${uv}.<br>` +
-      (w.flag ? `<span class="lv warn">Heads up.</span>${esc(w.flag.text)}<br><a class="src-pill" href="${esc(w.flag.source.url)}" target="_blank" rel="noopener">${esc(w.flag.source.name)}</a>` : esc(w.no_flag_text)) +
+    if (!w || w.error) { el.innerHTML = `<div class="empty">${esc(w?.error || T("wx.fail"))}</div>`; return; }
+    const uv = w.uv_index != null ? T("wx.uv").replace("{n}", Number(w.uv_index)) : "";
+    el.innerHTML = T("wx.line").replace("{t}", Number(w.temperature_c)).replace("{h}", Number(w.humidity_pct)).replace("{uv}", uv) + "<br>" +
+      (w.flag ? `<span class="lv warn">${T("cond.warn")}</span>${trHtml(w.flag.text)}<br><a class="src-pill" href="${esc(w.flag.source.url)}" target="_blank" rel="noopener">${esc(w.flag.source.name)}</a>` : trHtml(w.no_flag_text)) +
       `<br><a class="src-pill" href="${esc(w.source.url)}" target="_blank" rel="noopener">${esc(w.source.name)}</a>`;
-  }, () => { el.innerHTML = '<div class="empty">No location shared, so no weather check. That is fine, everything else still works.</div>'; });
+  }, () => { el.innerHTML = `<div class="empty">${T("wx.denied")}</div>`; });
 };
 
 /* ================= mix check ================= */
@@ -369,8 +407,8 @@ function loadClassCase(key) {
  if(!a)return;
  state.mix.textA=a.text; state.mix.classCase=c.note;
  $("mixtext").value=b?.text||c.b;
- $("mix-a-reminder").textContent="CLASSROOM CASE: first label loaded as "+a.label+". This replaces the first product for this check.";
- $("hint-b").className="hint";$("hint-b").textContent=c.note+" No physical mixing is needed for this software demonstration.";
+ $("mix-a-reminder").textContent = T("mix.caseReminder").replace("{label}", a.label);
+ $("hint-b").className="hint";$("hint-b").textContent=c.note+T("mix.caseNoteSuffix");
  $("mixtext").focus();
 }
 document.querySelectorAll("[data-class-case]").forEach(b=>b.onclick=()=>loadClassCase(b.dataset.classCase));
@@ -389,7 +427,7 @@ function openMixScan() {
     const b = e.target.closest("[data-sid]"); if (!b) return;
     const sm = state.samples.find(x => x.id == b.dataset.sid);
     $("mixtext").value = sm.text; snd.tap();
-    $("hint-b").className = "hint"; $("hint-b").textContent = `Loaded the ${sm.label.replace(/\s*\(.*\)/, "")} excerpt. You can edit it.`;
+    $("hint-b").className = "hint"; $("hint-b").textContent = T("hint.loaded").replace("{name}", sm.label.replace(/\s*\(.*\)/, ""));
   };
   snd.step();
   show("mixscan");
@@ -404,21 +442,21 @@ async function readPhotoB(f) {
   $("ocrbar-b").style.width = "0%";
   try {
     const text = await readLabel(f,
-      pr => { $("ocrbar-b").style.width = Math.round(pr * 100) + "%"; $("ocrnote-b").textContent = `Dew is reading the label... ${Math.round(pr * 100)}%`; },
+      pr => { $("ocrbar-b").style.width = Math.round(pr * 100) + "%"; $("ocrnote-b").textContent = `${T("read.ocr")} ${Math.round(pr * 100)}%`; },
       msg => { $("ocrnote-b").textContent = "Dew: " + msg; });
     $("scanline-b").classList.add("hidden"); $("reading-b").classList.add("hidden");
     if (text) {
       $("mixtext").value = text.replace(/[ \t]*\n(?!\n)/g, " ");
-      $("hint-b").className = "hint"; $("hint-b").textContent = "Check the words below. Fix anything the camera got wrong.";
+      $("hint-b").className = "hint"; $("hint-b").textContent = T("hint.check");
       snd.scan();
     } else {
       $("hint-b").className = "hint nudge";
-      $("hint-b").textContent = "Dew could not find any words in that photo. Try a sharper, closer shot in good light, or type the label text yourself.";
+      $("hint-b").textContent = T("hint.nowords");
     }
   } catch {
     $("scanline-b").classList.add("hidden"); $("reading-b").classList.add("hidden");
     $("hint-b").className = "hint nudge";
-    $("hint-b").textContent = "Dew could not read the photo here. You can type or paste the label text instead.";
+    $("hint-b").textContent = T("hint.noread");
   }
 }
 
@@ -430,51 +468,51 @@ $("mix-read").onclick = async () => {
   const textB = $("mixtext").value.trim();
   if (textB.length < 30) {
     $("hint-b").className = "hint nudge";
-    $("hint-b").textContent = `Dew needs a little more text to work with (${textB.length}/30 characters so far).`;
+    $("hint-b").textContent = T("hint.short").replace("{n}", textB.length);
     $("mixtext").focus(); return;
   }
-  $("mix-read").disabled = true; $("mix-read").textContent = "Thinking...";
+  $("mix-read").disabled = true; $("mix-read").textContent = T("hint.thinking");
   try {
     const res = await api.mixcheck({ textA: state.mix.textA, textB });
     if (res.status === "same_product") {
       $("hint-b").className="hint nudge";
-      $("hint-b").textContent="These labels match the same recognised product (or repeat the same text). Choose a different second product. Editing only the display name will not change the match.";
+      $("hint-b").textContent = T("hint.same");
       $("mixtext").focus(); return;
     }
     state.mix.textB = textB; state.mix.res = res;
     state.mix.names = {
-      a: res.product_a.product?.name || res.product_a.actives.map(a=>a.name).join(", ") || "Product 1",
-      b: res.product_b.product?.name || res.product_b.actives.map(a=>a.name).join(", ") || (res.product_b.categories.length ? "Unspecified "+res.product_b.categories.join(" / ") : ""),
+      a: res.product_a.product?.name || res.product_a.actives.map(a=>TEx(a.name)).join(", ") || "Product 1",
+      b: res.product_b.product?.name || res.product_b.actives.map(a=>TEx(a.name)).join(", ") || (res.product_b.categories.length ? T("mix.unspecifiedCat").replace("{x}", res.product_b.categories.map(TEx).join(" / ")) : ""),
     };
     renderConfirm(res);
     snd.step();
     show("mixconfirm");
   } catch {
     $("hint-b").className = "hint nudge";
-    $("hint-b").textContent = "Something went wrong talking to the app. Try again.";
-  } finally { $("mix-read").disabled = false; $("mix-read").textContent = "Read this product"; }
+    $("hint-b").textContent = T("hint.err");
+  } finally { $("mix-read").disabled = false; $("mix-read").textContent = T("mix.read"); }
 };
 
 function fieldLine(label, value, extra = "") {
-  return `<div class="fline"><span class="fl">${label}</span><span class="fv${value ? "" : " none"}">${value ? esc(value) : "Not on the label"}</span>${extra}</div>`;
+  return `<div class="fline"><span class="fl">${label}</span><span class="fv${value ? "" : " none"}">${value ? esc(value) : T("fl.notonlabel")}</span>${extra}</div>`;
 }
 
 function productTag(tag, side, data, name) {
   const p = data.product;
-  const kind = p ? `${esc(p.kind)} · ${esc(p.organism)}`
-    : data.actives.length ? `Mentions ${data.actives.map(a => esc(a.name)).join(", ")}`
-    : data.categories.length ? `Looks like a ${data.categories.map(esc).join("/")} label`
-    : "Dew could not recognise this product";
+  const kind = p ? `${trHtml(p.kind)} · ${esc(p.organism)}`
+    : data.actives.length ? T("tag.mentions").replace("{x}", data.actives.map(a => esc(TEx(a.name))).join(", "))
+    : data.categories.length ? T("tag.looks").replace("{x}", data.categories.map(c => esc(TEx(c))).join("/"))
+    : T("tag.unknown");
   const exp = data.expiry;
-  const expExtra = exp?.expired === true ? `<span class="exp-flag">date has passed</span>` : "";
+  const expExtra = exp?.expired === true ? `<span class="exp-flag">${T("tag.expired")}</span>` : "";
   return `
   <div class="ptag ${tag}" id="ptag-${side}">
     <div class="hole"></div>
-    <label class="ptag-label">${side === "a" ? "First product" : "Second product"}</label>
-    <input class="ptag-name" id="name-${side}" value="${esc(name)}" placeholder="Type the product name" aria-label="${side === "a" ? "First product name" : "Second product name"}">
+    <label class="ptag-label">${side === "a" ? T("tag.first") : T("tag.second")}</label>
+    <input class="ptag-name" id="name-${side}" value="${esc(name)}" placeholder="${T("tag.namePh")}" aria-label="${side === "a" ? T("tag.firstName") : T("tag.secondName")}">
     <div class="ptag-kind">${kind}</div>
-    ${fieldLine("Formulation", data.formulation)}
-    ${fieldLine("Expiry", exp ? exp.raw : null, expExtra)}
+    ${fieldLine(T("fl.formulation"), data.formulation)}
+    ${fieldLine(T("fl.expiry"), exp ? exp.raw : null, expExtra)}
   </div>`;
 }
 
@@ -485,8 +523,8 @@ function renderConfirm(res) {
       <div class="plink" aria-hidden="true"><span class="dots"></span><span class="q">?</span><span class="dots"></span></div>
       ${productTag("b", "b", res.product_b, state.mix.names.b)}
     </div>
-    <p class="fine" style="margin-top:12px">Matching uses the label text you scanned, not these names. The names only fill in the summary you can share.</p>
-    ${(res.product_a.expiry?.expired || res.product_b.expiry?.expired) ? `<p class="fine" style="color:var(--amber)">A date on one label has passed. That is all this means - it does not prove a product is fake, or that its organisms are dead.</p>` : ""}`;
+    <p class="fine" style="margin-top:12px">${T("confirm.note")}</p>
+    ${(res.product_a.expiry?.expired || res.product_b.expiry?.expired) ? `<p class="fine" style="color:var(--amber)">${T("confirm.expired")}</p>` : ""}`;
 }
 
 $("mix-check-now").onclick = () => {
@@ -496,86 +534,84 @@ $("mix-check-now").onclick = () => {
 };
 
 const VERDICT = {
-  conflict: { mood: "unsure", cls: "conflict", icon: "stop", title: "Hold on. A label warns against this mix.",
-    cta: "Review both labels or ask an agronomist before you mix.", sound: () => snd.caution() },
-  limited: { mood: "think", cls: "limited", icon: "warn", title: "Only general label guidance was found.",
-    cta: "Check with an agronomist or dealer before you mix.", sound: () => snd.hmm() },
-  no_evidence: { mood: "unsure", cls: "unknown", icon: "warn", title: "Dew can't confirm this combination.",
-    cta: "Take the question below to an agronomist or dealer.", sound: () => snd.hmm() },
+  conflict: { mood: "unsure", cls: "conflict", icon: "stop", sound: () => snd.caution() },
+  limited: { mood: "think", cls: "limited", icon: "warn", sound: () => snd.hmm() },
+  no_evidence: { mood: "unsure", cls: "unknown", icon: "warn", sound: () => snd.hmm() },
 };
+const verdictText = status => ({ title: T("v." + status + ".title"), cta: T("v." + status + ".cta") });
 
 function dealerCard(res, names) {
   const a = res.product_a, b = res.product_b;
-  const descA = [names.a || "Product 1", a.product?.organism, a.formulation].filter(Boolean).join(" · ");
-  const bBits = [b.product?.organism, b.actives.length ? "mentions " + b.actives.map(x => x.name).join(", ") : null, b.formulation].filter(Boolean);
-  const descB = [(names.b || (b.product ? b.product.name : "a product Dew could not recognise")), ...bBits].filter(Boolean).join(" · ");
+  const descA = [names.a || T("card.product1default"), a.product?.organism, a.formulation].filter(Boolean).join(" · ");
+  const bBits = [b.product?.organism, b.actives.length ? T("card.mentionsPrefix") + b.actives.map(x => TEx(x.name)).join(", ") : null, b.formulation].filter(Boolean);
+  const descB = [(names.b || (b.product ? b.product.name : T("card.unknownB"))), ...bBits].filter(Boolean).join(" · ");
   const found = res.findings.length
-    ? "bioOasis found this on a cited label: " + res.findings[0].headline + " Source: " + res.findings[0].source.url
-    : "bioOasis found no product-specific compatibility evidence for this pair.";
-  return `Mix question from bioOasis (college prototype)
-${state.mix.classCase ? "CLASSROOM EXAMPLE: not real user product labels or a physical mixing test.\n" : ""}
-Product 1: ${descA}
-Product 2: ${descB}
+    ? T("card.found") + (TE(res.findings[0].headline) || res.findings[0].headline) + " Source: " + res.findings[0].source.url
+    : T("card.notfound");
+  return `${T("card.title")}
+${state.mix.classCase ? T("card.classroom") + "\n" : ""}
+${T("card.p1")}${descA}
+${T("card.p2")}${descB}
 
-What I want to know: can these exact two products be tank mixed or used together, and is there tested guidance for these exact products and formulations?
+${T("card.q")}
 
 ${found}
 
-bioOasis is a prototype and may have misread a label. Please verify before use.`;
+${T("card.verify")}`;
 }
 
 function renderMixResult(res, names) {
-  const v = VERDICT[res.status];
+  const v = VERDICT[res.status]; const vt = verdictText(res.status);
   const reasonText = {
-    product_a_unknown: "Neither label matched a recognised product in the curated rule set. No product-specific evidence could be matched.",
-    product_b_unknown: "The second label did not name a product or ingredient Dew knows, so no evidence could be matched.",
-    no_pair_evidence: "Dew read both products, but none of the cited labels or sources it holds cover this exact pair.",
+    product_a_unknown: T("v.reason.a_unknown"),
+    product_b_unknown: T("v.reason.b_unknown"),
+    no_pair_evidence: T("v.reason.no_pair"),
   }[res.reason];
   const findings = [...res.findings].sort((x, y) => (x.verdict === "conflict" ? -1 : 0) - (y.verdict === "conflict" ? -1 : 0));
   const card = dealerCard(res, names);
   $("mix-action").innerHTML = `
-    ${state.mix.classCase ? `<aside class="demo-disclosure"><b>Classroom software example</b><p>${esc(state.mix.classCase)}</p><p>Inputs include public-label excerpts or explicitly marked ingredient/category text. This is not an actual tank test or spray recommendation.</p></aside>` : ""}
+    ${state.mix.classCase ? `<aside class="demo-disclosure"><b>${T("demo.title")}</b><p>${esc(state.mix.classCase)}</p><p>${T("demo.text")}</p></aside>` : ""}
     <div class="verdict ${v.cls}">
       <div class="verdict-dew">${mascot(v.mood)}</div>
       <div class="verdict-badge">${ICON[v.icon]}</div>
-      <div class="eyebrow">${{ conflict: "A real warning", limited: "General guidance only", no_evidence: "No pair evidence" }[res.status]}</div>
-      <h2 class="block-title">${v.title}</h2>
-      <div class="pairline"><span>${esc(names.a || "Product 1")}</span><span class="plus">+</span><span>${esc(names.b || "Product 2")}</span></div>
-      <div class="verdict-cta">${ICON.person}<b>${v.cta}</b></div>
+      <div class="eyebrow">${{ conflict: T("v.conflict.eyebrow"), limited: T("v.limited.eyebrow"), no_evidence: T("v.no_evidence.eyebrow") }[res.status]}</div>
+      <h2 class="block-title">${vt.title}</h2>
+      <div class="pairline"><span>${esc(TEx(names.a || T("card.product1default")))}</span><span class="plus">+</span><span>${esc(TEx(names.b || T("card.product2default")))}</span></div>
+      <div class="verdict-cta">${ICON.person}<b>${vt.cta}</b></div>
     </div>
 
     ${findings.length ? `<div class="findings">
       ${findings.map(f => `
         <div class="finding ${f.verdict}">
-          <div class="f-head">${ICON[f.verdict === "conflict" ? "stop" : "warn"]}<b>${esc(f.headline)}</b></div>
-          <p>${esc(f.scope)}</p>
-          <p class="fine">${esc(f.what_tested)}</p>
+          <div class="f-head">${ICON[f.verdict === "conflict" ? "stop" : "warn"]}<b>${trHtml(f.headline)}</b></div>
+          <p>${trHtml(f.scope)}</p>
+          <p class="fine">${trHtml(f.what_tested)}</p>
           <a class="src-pill" href="${esc(f.source.url)}" target="_blank" rel="noopener">${ICON.arrow.replace("<svg", '<svg width="13" height="13"')}${esc(f.source.name)}</a>
         </div>`).join("")}
     </div>` : `<p class="block-sub" style="margin:18px 0">${esc(reasonText || "")}</p>`}
 
-    ${res.status === "limited" ? `<div class="truth-note">${ICON.flask} A jar test or a "physically compatible" claim only shows the liquids mix. It does not show the living organisms survive.</div>` : ""}
+    ${res.status === "limited" ? `<div class="truth-note">${ICON.flask} ${T("mix.truth")}</div>` : ""}
 
     <div class="slip">
-      <div class="slip-top">Take this with you</div>
-      <textarea id="dealer-card" spellcheck="false" aria-label="Summary to show an agronomist or dealer">${esc(card)}</textarea>
+      <div class="slip-top">${T("slip.top")}</div>
+      <textarea id="dealer-card" spellcheck="false" aria-label="${T("slip.aria")}">${esc(card)}</textarea>
       <div class="cta-row">
-        <button class="btn primary" id="copy-card"><span style="width:18px;display:contents">${ICON.copy}</span> Copy the summary</button>
-        <button class="btn ghost" id="save-card"><span style="width:18px;display:contents">${ICON.save}</span> Save as file</button>
+        <button class="btn primary" id="copy-card"><span style="width:18px;display:contents">${ICON.copy}</span> ${T("slip.copy")}</button>
+        <button class="btn ghost" id="save-card"><span style="width:18px;display:contents">${ICON.save}</span> ${T("slip.save")}</button>
       </div>
-      <p class="fine">Copies to your clipboard or downloads a small text file on this device. Nothing is sent anywhere.</p>
+      <p class="fine">${T("slip.fine")}</p>
     </div>
 
-    <p class="conf-note">${esc(res.disclaimer)}</p>
+    <p class="conf-note">${trHtml(res.disclaimer)}</p>
     <div class="cta-row" style="margin-top:16px">
-      <button class="btn ghost" id="mix-again">Start over</button>
+      <button class="btn ghost" id="mix-again">${T("mix.startover")}</button>
     </div>`;
   $("copy-card").onclick = async () => {
     const t = $("dealer-card").value;
-    try { await navigator.clipboard.writeText(t); $("copy-card").innerHTML = "Copied"; }
+    try { await navigator.clipboard.writeText(t); $("copy-card").innerHTML = T("slip.copied"); }
     catch {
       $("dealer-card").select(); document.execCommand("copy");
-      $("copy-card").innerHTML = "Copied";
+      $("copy-card").innerHTML = T("slip.copied");
     }
     snd.copied();
   };
@@ -616,15 +652,44 @@ dew.init({
 $("dew-hero").innerHTML = mascot("hello", "big");
 for (const [id, k] of [["dew-attach", "camera"], ["dew-mic", "mic"], ["dew-send", "arrow"]]) $(id).innerHTML = ICON[k];
 
+
+/* Re-render dynamic views when the platform language changes mid-session. */
+if (window.bioI18n) 
+document.addEventListener("click", (ev) => {
+  const b = ev.target.closest(".tr-toggle");
+  if (!b) return;
+  const n = b.previousSibling;
+  if (!n || n.nodeType !== Node.TEXT_NODE) return;
+  const cur = n.textContent;
+  n.textContent = b.dataset.alt;
+  b.dataset.alt = cur;
+  const L = window.bioI18n ? window.bioI18n.lang : "en";
+  const pair = TRLBL[L] || ["Original EN", "Translation"];
+  const showingTr = n.textContent === b.dataset.tr;
+  b.textContent = showingTr ? pair[0] : pair[1];
+  b.setAttribute("aria-label", showingTr ? "Show the original English" : "Show the translation");
+});
+window.bioI18n.onChange(() => {
+  try {
+    renderHow();
+    renderSamples(); renderWhy(); renderCredits();
+    chooseDesk(deskChoice);
+    if (state.result) renderResult(state.result, false);
+    if (state.mix && state.mix.res && !$("v-mixresult").classList.contains("hidden")) renderMixResult(state.mix.res, state.mix.names || { a: "", b: "" });
+    if (state.mix && state.mix.res && !$("v-mixconfirm").classList.contains("hidden")) renderConfirm(state.mix.res);
+  } catch (e) { console.warn("i18n re-render", e); }
+});
+
 /* Home field desk: real routes, no simulated agronomy or automatic AI send. */
 const deskNotes = {
- label: {label:"Start with what's printed", title:"The small print is the useful part.", text:"Keep the product name, active ingredient and instructions in the photo. You can also paste the label text if the photo is hard to read.", reminder:"A clear label helps Dew recognise a product type. It does not prove the product is genuine or safe to use.", action:"Read a label"},
- water: {label:"Bring a measurement, not a guess", title:"Your water has a part in the story.", text:"Have a pH reading from a strip or meter? After reading a label, open Your field and enter it. Dew will show the relevant guidance with its source.", reminder:"No reading yet? Leave it blank. The check is optional, and it is not a recipe for treating your water.", action:"Read a label first"},
- pair: {label:"Keep both labels close", title:"Two bottles need two sets of evidence.", text:"Read the first label, then choose Check the mix to add the second. Keep each product name and formulation available for the question you take to an agronomist.", reminder:"A missing warning is not proof of compatibility. Dew says when its sources do not cover the combination.", action:"Start with the first label"}
+ label: {label:"desk.noteLabel", title:"desk.noteTitle", text:"desk.noteText", reminder:"desk.reminder", action:"desk.action"},
+ water: {label:"desk.w.label", title:"desk.w.title", text:"desk.w.text", reminder:"desk.w.reminder", action:"desk.w.action"},
+ pair: {label:"desk.p.label", title:"desk.p.title", text:"desk.p.text", reminder:"desk.p.reminder", action:"desk.p.action"}
 };
 let deskChoice = "label";
 function chooseDesk(key) {
- deskChoice = key; const n = deskNotes[key];
+ deskChoice = key; const k = deskNotes[key];
+ const n = { label: T(k.label), title: T(k.title), text: T(k.text), reminder: T(k.reminder), action: T(k.action) };
  document.querySelectorAll("[data-desk]").forEach(b => { const on=b.dataset.desk===key; b.setAttribute("aria-selected",String(on)); b.tabIndex=on?0:-1; });
  $("desk-panel").setAttribute("aria-labelledby","desk-tab-"+key);
  for(const [id,val] of [["desk-note-label",n.label],["desk-note-title",n.title],["desk-note-text",n.text],["desk-reminder",n.reminder]]) $(id).textContent=val;

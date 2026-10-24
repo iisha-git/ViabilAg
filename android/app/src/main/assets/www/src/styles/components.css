@@ -458,7 +458,7 @@ html[data-theme="aurora"] .desk-action{color:#c6ff3d;border-color:#c6ff3d}
 #dew-voice.hidden{display:none}
 .dv-exit{position:absolute;top:calc(14px + env(safe-area-inset-top));left:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(243,236,220,.35);background:rgba(255,255,255,.06);color:#f3ecdc;display:flex;align-items:center;justify-content:center;cursor:pointer}
 .dv-exit svg{width:20px;height:20px}
-.dv-stage{position:relative;width:min(62vw,300px);display:flex;align-items:center;justify-content:center}
+.dv-stage{position:relative;width:min(62vw,300px,34vh);flex:none;display:flex;align-items:center;justify-content:center}
 .dv-mascot{width:100%;transition:transform .2s}
 .dv-mascot svg{width:100%;height:auto}
 .dv-rings{position:absolute;inset:-14%;pointer-events:none;display:none}
@@ -471,8 +471,11 @@ html[data-theme="aurora"] .desk-action{color:#c6ff3d;border-color:#c6ff3d}
 @keyframes dvring{0%{transform:scale(.82);opacity:.9}100%{transform:scale(1.25);opacity:0}}
 @keyframes dvtalk{from{transform:scale(1)}to{transform:scale(1.045)}}
 @keyframes dvthink{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.dv-status{font-size:15px;color:#9fe4d6;font-weight:600;letter-spacing:.02em;min-height:22px;text-align:center}
+.dv-status{font-size:15px;color:#9fe4d6;font-weight:600;letter-spacing:.02em;min-height:22px;text-align:center;margin-top:max(1.6rem,min(9vw,6vh))}
 .dv-caption{max-width:min(88vw,560px);min-height:48px;font-size:16px;line-height:1.5;color:#f3ecdc;text-align:center;opacity:.92}
 .dv-mic{margin-top:4px;width:76px;height:76px;border-radius:50%;border:none;background:#3fc3aa;color:#0d1a20;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(63,195,170,.35);cursor:pointer}
 .dv-mic svg{width:32px;height:32px}
 .dv-mic:active{transform:scale(.94)}
+
+.tr-toggle{font:600 10px/1 inherit;padding:3px 8px;margin-left:6px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--cream-dim);cursor:pointer;vertical-align:2px}
+.tr-toggle:hover{border-color:var(--teal);color:var(--teal)}
