@@ -286,10 +286,16 @@ $("open-about").onclick = openAbout;
 const SWATCH = { lilac: ["#EFE9FF", "#6C4DF6", "#FF7A59"], pop: ["#FFF1B8", "#FF5A36", "#8C6BFF"], aurora: ["#0C0824", "#C6FF3D", "#FF5FD2"] };
 function openSettings() {
   const cur = window.bioTheme.get();
+  const T = window.bioI18n ? window.bioI18n.t : k => k;
+  const L = window.bioI18n;
   $("settings-body").innerHTML = `
     <div class="sdew">${mascot("happy")}</div>
-    <h3 class="serif">Settings</h3>
-    <p>Pick a look. Same content in all of them.</p>
+    <h3 class="serif">${T("settings.title")}</h3>
+    <p>${T("settings.look")}</p>
+    <div class="sound-row">
+      <span class="tx"><b>${T("settings.language")}</b><small>${T("settings.languageNote")}</small></span>
+      <span class="lang-row">${L ? L.langs.map(l => `<button class="chip-btn" data-lang="${l}" aria-checked="${l === L.lang}">${L.names[l]}</button>`).join(" ") : ""}</span>
+    </div>
     <div class="themes" role="radiogroup" aria-label="Theme">${Object.entries(window.bioTheme.list).map(([id, t]) => `
       <button class="theme-opt" role="radio" aria-checked="${id === cur}" data-theme-id="${id}">
         <span class="sw">${SWATCH[id].map(c => `<i style="background:${c}"></i>`).join("")}</span>
@@ -297,14 +303,14 @@ function openSettings() {
         <span class="tick" aria-hidden="true"></span>
       </button>`).join("")}</div>
     <div class="sound-row">
-      <span class="tx"><b>Sounds</b><small>Soft taps and step chimes. Off means fully silent.</small></span>
-      <button class="chip-btn" id="sound-toggle" role="switch" aria-checked="${snd.isEnabled()}">${snd.isEnabled() ? "On" : "Off"}</button>
+      <span class="tx"><b>${T("settings.sounds")}</b><small>${T("settings.soundsNote")}</small></span>
+      <button class="chip-btn" id="sound-toggle" role="switch" aria-checked="${snd.isEnabled()}">${snd.isEnabled() ? T("on") : T("off")}</button>
     </div>
-    <p class="fine">Your choices are saved on this device only. Nothing is sent anywhere.</p>
-    <button class="btn ghost" style="margin-top:12px;width:100%" data-close>Done</button>`;
+    <p class="fine">${T("settings.privacy")}</p>
+    <button class="btn ghost" style="margin-top:12px;width:100%" data-close>${T("settings.done")}</button>`;
   $("sound-toggle").onclick = () => {
     const on = !snd.isEnabled(); snd.setEnabled(on);
-    $("sound-toggle").textContent = on ? "On" : "Off";
+    $("sound-toggle").textContent = on ? T("on") : T("off");
     $("sound-toggle").setAttribute("aria-checked", String(on));
     if (on) snd.tap();
   };
@@ -312,6 +318,8 @@ function openSettings() {
 }
 $("open-settings").onclick = openSettings;
 $("settings-body").addEventListener("click", e => {
+  const lb = e.target.closest("[data-lang]");
+  if (lb && window.bioI18n) { window.bioI18n.set(lb.dataset.lang); openSettings(); return; }
   const b = e.target.closest("[data-theme-id]"); if (!b) return;
   window.bioTheme.set(b.dataset.themeId);
   $("settings-body").querySelectorAll("[data-theme-id]").forEach(x => x.setAttribute("aria-checked", String(x === b)));

@@ -15,7 +15,8 @@ import { readLabel } from "./ocr.js";
 import { guideIntent, pestIntent, btIntent, sprayHowIntent, nonBtProductIntent } from "./dewroute.js";
 
 let ctx = { getContext: () => ({}), openScan: () => {}, openMix: () => {}, openResult: () => {}, showDew: () => {}, exitDew: () => {}, onCorrection: () => {} };
-let lang = localStorage.getItem("biooasis-dew-lang") || "en";
+let lang = (window.bioI18n && window.bioI18n.lang) || localStorage.getItem("biooasis-dew-lang") || "en";
+if (window.bioI18n) window.bioI18n.onChange(l => setLang(l));
 let busy = false;
 let lastQuestion = null; // last open question sent to Dew AI, for the Retry chip
 let lastTopic = null; // grounded topic of the conversation (e.g. "bt") for follow-ups
@@ -203,6 +204,7 @@ export function init(hooks) {
 function setLang(l, auto = false) {
   if (!L[l] || l === lang) return;
   lang = l; localStorage.setItem("biooasis-dew-lang", lang);
+  if (window.bioI18n && window.bioI18n.lang !== l) window.bioI18n.set(l);
   renderLangs(); $("dew-input").placeholder = L[lang].placeholder;
   // The transcript and session context are kept: every message re-renders
   // in the new language, and a note makes the switch explicit in the log.
