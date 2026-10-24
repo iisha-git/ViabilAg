@@ -48,6 +48,7 @@ const L = {
     thanks: "Anytime. Dew stays in your pocket.",
     corrected: n => `Got it - I'll remember it as ${n} for this session.`,
     noMatch: "I didn't catch that - try again, or type it.",
+    noMatchAgain: "Still nothing - typing may work better here.",
     langNote: "Language changed - our chat and everything you showed me carries on.",
     autoNote: "That sounded like English - I'll answer in English.",
     placeholder: "Type to Dew...",
@@ -80,6 +81,7 @@ const L = {
     thanks: "कोई बात नहीं। ड्यू आपकी जेब में रहता है।",
     corrected: n => `ठीक है - इस सत्र के लिए मैं इसे ${n} के रूप में याद रखूँगा।`,
     noMatch: "मुझे वह सुनाई नहीं दिया - फिर कहें या लिखें।",
+    noMatchAgain: "अभी भी सुनाई नहीं दिया - यहाँ लिखना आसान रहेगा।",
     langNote: "भाषा बदल गई - हमारी बातचीत और आपने जो दिखाया, सब जारी रहता है।",
     autoNote: "आपकी बात हिंदी लगी - मैं हिंदी में जवाब दूँगा।",
     placeholder: "ड्यू को लिखें...",
@@ -112,6 +114,7 @@ const L = {
     thanks: "काही हरकत नाही. ड्यू तुमच्या खिशात राहतो.",
     corrected: n => `ठीक आहे - या सत्रासाठी मी ते ${n} म्हणून लक्षात ठेवतो.`,
     noMatch: "मला ते ऐकू आले नाही - पुन्हा सांगा किंवा लिहा.",
+    noMatchAgain: "अजूनही ऐकू आले नाही - इथे लिहिणे सोपे जाईल.",
     langNote: "भाषा बदलली - आपली गप्पा आणि तुम्ही दाखवलेले सर्व काही चालू राहते.",
     autoNote: "तुमची बोली मराठी वाटली - मी मराठीत उत्तर देतो.",
     placeholder: "ड्यूला लिहा...",
@@ -220,6 +223,8 @@ function renderLangs() {
 }
 
 function speak(text) {
+  // Never talk over the user: if the mic is listening, show text only.
+  if (listening) return;
   if (!(snd.isEnabled() || voiceTurn)) return;
   const lg = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[detectLang(String(text))] || "en-IN";
   // Android app: use the phone's own text-to-speech through the bundled-page bridge.
@@ -271,11 +276,11 @@ function renderLog() {
   log.scrollTop = log.scrollHeight;
 }
 
-function say(msg, chips = null, tag = null) {
+function say(msg, chips = null, tag = null, quiet = false) {
   const entry = { who: "dew", msg, chips, tag };
   history.push(entry);
   append(entry);
-  speak(txt(msg));
+  if (!quiet) speak(txt(msg));
 }
 
 function note(msg) {
@@ -322,14 +327,40 @@ function listeningBubble() {
   return () => { if (el.isConnected) el.remove(); };
 }
 
+// How many mic attempts in a row caught nothing. A real conversation does
+// not repeat the same "I can't hear you" line; it says it once, then gets
+// quieter and points at typing instead.
+let missCount = 0;
+
+function misheard() {
+  missCount++;
+  if (missCount === 1) say(l => L[l].noMatch);
+  else if (missCount === 2) say(l => L[l].noMatchAgain, null, null, true);
+  else note(l => L[l].noMatchAgain);
+}
+
 function heard(text) {
+  missCount = 0;
   setLang(detectLang(text), true);
   voiceTurn = true;
-  userSay(`${L[lang].heard} ${text}`);
+  // Her own words appear as her own message, like any chat - no "I heard:"
+  // prefix announcing the transcription.
+  userSay(text);
   reply(text);
 }
 
+// A mic tap is also the interrupt button: it ALWAYS stops Dew talking,
+// even while an answer is still being fetched.
+let listening = false;
+function stopSpeaking() {
+  try { if ("speechSynthesis" in window) speechSynthesis.cancel(); } catch { /* ignore */ }
+  if (window.BioDewSpeech && typeof window.BioDewSpeech.postMessage === "function") {
+    try { window.BioDewSpeech.postMessage("stopspeak"); } catch { /* ignore */ }
+  }
+}
+
 function mic() {
+  stopSpeaking();
   if (busy) return;
   snd.tap();
   const langTag = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[lang];
@@ -337,17 +368,18 @@ function mic() {
   // recognizer (it may use the provider's network service). In browsers, the
   // Web Speech API. Either way: listening starts only on this tap.
   if (window.BioDewSpeech && typeof window.BioDewSpeech.postMessage === "function") {
-    try { window.BioDewSpeech.postMessage("stopspeak"); } catch { /* ignore */ }
     const done = listeningBubble();
+    listening = true;
+    const stopListening = () => { listening = false; done(); };
     window.BioDewSpeech.onmessage = ev => {
       const { kind, val } = parseWire(ev.data), c = classify(kind);
-      done();
+      stopListening();
       if (c === "result") { if (val.trim()) heard(val); return; }
       if (c === "cancelled") return;
       if (c === "noMic") say(l => L[l].noMic);
-      else say(l => L[l].noMatch);
+      else misheard();
     };
-    try { window.BioDewSpeech.postMessage("start\t" + langTag); } catch { done(); say(l => L[l].noMic); }
+    try { window.BioDewSpeech.postMessage("start\t" + langTag); } catch { stopListening(); say(l => L[l].noMic); }
     return;
   }
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -355,14 +387,16 @@ function mic() {
   const r = new SR();
   r.lang = langTag;
   const done = listeningBubble();
-  r.onresult = e => { done(); heard(e.results[0][0].transcript); };
+  listening = true;
+  const stopListening = () => { listening = false; done(); };
+  r.onresult = e => { stopListening(); heard(e.results[0][0].transcript); };
   r.onerror = e => {
-    done();
+    stopListening();
     if (e && (e.error === "not-allowed" || e.error === "service-not-allowed" || e.error === "audio-capture")) say(l => L[l].noMic);
-    else say(l => L[l].noMatch);
+    else misheard();
   };
-  r.onend = done;
-  try { r.start(); } catch { done(); say(l => L[l].noMic); }
+  r.onend = stopListening;
+  try { r.start(); } catch { stopListening(); say(l => L[l].noMic); }
 }
 
 export async function handlePhoto(file) {

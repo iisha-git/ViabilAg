@@ -13,7 +13,7 @@ let src = readFileSync(new URL('../frontend/src/js/dew.js', import.meta.url), 'u
   .replace(/function renderLog\(\) \{[\s\S]*?\n\}/, 'function renderLog() {}')
   .replace(/function renderLangs\(\) \{[\s\S]*?\n\}/, 'function renderLangs() {}')
   .replace(/function thinkingBubble\(\) \{[\s\S]*?\n\}/, 'function thinkingBubble() { return () => {}; }')
-  .replace(/function say\(msg, chips = null, tag = null\) \{[\s\S]*?\n\}/,
+  .replace(/function say\(msg, chips = null, tag = null, quiet = false\) \{[\s\S]*?\n\}/,
     'function say(msg, chips = null, tag = null) { recorded.push({ kind: "say", text: txt(msg), chips: chips ? chips(lang) : null, tag }); }')
   .replace(/function note\(msg\) \{[\s\S]*?\n\}/,
     'function note(msg) { recorded.push({ kind: "note", text: txt(msg) }); }')

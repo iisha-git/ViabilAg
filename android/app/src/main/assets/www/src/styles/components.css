@@ -362,7 +362,7 @@ details.more div{padding-top:8px}
 .msg .mdew{width:30px;flex:none}
 .dew .dew.mini,.mdew svg{width:30px}
 .dew-inputrow{display:flex;gap:8px;align-items:center;padding:10px 14px 16px;border-top:1px solid var(--line)}
-.dew-inputrow input{flex:1;background:var(--char-2);border:1.5px solid var(--line);border-radius:999px;padding:12px 16px;color:var(--cream);font-size:14.5px}
+.dew-inputrow input{flex:1;min-width:0;background:var(--char-2);border:1.5px solid var(--line);border-radius:999px;padding:12px 16px;color:var(--cream);font-size:14.5px}
 .dew-inputrow input:focus{outline:none;border-color:var(--teal)}
 .icobtn{width:42px;height:42px;border-radius:50%;background:var(--char-2);border:1.5px solid var(--line);color:var(--teal);display:grid;place-items:center;flex:none;transition:transform .2s var(--ease)}
 .icobtn:hover{transform:scale(1.08)}
