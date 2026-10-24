@@ -38,6 +38,34 @@ export async function shrink(file) {
 
 const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))]);
 
+// The Android app reads photos with the phone's own on-device recognizer
+// (ML Kit) through the bundled-page bridge: seconds instead of the in-page
+// reader, and the photo still never leaves the phone.
+export function nativeOcrAvailable() {
+  return !!(window.BioDewOcr && typeof window.BioDewOcr.postMessage === "function");
+}
+
+function blobToB64(blob) {
+  return new Promise((res, rej) => {
+    const fr = new FileReader();
+    fr.onload = () => res(String(fr.result).split(",")[1] || "");
+    fr.onerror = () => rej(new Error("read-failed"));
+    fr.readAsDataURL(blob);
+  });
+}
+
+async function nativeOcr(img) {
+  const b64 = await blobToB64(img);
+  return await withTimeout(new Promise((res, rej) => {
+    window.BioDewOcr.onmessage = ev => {
+      const d = String(ev && ev.data != null ? ev.data : "");
+      if (d.startsWith("text\t")) res(d.slice(5).trim());
+      else rej(new Error(d || "ocr-failed"));
+    };
+    try { window.BioDewOcr.postMessage("ocr\t" + b64); } catch (e) { rej(e); }
+  }), 30000);
+}
+
 // The app says photos are read on your device, so the server fallback must never
 // fire silently: ask first, and a "no" simply means the photo stays put.
 function askServerUpload() {
@@ -49,6 +77,13 @@ function askServerUpload() {
 
 export async function readLabel(file, onProgress, onStatus = () => {}) {
   const img = await shrink(file);
+  if (nativeOcrAvailable()) {
+    try {
+      onStatus("Reading on your phone...");
+      const t = await nativeOcr(img);
+      if (t) return t;
+    } catch { /* fall through to the in-page reader */ }
+  }
   try {
     onStatus("Loading the reader...");
     const T = await withTimeout(loadTesseract(), 20000);

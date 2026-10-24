@@ -8,8 +8,8 @@ android {
         applicationId "com.viabilag.biooasis"
         minSdk 26
         targetSdk 34
-        versionCode 25
-        versionName "0.6.25"
+        versionCode 26
+        versionName "0.6.26"
     }
 }
 
@@ -25,4 +25,6 @@ preBuild.dependsOn copyWebAssets
 
 dependencies {
     implementation 'androidx.webkit:webkit:1.8.0'
+    // On-device label text recognition (Latin script model bundled in the APK).
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
 }

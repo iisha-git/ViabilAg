@@ -270,6 +270,16 @@
       <input id="dew-input" type="text" autocomplete="off" placeholder="Type to Dew...">
       <button class="icobtn send" id="dew-send" aria-label="Send"></button>
     </div>
+    <div id="dew-voice" class="hidden">
+      <button class="dv-exit" id="dv-exit" aria-label="Back to chat"></button>
+      <div class="dv-stage" id="dv-stage" data-state="listen">
+        <div class="dv-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="dv-mascot" id="dv-mascot"></div>
+      </div>
+      <div class="dv-status" id="dv-status"></div>
+      <div class="dv-caption" id="dv-caption" aria-live="polite"></div>
+      <button class="dv-mic" id="dv-mic" aria-label="Talk to Dew"></button>
+    </div>
 </div></div>
 
 <script type="module" src="src/js/boot-icons.js"></script>

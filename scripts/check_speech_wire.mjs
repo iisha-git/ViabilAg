@@ -35,6 +35,13 @@ for (const c of codes) if (!known.has(c)) fail(`Java emits unknown error code "$
 if (!/jsSpeech\("onResult"/.test(java)) fail("Java no longer reports results");
 if (!/jsSpeech\("cancelled"/.test(java)) fail("Java no longer reports cancellation");
 
+// 3b. Voice-mode additions: partials, speech completion, and the OCR bridge.
+if (!/else if \("onPartial"\.equals\(kind\)\) wire = "partial\\t" \+ value;/.test(java)) fail('MainActivity must send partials as "partial\\t" + text');
+if (!/jsSpeech\("speakdone", ""\)/.test(java)) fail('MainActivity must report utterance completion as "speakdone"');
+if (!java.includes('addWebMessageListener(web, "BioDewOcr"')) fail('MainActivity lacks the BioDewOcr bridge');
+if (!/postMessage\("text\\t"/.test(java)) fail('BioDewOcr must answer with "text\\t" + label text');
+if (!/EXTRA_PARTIAL_RESULTS, true/.test(java)) fail('recognizer must request partial results');
+
 // 4. Android 11+ package visibility for speech recognizers is declared.
 const manifest = readFileSync(new URL("../android/app/src/main/AndroidManifest.xml", import.meta.url), "utf8");
 if (!manifest.includes("android.speech.RecognitionService")) fail("manifest lacks the RecognitionService <queries> entry");

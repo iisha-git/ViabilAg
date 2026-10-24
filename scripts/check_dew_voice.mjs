@@ -37,8 +37,16 @@ const sandbox = {
   classify: (k) => k === 'result' ? 'result' : k,
   readLabel: async () => '',
   localStorage: { getItem: () => 'en', setItem: () => {} },
-  document: { getElementById: () => ({ innerHTML: '', placeholder: '' }), createElement: () => ({}) },
+  document: { getElementById: el, createElement: () => ({}) },
+  setTimeout: (f, ms) => { timeouts.push(f); return timeouts.length; },
 };
+const timeouts = [];
+const els = {};
+function el(id) {
+  return els[id] ||= { innerHTML: '', placeholder: '', textContent: '', value: '', dataset: {}, style: {},
+    classList: { add() {}, remove() {}, toggle() {} }, addEventListener() {}, appendChild() {} };
+}
+const runTimeouts = () => timeouts.splice(0).forEach(f => f());
 vm.createContext(sandbox);
 vm.runInContext(src, sandbox);
 
@@ -92,5 +100,35 @@ assert.deepEqual(nativePosts, ['stopspeak', 'start\ten-IN'], 'native: stopspeak 
 // native result ends listening and speech is allowed again
 vm.runInContext('window.BioDewSpeech.onmessage({ data: "result\\tmera sawal" })', sandbox);
 assert.equal(vm.runInContext('listening', sandbox), false, 'native result ends listening');
+
+// 6) Voice mode: a mic tap opens the immersive stage.
+assert.equal(vm.runInContext('voiceMode', sandbox), true, 'mic tap enters voice mode');
+
+// 7) The voice loop: a completed native utterance hands the floor back.
+nativePosts.length = 0;
+vm.runInContext('lang = "en"; busy = false; listening = false; voiceTurn = true; speak("the answer", onVoiceSpoke);', sandbox);
+assert.deepEqual(nativePosts, ['speak\ten-IN\tthe answer'], 'native: reply spoken through the bridge');
+vm.runInContext('window.BioDewSpeech.onmessage({ data: "speakdone" })', sandbox);
+runTimeouts();   // the 700ms floor-handback beat
+assert.deepEqual(nativePosts.slice(1), ['start\ten-IN'], 'after Dew speaks, voice mode listens again');
+
+// 8) Interrupt invalidates a pending utterance: a stale speakdone must not
+//    trigger a second listen on top of the new mic tap.
+vm.runInContext('listening = false;', sandbox);
+nativePosts.length = 0;
+vm.runInContext('speak("second answer", onVoiceSpoke);', sandbox);
+vm.runInContext('mic()', sandbox);   // user jumps in mid-reply
+vm.runInContext('window.BioDewSpeech.onmessage({ data: "speakdone" })', sandbox);  // stale completion
+runTimeouts();
+assert.deepEqual(nativePosts, ['speak\ten-IN\tsecond answer', 'stopspeak', 'start\ten-IN'],
+  'stale speakdone after an interrupt is ignored, exactly one new listen');
+
+// 9) Echo guard: Dew\'s own words bouncing back from the speaker are dropped.
+nativePosts.length = 0;
+vm.runInContext('lastSpoke = "Tell me your crop and product"; listening = false;', sandbox);
+vm.runInContext('window.BioDewSpeech.onmessage({ data: "result\ttell me your crop and product" })', sandbox);
+runTimeouts();
+assert.deepEqual(nativePosts, ['start\ten-IN'], 'echo transcript dropped, listening resumes');
+assert.equal(vm.runInContext('missCount', sandbox), 0, 'echo is not a miss');
 
 console.log('dew voice interrupt checks pass');

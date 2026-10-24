@@ -37,6 +37,9 @@ const L = {
     heard: "I heard:",
     noMic: "This browser can't hear you. Typing works everywhere.",
     listening: "Listening...",
+    vThink: "Dew is thinking...",
+    vSpeak: "Dew is speaking - tap the mic to jump in.",
+    vIdle: "Tap the mic to talk.",
     labelBtn: "Add a label",
     photoSent: "Label photo",
     needScan: "Scan a label first, then I can tell you more about it.",
@@ -70,6 +73,9 @@ const L = {
     heard: "मैंने सुना:",
     noMic: "यह ब्राउज़र आपकी आवाज़ नहीं सुन सकता। टाइप करना हर जगह चलता है।",
     listening: "सुन रहा हूँ...",
+    vThink: "ड्यू सोच रहा है...",
+    vSpeak: "ड्यू बोल रहा है - बीच में बोलने के लिए माइक दबाएं।",
+    vIdle: "बोलने के लिए माइक दबाएं।",
     labelBtn: "लेबल जोड़ें",
     photoSent: "लेबल फोटो",
     needScan: "पहले एक लेबल स्कैन करें, फिर मैं उसके बारे में बता सकता हूँ।",
@@ -103,6 +109,9 @@ const L = {
     heard: "मी ऐकलं:",
     noMic: "हा ब्राउझर तुमचा आवाज ऐकू शकत नाही. टाइप करणे सर्वत्र चालते.",
     listening: "ऐकतोय...",
+    vThink: "ड्यू विचार करतोय...",
+    vSpeak: "ड्यू बोलतोय - मध्ये बोलण्यासाठी माइक दाबा.",
+    vIdle: "बोलण्यासाठी माइक दाबा.",
     labelBtn: "लेबल जोडा",
     photoSent: "लेबल फोटो",
     needScan: "आधी एक लेबल स्कॅन करा, मग मी त्याबद्दल सांगू शकतो.",
@@ -169,10 +178,14 @@ const chipList = (c, l = lang) => typeof c === "function" ? c(l) : c;
 export function init(hooks) {
   ctx = { ...ctx, ...hooks };
   $("open-dew").onclick = open;
-  $("dew-close").onclick = () => ctx.exitDew();
+  $("dew-close").onclick = () => { exitVoice(); ctx.exitDew(); };
   $("dew-send").onclick = sendText;
   $("dew-input").addEventListener("keydown", e => { if (e.key === "Enter") sendText(); });
   $("dew-mic").onclick = mic;
+  $("dv-mic").onclick = dvMic;
+  $("dv-exit").onclick = exitVoice;
+  $("dv-mic").innerHTML = ICON.mic;
+  $("dv-exit").innerHTML = ICON.back;
   $("dew-attach").onclick = () => ctx.pickLabel();
   $("dew-log").addEventListener("click", e => {
     const b = e.target.closest(".dew-chips button");
@@ -222,19 +235,29 @@ function renderLangs() {
     .map(([id, name]) => `<button class="chip-btn ${id === lang ? "on" : ""}" data-lang="${id}">${name}</button>`).join("");
 }
 
-function speak(text) {
+function speak(text, ondone) {
   // Never talk over the user: if the mic is listening, show text only.
-  if (listening) return;
-  if (!(snd.isEnabled() || voiceTurn)) return;
+  if (listening) { if (ondone) ondone(); return; }
+  if (!(snd.isEnabled() || voiceTurn)) { if (ondone) ondone(); return; }
   const lg = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[detectLang(String(text))] || "en-IN";
+  const gen = ++speakGen;
+  const finish = () => { if (gen === speakGen && ondone) ondone(); };
   // Android app: use the phone's own text-to-speech through the bundled-page bridge.
-  if (window.BioDewSpeech && typeof window.BioDewSpeech.postMessage === "function") {
-    try { window.BioDewSpeech.postMessage("speak\t" + lg + "\t" + String(text).slice(0, 1500)); return; } catch { /* fall through to web voice */ }
+  if (bridge()) {
+    try {
+      nativeSpeakDone = finish;
+      // Failsafe: if "speakdone" never comes back (stale bridge), release the turn anyway.
+      setTimeout(() => { if (nativeSpeakDone === finish) { nativeSpeakDone = null; finish(); } },
+        Math.min(4000 + String(text).length * 90, 30000));
+      window.BioDewSpeech.postMessage("speak\t" + lg + "\t" + String(text).slice(0, 1500));
+      return;
+    } catch { nativeSpeakDone = null; /* fall through to web voice */ }
   }
-  if (!("speechSynthesis" in window)) return;
+  if (!("speechSynthesis" in window)) { if (ondone) ondone(); return; }
   const u = new SpeechSynthesisUtterance(text);
   u.lang = lg;
   u.rate = 1.0; u.pitch = 1.0;
+  u.onend = finish; u.onerror = finish;
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
 
@@ -280,7 +303,11 @@ function say(msg, chips = null, tag = null, quiet = false) {
   const entry = { who: "dew", msg, chips, tag };
   history.push(entry);
   append(entry);
-  if (!quiet) speak(txt(msg));
+  if (quiet) return;
+  const t = txt(msg);
+  lastSpoke = String(t);
+  if (voiceMode) voiceSet("speak", lastSpoke);
+  speak(t, onVoiceSpoke);
 }
 
 function note(msg) {
@@ -337,66 +364,179 @@ function misheard() {
   if (missCount === 1) say(l => L[l].noMatch);
   else if (missCount === 2) say(l => L[l].noMatchAgain, null, null, true);
   else note(l => L[l].noMatchAgain);
+  // Voice mode: after the first spoken retry the loop stops and waits for a tap.
+  if (voiceMode && missCount >= 2) voiceSet("idle", txt(L[lang].vIdle));
 }
 
 function heard(text) {
+  // Speaker echo right after Dew talked is not a user turn: drop it, keep listening.
+  if (voiceMode && isEcho(text)) { beginListening(); return; }
   missCount = 0;
   setLang(detectLang(text), true);
   voiceTurn = true;
+  if (voiceMode) voiceSet("think", String(text));
   // Her own words appear as her own message, like any chat - no "I heard:"
   // prefix announcing the transcription.
   userSay(text);
   reply(text);
 }
 
-// A mic tap is also the interrupt button: it ALWAYS stops Dew talking,
-// even while an answer is still being fetched.
+/* ---- Immersive voice mode -------------------------------------------------
+   A mic tap opens a full-screen stage where only Dew is present: listening
+   rings while you talk, a thinking state, then Dew talking back with the
+   reply as a caption. When Dew finishes, it listens again (after a beat, so
+   its own voice does not feed the mic). The chat transcript keeps recording
+   underneath, so leaving voice mode loses nothing. */
+
 let listening = false;
+let voiceMode = false;
+let recogHandler = null;      // native recognition session in flight
+let activeRecog = null;       // browser SpeechRecognition in flight
+let bubbleDone = null;        // removes the chat "Listening..." bubble
+let wantAbort = false;        // we stopped recognition on purpose
+let speakGen = 0;             // interrupt generation for speech callbacks
+let nativeSpeakDone = null;   // resolves the current native utterance
+let lastSpoke = "";           // Dew's latest spoken line (echo guard)
+
+const bridge = () => !!(window.BioDewSpeech && typeof window.BioDewSpeech.postMessage === "function");
+
+function voiceSet(state, caption) {
+  if (!voiceMode) return;
+  $("dv-stage").dataset.state = state;
+  $("dv-mascot").innerHTML = mascot(state === "think" ? "think" : state === "speak" ? "happy" : "hello");
+  $("dv-status").textContent = { listen: L[lang].listening, think: L[lang].vThink, speak: L[lang].vSpeak, idle: L[lang].vIdle }[state] || "";
+  if (caption !== undefined) $("dv-caption").textContent = caption;
+}
+
+function enterVoice() {
+  voiceMode = true;
+  $("dew-voice").classList.remove("hidden");
+}
+
+function exitVoice() {
+  if (!voiceMode) return;
+  voiceMode = false;          // first: pending callbacks become no-ops
+  $("dew-voice").classList.add("hidden");
+  stopSpeaking();
+  stopActiveRecognition();
+}
+
+function dvMic() {
+  if (listening) { stopActiveRecognition(); voiceSet("idle"); return; }
+  mic();
+}
+
 function stopSpeaking() {
+  speakGen++;                 // an interrupt invalidates pending speech callbacks
+  nativeSpeakDone = null;
   try { if ("speechSynthesis" in window) speechSynthesis.cancel(); } catch { /* ignore */ }
-  if (window.BioDewSpeech && typeof window.BioDewSpeech.postMessage === "function") {
+  if (bridge()) {
     try { window.BioDewSpeech.postMessage("stopspeak"); } catch { /* ignore */ }
   }
 }
 
+// All native bridge traffic flows through one dispatcher: speech completion
+// drives the conversation loop, partial transcripts feed the live caption,
+// and the rest belongs to the recognition session in flight.
+function dispatchBridge(data) {
+  const { kind, val } = parseWire(data);
+  if (kind === "speakdone") { const f = nativeSpeakDone; nativeSpeakDone = null; if (f) f(); return; }
+  if (kind === "partial") { if (voiceMode && listening) voiceSet("listen", val); return; }
+  if (recogHandler) recogHandler(kind, val);
+}
+
+function beginListening() {
+  const langTag = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[lang];
+  wantAbort = false;
+  bubbleDone = listeningBubble();
+  listening = true;
+  voiceSet("listen", "");
+  const stopListening = () => {
+    listening = false;
+    const d = bubbleDone; bubbleDone = null;
+    if (d) d();
+  };
+  // Inside the Android app, the native bridge uses the phone's speech
+  // recognizer (it may use the provider's network service). In browsers, the
+  // Web Speech API. Either way: listening starts only on a mic tap.
+  if (bridge()) {
+    window.BioDewSpeech.onmessage = ev => dispatchBridge(ev.data);
+    recogHandler = (kind, val) => {
+      const c = classify(kind);
+      recogHandler = null;
+      stopListening();
+      if (c === "result") { if (val.trim()) heard(val); else voiceSet("idle"); return; }
+      if (c === "cancelled") { voiceSet("idle"); return; }
+      if (c === "noMic") { say(l => L[l].noMic); return; }
+      misheard();
+    };
+    try { window.BioDewSpeech.postMessage("start\t" + langTag); }
+    catch { recogHandler = null; stopListening(); say(l => L[l].noMic); }
+    return;
+  }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { stopListening(); say(l => L[l].noMic); return; }
+  const r = new SR();
+  activeRecog = r;
+  r.lang = langTag;
+  r.interimResults = true;    // live captions while she talks
+  r.onresult = e => {
+    const res = e.results[e.results.length - 1];
+    if (!res.isFinal) { voiceSet("listen", res[0].transcript); return; }
+    activeRecog = null;
+    stopListening();
+    heard(res[0].transcript);
+  };
+  r.onerror = e => {
+    activeRecog = null;
+    stopListening();
+    if (wantAbort) { wantAbort = false; voiceSet("idle"); return; }
+    if (e && (e.error === "not-allowed" || e.error === "service-not-allowed" || e.error === "audio-capture")) say(l => L[l].noMic);
+    else misheard();
+  };
+  r.onend = () => { activeRecog = null; stopListening(); };
+  try { r.start(); } catch { activeRecog = null; stopListening(); say(l => L[l].noMic); }
+}
+
+function stopActiveRecognition() {
+  if (!listening) return;
+  wantAbort = true;
+  if (bridge()) {
+    try { window.BioDewSpeech.postMessage("stop"); } catch { /* ignore */ }
+    recogHandler = null;
+    listening = false;
+    const d = bubbleDone; bubbleDone = null;
+    if (d) d();
+    return;
+  }
+  try { if (activeRecog) (activeRecog.abort || activeRecog.stop).call(activeRecog); } catch { /* ignore */ }
+}
+
+// Dew finished a spoken turn: in voice mode, hand the floor back after a
+// beat. Outside voice mode this is a no-op.
+function onVoiceSpoke() {
+  if (!voiceMode) return;
+  voiceSet("idle");
+  setTimeout(() => { if (voiceMode && !listening && !busy) beginListening(); }, 700);
+}
+
+// Speaker output can echo back into the mic right after Dew talks. If the
+// transcript is just Dew's own last line, drop it and keep listening.
+function isEcho(t) {
+  if (!lastSpoke) return false;
+  const norm = x => String(x).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const a = norm(t), b = norm(lastSpoke);
+  return a.length > 12 && (b.includes(a) || a.includes(b));
+}
+
+// A mic tap is also the interrupt button: it ALWAYS stops Dew talking,
+// even while an answer is still being fetched.
 function mic() {
   stopSpeaking();
   if (busy) return;
   snd.tap();
-  const langTag = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[lang];
-  // Inside the Android app, the native bridge uses the phone's speech
-  // recognizer (it may use the provider's network service). In browsers, the
-  // Web Speech API. Either way: listening starts only on this tap.
-  if (window.BioDewSpeech && typeof window.BioDewSpeech.postMessage === "function") {
-    const done = listeningBubble();
-    listening = true;
-    const stopListening = () => { listening = false; done(); };
-    window.BioDewSpeech.onmessage = ev => {
-      const { kind, val } = parseWire(ev.data), c = classify(kind);
-      stopListening();
-      if (c === "result") { if (val.trim()) heard(val); return; }
-      if (c === "cancelled") return;
-      if (c === "noMic") say(l => L[l].noMic);
-      else misheard();
-    };
-    try { window.BioDewSpeech.postMessage("start\t" + langTag); } catch { stopListening(); say(l => L[l].noMic); }
-    return;
-  }
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { say(l => L[l].noMic); return; }
-  const r = new SR();
-  r.lang = langTag;
-  const done = listeningBubble();
-  listening = true;
-  const stopListening = () => { listening = false; done(); };
-  r.onresult = e => { stopListening(); heard(e.results[0][0].transcript); };
-  r.onerror = e => {
-    stopListening();
-    if (e && (e.error === "not-allowed" || e.error === "service-not-allowed" || e.error === "audio-capture")) say(l => L[l].noMic);
-    else misheard();
-  };
-  r.onend = stopListening;
-  try { r.start(); } catch { stopListening(); say(l => L[l].noMic); }
+  enterVoice();
+  beginListening();
 }
 
 export async function handlePhoto(file) {

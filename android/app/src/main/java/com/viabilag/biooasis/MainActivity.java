@@ -13,6 +13,15 @@ import android.util.Log;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+
+import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.text.TextRecognition;
+import com.google.mlkit.vision.text.TextRecognizer;
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 import android.webkit.GeolocationPermissions;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -102,6 +111,39 @@ public class MainActivity extends Activity {
                         } else if ("stopspeak".equals(parts[0])) {
                             runOnUiThread(this::stopSpeaking);
                         }
+                    });
+        }
+        // On-device label OCR (ML Kit): the page sends "ocr\t<base64 jpeg>" and gets
+        // back "text\t<label text>" or "error\t<code>". The photo is decoded and read
+        // entirely on the phone - nothing is uploaded. Same origin pinning as above.
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) {
+            WebViewCompat.addWebMessageListener(web, "BioDewOcr",
+                    Collections.singleton("https://appassets.androidplatform.net"),
+                    (view, message, sourceOrigin, isMainFrame, replyProxy) -> {
+                        if (!isMainFrame) return;
+                        String data = message.getData() == null ? "" : message.getData();
+                        if (!data.startsWith("ocr\t")) return;
+                        String b64 = data.substring(4);
+                        new Thread(() -> {
+                            try {
+                                byte[] bytes = Base64.decode(b64, Base64.DEFAULT);
+                                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                if (bmp == null) throw new IOException("bitmap decode failed");
+                                TextRecognizer rec = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+                                rec.process(InputImage.fromBitmap(bmp, 0))
+                                        .addOnSuccessListener(t -> runOnUiThread(() -> {
+                                            try { replyProxy.postMessage("text\t" + t.getText().replace("\t", " ").trim()); }
+                                            catch (Exception ignored) {}
+                                        }))
+                                        .addOnFailureListener(e -> runOnUiThread(() -> {
+                                            try { replyProxy.postMessage("error\tocr"); } catch (Exception ignored) {}
+                                        }));
+                            } catch (Exception e) {
+                                runOnUiThread(() -> {
+                                    try { replyProxy.postMessage("error\tocr"); } catch (Exception ignored) {}
+                                });
+                            }
+                        }).start();
                     });
         }
         web.setWebViewClient(new WebViewClient() {
@@ -355,13 +397,18 @@ public class MainActivity extends Activity {
             @Override public void onRmsChanged(float rmsdB) {}
             @Override public void onBufferReceived(byte[] buffer) {}
             @Override public void onEndOfSpeech() {}
-            @Override public void onPartialResults(Bundle partialResults) {}
+            @Override public void onPartialResults(Bundle partialResults) {
+                ArrayList<String> matches = partialResults.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                if (matches != null && !matches.isEmpty() && !matches.get(0).isEmpty()) {
+                    jsSpeech("onPartial", matches.get(0));
+                }
+            }
             @Override public void onEvent(int eventType, Bundle params) {}
         });
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
                 .putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
                 .putExtra(RecognizerIntent.EXTRA_LANGUAGE, lang)
-                .putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, false)
+                .putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
                 .putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
         try {
             recognizer.startListening(intent);
@@ -377,6 +424,12 @@ public class MainActivity extends Activity {
             tts = new TextToSpeech(getApplicationContext(), status -> {
                 ttsReady = status == TextToSpeech.SUCCESS;
                 if (ttsReady) runOnUiThread(() -> {
+                    // Dew's voice-mode loop listens for "speakdone" to hand the floor back.
+                    tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                        @Override public void onStart(String id) {}
+                        @Override public void onDone(String id) { jsSpeech("speakdone", ""); }
+                        @Override public void onError(String id) { jsSpeech("speakdone", ""); }
+                    });
                     if (pendingSpeakText != null) doSpeak(pendingSpeakLang, pendingSpeakText);
                 });
             });
@@ -424,6 +477,7 @@ public class MainActivity extends Activity {
                 String wire;
                 if ("onResult".equals(kind)) wire = "result\t" + value;
                 else if ("onError".equals(kind)) wire = value;
+                else if ("onPartial".equals(kind)) wire = "partial\t" + value;
                 else wire = kind;
                 try { speechReply.postMessage(wire); } catch (Exception ignored) {}
             }
