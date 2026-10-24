@@ -41,10 +41,13 @@ const TE = (txt) => {
   }
   return null;
 };
+const TRLBL = { hi: ["मूल EN", "अनुवाद"], mr: ["मूळ EN", "अनुवाद"] };
 const trHtml = (txt) => {
   const tr = TE(txt);
   if (!tr) return esc(txt);
-  return esc(tr) + `<button type="button" class="tr-toggle" data-tr="${esc(tr)}" data-alt="${esc(txt)}">EN</button>`;
+  const L = window.bioI18n ? window.bioI18n.lang : "en";
+  const lbl = (TRLBL[L] || ["Original EN", "Translation"])[0];
+  return esc(tr) + `<button type="button" class="tr-toggle" data-tr="${esc(tr)}" data-alt="${esc(txt)}" aria-label="Show the original English">${lbl}</button>`;
 };
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const IMG = "assets/images/";
@@ -659,7 +662,11 @@ document.addEventListener("click", (ev) => {
   const cur = n.textContent;
   n.textContent = b.dataset.alt;
   b.dataset.alt = cur;
-  b.textContent = (n.textContent === b.dataset.tr) ? "EN" : (window.bioI18n ? window.bioI18n.lang.toUpperCase() : "HI");
+  const L = window.bioI18n ? window.bioI18n.lang : "en";
+  const pair = TRLBL[L] || ["Original EN", "Translation"];
+  const showingTr = n.textContent === b.dataset.tr;
+  b.textContent = showingTr ? pair[0] : pair[1];
+  b.setAttribute("aria-label", showingTr ? "Show the original English" : "Show the translation");
 });
 window.bioI18n.onChange(() => {
   try {
