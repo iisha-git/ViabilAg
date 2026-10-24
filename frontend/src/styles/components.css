@@ -476,3 +476,6 @@ html[data-theme="aurora"] .desk-action{color:#c6ff3d;border-color:#c6ff3d}
 .dv-mic{margin-top:4px;width:76px;height:76px;border-radius:50%;border:none;background:#3fc3aa;color:#0d1a20;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(63,195,170,.35);cursor:pointer}
 .dv-mic svg{width:32px;height:32px}
 .dv-mic:active{transform:scale(.94)}
+
+.tr-toggle{font:600 10px/1 inherit;padding:3px 8px;margin-left:6px;border-radius:999px;border:1px solid var(--line);background:transparent;color:rgba(243,236,220,.65);cursor:pointer;vertical-align:2px}
+.tr-toggle:hover{border-color:var(--teal);color:var(--teal)}

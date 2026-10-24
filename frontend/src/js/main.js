@@ -24,6 +24,16 @@ window.bioNativeNote = msg => {
   t._h = setTimeout(() => { t.style.opacity = "0"; t._r = setTimeout(() => t.remove(), 400); }, 2600);
 };
 const T = (k) => (window.bioI18n ? window.bioI18n.t(k) : k);
+const TE = (txt) => {
+  const L = window.bioI18n ? window.bioI18n.lang : "en";
+  const m = window.bioEvidenceI18n && window.bioEvidenceI18n[L];
+  return (m && Object.prototype.hasOwnProperty.call(m, txt)) ? m[txt] : null;
+};
+const trHtml = (txt) => {
+  const tr = TE(txt);
+  if (!tr) return esc(txt);
+  return esc(tr) + `<button type="button" class="tr-toggle" data-tr="${esc(tr)}" data-alt="${esc(txt)}">EN</button>`;
+};
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const IMG = "assets/images/";
 const CLASS_IMG = { bt: "bt.jpg", trichoderma: "trichoderma.jpg", pseudomonas: "pseudomonas.jpg", beauveria: "beauveria.jpg" };
@@ -205,26 +215,26 @@ $("identify").onclick = async () => {
 };
 
 /* ---------- result ---------- */
-const factHtml = f => `<div class="fact reveal"><p>${esc(f.text)}</p><a class="src-pill" href="${esc(f.source.url)}" target="_blank" rel="noopener">${ICON.arrow.replace("<svg", '<svg width="13" height="13"')}${esc(f.source.name)}</a></div>`;
+const factHtml = f => `<div class="fact reveal"><p>${trHtml(f.text)}</p><a class="src-pill" href="${esc(f.source.url)}" target="_blank" rel="noopener">${ICON.arrow.replace("<svg", '<svg width="13" height="13"')}${esc(f.source.name)}</a></div>`;
 
 function renderResult(res, navigate = true) {
   const e = res.evidence, pct = Math.round(res.prediction.probability * 100);
   state.result = res;
   $("r-img").src = IMG + CLASS_IMG[res.prediction.class];
-  $("r-kind").textContent = e.kind; $("r-name").textContent = e.name; $("r-org").textContent = e.organism;
+  $("r-kind").innerHTML = trHtml(e.kind); $("r-name").textContent = e.name; $("r-org").textContent = e.organism;
   $("r-pcred").textContent = T("photo.prefix") + credit(res.prediction.class) + T("result.illus");
   $("r-pct").textContent = pct + "%";
   // short version first: one cited line + two chips; everything else is one tap away in the tabs
   const key = e.research[0];
-  $("q-text").textContent = key.text;
+  $("q-text").innerHTML = trHtml(key.text);
   $("q-src").innerHTML = srcPill(key.source);
   $("q-chips").innerHTML =
-    `<span class="chip">${ICON.leaf}<span><b>${T("result.goesAfter")}</b> ${esc(e.targets)}</span></span>`;
+    `<span class="chip">${ICON.leaf}<span><b>${T("result.goesAfter")}</b> ${trHtml(e.targets)}</span></span>`;
   $("r-labels").innerHTML = e.labelPoints.map(factHtml).join("");
   $("r-research").innerHTML = e.research.map(factHtml).join("");
   const c = res.common; $("r-common").innerHTML = [c.context, c.water, c.jarTest].map(factHtml).join("");
   $("n-labels").textContent = e.labelPoints.length; $("n-research").textContent = e.research.length;
-  $("r-disclaimer").textContent = res.disclaimer;
+  $("r-disclaimer").innerHTML = trHtml(res.disclaimer);
   $("r-dew").innerHTML = mascot("happy");
   $("ph").value = ""; $("phmsg").innerHTML = ""; $("wxmsg").innerHTML = ""; $("wxbtn").lastChild.textContent = " " + T("wxbtn");
   selectTab("labels");
@@ -342,7 +352,7 @@ function renderStop(res) {
 }
 
 /* ---------- conditions ---------- */
-const condHtml = (a) => `<span class="lv ${a.level || ""}">${a.level === "good" ? T("cond.good") : a.level === "warn" ? T("cond.warn") : ""}</span>${esc(a.text)}<br><a class="src-pill" href="${esc(a.source.url)}" target="_blank" rel="noopener">${esc(a.source.name)}</a>`;
+const condHtml = (a) => `<span class="lv ${a.level || ""}">${a.level === "good" ? T("cond.good") : a.level === "warn" ? T("cond.warn") : ""}</span>${trHtml(a.text)}<br><a class="src-pill" href="${esc(a.source.url)}" target="_blank" rel="noopener">${esc(a.source.name)}</a>`;
 let phTimer;
 $("ph").addEventListener("input", () => {
   clearTimeout(phTimer);
@@ -362,7 +372,7 @@ $("wxbtn").onclick = () => {
     if (!w || w.error) { el.innerHTML = `<div class="empty">${esc(w?.error || T("wx.fail"))}</div>`; return; }
     const uv = w.uv_index != null ? T("wx.uv").replace("{n}", Number(w.uv_index)) : "";
     el.innerHTML = T("wx.line").replace("{t}", Number(w.temperature_c)).replace("{h}", Number(w.humidity_pct)).replace("{uv}", uv) + "<br>" +
-      (w.flag ? `<span class="lv warn">${T("cond.warn")}</span>${esc(w.flag.text)}<br><a class="src-pill" href="${esc(w.flag.source.url)}" target="_blank" rel="noopener">${esc(w.flag.source.name)}</a>` : esc(w.no_flag_text)) +
+      (w.flag ? `<span class="lv warn">${T("cond.warn")}</span>${trHtml(w.flag.text)}<br><a class="src-pill" href="${esc(w.flag.source.url)}" target="_blank" rel="noopener">${esc(w.flag.source.name)}</a>` : trHtml(w.no_flag_text)) +
       `<br><a class="src-pill" href="${esc(w.source.url)}" target="_blank" rel="noopener">${esc(w.source.name)}</a>`;
   }, () => { el.innerHTML = `<div class="empty">${T("wx.denied")}</div>`; });
 };
@@ -517,7 +527,7 @@ function dealerCard(res, names) {
   const bBits = [b.product?.organism, b.actives.length ? T("card.mentionsPrefix") + b.actives.map(x => x.name).join(", ") : null, b.formulation].filter(Boolean);
   const descB = [(names.b || (b.product ? b.product.name : T("card.unknownB"))), ...bBits].filter(Boolean).join(" · ");
   const found = res.findings.length
-    ? T("card.found") + res.findings[0].headline + " Source: " + res.findings[0].source.url
+    ? T("card.found") + (TE(res.findings[0].headline) || res.findings[0].headline) + " Source: " + res.findings[0].source.url
     : T("card.notfound");
   return `${T("card.title")}
 ${state.mix.classCase ? T("card.classroom") + "\n" : ""}
@@ -554,9 +564,9 @@ function renderMixResult(res, names) {
     ${findings.length ? `<div class="findings">
       ${findings.map(f => `
         <div class="finding ${f.verdict}">
-          <div class="f-head">${ICON[f.verdict === "conflict" ? "stop" : "warn"]}<b>${esc(f.headline)}</b></div>
-          <p>${esc(f.scope)}</p>
-          <p class="fine">${esc(f.what_tested)}</p>
+          <div class="f-head">${ICON[f.verdict === "conflict" ? "stop" : "warn"]}<b>${trHtml(f.headline)}</b></div>
+          <p>${trHtml(f.scope)}</p>
+          <p class="fine">${trHtml(f.what_tested)}</p>
           <a class="src-pill" href="${esc(f.source.url)}" target="_blank" rel="noopener">${ICON.arrow.replace("<svg", '<svg width="13" height="13"')}${esc(f.source.name)}</a>
         </div>`).join("")}
     </div>` : `<p class="block-sub" style="margin:18px 0">${esc(reasonText || "")}</p>`}
@@ -625,7 +635,18 @@ for (const [id, k] of [["dew-attach", "camera"], ["dew-mic", "mic"], ["dew-send"
 
 
 /* Re-render dynamic views when the platform language changes mid-session. */
-if (window.bioI18n) window.bioI18n.onChange(() => {
+if (window.bioI18n) 
+document.addEventListener("click", (ev) => {
+  const b = ev.target.closest(".tr-toggle");
+  if (!b) return;
+  const n = b.previousSibling;
+  if (!n || n.nodeType !== Node.TEXT_NODE) return;
+  const cur = n.textContent;
+  n.textContent = b.dataset.alt;
+  b.dataset.alt = cur;
+  b.textContent = (n.textContent === b.dataset.tr) ? "EN" : (window.bioI18n ? window.bioI18n.lang.toUpperCase() : "HI");
+});
+window.bioI18n.onChange(() => {
   try {
     renderSamples(); renderWhy(); renderCredits();
     chooseDesk(deskChoice);
