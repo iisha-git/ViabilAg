@@ -12,8 +12,11 @@ import re
 import httpx
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")  # 3.8-flash free-tier latency measured 35-100s+; 3.6-flash ~1s
-TIMEOUT_S = float(os.getenv("GEMINI_TIMEOUT_S", "45"))  # observed cold calls on 3.8-flash can run long
+MODEL = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
+# Fallbacks with their own free quota, tried in order after MODEL.
+MODELS = [MODEL] + [m for m in ("gemini-3.5-flash-lite", "gemini-3.1-flash-lite") if m != MODEL]
+  # 3.8-flash free-tier latency measured 35-100s+; 3.6-flash ~1s
+TIMEOUT_S = float(os.getenv("GEMINI_TIMEOUT_S", "20"))  # observed cold calls on 3.8-flash can run long
 
 LANG_NAME = {"en": "English", "hi": "Hindi written in Devanagari script",
              "mr": "Marathi written in Devanagari script"}
@@ -104,14 +107,26 @@ async def reply(message: str, lang: str, history: list[dict], context: dict) -> 
             "temperature": 0.4,
         },
     }
+    # Free-tier quota is counted per model. When one model is out of quota
+    # (429) or gone (404), try the next free model on the same key before
+    # giving up, so one exhausted model does not silence Dew.
+    d = None
+    last_err = None
     async with httpx.AsyncClient(timeout=TIMEOUT_S) as client:
-        r = await client.post(
-            GEMINI_URL.format(model=MODEL),
-            params={"key": key},
-            json=body,
-        )
-        r.raise_for_status()
-        d = r.json()
+        for model in MODELS:
+            try:
+                r = await client.post(GEMINI_URL.format(model=model), params={"key": key}, json=body)
+                r.raise_for_status()
+                d = r.json()
+                break
+            except httpx.HTTPStatusError as e:
+                last_err = e
+                if e.response.status_code not in (404, 429, 500, 503):
+                    raise
+            except httpx.TimeoutException as e:
+                last_err = e
+    if d is None:
+        raise last_err or RuntimeError("no-model")
     cands = d.get("candidates") or []
     text = "".join(p.get("text", "") for p in (cands[0].get("content", {}).get("parts") or [])).strip()
     if not text:
