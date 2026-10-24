@@ -5,14 +5,6 @@
 
 # Changelog
 
-## 0.7.0 - More product groups
-
-- Label recognition now covers six product groups instead of four: the original Bt, Trichoderma, Pseudomonas and Beauveria, plus Bacillus subtilis (Serenade, Companion, Integral, Indian BAXIL/Mildown and others) and NPV virus sprays (Gemstar, Spod-X, Biovirus-H/S, Helimar and others).
-- Training corpus grew from 26 to 47 real public label/product texts, including Indian labels and product pages for the first time (Delfin, Biolep, and T. Stanes BioCure-F/BioCure-B/BioPower).
-- Honest scores: leave-one-out 70.2% overall with per-class scores in ml/REPORT.md; one hold-out split 66.7%. Three more candidate groups (Metarhizium, Verticillium lecanii, Paecilomyces) were researched with real sources but are NOT shipped yet - their labels overlap too much with Beauveria for this small model to tell apart reliably, so the app keeps abstaining on them rather than guessing. The sourced material stays in data/candidates_not_shipped.csv for a future, larger corpus.
-- Evidence cards added for the two new groups, citing the same sourced labels.
-- No change to the mix-check rules, Dew, privacy behaviour or data collection. Model, metrics and evidence JSON synced across web, backend and bundled Android assets; the installed APK still needs a rebuild to ship these changes natively.
-
 ## 0.6.22 - Dew question routing
 - Restrict built-in guide shortcuts to explicit whole requests in English, Hindi and Marathi. Full crop questions now reach AI instead of matching words such as "क्या कर", "help", "पानी" or "लेबल".
 - Preserve guide chips and add routing regression tests based on the phone conversation.
