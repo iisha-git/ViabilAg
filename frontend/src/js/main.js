@@ -27,7 +27,19 @@ const T = (k) => (window.bioI18n ? window.bioI18n.t(k) : k);
 const TE = (txt) => {
   const L = window.bioI18n ? window.bioI18n.lang : "en";
   const m = window.bioEvidenceI18n && window.bioEvidenceI18n[L];
-  return (m && Object.prototype.hasOwnProperty.call(m, txt)) ? m[txt] : null;
+  if (!m) return null;
+  if (Object.prototype.hasOwnProperty.call(m, txt)) return m[txt];
+  if (!m.__tpl) {
+    Object.defineProperty(m, "__tpl", { enumerable: false, value: Object.keys(m).filter(k => k.includes("{ai}")).map(k => {
+      const rx = new RegExp("^" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\\\{ai\\\}/g, "(.+)") + "$");
+      return [rx, m[k]];
+    }) });
+  }
+  for (const [rx, tpl] of m.__tpl) {
+    const mt = txt.match(rx);
+    if (mt) return tpl.replace("{ai}", mt[1]);
+  }
+  return null;
 };
 const trHtml = (txt) => {
   const tr = TE(txt);
