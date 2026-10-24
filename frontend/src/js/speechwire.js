@@ -2,7 +2,8 @@
 // The app sends plain strings through window.BioDewSpeech:
 //   "result\t<transcript>"   speech was recognised
 //   "partial\t<transcript>"  live partial transcript (voice-mode caption)
-//   "speakdone"              the phone finished (or failed) speaking Dew's reply
+//   "speakdone\t<turn-id>"    a spoken chunk finished
+//   "speakerror\t<turn-id>"   voice missing or speech failed (no auto-listen)
 //   "cancelled"              listening was stopped (e.g. app went to background)
 //   "<error-code>"           anything else, as a bare code
 // A second bridge, window.BioDewOcr, takes "ocr\t<base64 jpeg>" and answers

@@ -6,6 +6,7 @@
 // The whole conversation is kept as data (`history`). Switching language
 // re-renders every message in the new language and never clears the chat or
 // the session context (scanned product, corrections, mix results).
+import { spokenText, speechParts, speechMood, chooseVoice } from "./dewspeech.js";
 import { mascot } from "./mascot.js";
 import { ICON } from "./icons.js";
 import * as api from "./api.js";
@@ -41,6 +42,7 @@ const L = {
     vThink: "Dew is thinking...",
     vSpeak: "Dew is speaking - tap the mic to jump in.",
     vIdle: "Tap the mic to talk.",
+    voiceUnavailable: "Voice unavailable for this language. Your reply is in the chat. Check your phone text-to-speech language settings, then tap the mic to continue.",
     labelBtn: "Add a label",
     photoSent: "Label photo",
     needScan: "Scan a label first, then I can tell you more about it.",
@@ -77,6 +79,7 @@ const L = {
     vThink: "ड्यू सोच रहा है...",
     vSpeak: "ड्यू बोल रहा है - बीच में बोलने के लिए माइक दबाएं।",
     vIdle: "बोलने के लिए माइक दबाएं।",
+    voiceUnavailable: "इस भाषा की आवाज़ उपलब्ध नहीं है। जवाब चैट में है। फोन की टेक्स्ट-टू-स्पीच भाषा सेटिंग जाँचें, फिर माइक दबाएं।",
     labelBtn: "लेबल जोड़ें",
     photoSent: "लेबल फोटो",
     needScan: "पहले एक लेबल स्कैन करें, फिर मैं उसके बारे में बता सकता हूँ।",
@@ -113,6 +116,7 @@ const L = {
     vThink: "ड्यू विचार करतोय...",
     vSpeak: "ड्यू बोलतोय - मध्ये बोलण्यासाठी माइक दाबा.",
     vIdle: "बोलण्यासाठी माइक दाबा.",
+    voiceUnavailable: "या भाषेचा आवाज उपलब्ध नाही. उत्तर चॅटमध्ये आहे. फोनची टेक्स्ट-टू-स्पीच भाषा सेटिंग तपासा, मग माइक दाबा.",
     labelBtn: "लेबल जोडा",
     photoSent: "लेबल फोटो",
     needScan: "आधी एक लेबल स्कॅन करा, मग मी त्याबद्दल सांगू शकतो.",
@@ -163,6 +167,24 @@ const BT_FACT = {
   en: "Bt is Bacillus thuringiensis, a living bacterium. Its products carry spores and insecticidal proteins; when a susceptible caterpillar eats them, the proteins act in its gut, it stops feeding and dies within a few days - per the US NPIC fact sheet. Strains differ by target insect group - kurstaki products such as DiPel target caterpillars, per the DiPel DF label. Sunlight quickly weakens Bt on leaves, which is why spray timing matters.",
   hi: "Bt यानी Bacillus thuringiensis, एक जीवित बैक्टीरिया। इसके प्रोडक्ट में स्पोर्स और कीटनाशी प्रोटीन होते हैं; जब संवेदनशील कैटरपिलर इन्हें खाता है तो प्रोटीन उसकी आंत में काम करते हैं, वह खाना बंद कर देता है और कुछ दिनों में मर जाता है - अमेरिकी NPIC फैक्ट शीट के मुताबिक। स्ट्रेन के हिसाब से लक्ष्य कीट समूह अलग होता है - DiPel जैसे kurstaki प्रोडक्ट कैटरपिलर पर काम करते हैं, DiPel DF लेबल के मुताबिक। धूप पत्तियों पर Bt को जल्दी कमज़ोर कर देती है, इसीलिए छिड़काव का समय ज़रूरी है।",
   mr: "Bt म्हणजे Bacillus thuringiensis, एक जिवंत जीवाणू. त्याच्या प्रोडक्टमध्ये स्पोअर्स आणि किटकनाशी प्रोटीन असतात; संवेदनशील अळी ते खाल्ली की प्रोटीन तिच्या पोटात काम करतात, ती खाणे थांबवते आणि काही दिवसांत मरते - अमेरिकन NPIC फॅक्ट शीटनुसार. स्ट्रेननुसार लक्ष्य किटक समूह वेगळा असतो - DiPel सारखे kurstaki प्रोडक्ट अळ्यांवर काम करतात, DiPel DF लेबलनुसार. सूर्यप्रकाश पानांवरील Bt लवकर कमकुवत करतो, म्हणूनच फवारणीची वेळ महत्त्वाची असते.",
+};
+// Voice turns use a short grounded answer. The full sourced explanation stays
+// in the chat, not a citation readout. These are deliberately authored, not
+// generic truncations: the product/crop check and dose limits remain audible.
+const VOICE_PEST = {
+  en: "That sounds worrying. A suitable bee tee product may help with caterpillars, but it depends on the crop and the product label. Which crop is affected, and which product do you have?",
+  hi: "समझ रहा हूँ, फसल की चिंता हो रही होगी। कैटरपिलर के लिए सही बी टी प्रोडक्ट मदद कर सकता है, लेकिन फसल और प्रोडक्ट का लेबल जाँचना ज़रूरी है। आपकी फसल कौन सी है, और कौन सा प्रोडक्ट है?",
+  mr: "समजलं, पिकाची काळजी वाटत असेल. अळ्यांसाठी योग्य बी टी प्रोडक्ट मदत करू शकतो, पण पीक आणि प्रोडक्टचे लेबल तपासावे लागेल. तुमचे पीक कोणते, आणि कोणते प्रोडक्ट आहे?",
+};
+const VOICE_BT = {
+  en: "Bee tee is a living bacterium used in some crop treatments. The caterpillar has to eat treated leaves for a suitable caterpillar product to work. Different strains target different insects, so we still need to check your product label.",
+  hi: "बी टी एक जीवित बैक्टीरिया है, जो कुछ फसल उपचारों में होता है। कैटरपिलर वाले सही प्रोडक्ट के असर के लिए कैटरपिलर को छिड़काव वाली पत्ती खानी पड़ती है। अलग स्ट्रेन अलग कीटों पर काम करते हैं, इसलिए आपके प्रोडक्ट का लेबल जाँचना ज़रूरी है।",
+  mr: "बी टी हा एक जिवंत जीवाणू आहे, जो काही पीक उपचारांमध्ये असतो. अळ्यांसाठीच्या योग्य प्रोडक्टचा परिणाम होण्यासाठी अळीने फवारलेली पाने खाणे गरजेचे आहे. वेगवेगळे स्ट्रेन वेगवेगळ्या किडींवर काम करतात, म्हणून तुमच्या प्रोडक्टचे लेबल तपासावे लागेल.",
+};
+const VOICE_GUIDE = {
+  en: "Let's check the label before choosing a dose or time. In general, bee tee caterpillar labels call for treating small larvae and covering the leaves well. Sunlight can weaken it, but the right time and water directions depend on your product, crop and weather. Which crop and product are you using? I won't guess a dose.",
+  hi: "पहले लेबल जाँचते हैं, फिर मात्रा या समय तय करेंगे। आम तौर पर कैटरपिलर वाले बी टी लेबल छोटी इल्लियों पर छिड़काव और पत्तियाँ अच्छी तरह ढकने को कहते हैं। धूप इसे कमज़ोर कर सकती है, लेकिन सही समय और पानी के निर्देश आपके प्रोडक्ट, फसल और मौसम पर निर्भर हैं। आपकी फसल और प्रोडक्ट कौन से हैं? मात्रा का अंदाज़ा नहीं लगाऊँगा।",
+  mr: "आधी लेबल तपासू, मग मात्रा किंवा वेळ ठरवू. साधारणपणे अळ्यांसाठीच्या बी टी लेबलवर छोट्या अळ्यांवर फवारणी आणि पाने व्यवस्थित भिजवणे सांगितलेले असते. सूर्यप्रकाशामुळे परिणाम कमी होऊ शकतो, पण योग्य वेळ आणि पाण्याच्या सूचना प्रोडक्ट, पीक आणि हवामानावर अवलंबून आहेत. तुमचे पीक आणि प्रोडक्ट कोणते? मात्रेचा अंदाज लावणार नाही.",
 };
 const PEST_CHIP = { en: "How and when to spray", hi: "कैसे और कब छिड़कें", mr: "कसे आणि केव्हा फवारायचे" };
 
@@ -238,29 +260,53 @@ function renderLangs() {
 }
 
 function speak(text, ondone) {
-  // Never talk over the user: if the mic is listening, show text only.
-  if (listening) { if (ondone) ondone(); return; }
-  if (!(snd.isEnabled() || voiceTurn)) { if (ondone) ondone(); return; }
-  const lg = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[detectLang(String(text))] || "en-IN";
+  if (listening || !(snd.isEnabled() || voiceTurn)) { if (ondone) ondone(); return; }
+  stopSpeaking();
+  const lg = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" }[lang] || "en-IN";
+  const parts = speechParts(spokenText(text, lang));
   const gen = ++speakGen;
-  const finish = () => { if (gen === speakGen && ondone) ondone(); };
-  // Android app: use the phone's own text-to-speech through the bundled-page bridge.
-  if (bridge()) {
-    try {
-      nativeSpeakDone = finish;
-      // Failsafe: if "speakdone" never comes back (stale bridge), release the turn anyway.
-      setTimeout(() => { if (nativeSpeakDone === finish) { nativeSpeakDone = null; finish(); } },
-        Math.min(4000 + String(text).length * 90, 30000));
-      window.BioDewSpeech.postMessage("speak\t" + lg + "\t" + String(text).slice(0, 1500));
-      return;
-    } catch { nativeSpeakDone = null; /* fall through to web voice */ }
-  }
-  if (!("speechSynthesis" in window)) { if (ondone) ondone(); return; }
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = lg;
-  u.rate = 1.0; u.pitch = 1.0;
-  u.onend = finish; u.onerror = finish;
-  speechSynthesis.cancel(); speechSynthesis.speak(u);
+  let index = 0;
+  const fail = () => {
+    if (gen !== speakGen) return;
+    stopSpeaking();
+    if (voiceMode) voiceSet("idle", L[lang].voiceUnavailable);
+    else note(l => L[l].voiceUnavailable);
+  };
+  const next = () => {
+    if (gen !== speakGen || listening) return;
+    if (index >= parts.length) { if (ondone) ondone(); return; }
+    const part = parts[index++];
+    const id = `${gen}-${index}`;
+    let settled = false;
+    const complete = () => {
+      if (settled || gen !== speakGen) return;
+      settled = true;
+      // Explicit breath between sentences; never resume after an interrupt.
+      setTimeout(next, /[!?।.]$/.test(part) ? 300 : 140);
+    };
+    if (voiceMode) {
+      voiceSet("speak", part);
+      $("dv-mascot").innerHTML = mascot(speechMood(part));
+    }
+    if (bridge()) {
+      window.BioDewSpeech.onmessage = ev => dispatchBridge(ev.data);
+      nativeSpeakDone = { id, complete, fail };
+      setTimeout(() => {
+        if (nativeSpeakDone?.id === id && gen === speakGen) fail();
+      }, 6000 + part.length * 140);
+      try { window.BioDewSpeech.postMessage("speak\t" + lg + "\t" + id + "\t" + part); return; }
+      catch { nativeSpeakDone = null; fail(); return; }
+    }
+    if (!("speechSynthesis" in window)) { fail(); return; }
+    const u = new SpeechSynthesisUtterance(part);
+    u.lang = lg;
+    const voice = chooseVoice(speechSynthesis.getVoices(), lg);
+    if (voice) u.voice = voice;
+    u.rate = 0.96; u.pitch = 1.0;
+    u.onend = complete; u.onerror = fail;
+    speechSynthesis.speak(u);
+  };
+  next();
 }
 
 function entryEl(entry) {
@@ -301,12 +347,12 @@ function renderLog() {
   log.scrollTop = log.scrollHeight;
 }
 
-function say(msg, chips = null, tag = null, quiet = false) {
+function say(msg, chips = null, tag = null, quiet = false, spoken = null) {
   const entry = { who: "dew", msg, chips, tag };
   history.push(entry);
   append(entry);
   if (quiet) return;
-  const t = txt(msg);
+  const t = txt(voiceMode && spoken ? spoken : msg);
   lastSpoke = String(t);
   if (voiceMode) voiceSet("speak", lastSpoke);
   speak(t, onVoiceSpoke);
@@ -442,7 +488,13 @@ function stopSpeaking() {
 // and the rest belongs to the recognition session in flight.
 function dispatchBridge(data) {
   const { kind, val } = parseWire(data);
-  if (kind === "speakdone") { const f = nativeSpeakDone; nativeSpeakDone = null; if (f) f(); return; }
+  if (kind === "speakdone" || kind === "speakerror") {
+    const pending = nativeSpeakDone;
+    if (!pending || pending.id !== val) return; // stale/cancelled turn
+    nativeSpeakDone = null;
+    if (kind === "speakdone") pending.complete(); else pending.fail();
+    return;
+  }
   if (kind === "partial") { if (voiceMode && listening) voiceSet("listen", val); return; }
   if (recogHandler) recogHandler(kind, val);
 }
@@ -519,7 +571,8 @@ function stopActiveRecognition() {
 function onVoiceSpoke() {
   if (!voiceMode) return;
   voiceSet("idle");
-  setTimeout(() => { if (voiceMode && !listening && !busy) beginListening(); }, 700);
+  const gen = speakGen;
+  setTimeout(() => { if (gen === speakGen && voiceMode && !listening && !busy) beginListening(); }, 700);
 }
 
 // Speaker output can echo back into the mic right after Dew talks. If the
@@ -593,13 +646,13 @@ function reply(text) {
       if (/expir|एक्स्पायरी|एक्सपायरी|मुदत/i.test(t) && c.mixExpiry) return say(l => L[l].expiryOn(c.mixExpiry));
       // Grounded caterpillar/Bt conversation, answered from the app's own
       // cited evidence - works even when Dew AI is unreachable.
-      if (pestIntent(t)) { lastTopic = "bt"; return say(l => PEST_FACT[l], l => [PEST_CHIP[l]]); }
-      if (btIntent(t)) { lastTopic = "bt"; return say(l => BT_FACT[l]); }
+      if (pestIntent(t)) { lastTopic = "bt"; return say(l => PEST_FACT[l], l => [PEST_CHIP[l]], null, false, l => VOICE_PEST[l]); }
+      if (btIntent(t)) { lastTopic = "bt"; return say(l => BT_FACT[l], null, null, false, l => VOICE_BT[l]); }
       if (sprayHowIntent(t, lastTopic === "bt")) {
         // A procedure question naming a non-Bt product class (weedicide,
         // fungicide...) must not get the Bt guide - it is an open question.
         if (nonBtProductIntent(t)) { lastTopic = null; return aiReply(t); }
-        return lastTopic === "bt" ? say(l => SPRAY_GUIDE[l]) : say(l => L[l].whichProduct);
+        return lastTopic === "bt" ? say(l => SPRAY_GUIDE[l], null, null, false, l => VOICE_GUIDE[l]) : say(l => L[l].whichProduct);
       }
       return aiReply(t);
     }

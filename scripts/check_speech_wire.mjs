@@ -37,7 +37,8 @@ if (!/jsSpeech\("cancelled"/.test(java)) fail("Java no longer reports cancellati
 
 // 3b. Voice-mode additions: partials, speech completion, and the OCR bridge.
 if (!/else if \("onPartial"\.equals\(kind\)\) wire = "partial\\t" \+ value;/.test(java)) fail('MainActivity must send partials as "partial\\t" + text');
-if (!/jsSpeech\("speakdone", ""\)/.test(java)) fail('MainActivity must report utterance completion as "speakdone"');
+if (!java.includes('jsSpeech(failed ? "speakerror" : "speakdone", id)')) fail('MainActivity must report completion with its utterance id');
+if (!java.includes('wire = kind + "\\t" + value;')) fail('TTS callbacks must preserve the turn id');
 if (!java.includes('addWebMessageListener(web, "BioDewOcr"')) fail('MainActivity lacks the BioDewOcr bridge');
 if (!/postMessage\("text\\t"/.test(java)) fail('BioDewOcr must answer with "text\\t" + label text');
 if (!/EXTRA_PARTIAL_RESULTS, true/.test(java)) fail('recognizer must request partial results');

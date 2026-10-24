@@ -5,6 +5,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
+import {spokenText, speechParts, speechMood, chooseVoice} from '../frontend/src/js/dewspeech.js';
 import { guideIntent, pestIntent, btIntent, sprayHowIntent, nonBtProductIntent } from '../frontend/src/js/dewroute.js';
 
 let src = readFileSync(new URL('../frontend/src/js/dew.js', import.meta.url), 'utf8')
@@ -13,7 +14,7 @@ let src = readFileSync(new URL('../frontend/src/js/dew.js', import.meta.url), 'u
   .replace(/function renderLangs\(\) \{[\s\S]*?\n\}/, 'function renderLangs() {}')
   .replace(/function thinkingBubble\(\) \{[\s\S]*?\n\}/, 'function thinkingBubble() { return () => {}; }')
   .replace(/function listeningBubble\(\) \{[\s\S]*?\n\}/, 'function listeningBubble() { return () => {}; }')
-  .replace(/function say\(msg, chips = null, tag = null, quiet = false\) \{[\s\S]*?\n\}/,
+  .replace(/function say\(msg, chips = null, tag = null, quiet = false, spoken = null\) \{[\s\S]*?\n\}/,
     'function say(msg, chips, tag, quiet) { recorded.push({ text: txt(msg), quiet: !!quiet }); }')
   .replace(/function note\(msg\) \{[\s\S]*?\n\}/, 'function note(msg) {}')
   .replace(/function userSay\(text, img\) \{[\s\S]*?\n\}/, 'function userSay(text) { recorded.push({ user: text }); }')
@@ -22,11 +23,12 @@ let src = readFileSync(new URL('../frontend/src/js/dew.js', import.meta.url), 'u
 const recorded = [];
 const nativePosts = [];
 const synth = { cancelCount: 0, speakCount: 0,
-  cancel() { this.cancelCount++; }, speak() { this.speakCount++; } };
+  getVoices() { return []; }, cancel() { this.cancelCount++; }, speak() { this.speakCount++; } };
 let lastSR = null;
 function MockSR() { lastSR = this; this.started = false; this.start = () => { this.started = true; }; this.stop = () => {}; }
 const api = { getMode: () => 'api', dewChat: async () => ({ reply: 'ok' }) };
 const sandbox = {
+  spokenText, speechParts, speechMood, chooseVoice,
   guideIntent, pestIntent, btIntent, sprayHowIntent, nonBtProductIntent, api, recorded,
   SpeechRecognition: MockSR, speechSynthesis: synth,
   SpeechSynthesisUtterance: function (t) { this.text = t; },
@@ -107,10 +109,13 @@ assert.equal(vm.runInContext('voiceMode', sandbox), true, 'mic tap enters voice 
 // 7) The voice loop: a completed native utterance hands the floor back.
 nativePosts.length = 0;
 vm.runInContext('lang = "en"; busy = false; listening = false; voiceTurn = true; speak("the answer", onVoiceSpoke);', sandbox);
-assert.deepEqual(nativePosts, ['speak\ten-IN\tthe answer'], 'native: reply spoken through the bridge');
-vm.runInContext('window.BioDewSpeech.onmessage({ data: "speakdone" })', sandbox);
+assert.match(nativePosts.at(-1), /^speak\ten-IN\t\d+-1\tthe answer\.$/, 'native: reply spoken with turn id');
+const firstId = nativePosts.at(-1).split('\t')[2];
+sandbox.firstId = firstId;
+vm.runInContext('window.BioDewSpeech.onmessage({ data: "speakdone\\t" + firstId })', sandbox);
+runTimeouts();
 runTimeouts();   // the 700ms floor-handback beat
-assert.deepEqual(nativePosts.slice(1), ['start\ten-IN'], 'after Dew speaks, voice mode listens again');
+assert.deepEqual(nativePosts.slice(-1), ['start\ten-IN'], 'after Dew speaks, voice mode listens again');
 
 // 8) Interrupt invalidates a pending utterance: a stale speakdone must not
 //    trigger a second listen on top of the new mic tap.
@@ -120,7 +125,7 @@ vm.runInContext('speak("second answer", onVoiceSpoke);', sandbox);
 vm.runInContext('mic()', sandbox);   // user jumps in mid-reply
 vm.runInContext('window.BioDewSpeech.onmessage({ data: "speakdone" })', sandbox);  // stale completion
 runTimeouts();
-assert.deepEqual(nativePosts, ['speak\ten-IN\tsecond answer', 'stopspeak', 'start\ten-IN'],
+assert.deepEqual(nativePosts.slice(-2), ['stopspeak', 'start\ten-IN'],
   'stale speakdone after an interrupt is ignored, exactly one new listen');
 
 // 9) Echo guard: Dew\'s own words bouncing back from the speaker are dropped.

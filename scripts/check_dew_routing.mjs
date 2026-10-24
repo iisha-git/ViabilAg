@@ -24,10 +24,10 @@ let src = readFileSync(new URL('../frontend/src/js/dew.js', import.meta.url), 'u
   .replace(/^import .*;$/mg, '').replace(/^export /mg, '')
   .replace(/function renderLog\(\) \{[\s\S]*?\n\}/, 'function renderLog() {}')
   .replace(/let ctx = .*;/, 'let ctx = {getContext:()=>({}),openScan:()=>recorded.push("scan"),openMix:()=>recorded.push("mix")};')
-  .replace(/function say\(msg, chips = null, tag = null, quiet = false\) \{[\s\S]*?\n\}/, 'function say(msg, chips, tag, quiet) { recorded.push(txt(msg)); }')
+  .replace(/function say\(msg, chips = null, tag = null, quiet = false, spoken = null\) \{[\s\S]*?\n\}/, 'function say(msg, chips, tag, quiet) { recorded.push(txt(msg)); }')
   .replace(/async function aiReply\(text\) \{[\s\S]*?\n\}/, 'async function aiReply(text) { recorded.push("AI:"+text); }');
 const recorded = [];
-const sandbox = {guideIntent, pestIntent, btIntent, sprayHowIntent, nonBtProductIntent, recorded, localStorage:{getItem:()=> 'hi',setItem:()=>{}}, document:{getElementById:()=>({innerHTML:'',placeholder:''})}};
+const sandbox = {window: {}, guideIntent, pestIntent, btIntent, sprayHowIntent, nonBtProductIntent, recorded, localStorage:{getItem:()=> 'hi',setItem:()=>{}}, document:{getElementById:()=>({innerHTML:'',placeholder:''})}};
 vm.createContext(sandbox);
 vm.runInContext(src, sandbox);
 for (const q of questions) {

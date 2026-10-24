@@ -13,6 +13,7 @@ import android.util.Log;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.Voice;
 import android.speech.tts.UtteranceProgressListener;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -61,7 +62,8 @@ public class MainActivity extends Activity {
     private JavaScriptReplyProxy speechReply;
     private TextToSpeech tts;
     private boolean ttsReady = false;
-    private String pendingSpeakLang, pendingSpeakText;
+    private String pendingSpeakLang, pendingSpeakText, pendingSpeakId;
+    private volatile String activeSpeakId;
     private ValueCallback<Uri[]> pendingPermCallback;
     private WebChromeClient.FileChooserParams pendingPermParams;
 
@@ -103,10 +105,11 @@ public class MainActivity extends Activity {
                         } else if ("stop".equals(parts[0])) {
                             runOnUiThread(this::stopListening);
                         } else if ("speak".equals(parts[0]) && parts.length > 1) {
-                            // "speak\t<lang>\t<text>": read a Dew reply aloud with the phone's own TTS
-                            String[] sp = parts[1].split("\t", 2);
-                            if (sp.length == 2 && sp[1].length() <= 1500) {
-                                runOnUiThread(() -> speakNative(sp[0], sp[1]));
+                            // Every chunk has a unique turn id. Late callbacks cannot finish a new turn.
+                            speechReply = replyProxy;
+                            String[] sp = parts[1].split("\t", 3);
+                            if (sp.length == 3 && sp[2].length() <= 1500) {
+                                runOnUiThread(() -> speakNative(sp[0], sp[1], sp[2]));
                             }
                         } else if ("stopspeak".equals(parts[0])) {
                             runOnUiThread(this::stopSpeaking);
@@ -418,45 +421,66 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void speakNative(String lang, String text) {
-        pendingSpeakLang = lang; pendingSpeakText = text;
-        if (tts == null) {
-            tts = new TextToSpeech(getApplicationContext(), status -> {
-                ttsReady = status == TextToSpeech.SUCCESS;
-                if (ttsReady) runOnUiThread(() -> {
-                    // Dew's voice-mode loop listens for "speakdone" to hand the floor back.
-                    tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
-                        @Override public void onStart(String id) {}
-                        @Override public void onDone(String id) { jsSpeech("speakdone", ""); }
-                        @Override public void onError(String id) { jsSpeech("speakdone", ""); }
-                    });
-                    if (pendingSpeakText != null) doSpeak(pendingSpeakLang, pendingSpeakText);
-                });
-            });
-            return;
-        }
-        if (ttsReady) doSpeak(lang, text);
+    private void speechFinished(String id, boolean failed) {
+        if (id == null || !id.equals(activeSpeakId)) return;
+        activeSpeakId = null;
+        jsSpeech(failed ? "speakerror" : "speakdone", id);
     }
 
-    private void doSpeak(String lang, String text) {
+    private void speakNative(String lang, String id, String text) {
+        pendingSpeakLang = lang; pendingSpeakText = text; pendingSpeakId = id;
+        activeSpeakId = id;
+        if (tts == null) {
+            tts = new TextToSpeech(getApplicationContext(), status -> runOnUiThread(() -> {
+                ttsReady = status == TextToSpeech.SUCCESS;
+                if (!ttsReady) { speechFinished(activeSpeakId, true);
+                    if (tts != null) tts.shutdown(); tts = null; return; }
+                tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                    @Override public void onStart(String id) {}
+                    @Override public void onDone(String id) { speechFinished(id, false); }
+                    @Override public void onError(String id) { speechFinished(id, true); }
+                });
+                // A mic tap may have cancelled speech while the engine loaded.
+                if (pendingSpeakText != null && pendingSpeakId != null)
+                    doSpeak(pendingSpeakLang, pendingSpeakId, pendingSpeakText);
+            }));
+            return;
+        }
+        if (ttsReady) doSpeak(lang, id, text);
+    }
+
+    private void doSpeak(String lang, String id, String text) {
         try {
             Locale loc = Locale.forLanguageTag(lang == null || lang.isEmpty() ? "en-IN" : lang);
-            int r = tts.isLanguageAvailable(loc);
-            if (r < TextToSpeech.LANG_AVAILABLE && "mr".equals(loc.getLanguage())) {
-                loc = Locale.forLanguageTag("hi-IN");   // Marathi voice missing: Hindi reads Devanagari
-                r = tts.isLanguageAvailable(loc);
+            // Never silently read Marathi with a Hindi/English voice. Prefer
+            // the highest quality installed voice in the requested language;
+            // local voices only, no new network audio provider or downloads.
+            Voice best = null;
+            if (tts.getVoices() != null) for (Voice voice : tts.getVoices()) {
+                if (voice.isNetworkConnectionRequired()
+                    || !voice.getLocale().getLanguage().equals(loc.getLanguage())
+                    || (voice.getFeatures() != null && voice.getFeatures().contains(TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED))) continue;
+                int score = voice.getQuality() + (voice.getLocale().getCountry().equals(loc.getCountry()) ? 1000 : 0);
+                int oldScore = best == null ? -1 : best.getQuality() + (best.getLocale().getCountry().equals(loc.getCountry()) ? 1000 : 0);
+                if (score > oldScore || (score == oldScore && voice.getName().compareTo(best.getName()) < 0)) best = voice;
             }
-            if (r < TextToSpeech.LANG_AVAILABLE) loc = Locale.forLanguageTag("en-IN");
-            tts.setLanguage(loc);
-            tts.setPitch(1.0f);
-            tts.setSpeechRate(1.0f);
+            if (best == null || tts.setVoice(best) == TextToSpeech.ERROR) {
+                pendingSpeakText = null; speechFinished(id, true); return;
+            }
+            tts.setPitch(1.0f); // no cartoon pitch changes
+            tts.setSpeechRate(0.96f);
             pendingSpeakText = null;
-            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "dew");
-        } catch (Exception e) { Log.w("bioOasis", "tts failed", e); }
+            if (tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, id) == TextToSpeech.ERROR)
+                speechFinished(id, true);
+        } catch (Exception e) {
+            Log.w("bioOasis", "tts failed", e);
+            speechFinished(id, true);
+        }
     }
 
     private void stopSpeaking() {
-        pendingSpeakText = null;
+        activeSpeakId = null;
+        pendingSpeakText = null; pendingSpeakId = null;
         if (tts != null && ttsReady) { try { tts.stop(); } catch (Exception ignored) {} }
     }
 
@@ -478,6 +502,7 @@ public class MainActivity extends Activity {
                 if ("onResult".equals(kind)) wire = "result\t" + value;
                 else if ("onError".equals(kind)) wire = value;
                 else if ("onPartial".equals(kind)) wire = "partial\t" + value;
+                else if ("speakdone".equals(kind) || "speakerror".equals(kind)) wire = kind + "\t" + value;
                 else wire = kind;
                 try { speechReply.postMessage(wire); } catch (Exception ignored) {}
             }
