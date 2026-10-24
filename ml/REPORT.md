@@ -39,3 +39,24 @@ below are uncalibrated model scores from this corpus - they are not
 measured real-world accuracy, and they say nothing about microbial
 viability or product quality. The app treats model output as a reading aid
 and stops below 45% confidence.
+
+## Generalization checks (added after first publish of this run)
+
+Two harder evaluations, because document-level splits can flatter small
+corpora:
+
+- Grouped-by-product holdout: every document of one product (label,
+  product page, quick sheet) is hidden together, so the model can only win
+  by recognising the organism type, not the product. Result: 26/47 correct
+  = 55.3%. Per-class recall: bt 89%, npv 75%, trichoderma 62%,
+  bacillus_subtilis 50%, beauveria 50%, pseudomonas 0% (the model only
+  recognises the specific Pseudomonas products it trained on; held-out
+  ones fall below the 45% threshold and abstain rather than guess).
+- Unsupported-group negative tests: the 19 sourced documents for the three
+  NOT-shipped groups (Metarhizium, Verticillium, Paecilomyces) were scored
+  against the shipped model. 11 of 19 pass the 45% threshold with a WRONG
+  group (e.g. a Metarhizium page reads as "Beauveria" at 51%). This is the
+  main open risk of this version: a common Indian Metarhizium or
+  Verticillium product can get a confident wrong answer instead of an
+  abstention. It argues for shipping those groups with a larger corpus in
+  a future version rather than leaving them out.
