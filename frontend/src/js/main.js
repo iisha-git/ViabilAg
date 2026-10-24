@@ -14,13 +14,14 @@ window.bioNativeNote = msg => {
   if (!t) {
     t = document.createElement("div");
     t.id = "native-toast";
-    t.style.cssText = "position:fixed;left:50%;bottom:88px;transform:translateX(-50%);background:#21312b;color:#f3ecdc;padding:8px 16px;border-radius:999px;font-size:13px;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:opacity .3s";
+    t.style.cssText = "position:fixed;left:50%;bottom:88px;transform:translateX(-50%);background:#21312b;color:#f3ecdc;padding:8px 16px;border-radius:999px;font-size:13px;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:opacity .3s;pointer-events:none";
     document.body.appendChild(t);
   }
   t.textContent = String(msg);
   t.style.opacity = "1";
   clearTimeout(t._h);
-  t._h = setTimeout(() => { t.style.opacity = "0"; }, 2600);
+  clearTimeout(t._r);
+  t._h = setTimeout(() => { t.style.opacity = "0"; t._r = setTimeout(() => t.remove(), 400); }, 2600);
 };
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const IMG = "assets/images/";
