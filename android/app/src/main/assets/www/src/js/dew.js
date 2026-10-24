@@ -49,6 +49,7 @@ const L = {
     tagLocal: "built-in guide",
     aiOff: "Dew AI is not connected yet, so open questions are answered from my built-in guide for now.",
     aiDownMsg: "Dew AI couldn't answer right now. Please try again in a little while.",
+    quotaMsg: "Dew AI's free quota is used up for now. Please try again later.",
     retry: "Retry",
   },
   hi: {
@@ -78,6 +79,7 @@ const L = {
     tagLocal: "बिल्ट-इन गाइड",
     aiOff: "ड्यू AI अभी जुड़ा नहीं है, इसलिए खुले सवालों के जवाब अभी मेरी बिल्ट-इन गाइड से दिए जाते हैं।",
     aiDownMsg: "ड्यू AI अभी जवाब नहीं दे पाया। कृपया थोड़ी देर बाद फिर कोशिश करें।",
+    quotaMsg: "ड्यू AI का फ्री कोटा अभी खत्म हो गया है। कृपया बाद में कोशिश करें।",
     retry: "फिर से कोशिश करें",
   },
   mr: {
@@ -107,6 +109,7 @@ const L = {
     tagLocal: "अंगभूत मार्गदर्शक",
     aiOff: "ड्यू AI अजून जोडलेले नाही, त्यामुळे खुल्या प्रश्नांची उत्तरे सध्या माझ्या अंगभूत मार्गदर्शकातून दिली जातात.",
     aiDownMsg: "ड्यू AI आत्ता उत्तर देऊ शकले नाही. कृपया थोड्या वेळाने पुन्हा प्रयत्न करा.",
+    quotaMsg: "ड्यू AI चे मोफत कोटा आत्ता संपले आहे. कृपया नंतर प्रयत्न करा.",
     retry: "पुन्हा प्रयत्न करा",
   },
 };
@@ -403,7 +406,10 @@ async function aiReply(text) {
   busy = true;
   lastQuestion = text;
   const done = thinkingBubble();
-  const failed = () => say(l => L[l].aiDownMsg, l => [L[l].retry, ...L[l].chips]);
+  // Quota exhaustion offers no Retry chip (retrying today will fail again);
+  // other connection failures do.
+  const failed = (quota = false) => say(l => quota ? L[l].quotaMsg : L[l].aiDownMsg,
+    l => quota ? L[l].chips : [L[l].retry, ...L[l].chips]);
   try {
     const c = ctx.getContext();
     const hist = history.filter(h => h.who !== "note").slice(-8)
@@ -414,9 +420,9 @@ async function aiReply(text) {
     const answer = res && res.reply;
     if (answer && answer.trim()) say(answer.trim(), null, "ai");
     else failed();
-  } catch {
+  } catch (e) {
     done();
-    failed();
+    failed(Boolean(e && e.status === 429));
   }
   busy = false;
 }

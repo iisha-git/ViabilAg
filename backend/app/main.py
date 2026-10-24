@@ -6,6 +6,7 @@ frontend/ folder, so one command runs the whole app.
 import asyncio
 import json
 
+import httpx
 from fastapi import FastAPI, File, HTTPException, Query, UploadFile
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -82,6 +83,12 @@ async def dew_endpoint(req: DewRequest):
         text = await dewchat.reply(req.message, req.lang,
                                    [m.model_dump() for m in req.history],
                                    req.context.model_dump())
+    except httpx.HTTPStatusError as e:
+        # Quota exhaustion is different from a broken connection: the app can
+        # then say the free quota is used up instead of a generic failure.
+        if e.response.status_code == 429:
+            raise HTTPException(429, "Dew AI free quota is used up for now. Please try again later.")
+        raise HTTPException(502, "Dew AI could not answer right now.")
     except Exception:
         raise HTTPException(502, "Dew AI could not answer right now.")
     # The effective reply language follows the message, not only the selected

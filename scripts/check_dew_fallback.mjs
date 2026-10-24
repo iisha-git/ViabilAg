@@ -23,11 +23,12 @@ const recorded = [];
 let mode = 'api';
 let calls = 0;
 let behavior = 'throw';
+let throwStatus = 502;
 const api = {
   getMode: () => mode,
   dewChat: async () => {
     calls++;
-    if (behavior === 'throw') throw new Error('502');
+    if (behavior === 'throw') throw Object.assign(new Error('HTTP ' + throwStatus), { status: throwStatus });
     if (behavior === 'empty') return { reply: '  ' };
     return { reply: 'Namaste! Bt can help with caterpillars.', lang: 'en' };
   },
@@ -45,7 +46,7 @@ const Lref = vm.runInContext('L', sandbox);
 const says = () => recorded.filter(r => r.kind === 'say');
 
 for (const lg of ['en', 'hi', 'mr']) {
-  recorded.length = 0; calls = 0; behavior = 'throw'; mode = 'api';
+  recorded.length = 0; calls = 0; behavior = 'throw'; throwStatus = 502; mode = 'api';
   vm.runInContext(`lang = "${lg}"; aiNoticeShown = true; busy = false; lastQuestion = null;`, sandbox);
   await vm.runInContext('aiReply("hello dude")', sandbox);
   const s = says();
@@ -54,6 +55,14 @@ for (const lg of ['en', 'hi', 'mr']) {
   assert.ok(!s[0].text.includes(Lref.en.fallback.slice(0, 20)), `${lg}: no-evidence text absent`);
   assert.equal(s[0].chips[0], Lref[lg].retry, `${lg}: first chip is Retry`);
   assert.notEqual(s[0].tag, 'local', `${lg}: not tagged built-in guide`);
+
+  // quota exhaustion (429): clear quota message, no Retry chip
+  recorded.length = 0; calls = 0; behavior = 'throw'; throwStatus = 429;
+  await vm.runInContext('aiReply("hello dude")', sandbox);
+  const sq = says();
+  assert.equal(sq[0].text, Lref[lg].quotaMsg, `${lg}: 429 shows quota message`);
+  assert.ok(!sq[0].chips.includes(Lref[lg].retry), `${lg}: 429 offers no Retry chip`);
+  throwStatus = 502;
 
   // empty AI reply is also a connection failure
   recorded.length = 0; calls = 0; behavior = 'empty';

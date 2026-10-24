@@ -38,6 +38,34 @@ def test_dew_gemini_error_becomes_502(monkeypatch):
     assert client.post("/api/dew", json=BODY).status_code == 502
 
 
+def test_dew_gemini_429_becomes_429(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+
+    async def quota(*args, **kwargs):
+        import httpx
+        req = httpx.Request("POST", "https://example.invalid")
+        res = httpx.Response(429, request=req)
+        raise httpx.HTTPStatusError("quota", request=req, response=res)
+
+    monkeypatch.setattr(dewchat, "reply", quota)
+    r = client.post("/api/dew", json=BODY)
+    assert r.status_code == 429
+    assert "quota" in r.json()["detail"].lower()
+
+
+def test_dew_gemini_non429_http_error_becomes_502(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+
+    async def overloaded(*args, **kwargs):
+        import httpx
+        req = httpx.Request("POST", "https://example.invalid")
+        res = httpx.Response(503, request=req)
+        raise httpx.HTTPStatusError("overloaded", request=req, response=res)
+
+    monkeypatch.setattr(dewchat, "reply", overloaded)
+    assert client.post("/api/dew", json=BODY).status_code == 502
+
+
 def test_dew_validation():
     assert client.post("/api/dew", json={"message": ""}).status_code == 422
     assert client.post("/api/dew", json={"message": "x", "lang": "fr"}).status_code == 422
