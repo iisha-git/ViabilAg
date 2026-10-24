@@ -17,7 +17,10 @@
       "settings.privacy": "Your choices are saved on this device only. Nothing is sent anywhere.",
       "settings.done": "Done",
       "on": "On",
-      "off": "Off"
+      "off": "Off",
+      "theme.lilac.note": "Soft, calm and premium",
+      "theme.pop.note": "Playful, bold and loud",
+      "theme.aurora.note": "Dark, glowing and techy"
     },
     hi: {
       "settings.title": "सेटिंग्स",
@@ -29,7 +32,10 @@
       "settings.privacy": "आपकी पसंद सिर्फ इसी डिवाइस पर सहेजी जाती है। कहीं नहीं भेजी जाती।",
       "settings.done": "हो गया",
       "on": "चालू",
-      "off": "बंद"
+      "off": "बंद",
+      "theme.lilac.note": "नरम, शांत और प्रीमियम",
+      "theme.pop.note": "चुलबुला, बोल्ड और ज़ोरदार",
+      "theme.aurora.note": "डार्क, चमकीला और टेकी"
     },
     mr: {
       "settings.title": "सेटिंग्ज",
@@ -41,7 +47,10 @@
       "settings.privacy": "तुमची निवड फक्त याच डिव्हाइसवर जतन होते. कुठेही पाठवली जात नाही.",
       "settings.done": "झाले",
       "on": "चालू",
-      "off": "बंद"
+      "off": "बंद",
+      "theme.lilac.note": "सौम्य, शांत आणि प्रीमियम",
+      "theme.pop.note": "छट्ट्याचा, ठळक आणि जोरदार",
+      "theme.aurora.note": "गडद, चमकदार आणि तंत्रज"
     }
   };
   let lang = localStorage.getItem("biooasis-lang") || localStorage.getItem("biooasis-dew-lang") || "en";
@@ -60,5 +69,7 @@
     (root || document).querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
   }
   window.bioI18n = { t, set, apply, names: NAMES, langs: Object.keys(NAMES), onChange: f => listeners.push(f) };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => apply(document));
+  else apply(document);
   Object.defineProperty(window.bioI18n, "lang", { get: () => lang });
 })();

@@ -299,7 +299,7 @@ function openSettings() {
     <div class="themes" role="radiogroup" aria-label="Theme">${Object.entries(window.bioTheme.list).map(([id, t]) => `
       <button class="theme-opt" role="radio" aria-checked="${id === cur}" data-theme-id="${id}">
         <span class="sw">${SWATCH[id].map(c => `<i style="background:${c}"></i>`).join("")}</span>
-        <span class="tx"><b>${t.name}</b><small>${t.note}</small></span>
+        <span class="tx"><b>${t.name}</b><small>${T("theme." + id + ".note")}</small></span>
         <span class="tick" aria-hidden="true"></span>
       </button>`).join("")}</div>
     <div class="sound-row">
