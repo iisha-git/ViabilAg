@@ -38,6 +38,7 @@ const L = {
     scanning: "Reading your label photo...",
     heard: "I heard:",
     noMic: "This browser can't hear you. Typing works everywhere.",
+    noNet: "Voice typing needs an internet connection and a browser that supports it, like Chrome. You can type to me instead.",
     listening: "Listening...",
     vThink: "Dew is thinking...",
     vSpeak: "Dew is speaking - tap the mic to jump in.",
@@ -75,6 +76,7 @@ const L = {
     scanning: "आपकी लेबल फोटो पढ़ रहा हूँ...",
     heard: "मैंने सुना:",
     noMic: "यह ब्राउज़र आपकी आवाज़ नहीं सुन सकता। टाइप करना हर जगह चलता है।",
+    noNet: "आवाज़ पहचानने के लिए इंटरनेट और Chrome जैसा ब्राउज़र चाहिए। आप टाइप कर सकते हैं।",
     listening: "सुन रहा हूँ...",
     vThink: "ड्यू सोच रहा है...",
     vSpeak: "ड्यू बोल रहा है - बीच में बोलने के लिए माइक दबाएं।",
@@ -112,6 +114,7 @@ const L = {
     scanning: "तुमचा लेबल फोटो वाचतोय...",
     heard: "मी ऐकलं:",
     noMic: "हा ब्राउझर तुमचा आवाज ऐकू शकत नाही. टाइप करणे सर्वत्र चालते.",
+    noNet: "आवाज ओळखण्यासाठी इंटरनेट आणि Chrome सारखा ब्राउझर लागतो. तुम्ही टाइप करू शकता.",
     listening: "ऐकतोय...",
     vThink: "ड्यू विचार करतोय...",
     vSpeak: "ड्यू बोलतोय - मध्ये बोलण्यासाठी माइक दाबा.",
@@ -303,7 +306,13 @@ function speak(text, ondone) {
     const voice = chooseVoice(speechSynthesis.getVoices(), lg);
     if (voice) u.voice = voice;
     u.rate = 0.96; u.pitch = 1.0;
-    u.onend = complete; u.onerror = fail;
+    u.onend = complete;
+    // A browser without a usable voice must not freeze the conversation: keep
+    // the reply on screen and carry on. Cancels from an interrupt are ignored.
+    u.onerror = e => {
+      if (e && (e.error === "interrupted" || e.error === "canceled")) return;
+      complete();
+    };
     speechSynthesis.speak(u);
   };
   next();
@@ -546,9 +555,19 @@ function beginListening() {
     stopListening();
     if (wantAbort) { wantAbort = false; voiceSet("idle"); return; }
     if (e && (e.error === "not-allowed" || e.error === "service-not-allowed" || e.error === "audio-capture")) say(l => L[l].noMic);
+    else if (e && e.error === "network") say(l => L[l].noNet);
     else misheard();
   };
-  r.onend = () => { activeRecog = null; stopListening(); };
+  r.onend = () => {
+    // Recognition ended with no result and no error (silence, or the browser
+    // gave up): never leave the stage stuck on "Listening".
+    const was = listening;
+    activeRecog = null;
+    stopListening();
+    if (!was) return;
+    if (wantAbort) { wantAbort = false; voiceSet("idle"); return; }
+    misheard();
+  };
   try { r.start(); } catch { activeRecog = null; stopListening(); say(l => L[l].noMic); }
 }
 
@@ -689,8 +708,12 @@ async function aiReply(text) {
   const done = thinkingBubble();
   // Quota exhaustion offers no Retry chip (retrying today will fail again);
   // other connection failures do.
-  const failed = (quota = false) => say(l => quota ? L[l].quotaMsg : L[l].aiDownMsg,
-    l => quota ? L[l].chips : [L[l].retry, ...L[l].chips]);
+  // An error is shown, never spoken as if it were Dew's answer.
+  const failed = (quota = false) => {
+    say(l => quota ? L[l].quotaMsg : L[l].aiDownMsg,
+      l => quota ? L[l].chips : [L[l].retry, ...L[l].chips], null, true);
+    if (voiceMode) voiceSet("idle", txt(quota ? L[lang].quotaMsg : L[lang].aiDownMsg));
+  };
   try {
     const c = ctx.getContext();
     const hist = history.filter(h => h.who !== "note").slice(-8)
