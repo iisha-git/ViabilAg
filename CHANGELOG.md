@@ -5,6 +5,10 @@
 
 # Changelog
 
+## 0.6.27 - Mix button tap fix
+- Fixed an invisible layer swallowing taps: the scan-note toast faded visually but stayed on screen with pointer events enabled, blocking buttons (including "Check the mix") that scrolled under it. The toast no longer intercepts touches and is removed after fading.
+- Reproduced at the reported phone geometry before the fix (tap hit the hidden toast); verified the tap opens the mix check after the fix. Full scan -> result -> mix check -> compatibility flow retested on all four product classes; 82 backend tests pass.
+
 ## 0.6.22 - Dew question routing
 - Restrict built-in guide shortcuts to explicit whole requests in English, Hindi and Marathi. Full crop questions now reach AI instead of matching words such as "क्या कर", "help", "पानी" or "लेबल".
 - Preserve guide chips and add routing regression tests based on the phone conversation.
